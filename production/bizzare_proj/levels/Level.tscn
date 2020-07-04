@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://textures/character_sprite_40x40.png" type="Texture" id=1]
+[ext_resource path="res://textures/background_checkerboard_test360p.png" type="Texture" id=2]
+[ext_resource path="res://player/player.gd" type="Script" id=3]
+
+[node name="Level" type="Node2D"]
+
+[node name="background_checkerboard_test360p" type="Sprite" parent="."]
+position = Vector2( 319.718, 179.844 )
+texture = ExtResource( 2 )
+
+[node name="player" type="KinematicBody2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="character_sprite_40x40" type="Sprite" parent="player"]
+position = Vector2( 58.9142, 59.6795 )
+z_index = 1
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
