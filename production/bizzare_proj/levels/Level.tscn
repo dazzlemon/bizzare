@@ -10,7 +10,7 @@ position = Vector2( 319.718, 179.844 )
 texture = ExtResource( 2 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 100.164, 96.384 )
+position = Vector2( 104, 96 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
