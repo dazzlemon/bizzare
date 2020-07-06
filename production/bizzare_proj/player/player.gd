@@ -11,7 +11,10 @@ var attack_active
 var attack_active_timeleft_sec
 var attack_wait_for_next_sec
 
+
+
 func _ready():
+
 	velocity = Vector2.ZERO	
 	attack_active = false
 	attack_wait_for_next_sec = 0
@@ -38,11 +41,11 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 	if Input.is_action_just_pressed("attack"):
-		print("-5hp")
+		
 		get_node("CollisionShape2D").disabled= false
 
 	if Input.is_action_just_pressed("attack"):
-		print("-5hp")
+		
 		get_node("CollisionShape2D").disabled= true
 
 func _process(delta):
