@@ -28,4 +28,4 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 	if Input.is_action_just_pressed("attack"):
 		print("-5hp")
-		get_node("CollisionShape2D").disabled= true
+		get_node("CollisionShape2D").disabled= false
