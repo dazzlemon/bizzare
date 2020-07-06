@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://hitboxes/hitbox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://etc/MeleeAttack.gd" type="Script" id=2]
+[ext_resource path="res://hitboxes/swordhitbox.gd" type="Script" id=3]
+
+
+[node name="MeleeAttack" type="Position2D"]
+script = ExtResource( 2 )
+
+[node name="swordhitbox" parent="." instance=ExtResource( 1 )]
+collision_mask = 8
+script = ExtResource( 3 )
+damage = 2
