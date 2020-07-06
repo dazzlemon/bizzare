@@ -40,13 +40,7 @@ func _physics_process(delta):
 	velocity = decelerate(delta) if input_vector == Vector2.ZERO else accelerate(delta, input_vector)
 	velocity = move_and_slide(velocity)
 
-	if Input.is_action_just_pressed("attack"):
-		
-		get_node("CollisionShape2D").disabled= false
 
-	if Input.is_action_just_pressed("attack"):
-		
-		get_node("CollisionShape2D").disabled= true
 
 func _process(delta):
 	if attack_wait_for_next_sec > 0:
