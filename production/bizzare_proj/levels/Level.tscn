@@ -18,5 +18,4 @@ position = Vector2( 97, 96 )
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-visible = false
 polygon = PoolVector2Array( 40, 48, 40, 200, 208, 312, 264, 224, 376, 256, 344, 168, 272, 96, 264, 48, 144, 32, 168, 16, 312, 32, 352, 96, 408, 304, 168, 344, -8, 240 )
