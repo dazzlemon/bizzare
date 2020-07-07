@@ -1,18 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://players/base_player/base_player.gd" type="Script" id=1]
 [ext_resource path="res://players/Stats.gd" type="Script" id=2]
+[ext_resource path="res://etc/MeleeAttack.tscn" type="PackedScene" id=3]
 
-[node name="abstract_player" type="Node2D"]
+[node name="abstract_player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
 
-[node name="hurtbox" type="Area2D" parent="."]
-
 [node name="stats" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="attack" type="Position2D" parent="."]
-
 [node name="Sprite" type="Sprite" parent="."]
+
+[node name="MeleeAttack" parent="." instance=ExtResource( 3 )]
