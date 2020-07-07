@@ -6,13 +6,6 @@ var loot_scene = preload("res://players/npc/Coin.tscn")
 func _ready():
 	randomize()
 
-	#if random <= 50:
-		#print("<=50")
-
-	
-	#else:
-		#print(">50")
-		
 
  
 

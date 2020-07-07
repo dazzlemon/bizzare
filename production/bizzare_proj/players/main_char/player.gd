@@ -15,16 +15,10 @@ func accelerate(delta, input_vector):
 func decelerate(delta):
 	return velocity.move_toward(Vector2.ZERO, DECEL * delta)
 	
-func get_input_vector():
-	var input_vector = Vector2.ZERO
-	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	return input_vector.normalized()
-	
 func _physics_process(delta):
-	var input_vector = get_input_vector()
+	var input_vector = get_node("Control").get_input_vector()
 	velocity = decelerate(delta) if input_vector == Vector2.ZERO else accelerate(delta, input_vector)
 	velocity = move_and_slide(velocity)
 
 func _process(delta):
-	pass#get_node("MeleeAttack").attack_process(delta)
+	pass

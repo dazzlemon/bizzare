@@ -1,8 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://players/main_char/player.gd" type="Script" id=1]
 [ext_resource path="res://textures/Chilopups.png" type="Texture" id=2]
 [ext_resource path="res://etc/MeleeAttack.tscn" type="PackedScene" id=3]
+
+
+
+
+
+
+[ext_resource path="res://players/main_char/Control.gd" type="Script" id=4]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.5802, 20.2267 )
@@ -26,3 +34,11 @@ __meta__ = {
 current = true
 
 [node name="MeleeAttack" parent="." instance=ExtResource( 3 )]
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
