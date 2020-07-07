@@ -17,7 +17,7 @@ func try_attack():
 func _process(delta):
 	if attack_wait_for_next_sec > 0:
 		attack_wait_for_next_sec -= delta
-	if Input.is_action_pressed("attack") and attack_wait_for_next_sec <= 0:
+	if get_node("../Control").attack_pressed() and attack_wait_for_next_sec <= 0:
 		attack_active = true
 		attack_active_timeleft_sec = ATTACK_DURATION_SEC
 		attack_wait_for_next_sec = ATTACK_INTERVAL + ATTACK_DURATION_SEC
