@@ -6,14 +6,11 @@ var loot_scene = preload("res://players/npc/Coin.tscn")
 func _ready():
 	randomize()
 
-
- 
-
 func _on_hurtbox_area_entered(area):
 	stats.health -= area.damage
 	print("hp:" , stats.health)
 
-func _on_Stats_no_heatlh():
+func _on_Stats_no_health():
 	queue_free()
 	var random = randi() % 100 + 1
 	print(random)

@@ -32,6 +32,6 @@ shape = SubResource( 2 )
 
 [node name="Stats" parent="." instance=ExtResource( 4 )]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="no_heatlh" from="Stats" to="." method="_on_Stats_no_heatlh"]
+[connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 
 [editable path="hurtbox"]
