@@ -28,8 +28,8 @@ func set_hitbox():
 	# example code
 	
 func set_hurtbox():
-	var new_hurtbox = CircleShape2D.new()
-	new_hurtbox.set_radius(20)
+	var new_hurtbox = RectangleShape2D.new()
+	new_hurtbox.set_extents(Vector2(20, 20))
 	get_node("hurtbox/CollisionShape2D").set_shape(new_hurtbox)
 	# example code
 	
@@ -58,7 +58,7 @@ func _on_hurtbox_area_entered(area):
 	stats.health -= area.damage
 	print("hp:" , stats.health)
 
-func _on_stats_no_health():
+func _on_Stats_no_health():
 	queue_free()
 	var random = randi() % 100 + 1
 	print(random)

@@ -9,7 +9,7 @@
 extents = Vector2( 16, 16 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16, 16 )
+extents = Vector2( 20, 20 )
 
 [node name="enemy" type="KinematicBody2D"]
 collision_layer = 2147483664
@@ -24,7 +24,6 @@ offset = Vector2( -20, -20 )
 shape = SubResource( 1 )
 
 [node name="hurtbox" parent="." instance=ExtResource( 2 )]
-visible = false
 collision_layer = 8
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
