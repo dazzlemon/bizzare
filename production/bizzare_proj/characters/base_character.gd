@@ -9,7 +9,7 @@ const DECEL = 2000
 var velocity
 
 func _ready():
-	velocity = Vector2.ZERO	
+	velocity = Vector2.ZERO
 
 func accelerate(delta, input_vector):
 	return velocity.move_toward(input_vector * MAX_SPEED, ACCEL * delta)

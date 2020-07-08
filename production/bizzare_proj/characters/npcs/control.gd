@@ -2,7 +2,7 @@ extends Control
 
 func get_input_vector():
 	var rng = RandomNumberGenerator.new()
-	rng.randomize()
+	rng.randomize()	
 	
 	var input_vector = Vector2.ZERO
 	input_vector.x = rng.randf_range(-1.0, 1.0)

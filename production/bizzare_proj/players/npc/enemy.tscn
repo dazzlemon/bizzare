@@ -1,15 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://textures/Chelobuff.png" type="Texture" id=1]
 [ext_resource path="res://hitboxes/hurtbox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://players/npc/enemy.gd" type="Script" id=3]
 [ext_resource path="res://players/Stats.tscn" type="PackedScene" id=4]
+[ext_resource path="res://etc/PlayerDetectionZone.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 20, 20 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 144.222
 
 [node name="enemy" type="KinematicBody2D"]
 collision_layer = 2147483664
@@ -30,7 +34,19 @@ collision_layer = 8
 shape = SubResource( 2 )
 
 [node name="Stats" parent="." instance=ExtResource( 4 )]
+
+[node name="PlayerDetectionZone" parent="." instance=ExtResource( 5 )]
+position = Vector2( 40, -8 )
+collision_layer = 2147483648
+collision_mask = 3
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+modulate = Color( 1, 1, 1, 0.207843 )
+position = Vector2( -40, 8 )
+shape = SubResource( 3 )
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
 
 [editable path="hurtbox"]
+
+[editable path="PlayerDetectionZone"]
