@@ -12,7 +12,7 @@ func _ready():
 	attack_wait_for_next_sec = 0
 
 func try_attack():
-	get_node("swordhitbox/CollisionShape2D").disabled = not attack_active
+	get_node("Area2D/CollisionShape2D").disabled = not attack_active
 
 func _process(delta):
 	if attack_wait_for_next_sec > 0:
