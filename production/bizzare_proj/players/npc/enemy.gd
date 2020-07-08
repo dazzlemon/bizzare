@@ -19,7 +19,6 @@ var state = CHASE
 onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetectionZone
 func _ready():
-	
 	randomize()
 
 func _physics_process(delta):
