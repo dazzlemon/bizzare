@@ -24,6 +24,7 @@ shape = SubResource( 1 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="MeleeAttack/swordhitbox" index="0"]
+light_mask = -2147483647
 position = Vector2( 22, 0 )
 shape = SubResource( 3 )
 
