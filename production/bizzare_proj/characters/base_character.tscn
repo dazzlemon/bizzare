@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://characters/base_character.gd" type="Script" id=1]
+[ext_resource path="res://etc/MeleeAttack.tscn" type="PackedScene" id=2]
 
 [node name="base_character" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -22,14 +23,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="attack" type="Position2D" parent="."]
-
-[node name="Area2D" type="Area2D" parent="attack"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack/Area2D"]
-
 [node name="hurtbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
 
 [node name="stats" type="Node" parent="."]
+
+[node name="MeleeAttack" parent="." instance=ExtResource( 2 )]
+
+[editable path="MeleeAttack"]
+
+[editable path="MeleeAttack/swordhitbox"]
