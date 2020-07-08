@@ -3,19 +3,13 @@
 [ext_resource path="res://players/main_char/player.gd" type="Script" id=1]
 [ext_resource path="res://textures/Chilopups.png" type="Texture" id=2]
 [ext_resource path="res://etc/MeleeAttack.tscn" type="PackedScene" id=3]
-
-
-
-
-
-
 [ext_resource path="res://players/main_char/Control.gd" type="Script" id=4]
-
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.5802, 20.2267 )
 
 [node name="player" type="KinematicBody2D"]
+z_index = 1
 collision_layer = 2
 collision_mask = 2147483649
 script = ExtResource( 1 )

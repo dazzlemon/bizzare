@@ -7,6 +7,8 @@ const ACCEL = 2000
 const MAX_SPEED = 300
 const DECEL = 2000
 
+ 
+var score = 0
 var velocity
 
 func _ready():
@@ -14,7 +16,7 @@ func _ready():
 	set_hurtbox()
 	set_sprite()
 	set_attack_hitbox()
-	velocity = Vector2.ZERO	
+	velocity = Vector2.ZERO
 	randomize()
 
 func set_sprite():
@@ -31,7 +33,7 @@ func set_hurtbox():
 	var new_hurtbox = RectangleShape2D.new()
 	new_hurtbox.set_extents(Vector2(20, 20))
 	get_node("hurtbox/CollisionShape2D").set_shape(new_hurtbox)
-	# example code
+	 #example code
 	
 func set_attack_hitbox():
 	var new_hurtbox = CircleShape2D.new()

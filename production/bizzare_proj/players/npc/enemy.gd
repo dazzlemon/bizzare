@@ -9,6 +9,7 @@ func _ready():
 func _on_hurtbox_area_entered(area):
 	stats.health -= area.damage
 	print("hp:" , stats.health)
+	
 
 func _on_Stats_no_health():
 	queue_free()
