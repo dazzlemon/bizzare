@@ -4,9 +4,9 @@ onready var stats = $stats
 
 var loot_scene = preload("res://players/npc/Coin.tscn")
 
-const ACCEL = 2000#make these modifiable for inherited scenes
-const MAX_SPEED = 300
-const DECEL = 2000
+export var ACCEL = 2000#make these modifiable for inherited scenes
+export var MAX_SPEED = 300
+export var DECEL = 2000
 
 var velocity
 
@@ -24,8 +24,8 @@ func _physics_process(delta):
 	velocity = decelerate(delta) if input_vector == Vector2.ZERO else accelerate(delta, input_vector)
 	velocity = move_and_slide(velocity)
 
-func _process(delta):
-	pass
+#func _process(delta):
+	#pass
 	
 func _on_hurtbox_area_entered(area):
 	stats.health -= area.damage
