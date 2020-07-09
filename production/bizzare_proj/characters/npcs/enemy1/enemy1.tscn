@@ -1,17 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://characters/npcs/npc.tscn" type="PackedScene" id=1]
 [ext_resource path="res://textures/Chelobuff.png" type="Texture" id=2]
 [ext_resource path="res://characters/npcs/enemy1/control.gd" type="Script" id=3]
 [ext_resource path="res://etc/PlayerDetectionZone.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/npcs/enemy1/stats.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 112.0
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 16 )
 
 [node name="enemy1" instance=ExtResource( 1 )]
@@ -29,13 +30,26 @@ script = ExtResource( 3 )
 [node name="PlayerDetectionZone" parent="control" index="0" instance=ExtResource( 4 )]
 
 [node name="CollisionShape2D" parent="control/PlayerDetectionZone" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
+
+[node name="hurtbox" parent="." index="5"]
+collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
+
+[node name="stats" parent="." index="6"]
+script = ExtResource( 5 )
+max_health = 50
+
+[node name="swordhitbox" parent="MeleeAttack" index="0"]
+collision_mask = 4
 
 [node name="CollisionShape2D" parent="MeleeAttack/swordhitbox" index="0"]
 position = Vector2( 16, 0 )
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="control/PlayerDetectionZone"]
 

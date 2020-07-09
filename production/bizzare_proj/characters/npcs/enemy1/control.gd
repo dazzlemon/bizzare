@@ -5,7 +5,7 @@ onready var playerDetectionZone = $PlayerDetectionZone
 enum{
 	IDLE,
 	#WANDER,
-	CHASE,
+	CHASE
 }
 
 var state = CHASE
@@ -15,12 +15,12 @@ func get_input_vector():
 	var input_vector = Vector2.ZERO
 	match state:
 		IDLE:#govnogovna#NEED_TO_FIX_ASAP#GO_VALORANT
-			var rng = RandomNumberGenerator.new()
-			rng.randomize()	
-	
-			input_vector = Vector2.ZERO
-			input_vector.x = rng.randf_range(-1.0, 1.0)
-			input_vector.y = (1 if rng.randi_range(0, 1) == 0 else -1) * (1 - input_vector.x * input_vector.x)
+			#var rng = RandomNumberGenerator.new()
+			#rng.randomize()	
+			input_vector=Vector2.ZERO
+			#input_vector= (playerBody.global_position - global_position)
+			#input_vector.x = rng.randf_range(-1.0, 1.0)
+			#input_vector.y = (1 if rng.randi_range(0, 1) == 0 else -1) * (1 - input_vector.x * input_vector.x)
 			seek_player()
 		#WANDER:5
 			#pass
@@ -42,3 +42,5 @@ func attack_pressed():
 func seek_player():
 	if playerDetectionZone.can_see_player():
 		state = CHASE
+
+
