@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 onready var stats = $stats
 
-var loot_scene = preload("res://players/npc/Coin.tscn")
+var loot_scene = preload("res://loot/Coin.tscn")
 
 export var ACCEL = 2000#make these modifiable for inherited scenes
 export var MAX_SPEED = 300
