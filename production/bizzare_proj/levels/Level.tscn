@@ -19,7 +19,8 @@ polygon = PoolVector2Array( 40, 48, 40, 200, 208, 312, 264, 224, 376, 256, 344, 
 [node name="player1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 96, 56 )
 
-[node name="enemy" parent="." instance=ExtResource( 4 )]
-position = Vector2( 160, 128 )
+[node name="new_enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( -24, -24 )
 
-[node name="enemy1" parent="." instance=ExtResource( 3 )]
+[node name="old_enemy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 160, 128 )
