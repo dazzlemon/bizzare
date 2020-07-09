@@ -50,7 +50,7 @@ max_health = 50
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="MeleeAttack/swordhitbox" index="0"]
-position = Vector2( 16, 0 )
+position = Vector2( 22, 0 )
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
