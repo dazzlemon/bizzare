@@ -5,6 +5,7 @@
 [ext_resource path="res://hitboxes/swordhitbox.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 1e+06
 
 [node name="MeleeAttack" type="Position2D"]
 script = ExtResource( 2 )
