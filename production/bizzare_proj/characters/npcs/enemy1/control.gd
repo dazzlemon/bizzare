@@ -20,10 +20,32 @@ func get_input_vector():
 	match state:
 		IDLE:
 			idle()
+			#seek_player()
+			#if wanderController.get_time_left() == 0:
+			#	state = pick_random_state([IDLE, WANDER])
+			#	wanderController.start_wander_timer(rand_range(1, 1.5))
 		WANDER:
-			wander(this_enemy, input_vector)
+			#wander(this_enemy, input_vector)
+			seek_player()
+			if wanderController.get_time_left() == 0:
+				state = pick_random_state([IDLE, WANDER])
+				wanderController.start_wander_timer(rand_range(1, 1.5))
+				
+			var direction = this_enemy.global_position.direction_to(wanderController.target_position)
+			input_vector = direction
+			
+			if this_enemy.global_position.distance_to(wanderController.target_position) <= wander_target_range :
+				state = pick_random_state([IDLE, WANDER])
+				wanderController.start_wander_timer(rand_range(1, 3))
 		CHASE:
-			chase(this_enemy, input_vector)
+			#chase(this_enemy, input_vector)
+			var player = playerDetectionZone.player
+			if player != null:
+				var direction = this_enemy.global_position.direction_to(player.global_position)
+				input_vector = direction
+			else:
+				state = IDLE
+			#sprite.flip_h = velocity.x<0 (rotate spite in player direction)
 	return input_vector.normalized()
 
 func attack_pressed():
