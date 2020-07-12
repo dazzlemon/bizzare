@@ -49,7 +49,7 @@ shape = SubResource( 3 )
 
 [node name="stats" parent="." index="6"]
 script = ExtResource( 5 )
-max_health = 50
+max_health = 10
 
 [node name="swordhitbox" parent="MeleeAttack" index="0"]
 collision_mask = 4

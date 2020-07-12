@@ -35,10 +35,10 @@ func _on_stats_no_health():
 	queue_free()
 	var random = randi() % 100 + 1
 	print(random)
-	if random <= 50:
+	if random <= 99:
 		print("<=50")
 		var loot = loot_scene.instance()
 		loot.global_position=global_position
-		get_tree().get_root().add_child(loot)
+		get_tree().get_root().get_node("Level").add_child(loot)
 	else:
 		print(">50")

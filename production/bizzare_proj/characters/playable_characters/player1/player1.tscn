@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://characters/playable_characters/playable_character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://textures/Chilopups.png" type="Texture" id=2]
 [ext_resource path="res://characters/playable_characters/player1/crosshair.gd" type="Script" id=3]
 [ext_resource path="res://textures/crosshair.png" type="Texture" id=4]
+[ext_resource path="res://characters/playable_characters/player1/Inventory.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
@@ -44,6 +45,9 @@ shape = SubResource( 3 )
 
 [node name="Camera2D" parent="." index="9"]
 rotation = 0.523598
+
+[node name="Inventory" type="Node" parent="." index="10"]
+script = ExtResource( 5 )
 
 [editable path="MeleeAttack"]
 
