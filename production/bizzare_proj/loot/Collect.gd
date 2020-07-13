@@ -1,5 +1,21 @@
 extends Area2D
+export var item_name = "item"
+var count = 1
+var age = 0
 
 func _on_Area2D_body_entered(_body):
-	get_node("../../player1/Inventory").array.push_front(12)
-	queue_free()
+  push_item([item_name, count, age])
+  queue_free()
+
+func push_item(item):
+	var getArr = get_node("../../player1/Inventory").array
+	var condition = false
+	for i in range(getArr.size()):
+		if getArr[i][0] == item[0] :#0 = item_name #1 = count
+			getArr[i][1] += 1
+			condition = true
+		if condition == true:
+			break
+	if condition == false:
+		getArr.push_front(item)
+		item[2] = getArr.size()

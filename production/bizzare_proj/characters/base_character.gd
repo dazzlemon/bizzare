@@ -35,7 +35,7 @@ func _on_stats_no_health():
 	queue_free()
 	var random = randi() % 100 + 1
 	print(random)
-	if random <= 99:
+	if random <= 50:
 		print("<=50")
 		var loot = loot_scene.instance()
 		loot.global_position=global_position
