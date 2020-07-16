@@ -28,8 +28,16 @@ func _physics_process(delta):
 	#pass
 	
 func _on_hurtbox_area_entered(area):
-	stats.health -= area.damage
+	#stats.health -= area.damage
+	if stats.armor > 0 :
+		stats.armor -= 0.7 * area.damage
+		if stats.armor < 0 :
+			stats.health += stats.armor
+			stats.set_armor(0)
+	else:
+		stats.health -= area.damage
 	print("hp:" , stats.health)
+	print("armor" , stats.armor)
 
 func _on_stats_no_health():
 	queue_free()
