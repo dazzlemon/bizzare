@@ -11,11 +11,11 @@ func push_item(item):
 	var getArr = get_node("../../player1/Inventory").array
 	var condition = false
 	for i in range(getArr.size()):
-		if getArr[i][0] == item[0] :#0 = item_name #1 = count
-			getArr[i][1] += 1
+		if getArr[i][0] == item[0] :#0 = item_name
+			getArr[i][1] += 1 #1 = count
 			condition = true
 		if condition == true:
 			break
 	if condition == false:
 		getArr.push_front(item)
-		item[2] = getArr.size()
+		item[2] = getArr.size()#2 = age

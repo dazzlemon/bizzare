@@ -10,3 +10,7 @@ script = ExtResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="8"]
 current = true
+
+[editable path="MeleeAttack"]
+
+[editable path="MeleeAttack/swordhitbox"]

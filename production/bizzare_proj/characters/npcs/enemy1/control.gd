@@ -20,10 +20,6 @@ func get_input_vector():
 	match state:
 		IDLE:
 			idle()
-			#seek_player()
-			#if wanderController.get_time_left() == 0:
-			#	state = pick_random_state([IDLE, WANDER])
-			#	wanderController.start_wander_timer(rand_range(1, 1.5))
 		WANDER:
 			#wander(this_enemy, input_vector)
 			seek_player()
