@@ -2,9 +2,7 @@ extends KinematicBody2D
 
 onready var stats = $stats
 
-var loot_scene = preload("res://loot/Coin.tscn")
-
-export var ACCEL = 2000#make these modifiable for inherited scenes
+export var ACCEL = 2000
 export var MAX_SPEED = 300
 export var DECEL = 2000
 
@@ -41,14 +39,19 @@ func take_damage(damage):
 	else:
 		stats.health -= damage
 		
-func die():
-	queue_free()
+var loot_scene = preload("res://loot/Coin.tscn")
+
+func drop_loot():
 	var random = randi() % 100 + 1
 	print(random)
 	if random <= 50:
 		print("<=50")
 		var loot = loot_scene.instance()
-		loot.global_position=global_position
-		get_tree().get_root().get_node("Level").add_child(loot)
+		loot.global_position = global_position
+		get_node("../").add_child(loot)
 	else:
-		print(">50")
+		print(">50")	
+	
+func die():
+	queue_free()
+	drop_loot()

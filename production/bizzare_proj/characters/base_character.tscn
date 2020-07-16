@@ -3,8 +3,6 @@
 [ext_resource path="res://characters/base_character.gd" type="Script" id=1]
 [ext_resource path="res://attack/hitscan.tscn" type="PackedScene" id=2]
 
-
-
 [node name="base_character" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
