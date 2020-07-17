@@ -27,6 +27,14 @@ texture = ExtResource( 2 )
 [node name="collision_box" parent="." index="3"]
 shape = SubResource( 1 )
 
+[node name="E_skill_duration" type="Timer" parent="control" index="0"]
+wait_time = 5.0
+one_shot = true
+
+[node name="E_skill_cd" type="Timer" parent="control" index="1"]
+wait_time = 20.0
+one_shot = true
+
 [node name="hurtbox" parent="." index="5"]
 collision_layer = 4
 collision_mask = 2
@@ -56,6 +64,9 @@ rotation = 0.523598
 
 [node name="Inventory" type="Node" parent="." index="10"]
 script = ExtResource( 5 )
+[connection signal="timeout" from="control/E_skill_duration" to="control" method="_on_E_skill_timeout"]
+[connection signal="timeout" from="control/E_skill_duration" to="control" method="_on_E_skill_duration_timeout"]
+[connection signal="timeout" from="control/E_skill_cd" to="control" method="_on_E_skill_cd_timeout"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 

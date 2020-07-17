@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 onready var stats = $stats
-
+export var DMG_BLOCK = 0
 export var ACCEL = 2000
 export var MAX_SPEED = 300
 export var DECEL = 2000
@@ -32,12 +32,12 @@ func _on_stats_no_health():
 	
 func take_damage(damage):
 	if stats.armor > 0 :
-		stats.armor -= 0.7 * damage
+		stats.armor -= 0.7 * damage * (1 - DMG_BLOCK)
 		if stats.armor < 0 :
 			stats.health += stats.armor
 			stats.set_armor(0)
 	else:
-		stats.health -= damage
+		stats.health -= damage * (1- DMG_BLOCK)
 		
 func die():
 	queue_free()
