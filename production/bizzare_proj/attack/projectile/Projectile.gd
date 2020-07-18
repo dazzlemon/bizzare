@@ -13,5 +13,6 @@ func _process(delta):
 		queue_free()
 
 func _on_Projectile_body_entered(body):
-	#body.take_damage(damage)
+	print("da kto etot wash ebaniy body?????!?!?!???!???")
+	body.take_damage(damage)#da kto etot wash ebaniy body?????!?!?!???!???
 	queue_free()

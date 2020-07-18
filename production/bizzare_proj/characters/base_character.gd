@@ -44,5 +44,4 @@ func take_damage(damage):
 	
 func die():
 	queue_free()
-	
 
