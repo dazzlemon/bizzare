@@ -22,6 +22,9 @@ func _physics_process(delta):
 	velocity = decelerate(delta) if input_vector == Vector2.ZERO else accelerate(delta, input_vector)
 	velocity = move_and_slide(velocity)
 	
+#func _process(delta):
+	#get_node("MeleeAttack").attack_process(delta)
+	
 func _on_hurtbox_area_entered(area):
 	take_damage(area.damage)
 	print("hp:" , stats.health)
@@ -41,3 +44,5 @@ func take_damage(damage):
 	
 func die():
 	queue_free()
+	
+
