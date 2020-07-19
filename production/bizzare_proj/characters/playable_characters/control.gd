@@ -11,6 +11,9 @@ func get_input_vector():
 func attack_pressed():
 	return Input.is_action_pressed("attack")
 
+func Q_spell_pressed():
+	return Input.is_action_pressed("Q_spell")
+
 func _process(delta):
 	if Input.is_action_pressed("E_spell") and E_skill_allowed == true:
 		get_node("../").DMG_BLOCK = 0.3

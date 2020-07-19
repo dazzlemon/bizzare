@@ -2,7 +2,7 @@ extends Control
 
 var projectile = preload("res://attack/projectile/Projectile.tscn")
 
-const ATTACK_INTERVAL = 0.15
+var ATTACK_INTERVAL = 0.5
 
 var attack_active
 var attack_wait_for_next_sec
