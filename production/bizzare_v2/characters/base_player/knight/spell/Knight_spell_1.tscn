@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://attack/hitscan/ally_hitscan/ally_hitscan.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/base_player/knight/spell/Knight_spell_1.gd" type="Script" id=2]
+
+[node name="Knight_spell_1" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
