@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://characters/base_npc/base_npc.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/base_npc/goblin/goblin.gd" type="Script" id=2]
+[ext_resource path="res://characters/base_npc/goblin/control.gd" type="Script" id=3]
+
+[node name="goblin" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="control" parent="." index="4"]
+script = ExtResource( 3 )
