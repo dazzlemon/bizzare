@@ -12,3 +12,8 @@ position = Vector2( 161, 62 )
 texture = ExtResource( 2 )
 
 [node name="knight" parent="." instance=ExtResource( 1 )]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 116.5, 38, 143, 94, 211, 66.5, 257.5, 121, 197, 164, 184.5, 114, 96, 152, 64.5, 85, 21, 120.5, 27, 30.5, 92, 68.5, 79.5, -19.5, 216, 1 )
