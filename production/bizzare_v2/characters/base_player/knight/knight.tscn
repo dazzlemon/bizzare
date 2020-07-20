@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://characters/base_player/base_player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/base_player/knight/knight.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://textures/Chilopups.png" type="Texture" id=4]
 [ext_resource path="res://characters/base_player/knight/control.gd" type="Script" id=5]
 [ext_resource path="res://attack/hitscan/ally_hitscan/ally_hitscan.tscn" type="PackedScene" id=6]
+[ext_resource path="res://characters/base_player/knight/spell/Knight_spell_1.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.49611
@@ -15,6 +16,10 @@ height = 12.2982
 radius = 16.441
 
 [sub_resource type="CircleShape2D" id=3]
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 15.0429
+height = 24.0438
 
 [node name="knight" instance=ExtResource( 1 )]
 collision_mask = 2147483656
@@ -52,4 +57,13 @@ position = Vector2( 25, 0 )
 shape = SubResource( 3 )
 disabled = true
 
+[node name="spell_1" parent="." index="11" instance=ExtResource( 7 )]
+
+[node name="CollisionShape2D" parent="spell_1/hitbox" index="0"]
+position = Vector2( 24.8614, -0.166855 )
+shape = SubResource( 4 )
+disabled = true
+
 [editable path="attack"]
+
+[editable path="spell_1"]
