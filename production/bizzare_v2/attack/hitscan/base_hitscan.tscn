@@ -10,4 +10,4 @@ script = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-[connection signal="body_entered" from="hitbox" to="hitbox" method="_on_hitbox_body_entered"]
+[connection signal="area_entered" from="hitbox" to="hitbox" method="_on_hitbox_area_entered"]
