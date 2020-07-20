@@ -17,6 +17,7 @@ radius = 16.441
 [sub_resource type="CircleShape2D" id=3]
 
 [node name="knight" instance=ExtResource( 1 )]
+collision_mask = 8
 script = ExtResource( 2 )
 
 [node name="sprite" parent="pivot" index="0"]
@@ -31,7 +32,8 @@ shape = SubResource( 1 )
 script = ExtResource( 5 )
 
 [node name="hurtbox" parent="." index="5"]
-collision_layer = 2147483652
+collision_layer = 2147483653
+collision_mask = 1
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 position = Vector2( -0.222733, 0 )
@@ -41,6 +43,9 @@ shape = SubResource( 2 )
 script = ExtResource( 3 )
 
 [node name="attack" parent="." index="8" instance=ExtResource( 6 )]
+
+[node name="hitbox" parent="attack" index="0"]
+damage = 5
 
 [node name="CollisionShape2D" parent="attack/hitbox" index="0"]
 position = Vector2( 25, 0 )
