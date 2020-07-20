@@ -18,5 +18,5 @@ collision_mask = 2
 [node name="stats" parent="." index="6"]
 script = ExtResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="." index="8"]
+[node name="Camera2D" type="Camera2D" parent="." index="7"]
 current = true

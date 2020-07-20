@@ -31,11 +31,4 @@ __meta__ = {
 
 [node name="stats" type="Node" parent="."]
 script = ExtResource( 2 )
-
-[node name="attack" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
