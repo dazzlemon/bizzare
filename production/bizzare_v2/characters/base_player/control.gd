@@ -10,9 +10,9 @@ func get_input_vector():
 	return input_vector.normalized()
 	
 func _process(delta):
-	if Input.is_action_just_pressed("spell_1"):
+	if Input.is_action_just_pressed("spell_1") && spell_1 != null:
 		spell_1.try_use()
-	if Input.is_action_just_pressed("spell_2"):
+	if Input.is_action_just_pressed("spell_2") && spell_2 != null:
 		spell_2.try_use()
-	if Input.is_action_pressed("attack"):
+	if Input.is_action_pressed("attack") && attack != null:
 		attack.try_use()
