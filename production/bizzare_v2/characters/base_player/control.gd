@@ -2,7 +2,6 @@ extends "res://characters/control.gd"
 
 onready var spell_1 = get_node("../spell_1")
 onready var spell_2 = get_node("../spell_2")
-onready var attack = get_node("../attack")
 
 func get_input_vector():
 	var input_vector = Vector2.ZERO

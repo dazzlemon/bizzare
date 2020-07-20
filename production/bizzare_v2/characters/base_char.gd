@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var stats = $stats
+onready var control = $control
 
 export var ACCEL = 2000
 export var MAX_SPEED = 300
@@ -18,7 +19,7 @@ func decelerate(delta):
 	return velocity.move_toward(Vector2.ZERO, DECEL * delta)
 	
 func _physics_process(delta):
-	var input_vector = get_node("control").get_input_vector()
+	var input_vector = control.get_input_vector()
 	velocity = decelerate(delta) if input_vector == Vector2.ZERO else accelerate(delta, input_vector)
 	velocity = move_and_slide(velocity)
 

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://characters/base_char.gd" type="Script" id=1]
 [ext_resource path="res://characters/stats.gd" type="Script" id=2]
 [ext_resource path="res://characters/control.gd" type="Script" id=3]
+[ext_resource path="res://characters/crosshair.gd" type="Script" id=4]
+[ext_resource path="res://textures/crosshair.png" type="Texture" id=5]
 
 [node name="base_char" type="KinematicBody2D"]
 collision_layer = 0
@@ -33,4 +35,10 @@ __meta__ = {
 
 [node name="stats" type="Node" parent="."]
 script = ExtResource( 2 )
+
+[node name="crosshair" type="Position2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="sprite" type="Sprite" parent="crosshair"]
+texture = ExtResource( 5 )
 [connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
