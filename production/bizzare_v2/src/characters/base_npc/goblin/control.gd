@@ -27,10 +27,10 @@ func get_input_vector():
 				state = pick_random_state([IDLE, WANDER])
 				wanderController.start_wander_timer(rand_range(1, 1.5))
 				
-			var direction = this_enemy.global_position.direction_to(wanderController.target_position)
+			var direction = this_enemy.global_position.direction_to(wanderController.position_target)
 			input_vector = direction
 			
-			if this_enemy.global_position.distance_to(wanderController.target_position) <= wander_target_range :
+			if this_enemy.global_position.distance_to(wanderController.position_target) <= wander_target_range :
 				state = pick_random_state([IDLE, WANDER])
 				wanderController.start_wander_timer(rand_range(1, 3))
 		CHASE:

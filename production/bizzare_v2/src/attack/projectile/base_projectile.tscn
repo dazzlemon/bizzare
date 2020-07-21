@@ -2,7 +2,6 @@
 
 [ext_resource path="res://src/attack/projectile/base_projectile.gd" type="Script" id=1]
 
-
 [node name="base_projectile" type="RigidBody2D"]
 script = ExtResource( 1 )
 

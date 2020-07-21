@@ -6,8 +6,8 @@ extends Node2D
 
 export(int) var wander_range = 64
 
-onready var start_position: Vector2 = global_position
-onready var target_position: Vector2 = global_position
+onready var position_start: Vector2 = global_position
+onready var position_target: Vector2 = global_position
 onready var timer = $Timer#static typing?
 
 func _ready() -> void:
@@ -20,7 +20,7 @@ func _on_Timer_timeout() -> void:
 
 func update_target_position() -> void:
 	var target_vector := Vector2(rand_range(-wander_range,wander_range), rand_range(-wander_range,wander_range))
-	target_position = start_position + target_vector
+	position_target = position_start + target_vector
 
 
 func get_time_left():#idk what is return type, will add static typing later

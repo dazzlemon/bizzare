@@ -1,3 +1,5 @@
+#damaging area, probably will be removed in consequence of refactor
+class_name baseHitscanHitbox
 extends Area2D
 
 export var damage = 1
