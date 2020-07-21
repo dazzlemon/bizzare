@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "BaseChar",
+"language": "GDScript",
+"path": "res://src/characters/base_char.gd"
+}, {
 "base": "Position2D",
 "class": "baseHitscan",
 "language": "GDScript",
@@ -24,6 +29,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/projectile/base_projectile.gd"
 }, {
+"base": "Node",
+"class": "baseStats",
+"language": "GDScript",
+"path": "res://src/characters/stats.gd"
+}, {
+"base": "Control",
+"class": "control",
+"language": "GDScript",
+"path": "res://src/characters/control.gd"
+}, {
 "base": "Reference",
 "class": "playerDetectionZone",
 "language": "GDScript",
@@ -35,9 +50,12 @@ _global_script_classes=[ {
 "path": "res://src/AI/wander_controller.gd"
 } ]
 _global_script_class_icons={
+"BaseChar": "",
 "baseHitscan": "",
 "baseHitscanHitbox": "",
 "baseProjectile": "",
+"baseStats": "",
+"control": "",
 "playerDetectionZone": "",
 "wanderController": ""
 }

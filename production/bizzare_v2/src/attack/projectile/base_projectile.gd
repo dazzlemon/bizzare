@@ -14,6 +14,7 @@ func _process(delta):
 	if age >= LIFETIME:
 		queue_free()
 
+
 func _on_body_entered(body):# rework, because currently it will only count hits int collisionBox, currently disconected
 	body.take_damage(damage)
 	queue_free()
