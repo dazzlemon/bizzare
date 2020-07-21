@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://characters/base_player/knight/spell/Knight_spell_2.gd" type="Script" id=1]
+
+[node name="Node" type="Node"]
+script = ExtResource( 1 )
+
+[node name="2_skill_duration" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="2_skill_cd" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+[connection signal="timeout" from="2_skill_duration" to="." method="_on_2_skill_duration_timeout"]
+[connection signal="timeout" from="2_skill_cd" to="." method="_on_2_skill_cd_timeout"]
