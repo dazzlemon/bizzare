@@ -6,7 +6,6 @@
 [ext_resource path="res://src/characters/base_player/control.gd" type="Script" id=4]
 [ext_resource path="res://src/characters/base_player/inventory/Inventory.gd" type="Script" id=5]
 
-
 [node name="base_player" instance=ExtResource( 1 )]
 collision_layer = 2
 script = ExtResource( 3 )
