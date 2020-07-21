@@ -1,5 +1,5 @@
 #WIP
-class_name KnightAOE
+class_name KnightAOEHitbox
 extends "res://src/attack/hitscan/base_hitscan_hitbox.gd"
 
 func _ready() -> void:

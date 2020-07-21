@@ -1,4 +1,6 @@
 #WIP
+#
+#mb refactor to use only one timer
 class_name KnightDMGBlock
 extends Node
 
@@ -14,9 +16,9 @@ func _on_cd_timeout() -> void:
 
 
 func try_use() -> void:
-	if Input.is_action_pressed("spell_2") and can_be_used == true:#make it as interface func
+	if can_be_used == true:
 		get_node("../").DMG_BLOCK = 0.3
-		get_node("2_skill_duration").start()
+		get_node("duration").start()
 		can_be_used = false
-		get_node("2_skill_cd").start()
+		get_node("cd").start()
 		print(get_node("../").DMG_BLOCK)#DEBUG__________________________

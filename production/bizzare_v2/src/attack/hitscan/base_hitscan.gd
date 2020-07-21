@@ -1,4 +1,6 @@
-#basic hitscan attack
+# basic hitscan attack
+#
+# mb refactor to use timer(s)
 class_name baseHitscan
 extends Position2D
 
