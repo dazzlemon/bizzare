@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/characters/base_npc/base_npc.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/characters/base_npc/goblin/goblin.gd" type="Script" id=2]
+[ext_resource path="res://src/characters/base_npc/goblin/control.gd" type="Script" id=3]
+[ext_resource path="res://assets/textures/Chelobuff.png" type="Texture" id=4]
+[ext_resource path="res://src/AI/player_detection_zone.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/AI/wander_controller.tscn" type="PackedScene" id=6]
+
+
+
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 4.80462
+height = 16.1929
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 104.945
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 16.7157
+
+[node name="goblin" instance=ExtResource( 1 )]
+collision_layer = 10
+collision_mask = 10
+script = ExtResource( 2 )
+
+[node name="sprite" parent="pivot" index="0"]
+texture = ExtResource( 4 )
+
+[node name="collision_box" parent="." index="3"]
+position = Vector2( 0.190226, 14.5795 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="control" parent="." index="4"]
+script = ExtResource( 3 )
+
+[node name="player_detection_zone" parent="control" index="0" instance=ExtResource( 5 )]
+collision_layer = 2147483648
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
+shape = SubResource( 2 )
+
+[node name="wander_controller" parent="control" index="1" instance=ExtResource( 6 )]
+
+[node name="hurtbox" parent="." index="5"]
+collision_layer = 2147483664
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+shape = SubResource( 3 )
+
+[node name="stats" parent="." index="6"]
+max_health = 10
+[connection signal="body_entered" from="control/player_detection_zone" to="control/player_detection_zone" method="_on_player_detection_zone_body_entered"]
+[connection signal="body_exited" from="control/player_detection_zone" to="control/player_detection_zone" method="_on_player_detection_zone_body_exited"]
+
+[editable path="control/player_detection_zone"]
+
+[editable path="control/wander_controller"]

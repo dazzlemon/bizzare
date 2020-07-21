@@ -8,15 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Reference",
+"class": "playerDetectionZone",
+"language": "GDScript",
+"path": "res://src/AI/player_detection_zone.gd"
+}, {
+"base": "Node2D",
+"class": "wanderController",
+"language": "GDScript",
+"path": "res://src/AI/wander_controller.gd"
+} ]
 _global_script_class_icons={
-
+"playerDetectionZone": "",
+"wanderController": ""
 }
 
 [application]
 
 config/name="bizzare_v2"
-run/main_scene="res://levels/world.tscn"
+run/main_scene="res://src/levels/world.tscn"
 config/icon="res://icon.png"
 
 [display]
