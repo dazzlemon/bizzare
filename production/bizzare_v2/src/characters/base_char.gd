@@ -7,10 +7,13 @@ export var ACCEL = 2000
 export var DECEL = 2000
 export var MAX_SPEED = 300# all of these have to be const, but changeable for inherited classes
 
+var knockback := Vector2.ZERO
 var velocity := Vector2.ZERO
+
 
 onready var stats = $stats
 onready var control = $control#prolly dont need static typing
+
 
 func accelerate(delta: float, input_vector: Vector2) -> Vector2:
 	return velocity.move_toward(input_vector * MAX_SPEED, ACCEL * delta)
@@ -24,6 +27,9 @@ func _physics_process(delta: float) -> void:
 	var input_vector: Vector2 = control.get_input_vector()#:=
 	velocity = decelerate(delta) if input_vector == Vector2.ZERO else accelerate(delta, input_vector)
 	velocity = move_and_slide(velocity)
+	#####################
+	knockback = knockback.move_toward(Vector2.ZERO, 200 * delta)
+	knockback = move_and_slide(knockback)
 
 
 func _on_stats_no_health() -> void:
@@ -48,6 +54,8 @@ func die() -> void:
 
 func _on_hurtbox_area_entered(area):
 	if area is KnightAOEHitbox :
-		area.knockback(self)
+		var knockback_multiplier := 225   #225 optimalnoe znachenie #500 dlya testa
+		knockback =  area.knockback(self) * knockback_multiplier
+		pass
 	else:
 		pass
