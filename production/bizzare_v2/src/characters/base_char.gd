@@ -52,8 +52,8 @@ func die() -> void:
 	queue_free()
 
 
-func _on_hurtbox_area_entered(area):
-	if area is KnightAOEHitbox :
+func _on_hurtbox_area_entered(area) -> void:
+	if area is KnightAOEHitbox:
 		knockback =  area.knockback(self)
 	else:
 		pass

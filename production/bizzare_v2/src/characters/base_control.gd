@@ -7,6 +7,6 @@ onready var attack = get_node("../attack")
 
 func _process(_delta) -> void:
 	crosshair.set_g_pos(get_global_mouse_position())#prolly has to be in the player's inherited control
-	if(attack != null):
+	if attack != null:
 		var body_cross_dir = attack.get_angle_to(crosshair.global_position)
 		attack.rotation += body_cross_dir
