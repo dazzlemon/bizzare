@@ -21,7 +21,7 @@ func decelerate(delta: float) -> Vector2:
 
 
 func _physics_process(delta: float) -> void:
-	var input_vector: Vector2 = control.get_input_vector()
+	var input_vector: Vector2 = control.get_input_vector()#:=
 	velocity = decelerate(delta) if input_vector == Vector2.ZERO else accelerate(delta, input_vector)
 	velocity = move_and_slide(velocity)
 
@@ -48,9 +48,6 @@ func die() -> void:
 
 func _on_hurtbox_area_entered(area):
 	if area is KnightAOEHitbox :
-		var direction : Vector2 = -global_position + area.global_position  
-		velocity = velocity.move_toward(direction.normalized(), ACCEL) 
-		velocity = move_and_slide(velocity)
-		print("04ko")
+		area.knockback(self)
 	else:
 		pass
