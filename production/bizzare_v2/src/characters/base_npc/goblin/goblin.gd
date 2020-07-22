@@ -1,4 +1,6 @@
-extends "res://src/characters/base_npc/base_npc.gd"
+#
+class_name Goblin
+extends BaseNPC
 
 func _ready():
 	ACCEL = 300

@@ -1,5 +1,5 @@
 #basic interface class between player/AI and character
-class_name control#mb rename
+class_name BaseControl#mb rename
 extends Control
 
 onready var crosshair = get_node("../crosshair")

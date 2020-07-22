@@ -1,7 +1,7 @@
 # basic stats class that includes health + armor
 #
 # probably need to add damage there too
-class_name baseStats
+class_name BaseStats
 extends Node
 
 signal no_health

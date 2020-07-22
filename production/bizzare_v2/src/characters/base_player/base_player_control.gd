@@ -1,6 +1,6 @@
 #base control(name is subject to change) class for all playable characters
 class_name BasePlayerControl#mb rename
-extends "res://src/characters/control.gd"
+extends BaseControl
 
 onready var spell_1 = get_node("../spell_1")
 onready var spell_2 = get_node("../spell_2")

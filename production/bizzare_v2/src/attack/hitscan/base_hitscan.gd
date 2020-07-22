@@ -1,7 +1,7 @@
 # basic hitscan attack
 #
 # mb refactor to use timer(s)
-class_name baseHitscan
+class_name BaseHitscan
 extends Position2D
 
 var ATTACK_DURATION_SEC := 0.25# has to be const actually but aswell has to be changeable in inherited classes

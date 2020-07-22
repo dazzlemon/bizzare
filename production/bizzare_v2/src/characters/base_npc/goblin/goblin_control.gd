@@ -1,4 +1,6 @@
-extends "res://src/characters/base_npc/control.gd"
+#
+class_name GoblinControl
+extends BaseNPCControl
 
 onready var playerDetectionZone = $player_detection_zone
 onready var wanderController = $wander_controller

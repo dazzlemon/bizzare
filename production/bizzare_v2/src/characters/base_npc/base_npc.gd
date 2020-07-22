@@ -1,6 +1,8 @@
-extends "res://src/characters/base_char.gd"
+#
+class_name BaseNPC
+extends BaseChar
 
-var loot_scene = preload("res://src/loot/Coin.tscn")
+var loot_scene = preload("res://src/loot/coin.tscn")
 
 func _ready():
 	ACCEL = 300

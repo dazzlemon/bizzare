@@ -1,5 +1,5 @@
 #WIP
-class_name baseProjectile
+class_name BaseProjectile
 extends RigidBody2D
 
 var speed = 350# probably float

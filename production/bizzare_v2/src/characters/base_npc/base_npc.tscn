@@ -2,9 +2,8 @@
 
 [ext_resource path="res://src/characters/base_char.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/base_npc.gd" type="Script" id=2]
-[ext_resource path="res://src/characters/base_npc/stats.gd" type="Script" id=3]
-[ext_resource path="res://src/characters/base_npc/control.gd" type="Script" id=4]
-
+[ext_resource path="res://src/characters/base_npc/base_npc_stats.gd" type="Script" id=3]
+[ext_resource path="res://src/characters/base_npc/base_npc_control.gd" type="Script" id=4]
 
 [node name="base_npc" instance=ExtResource( 1 )]
 collision_layer = 2147483658

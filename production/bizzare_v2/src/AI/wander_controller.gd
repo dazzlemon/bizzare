@@ -1,7 +1,7 @@
 #class used in enemy npc's
 #
 #controlls their movement while their state is WANDER
-class_name wanderController
+class_name WanderController
 extends Node2D
 
 export(int) var wander_range = 64

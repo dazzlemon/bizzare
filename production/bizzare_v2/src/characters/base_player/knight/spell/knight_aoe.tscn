@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/characters/base_player/knight/spell/knight_aoe.gd" type="Script" id=1]
+[ext_resource path="res://src/characters/base_player/knight/spell/knight_aoe_hitbox.gd" type="Script" id=2]
+[ext_resource path="res://src/attack/hitscan/ally_hitscan/ally_hitscan.tscn" type="PackedScene" id=3]
+
+[node name="Knight_spell_1" instance=ExtResource( 3 )]
+script = ExtResource( 1 )
+
+[node name="hitbox" parent="." index="0"]
+script = ExtResource( 2 )
