@@ -134,7 +134,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/AI/wander_controller.gd"
 }, {
-"base": "Node2D",
+"base": "Reference",
 "class": "WorldTestLevel",
 "language": "GDScript",
 "path": "res://src/levels/world_test_level.gd"

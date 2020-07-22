@@ -54,8 +54,6 @@ func die() -> void:
 
 func _on_hurtbox_area_entered(area):
 	if area is KnightAOEHitbox :
-		var knockback_multiplier := 225   #225 optimalnoe znachenie #500 dlya testa
-		knockback =  area.knockback(self) * knockback_multiplier
-		pass
+		knockback =  area.knockback(self)
 	else:
 		pass
