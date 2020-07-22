@@ -71,7 +71,7 @@ func wander() -> Vector2:
 func chase() -> Vector2:
 	var player = playerDetectionZone.player
 	var direction := Vector2.ZERO
-	if player != null:
+	if player != null and playerDetectionZone.can_see_player():
 		direction = this_enemy.global_position.direction_to(player.global_position)
 	else:
 		state = IDLE

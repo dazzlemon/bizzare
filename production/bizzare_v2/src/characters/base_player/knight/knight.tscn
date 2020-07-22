@@ -6,8 +6,9 @@
 [ext_resource path="res://assets/textures/Chilopups.png" type="Texture" id=4]
 [ext_resource path="res://src/characters/base_player/knight/knight_control.gd" type="Script" id=5]
 [ext_resource path="res://src/attack/hitscan/ally_hitscan/ally_hitscan.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/characters/base_player/knight/spell/knight_aoe.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/characters/base_player/knight/spell/knight_dmg_block.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/characters/base_player/knight/spells/knight_aoe.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/characters/base_player/knight/spells/knight_dmg_block.tscn" type="PackedScene" id=8]
+
 
 
 

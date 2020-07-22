@@ -102,12 +102,12 @@ _global_script_classes=[ {
 "base": "BaseHitscan",
 "class": "KnightAOE",
 "language": "GDScript",
-"path": "res://src/characters/base_player/knight/spell/knight_aoe.gd"
+"path": "res://src/characters/base_player/knight/spells/knight_aoe.gd"
 }, {
 "base": "BaseHitscanHitbox",
 "class": "KnightAOEHitbox",
 "language": "GDScript",
-"path": "res://src/characters/base_player/knight/spell/knight_aoe_hitbox.gd"
+"path": "res://src/characters/base_player/knight/spells/knight_aoe_hitbox.gd"
 }, {
 "base": "BasePlayerControl",
 "class": "KnightControl",
@@ -117,7 +117,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "KnightDMGBlock",
 "language": "GDScript",
-"path": "res://src/characters/base_player/knight/spell/knight_dmg_block.gd"
+"path": "res://src/characters/base_player/knight/spells/knight_dmg_block.gd"
 }, {
 "base": "BasePlayerStats",
 "class": "KnightStats",
