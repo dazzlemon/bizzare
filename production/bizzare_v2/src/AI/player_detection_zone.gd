@@ -15,4 +15,9 @@ func _on_body_exited(_body) -> void:
 	
 	
 func can_see_player() -> bool:#rework to return false if raycast collides(add raycast)
-	return player != null
+	if player == null:
+		return false
+	else:
+		var look_at = get_node("LookAt")
+		look_at.set_cast_to(player.global_position - look_at.global_position)
+		return not look_at.is_colliding()
