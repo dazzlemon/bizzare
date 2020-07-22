@@ -2,7 +2,7 @@
 class_name BaseChar
 extends KinematicBody2D
 
-export var DMG_BLOCK = 0.3
+export var DMG_BLOCK = 0
 export var ACCEL = 2000
 export var DECEL = 2000
 export var MAX_SPEED = 300# all of these have to be const, but changeable for inherited classes
@@ -44,3 +44,13 @@ func take_damage(damage) -> void:#idk type of damage, prolly float/int
 
 func die() -> void:
 	queue_free()
+
+
+func _on_hurtbox_area_entered(area):
+	if area is KnightAOEHitbox :
+		var direction : Vector2 = -global_position + area.global_position  
+		velocity = velocity.move_toward(direction.normalized(), ACCEL) 
+		velocity = move_and_slide(velocity)
+		print("04ko")
+	else:
+		pass

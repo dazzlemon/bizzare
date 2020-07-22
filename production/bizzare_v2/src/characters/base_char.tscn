@@ -41,4 +41,5 @@ script = ExtResource( 4 )
 
 [node name="sprite" type="Sprite" parent="crosshair"]
 texture = ExtResource( 5 )
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
