@@ -5,7 +5,7 @@ extends BaseControl
 onready var spell_1 = get_node("../spell_1")
 onready var spell_2 = get_node("../spell_2")
 
-func _process(_delta: float):
+func _process(delta: float):
 	#mb move to separate func input_loop()
 	if Input.is_action_just_pressed("spell_1") && spell_1 != null:
 		spell_1.try_use()
@@ -13,6 +13,7 @@ func _process(_delta: float):
 		spell_2.try_use()
 	if Input.is_action_pressed("attack") && attack != null:
 		attack.try_use()
+	._process(delta)
 
 
 func get_input_vector() -> Vector2:

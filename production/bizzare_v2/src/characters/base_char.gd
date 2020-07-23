@@ -52,8 +52,12 @@ func die() -> void:
 	queue_free()
 
 
-func _on_hurtbox_area_entered(area) -> void:
+func _on_hurtbox_area_entered(area) -> void:#hitscan hitreg
 	if area is KnightAOEHitbox:
 		knockback = area.knockback(self)
 	if area is BaseHitscanHitbox:#tmp(without this condition getting an error)
 		take_damage(area.damage)
+
+func _on_hurtbox_body_entered(body) -> void:#projectile hitreg
+	if body is BaseProjectile:
+		take_damage(body.damage)
