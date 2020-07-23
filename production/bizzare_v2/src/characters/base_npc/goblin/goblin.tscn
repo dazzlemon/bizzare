@@ -34,7 +34,7 @@ shape = SubResource( 1 )
 script = ExtResource( 3 )
 
 [node name="player_detection_zone" parent="control" index="0" instance=ExtResource( 5 )]
-collision_layer = 2147483776
+collision_layer = 2147483648
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
@@ -44,6 +44,7 @@ shape = SubResource( 2 )
 
 [node name="hurtbox" parent="." index="5"]
 collision_layer = 2147483664
+collision_mask = 32
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 shape = SubResource( 3 )

@@ -58,6 +58,9 @@ func _on_hurtbox_area_entered(area) -> void:#hitscan hitreg
 	if area is BaseHitscanHitbox:#tmp(without this condition getting an error)
 		take_damage(area.damage)
 
+
 func _on_hurtbox_body_entered(body) -> void:#projectile hitreg
+	print("body enter")
 	if body is BaseProjectile:
 		take_damage(body.damage)
+		print("projectile enter")
