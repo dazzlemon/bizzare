@@ -1,8 +1,7 @@
-#damaging area, probably will be removed in consequence of refactor
+# damaging area, probably will be removed in consequence of refactor
+#
+# (actually probably wont be removed because stores damage(need to move damage to stats))
 class_name BaseHitscanHitbox
 extends Area2D
 
 export var damage = 1
-
-func _on_hitbox_area_entered(area):
-	area.get_node("../").take_damage(damage)

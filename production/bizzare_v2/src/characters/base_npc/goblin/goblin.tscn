@@ -18,7 +18,7 @@ radius = 104.945
 radius = 16.7157
 
 [node name="goblin" instance=ExtResource( 1 )]
-collision_layer = 10
+collision_layer = 2147483656
 collision_mask = 10
 script = ExtResource( 2 )
 
@@ -34,7 +34,7 @@ shape = SubResource( 1 )
 script = ExtResource( 3 )
 
 [node name="player_detection_zone" parent="control" index="0" instance=ExtResource( 5 )]
-collision_layer = 2147483648
+collision_layer = 2147483776
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]

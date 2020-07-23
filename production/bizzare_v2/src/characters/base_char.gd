@@ -54,6 +54,6 @@ func die() -> void:
 
 func _on_hurtbox_area_entered(area) -> void:
 	if area is KnightAOEHitbox:
-		knockback =  area.knockback(self)
-	else:
-		pass
+		knockback = area.knockback(self)
+	if area is BaseHitscanHitbox:#tmp(without this condition getting an error)
+		take_damage(area.damage)

@@ -39,7 +39,7 @@ script = ExtResource( 5 )
 
 [node name="hurtbox" parent="." index="5"]
 collision_layer = 2147483652
-collision_mask = 0
+collision_mask = 64
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 position = Vector2( -0.222733, 0 )
@@ -66,6 +66,8 @@ shape = SubResource( 4 )
 disabled = true
 
 [node name="spell_2" parent="." index="12" instance=ExtResource( 8 )]
+[connection signal="area_entered" from="attack/hitbox" to="attack/hitbox" method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="spell_1/hitbox" to="spell_1/hitbox" method="_on_hitbox_area_entered"]
 
 [editable path="attack"]
 
