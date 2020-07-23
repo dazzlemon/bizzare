@@ -1,3 +1,3 @@
 #WIP
-class_name BasePlayer
+class_name BasePlayer 
 extends BaseChar

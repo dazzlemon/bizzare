@@ -48,6 +48,10 @@ shape = SubResource( 2 )
 [node name="stats" parent="." index="6"]
 script = ExtResource( 3 )
 
+[node name="HUD" parent="Camera2D" index="0"]
+margin_right = -185.0
+margin_bottom = 168.0
+
 [node name="attack" parent="." index="8" instance=ExtResource( 6 )]
 
 [node name="hitbox" parent="attack" index="0"]
@@ -65,6 +69,12 @@ position = Vector2( 24.8614, -0.166855 )
 shape = SubResource( 4 )
 disabled = true
 
+[node name="duration" type="Timer" parent="spell_1" index="1"]
+one_shot = true
+
+[node name="cd" type="Timer" parent="spell_1" index="2"]
+one_shot = true
+
 [node name="spell_2" parent="." index="12" instance=ExtResource( 8 )]
 [connection signal="area_entered" from="attack/hitbox" to="attack/hitbox" method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="spell_1/hitbox" to="spell_1/hitbox" method="_on_hitbox_area_entered"]
@@ -72,3 +82,5 @@ disabled = true
 [editable path="attack"]
 
 [editable path="spell_1"]
+
+[editable path="spell_2"]
