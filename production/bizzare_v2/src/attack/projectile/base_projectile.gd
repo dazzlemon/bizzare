@@ -2,7 +2,7 @@
 class_name BaseProjectile
 extends RigidBody2D
 
-export var damage = 1# idk float/int
+export var damage = 10# idk float/int
 
 var speed = 350# probably float
 var LIFETIME = 2# same + has to be const but changeable in inherited

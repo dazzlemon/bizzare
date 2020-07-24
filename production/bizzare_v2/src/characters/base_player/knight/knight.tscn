@@ -23,7 +23,7 @@ radius = 15.0429
 height = 24.0438
 
 [node name="knight" instance=ExtResource( 1 )]
-collision_mask = 2147483656
+collision_mask = 2147483658
 script = ExtResource( 2 )
 
 [node name="sprite" parent="pivot" index="0"]
