@@ -9,6 +9,7 @@ func _ready():
 	MAX_SPEED = 100
 	DECEL = 200
 
+
 func drop_loot():
 	randomize()
 	var random = randi() % 100 + 1
@@ -20,6 +21,7 @@ func drop_loot():
 		get_node("../").add_child(loot)
 	else:
 		print(">50")
+
 
 func die():
 	.die()

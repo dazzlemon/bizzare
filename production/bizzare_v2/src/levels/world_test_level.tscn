@@ -27,3 +27,4 @@ position = Vector2( 140.009, -61.3855 )
 collision_mask = 6
 
 [node name="knight" parent="." instance=ExtResource( 5 )]
+position = Vector2( -81.0031, 57.9647 )

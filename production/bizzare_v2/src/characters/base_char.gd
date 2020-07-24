@@ -10,10 +10,10 @@ export var MAX_SPEED = 300# all of these have to be const, but changeable for in
 var knockback := Vector2.ZERO
 var velocity := Vector2.ZERO
 
-
 onready var stats = $stats
 onready var control = $control#prolly dont need static typing
-
+onready var spell_1 = $spell_1
+onready var spell_2 = $spell_2
 
 func accelerate(delta: float, input_vector: Vector2) -> Vector2:
 	return velocity.move_toward(input_vector * MAX_SPEED, ACCEL * delta)
@@ -60,7 +60,6 @@ func _on_hurtbox_area_entered(area) -> void:#hitscan hitreg
 
 
 func _on_hurtbox_body_entered(body) -> void:#projectile hitreg
-	print("body enter")
 	if body is BaseProjectile:
 		take_damage(body.damage)
-		print("projectile enter")
+		body.die()
