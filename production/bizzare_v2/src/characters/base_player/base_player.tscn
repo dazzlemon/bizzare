@@ -5,8 +5,8 @@
 [ext_resource path="res://src/characters/base_player/base_player.gd" type="Script" id=3]
 [ext_resource path="res://src/characters/base_player/base_player_control.gd" type="Script" id=4]
 [ext_resource path="res://src/characters/base_player/inventory/Inventory.gd" type="Script" id=5]
-[ext_resource path="res://src/levels/Text_hud.gd" type="Script" id=6]
-[ext_resource path="res://src/characters/base_player/inventory_hud.gd.gd" type="Script" id=7]
+[ext_resource path="res://src/characters/base_player/Stats_hud.gd" type="Script" id=6]
+[ext_resource path="res://src/characters/base_player/inventory_hud.gd" type="Script" id=7]
 
 [node name="base_player" instance=ExtResource( 1 )]
 collision_layer = 2
