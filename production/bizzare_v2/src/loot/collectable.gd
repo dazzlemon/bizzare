@@ -19,6 +19,10 @@ func push_item(item, area):#idk what static types are these
 		item[2] = inventory.size()#2 = age
 
 
+#func add_to_hud(item) -> void:
+	#get_node("../Camera2D/Test_Inventory").add_text(str(item))
+
 func _on_Area2D_area_entered(area):
 	push_item([item_name, count, age], area)
+	#add_to_hud([item_name, count, age])
 	queue_free()

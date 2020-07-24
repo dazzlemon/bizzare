@@ -10,6 +10,7 @@ func _ready():
 	DECEL = 200
 
 func drop_loot():
+	randomize()
 	var random = randi() % 100 + 1
 	print(random)
 	if random <= 50:

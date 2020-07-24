@@ -1,7 +1,9 @@
 extends RichTextLabel
 
-func _physics_process(delta):
-	set_text("Class:" + str(get_node("../../").name_))
+const utility = preload("res://src/etc/utility.gd")
+
+func _process(delta):
+	set_text ("Class:" + str(utility.get_typeof(get_node("../../"))))
 	newline()
 	add_text("HP:" + str(get_node("../../stats").get_health()))
 	newline()
