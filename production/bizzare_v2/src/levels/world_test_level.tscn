@@ -27,4 +27,4 @@ position = Vector2( 140.009, -61.3855 )
 collision_mask = 6
 
 [node name="archer" parent="." instance=ExtResource( 3 )]
-position = Vector2( -95.8355, 83.9216 )
+position = Vector2( -85.7706, 60.6134 )
