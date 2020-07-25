@@ -6,7 +6,7 @@
 [ext_resource path="res://src/characters/base_npc/base_npc_control.gd" type="Script" id=4]
 
 [node name="base_npc" instance=ExtResource( 1 )]
-collision_layer = 2147483658
+collision_layer = 2147483656
 collision_mask = 2147483658
 script = ExtResource( 2 )
 

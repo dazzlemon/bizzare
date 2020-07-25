@@ -20,4 +20,7 @@ func can_see_player() -> bool:#rework to return false if raycast collides(add ra
 	else:
 		var look_at = get_node("LookAt")
 		look_at.set_cast_to(player.global_position - look_at.global_position)
-		return not look_at.is_colliding()
+		if look_at.is_colliding():#GOVNO FIX NEED FIX ASAP # RAZRABI USHLI V VALORANT
+			return  look_at.get_collider() is Goblin
+		return true
+				
