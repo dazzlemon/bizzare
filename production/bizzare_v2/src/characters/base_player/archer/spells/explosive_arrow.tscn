@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/characters/base_player/archer/spells/explosive_arrow.gd" type="Script" id=1]
+
+[node name="explosive_arrow" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="duration" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="cd" type="Timer" parent="."]
+wait_time = 10.0
+[connection signal="timeout" from="duration" to="." method="_on_duration_timeout"]
+[connection signal="timeout" from="cd" to="." method="_on_cd_timeout"]

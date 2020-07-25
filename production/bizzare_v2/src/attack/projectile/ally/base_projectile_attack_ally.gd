@@ -1,0 +1,2 @@
+class_name BaseProjectileAttackAlly
+extends BaseProjectileAttack

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/attack/projectile/base_projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/characters/base_player/archer/spells/explosive_arrow_projectile.gd" type="Script" id=2]
+[ext_resource path="res://src/characters/base_player/archer/spells/explosion_aoe.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 63.8286
+
+[node name="base_projectile" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+collision_layer = 32
+collision_mask = 17
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource( 1 )
+disabled = true
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
