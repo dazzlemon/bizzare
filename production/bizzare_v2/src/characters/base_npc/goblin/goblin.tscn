@@ -35,7 +35,7 @@ script = ExtResource( 3 )
 
 [node name="player_detection_zone" parent="control" index="0" instance=ExtResource( 5 )]
 collision_layer = 2147483648
-collision_mask = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
 shape = SubResource( 2 )
@@ -54,6 +54,8 @@ shape = SubResource( 3 )
 
 [node name="stats" parent="." index="6"]
 max_health = 10
+[connection signal="area_entered" from="control/player_detection_zone" to="control/player_detection_zone" method="_on_area_entered"]
+[connection signal="area_exited" from="control/player_detection_zone" to="control/player_detection_zone" method="_on_area_exited"]
 
 [editable path="control/player_detection_zone"]
 

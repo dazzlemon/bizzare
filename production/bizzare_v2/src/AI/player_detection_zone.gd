@@ -6,12 +6,12 @@ extends Area2D
 
 var player = null#mb add static typing? + possibly need a rework to avoid using null reference
 
-func _on_body_entered(body) -> void:
-	player = body
+func _on_area_entered(area) -> void:
+	player = area.get_node("../")
 
 
-func _on_body_exited(_body) -> void:
-	player = null
+func _on_area_exited(_area) -> void:
+	player = null#mb need to check wheter area exited is player?
 	
 	
 func can_see_player() -> bool:#rework to return false if raycast collides(add raycast)
