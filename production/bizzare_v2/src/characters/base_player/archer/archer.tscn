@@ -4,8 +4,8 @@
 [ext_resource path="res://src/attack/projectile/base_projectile_attack.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/textures/Chilopups.png" type="Texture" id=3]
 [ext_resource path="res://src/characters/base_player/archer/archer.gd" type="Script" id=4]
-[ext_resource path="res://src/characters/base_player/archer/spells/as_increase.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/characters/base_player/archer/spells/explosive_arrow.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/characters/base_player/archer/spells/as_increase/as_increase.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/characters/base_player/archer/spells/explosion/explosive_arrow.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 6.05109
