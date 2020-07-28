@@ -52,9 +52,6 @@ margin_bottom = 168.0
 
 [node name="attack" parent="." index="8" instance=ExtResource( 6 )]
 
-[node name="hitbox" parent="attack" index="0"]
-damage = 5
-
 [node name="CollisionShape2D" parent="attack/hitbox" index="0"]
 position = Vector2( 25, 0 )
 shape = SubResource( 3 )

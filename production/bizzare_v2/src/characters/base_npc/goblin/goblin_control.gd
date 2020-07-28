@@ -12,6 +12,7 @@ enum{
 	IDLE,
 	WANDER,
 	CHASE,
+
 }
 
 var state = CHASE

@@ -19,7 +19,6 @@ collision_mask = 11
 polygon = PoolVector2Array( 116.5, 38, 143, 94, 211, 66.5, 257.5, 121, 197, 164, 184.5, 114, 96, 152, 64.5, 85, 21, 120.5, 27, 30.5, 92, 68.5, 79.5, -19.5, 216, 1 )
 
 [node name="archer" parent="." instance=ExtResource( 3 )]
-position = Vector2( -85.7706, 60.6134 )
 
 [node name="goblin" parent="." instance=ExtResource( 2 )]
 position = Vector2( 54.109, -36.2709 )

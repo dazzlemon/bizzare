@@ -1,2 +1,3 @@
 class_name BaseHitscanAllyHitbox
 extends BaseHitscanHitbox
+

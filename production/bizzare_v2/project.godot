@@ -139,6 +139,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_player/archer/spells/explosion/explosion_area.gd"
 }, {
+"base": "BaseHitscanAllyHitbox",
+"class": "ExplosionHitscan",
+"language": "GDScript",
+"path": "res://src/characters/base_player/archer/spells/explosion/explosion_hitbox.gd"
+}, {
 "base": "BaseProjectileAttackAlly",
 "class": "ExplosiveArrow",
 "language": "GDScript",
@@ -241,6 +246,7 @@ _global_script_class_icons={
 "Collectable": "",
 "Crosshair": "",
 "ExplosionArea": "",
+"ExplosionHitscan": "",
 "ExplosiveArrow": "",
 "ExplosiveArrowProjectile": "",
 "ExplosiveHitscan": "",

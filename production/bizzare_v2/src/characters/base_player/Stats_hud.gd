@@ -8,10 +8,13 @@ func _process(delta):
 	set_text ("Class:" + str(utility.get_typeof(get_node("../../"))))
 	newline()
 	
-	add_text("HP:" + str(get_node("../../stats").get_health()))
+	add_text("HP:" + str(get_node("../../stats").health))
 	newline()
 	
-	add_text("Armor:" + str(get_node("../../stats").get_armor()))
+	add_text("Armor:" + str(get_node("../../stats").armor))
+	newline()
+	
+	add_text("Damage:" + str(get_node("../../stats").dmg))
 	newline()
 	
 	add_text("Spell_1_active:" + (str(stepify(get_node("../../spell_1/duration").get_time_left(),0.01)) if player.spell_1 != null else ""))	
