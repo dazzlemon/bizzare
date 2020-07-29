@@ -13,6 +13,8 @@ func _process(delta: float):
 		spell_2.try_use()
 	if Input.is_action_pressed("attack") && attack != null:
 		attack.try_use()
+	
+	crosshair.global_position = get_global_mouse_position()
 	._process(delta)
 
 
