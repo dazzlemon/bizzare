@@ -10,3 +10,7 @@ func _process(_delta) -> void:
 	if attack != null && attack is BaseHitscan:
 		var body_cross_dir = attack.get_angle_to(crosshair.global_position)
 		attack.rotation += body_cross_dir
+
+
+func get_input_vector():
+	return Vector2.ZERO

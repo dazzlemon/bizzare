@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/textures/background_checkerboard_test360p.png" type="Texture" id=1]
 [ext_resource path="res://src/characters/base_npc/melee/goblin/goblin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/characters/base_player/archer/archer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/levels/world_test_level.gd" type="Script" id=4]
+[ext_resource path="res://src/characters/base_npc/range/range_goblin/range_goblin.tscn" type="PackedScene" id=5]
 
 [node name="world" type="Node2D"]
 script = ExtResource( 4 )
@@ -25,3 +26,6 @@ position = Vector2( 54.109, -36.2709 )
 
 [node name="goblin2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 309.521, -102.831 )
+
+[node name="rangega" parent="." instance=ExtResource( 5 )]
+position = Vector2( -237.841, -83.2445 )
