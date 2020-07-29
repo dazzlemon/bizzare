@@ -49,7 +49,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/hitscan/base_hitscan.gd"
 }, {
-"base": "Reference",
+"base": "BaseHitscan",
 "class": "BaseHitscanAlly",
 "language": "GDScript",
 "path": "res://src/attack/hitscan/ally_hitscan/base_hitscan_ally.gd"
@@ -59,7 +59,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/hitscan/ally_hitscan/base_hitscan_ally_hitbox.gd"
 }, {
-"base": "Reference",
+"base": "BaseHitscan",
 "class": "BaseHitscanEnemy",
 "language": "GDScript",
 "path": "res://src/attack/hitscan/enemy_hitscan/base_hitscan_enemy.gd"
@@ -239,7 +239,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/AI/wander_controller.gd"
 }, {
-"base": "Node2D",
+"base": "Reference",
 "class": "WorldTestLevel",
 "language": "GDScript",
 "path": "res://src/levels/world_test_level.gd"
