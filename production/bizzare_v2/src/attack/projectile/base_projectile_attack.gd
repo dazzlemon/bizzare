@@ -2,6 +2,7 @@
 class_name BaseProjectileAttack
 extends Control
 
+var damage = 1
 var projectile = preload("res://src/attack/projectile/base_projectile.tscn")
 var ATTACK_INTERVAL = 0.5
 var attack_active
@@ -26,6 +27,7 @@ func update_state():
 	projectile_instance.transform = get_node("../").global_transform
 	projectile_instance.rotation += get_node("../").get_angle_to(get_global_mouse_position())
 	projectile_instance.direction = (get_global_mouse_position() - get_node("../").global_position).normalized()#use local crosshair's position instead of mice's one
+	projectile_instance.damage = self.damage
 
 
 func try_use():

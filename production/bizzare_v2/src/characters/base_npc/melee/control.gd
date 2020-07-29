@@ -1,0 +1,2 @@
+class_name BaseNPCMeleeControl
+extends BaseNPCControl

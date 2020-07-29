@@ -1,6 +1,6 @@
 #
 class_name GoblinControl
-extends BaseNPCControl
+extends BaseNPCMeleeControl
 
 export var wander_target_range = 4
 
