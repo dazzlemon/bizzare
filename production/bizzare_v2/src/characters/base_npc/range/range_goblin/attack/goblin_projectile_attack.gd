@@ -1,2 +1,3 @@
 class_name GoblinProjectileAttack
 extends BaseProjectileAttackEnemy
+
