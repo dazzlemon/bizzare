@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_player/archer/archer_stats.gd"
 }, {
+"base": "Area2D",
+"class": "AttackRange",
+"language": "GDScript",
+"path": "res://src/AI/attack_range.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "BaseChar",
 "language": "GDScript",
@@ -49,7 +54,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/hitscan/base_hitscan.gd"
 }, {
-"base": "BaseHitscan",
+"base": "Reference",
 "class": "BaseHitscanAlly",
 "language": "GDScript",
 "path": "res://src/attack/hitscan/ally_hitscan/base_hitscan_ally.gd"
@@ -59,7 +64,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/hitscan/ally_hitscan/base_hitscan_ally_hitbox.gd"
 }, {
-"base": "BaseHitscan",
+"base": "Reference",
 "class": "BaseHitscanEnemy",
 "language": "GDScript",
 "path": "res://src/attack/hitscan/enemy_hitscan/base_hitscan_enemy.gd"
@@ -89,12 +94,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/melee/base_npc_melee.gd"
 }, {
-"base": "BaseNPCControl",
+"base": "Reference",
 "class": "BaseNPCMeleeControl",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/melee/base_npc_melee_control.gd"
 }, {
-"base": "BaseNPC",
+"base": "Reference",
 "class": "BaseNPCRange",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/base_npc_range.gd"
@@ -269,7 +274,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/AI/wander_controller.gd"
 }, {
-"base": "Reference",
+"base": "Node2D",
 "class": "WorldTestLevel",
 "language": "GDScript",
 "path": "res://src/levels/world_test_level.gd"
@@ -280,6 +285,7 @@ _global_script_class_icons={
 "ArcherProjectile": "",
 "ArcherProjectileAttack": "",
 "ArcherStats": "",
+"AttackRange": "",
 "BaseChar": "",
 "BaseControl": "",
 "BaseHitscan": "",

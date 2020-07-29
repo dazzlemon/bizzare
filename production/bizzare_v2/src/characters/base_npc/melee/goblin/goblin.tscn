@@ -7,7 +7,6 @@
 [ext_resource path="res://src/AI/player_detection_zone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/AI/wander_controller.tscn" type="PackedScene" id=6]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.80462
 height = 16.1929
