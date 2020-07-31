@@ -35,7 +35,6 @@ shape = SubResource( 1 )
 
 [node name="control" parent="." index="4"]
 margin_top = 0.111362
-margin_right = 40.0
 margin_bottom = 40.1114
 script = ExtResource( 4 )
 
