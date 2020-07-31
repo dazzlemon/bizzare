@@ -6,6 +6,7 @@ extends Area2D
 
 var player = null#mb add static typing? + possibly need a rework to avoid using null reference
 
+
 func _on_area_entered(area) -> void:
 	player = area.get_node("../")
 
@@ -21,6 +22,9 @@ func can_see_player() -> bool:#rework to return false if raycast collides(add ra
 		var look_at = get_node("LookAt")
 		look_at.set_cast_to(player.global_position - look_at.global_position)
 		if look_at.is_colliding():#GOVNO FIX NEED FIX ASAP # RAZRABI USHLI V VALORANT
-			return  look_at.get_collider() is BaseNPC
+			if  look_at.get_collider() is BaseNPC and is_inside_fov(player):
 		return true
 				
+
+func is_inside_fov(player) -> bool: #player is inside this enemy instance fov 
+	return true
