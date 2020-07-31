@@ -54,7 +54,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/hitscan/base_hitscan.gd"
 }, {
-"base": "Reference",
+"base": "BaseHitscan",
 "class": "BaseHitscanAlly",
 "language": "GDScript",
 "path": "res://src/attack/hitscan/ally_hitscan/base_hitscan_ally.gd"
@@ -64,7 +64,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/hitscan/ally_hitscan/base_hitscan_ally_hitbox.gd"
 }, {
-"base": "Reference",
+"base": "BaseHitscan",
 "class": "BaseHitscanEnemy",
 "language": "GDScript",
 "path": "res://src/attack/hitscan/enemy_hitscan/base_hitscan_enemy.gd"
@@ -94,12 +94,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/melee/base_npc_melee.gd"
 }, {
-"base": "Reference",
+"base": "BaseNPCControl",
 "class": "BaseNPCMeleeControl",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/melee/base_npc_melee_control.gd"
 }, {
-"base": "Reference",
+"base": "BaseNPC",
 "class": "BaseNPCRange",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/base_npc_range.gd"
@@ -274,7 +274,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/AI/wander_controller.gd"
 }, {
-"base": "Node2D",
+"base": "Reference",
 "class": "WorldTestLevel",
 "language": "GDScript",
 "path": "res://src/levels/world_test_level.gd"
@@ -344,8 +344,8 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=640
-window/size/height=360
+window/size/width=480
+window/size/height=270
 window/size/resizable=false
 window/size/test_width=1920
 window/size/test_height=1080
