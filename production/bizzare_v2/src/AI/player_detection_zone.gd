@@ -35,4 +35,9 @@ func has_player_inside_fov() -> bool:#player is inside this enemy instance fov
 	var vec_self_to_player = player.global_position - global_position
 	var vec_self_to_look_at = look_at.cast_to
 	var angle_look_at_to_player = vec_self_to_look_at.angle_to(vec_self_to_player)
-	return angle_look_at_to_player < deg2rad(fov / 2) and angle_look_at_to_player > deg2rad(-fov / 2)
+	return angle_look_at_to_player < deg2rad(fov_deg / 2) and angle_look_at_to_player > deg2rad(-fov_deg / 2)
+
+
+func _on_stats_damage_from_behind():
+	if player != null:#look at player
+		look_at.set_cast_to(player.global_position - look_at.global_position)

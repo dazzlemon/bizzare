@@ -6,6 +6,7 @@ extends Node
 
 signal no_health
 
+
 export var max_health = 1# int/float?
 export var max_armor = 0# same
 

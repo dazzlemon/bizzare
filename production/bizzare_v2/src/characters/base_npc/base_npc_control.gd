@@ -89,3 +89,5 @@ func attack() -> Vector2:
 		get_node("../crosshair").global_position = player.global_position
 	get_node("../attack").try_use()
 	return Vector2.ZERO
+
+

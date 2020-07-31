@@ -6,10 +6,10 @@
 
 [node name="base_npc" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-DMG_BLOCK = 0
-ACCEL = 2000
-DECEL = 2000
-MAX_SPEED = 300
 
 [node name="control" parent="." index="4"]
 script = ExtResource( 2 )
+
+[editable path="control/player_detection_zone"]
+
+[editable path="control/wander_controller"]
