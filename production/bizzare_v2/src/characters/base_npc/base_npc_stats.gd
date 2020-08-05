@@ -13,3 +13,6 @@ func set_health(value) -> void:
 		emit_signal("no_health")
 	if not player_detection_zone.has_player_inside_fov() :
 		emit_signal("damage_from_behind")
+
+
+

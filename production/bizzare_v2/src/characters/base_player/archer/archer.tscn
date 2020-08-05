@@ -32,6 +32,7 @@ shape = SubResource( 2 )
 
 [node name="stats" parent="." index="6"]
 script = ExtResource( 7 )
+max_health = 999
 
 [node name="attack" parent="." index="9" instance=ExtResource( 2 )]
 
