@@ -1,9 +1,9 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://src/characters/base_player/base_player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_player/knight/knight.gd" type="Script" id=2]
 [ext_resource path="res://src/characters/base_player/knight/knight_stats.gd" type="Script" id=3]
-[ext_resource path="res://assets/textures/knight_idle_sheet.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/knight_sheet.png" type="Texture" id=4]
 [ext_resource path="res://src/characters/base_player/knight/knight_control.gd" type="Script" id=5]
 [ext_resource path="res://src/attack/hitscan/ally_hitscan/base_hitscan_ally.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/characters/base_player/knight/spells/knight_aoe.tscn" type="PackedScene" id=7]
@@ -12,32 +12,51 @@
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 32, 32 )
+[sub_resource type="StreamTexture" id=2]
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 4 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
-"name": "default",
+"name": "idle",
 "speed": 3.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=9]
 radius = 4.49611
 height = 12.2982
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=10]
 radius = 16.441
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=11]
 
-[sub_resource type="CapsuleShape2D" id=8]
+[sub_resource type="CapsuleShape2D" id=12]
 radius = 15.0429
 height = 24.0438
 
@@ -49,17 +68,19 @@ anims/idle = SubResource( 1 )
 
 [node name="sprite" parent="pivot" index="0"]
 visible = false
-texture = ExtResource( 4 )
+texture = SubResource( 2 )
 hframes = 2
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="pivot" index="1"]
-frames = SubResource( 4 )
+frames = SubResource( 8 )
+animation = "idle"
+frame = 1
 playing = true
 
 [node name="collision_box" parent="." index="3"]
 position = Vector2( -0.44545, 14.0317 )
 rotation = 1.5708
-shape = SubResource( 5 )
+shape = SubResource( 9 )
 
 [node name="control" parent="." index="4"]
 script = ExtResource( 5 )
@@ -69,7 +90,7 @@ collision_layer = 2147483652
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 position = Vector2( -0.222733, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="stats" parent="." index="6"]
 script = ExtResource( 3 )
@@ -86,14 +107,14 @@ damage = 5
 
 [node name="CollisionShape2D" parent="attack/hitbox" index="0"]
 position = Vector2( 25, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 11 )
 disabled = true
 
 [node name="spell_1" parent="." index="11" instance=ExtResource( 7 )]
 
 [node name="CollisionShape2D" parent="spell_1/hitbox" index="0"]
 position = Vector2( 24.8614, -0.166855 )
-shape = SubResource( 8 )
+shape = SubResource( 12 )
 disabled = true
 
 [node name="duration" type="Timer" parent="spell_1" index="1"]
