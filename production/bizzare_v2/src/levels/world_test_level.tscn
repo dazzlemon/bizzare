@@ -28,8 +28,12 @@ position = Vector2( 309.521, -102.831 )
 
 [node name="rangega" parent="." instance=ExtResource( 5 )]
 position = Vector2( -237.841, -83.2445 )
+collision_layer = 2147483656
+collision_mask = 2147483658
 
 [node name="archer" parent="." instance=ExtResource( 3 )]
 
 [node name="harpy_boss" parent="." instance=ExtResource( 6 )]
 position = Vector2( 468.22, 185.401 )
+collision_layer = 2147483656
+collision_mask = 2147483658

@@ -21,6 +21,7 @@ enum States {
 var state = States.CHASE
 
 func _ready():
+	randomize()
 	pick_random_state([States.IDLE, States.WANDER])
 
 
