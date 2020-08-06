@@ -14,6 +14,7 @@ enum States {
 	WANDER,
 	CHASE,
 	ATTACK,
+	STOP,
 }
 
 
@@ -34,6 +35,8 @@ func get_input_vector():
 			input_vector = chase()
 		States.ATTACK:
 			input_vector = attack()
+		States.STOP:
+			input_vector = stop()
 	return input_vector.normalized()
 
 
@@ -91,3 +94,5 @@ func attack() -> Vector2:
 	return Vector2.ZERO
 
 
+func stop() -> Vector2:
+	return Vector2.ZERO
