@@ -46,6 +46,8 @@ collision_mask = 6
 shape = SubResource( 3 )
 
 [node name="phase_cd" type="Timer" parent="control" index="3"]
+wait_time = 15.0
+one_shot = true
 
 [node name="phase_wave_cd" type="Timer" parent="control" index="4"]
 one_shot = true
@@ -58,6 +60,7 @@ shape = SubResource( 4 )
 [node name="stats" parent="." index="7"]
 script = ExtResource( 7 )
 max_health = 40
+[connection signal="timeout" from="control/phase_cd" to="control" method="_on_phase_cd_timeout"]
 [connection signal="timeout" from="control/phase_wave_cd" to="control" method="_on_phase_wave_cd_timeout"]
 [connection signal="phase1" from="stats" to="control" method="_on_stats_phase1"]
 

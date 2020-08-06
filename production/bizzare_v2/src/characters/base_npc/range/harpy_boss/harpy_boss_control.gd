@@ -6,6 +6,8 @@ onready var stats = get_node("../stats")
 onready var get_root = get_node("../")
 
 var phase = 0
+var count = 0
+var ready = true
 
 func wander() -> Vector2:
 	state = States.IDLE
@@ -19,6 +21,7 @@ func _on_stats_phase1():
 
 func projectile_circle(amount, start):
 	for i in range(0, amount, 1):
+		
 		var projectile_instance = projectile.instance()
 		get_root.owner.call_deferred("add_child", projectile_instance)
 		projectile_instance.transform =  get_root.global_transform
@@ -28,5 +31,19 @@ func projectile_circle(amount, start):
 
 
 func _on_phase_wave_cd_timeout():
-	if phase == 1:
-		projectile_circle(18,0)
+	if phase == 1 and ready == true:
+		projectile_circle(15, count)
+	count +=10 
+	if count < 80:
+		state = States.STOP
+		get_node("phase_wave_cd").start(0.75)
+	else:
+		state = States.IDLE
+		get_node("phase_cd").start()
+		ready = false
+		count = 0
+		
+
+
+func _on_phase_cd_timeout():
+	ready = true
