@@ -1,0 +1,2 @@
+class_name Phase1Attack1Projectile
+extends HarpyBossProjectile

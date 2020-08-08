@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/characters/base_npc/range/base_npc_range.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/harpy_boss.gd" type="Script" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/attack/harpy_boss_projectile_attack.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/AI/attack_range.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/characters/base_npc/boss_stats.gd" type="Script" id=7]
+[ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_1/phase_1_attack_1_control.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_2/phase_1_attack_2_control.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_control.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/phase_2_attack_2_control.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.07981
@@ -35,21 +39,29 @@ shape = SubResource( 1 )
 [node name="control" parent="." index="4"]
 script = ExtResource( 3 )
 
+[node name="phase_1_attack_1" parent="control" index="0" instance=ExtResource( 8 )]
+
+[node name="phase_1_attack_2" parent="control" index="1" instance=ExtResource( 9 )]
+
+[node name="phase_2_attack_1" parent="control" index="2" instance=ExtResource( 10 )]
+
+[node name="phase_2_attack_2" parent="control" index="3" instance=ExtResource( 11 )]
+
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
 shape = SubResource( 2 )
 
-[node name="attack_range" parent="control" index="2" instance=ExtResource( 6 )]
+[node name="attack_range" parent="control" index="6" instance=ExtResource( 6 )]
 collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionShape2D" parent="control/attack_range" index="0"]
 shape = SubResource( 3 )
 
-[node name="phase_cd" type="Timer" parent="control" index="3"]
+[node name="phase_cd" type="Timer" parent="control" index="7"]
 wait_time = 15.0
 one_shot = true
 
-[node name="phase_wave_cd" type="Timer" parent="control" index="4"]
+[node name="phase_wave_cd" type="Timer" parent="control" index="8"]
 one_shot = true
 
 [node name="attack" parent="." index="5" instance=ExtResource( 5 )]
@@ -63,6 +75,8 @@ max_health = 40
 [connection signal="timeout" from="control/phase_cd" to="control" method="_on_phase_cd_timeout"]
 [connection signal="timeout" from="control/phase_wave_cd" to="control" method="_on_phase_wave_cd_timeout"]
 [connection signal="phase1" from="stats" to="control" method="_on_stats_phase1"]
+[connection signal="phase2" from="stats" to="control" method="_on_stats_phase2"]
+[connection signal="phase3" from="stats" to="control" method="_on_stats_phase3"]
 
 [editable path="control/player_detection_zone"]
 

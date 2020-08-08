@@ -1,18 +1,20 @@
 class_name HarpyBossControl
 extends BaseNPCRangeControl
 
-onready var projectile = preload("res://src/characters/base_npc/range/harpy_boss/attack/harpy_boss_projectile.tscn")
-onready var stats = get_node("../stats")
-onready var get_root = get_node("../")
 
 var phase = 0
-var count = 0
-var ready = true
+var wave_count = 0
+var is_ready = true
 var current_phase_attack = null
+var step = 10
+var interval = 0
+var lightning_angle = 0
 
 enum AttackPhases{
 	CIRCLE,
 	SPIRAL,
+	LIGHTNING,
+	LIGHTNING_CIRCLE,
 }
 
 
@@ -23,9 +25,13 @@ func _ready():
 func match_phase_of_attack() -> void:
 	match current_phase_attack:
 		AttackPhases.CIRCLE:
-			projectile_circle(15, count)
+			get_node("phase_1_attack_1").projectile_circle(15, wave_count)
 		AttackPhases.SPIRAL:
-			print("04ko")
+			get_node("phase_1_attack_2").projectile_spiral(10)
+		AttackPhases.LIGHTNING:
+			get_node("phase_2_attack_1").hitscan_lightning(24,lightning_angle)
+		AttackPhases.LIGHTNING_CIRCLE:
+			get_node("phase_2_attack_2").itscan_lightning_circle(24,lightning_angle)
 
 
 func wander() -> Vector2:
@@ -35,40 +41,61 @@ func wander() -> Vector2:
 
 func _on_stats_phase1():
 	phase = 1 
-	get_node("phase_wave_cd").start(0.01)#rand_range(0, 10))
+	get_node("phase_wave_cd").start(rand_range(0, 5)) # need play test
 
 
-func projectile_circle(amount, start):
-	for i in range(0, amount, 1):
-		var projectile_instance = projectile.instance()
-		get_root.owner.call_deferred("add_child", projectile_instance)
-		projectile_instance.transform =  get_root.global_transform
-		#projectile_instance.rotation += get_node("../").get_angle_to(get_node("../crosshair").global_position)#???useless?
-		projectile_instance.direction = (Vector2(sin(deg2rad(start + 360/amount * i)), cos(deg2rad(start + 360/amount * i))) )#- get_node("../").global_position).normalized() 
-		projectile_instance.damage = stats.dmg
+func _on_stats_phase2():
+	phase = 2
+	get_node("phase_wave_cd").start(rand_range(0, 5)) # need play test
 
 
-func _on_phase_wave_cd_timeout():
-	if phase == 1 and ready:
-		if count == 0:
-			current_phase_attack = pick_random_phase_attack([AttackPhases.CIRCLE, AttackPhases.SPIRAL])
-		print(count)
-		if count < 80:
-			match_phase_of_attack()
-			count += 10 
-			state = States.STOP
-			get_node("phase_wave_cd").start(0.75)	
-		else:
-			state = States.IDLE
-			get_node("phase_cd").start(rand_range(12, 20))
-			ready = false
-			count = 0
+func _on_stats_phase3():
+	phase = 3
+	get_node("phase_wave_cd").start(rand_range(0, 5)) # need play test
 
 
 func _on_phase_cd_timeout():
-	ready = true
+	is_ready = true
 
 
 func pick_random_phase_attack(attack_list):
 	attack_list.shuffle()
 	return attack_list.pop_front()
+
+
+func _on_phase_wave_cd_timeout():
+	if phase == 1 and is_ready:
+		if wave_count == 0:
+			current_phase_attack = pick_random_phase_attack([AttackPhases.CIRCLE, AttackPhases.SPIRAL])
+		print(wave_count)
+		if wave_count < 80:
+			match_phase_of_attack()
+			wave_count += step
+			state = States.STOP
+			get_node("phase_wave_cd").start(interval)	
+		else:
+			state = States.IDLE
+			get_node("phase_cd").start(rand_range(12, 20))
+			is_ready = false
+			wave_count = 0
+	if phase == 2 and is_ready:
+		if wave_count == 0:
+			current_phase_attack = pick_random_phase_attack([AttackPhases.LIGHTNING, AttackPhases.LIGHTNING_CIRCLE])
+		print(wave_count)
+		if wave_count < 80:
+			match_phase_of_attack()
+			wave_count += step
+			state = States.STOP
+			get_node("phase_wave_cd").start(interval)	
+		else:
+			state = States.IDLE
+			get_node("phase_cd").start(rand_range(12, 20))
+			is_ready = false
+			wave_count = 0
+
+
+
+
+
+
+
