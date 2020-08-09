@@ -61,9 +61,6 @@ shape = SubResource( 3 )
 wait_time = 15.0
 one_shot = true
 
-[node name="phase_wave_cd" type="Timer" parent="control" index="8"]
-one_shot = true
-
 [node name="attack" parent="." index="5" instance=ExtResource( 5 )]
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
@@ -73,10 +70,17 @@ shape = SubResource( 4 )
 script = ExtResource( 7 )
 max_health = 40
 [connection signal="timeout" from="control/phase_cd" to="control" method="_on_phase_cd_timeout"]
-[connection signal="timeout" from="control/phase_wave_cd" to="control" method="_on_phase_wave_cd_timeout"]
 [connection signal="phase1" from="stats" to="control" method="_on_stats_phase1"]
 [connection signal="phase2" from="stats" to="control" method="_on_stats_phase2"]
 [connection signal="phase3" from="stats" to="control" method="_on_stats_phase3"]
+
+[editable path="control/phase_1_attack_1"]
+
+[editable path="control/phase_1_attack_2"]
+
+[editable path="control/phase_2_attack_1"]
+
+[editable path="control/phase_2_attack_2"]
 
 [editable path="control/player_detection_zone"]
 

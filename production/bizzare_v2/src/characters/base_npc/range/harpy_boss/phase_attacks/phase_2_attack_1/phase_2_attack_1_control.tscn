@@ -12,4 +12,7 @@ __meta__ = {
 
 [node name="wave_interval" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="cd" type="Timer" parent="."]
 [connection signal="timeout" from="wave_interval" to="." method="_on_wave_interval_timeout"]
+[connection signal="timeout" from="cd" to="." method="_on_cd_timeout"]

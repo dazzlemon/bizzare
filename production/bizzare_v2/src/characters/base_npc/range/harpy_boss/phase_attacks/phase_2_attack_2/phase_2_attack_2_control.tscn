@@ -17,5 +17,7 @@ one_shot = true
 [node name="duration" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[node name="cd" type="Timer" parent="."]
 [connection signal="timeout" from="wave_interval" to="." method="_on_wave_interval_timeout"]
 [connection signal="timeout" from="duration" to="." method="_on_duration_timeout"]

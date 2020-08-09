@@ -5,4 +5,3 @@
 
 [node name="base_projectile" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-damage = 1
