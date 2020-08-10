@@ -1,13 +1,14 @@
 class_name Phase1Attack2Control
 extends Control
 
+var count = 0 
+var spiral_count = 0 
+var is_ready
+
 onready var projectile = preload("res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_2/phase_1_attack_2_projectile.tscn")
 onready var stats = get_node("../../stats")
 onready var get_root = get_node("../../")
 onready var get_parent = get_node("../")
-
-var count = 0 
-var spiral_count = 0 
 
 
 func projectile_spiral(angle):
