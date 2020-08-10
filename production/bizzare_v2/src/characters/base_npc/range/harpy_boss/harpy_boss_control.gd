@@ -25,11 +25,12 @@ func _on_phase_cd_timeout():
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
 		#roll = rng.randi_range(1, 2)
-		roll = 2################################### DEBUG
+		roll = 1################################### DEBUG
+		phase = 2################################## DEBUG
 		current_phase_attack = "phase_" + str(phase) + "_attack_" + str(roll)
 		print(current_phase_attack)
 		get_node(current_phase_attack + "/wave_interval").start()#every timer has own timings
-		get_node("phase_attack_duration").start(6 + 1.01)#6 is subject to change prolly need to make it var, or mb need to make it own var for each attack
+		get_node("phase_attack_duration").start(6 + 1.01)#take duration as var from current_phas_attack
 
 
 func _on_phase_attack_duration_timeout():

@@ -4,7 +4,7 @@ const utility = preload("res://src/etc/utility.gd")
 
 onready var player = get_node("../../")
 
-func _process(delta):
+func _process(_delta):
 	set_text ("Class:" + str(utility.get_typeof(get_node("../../"))))
 	newline()
 	

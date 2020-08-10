@@ -12,8 +12,8 @@ onready var get_parent = get_node("../")
 
 func projectile_spiral(angle):
 	spawn_projectile(angle)
-	spawn_projectile(180 + angle)
-	#spawn_projectile(-angle)#tentacli
+	#spawn_projectile(180 + angle)#injan
+	spawn_projectile(-angle)#tentacli
 	self.angle += angle_step
 
 

@@ -5,7 +5,7 @@ extends Area2D
 
 
 
-func _on_area_entered(area) -> void:
+func _on_area_entered(_area) -> void:
 	if get_node("../player_detection_zone").can_see_player():
 		get_node("../").state = get_node("../").States.ATTACK	
 

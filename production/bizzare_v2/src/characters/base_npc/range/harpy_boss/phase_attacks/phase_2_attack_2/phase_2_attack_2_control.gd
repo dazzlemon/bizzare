@@ -14,7 +14,7 @@ var interval = 2
 var lightning_angle = 0
 
 func hitscan_lightning_circle(amount,lightning_angle):
-	for i in range (amount):
+	for _i in range (amount):
 		if count < 9:
 			var lightning_circle_instance = lightning_circle.instance()
 			get_root.owner.call_deferred("add_child", lightning_circle_instance)
