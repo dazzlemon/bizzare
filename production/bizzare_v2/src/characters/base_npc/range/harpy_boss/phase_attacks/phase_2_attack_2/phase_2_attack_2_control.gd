@@ -6,27 +6,11 @@ onready var stats = get_node("../../stats")
 onready var get_root = get_node("../../")
 onready var get_parent = get_node("../")
 
-
-var range_diff = 5
-var count = 1
-var interval = 2
-
-var lightning_angle = 0
-
-func hitscan_lightning_circle(amount,lightning_angle):
-	for _i in range (amount):
-		if count < 9:
-			var lightning_circle_instance = lightning_circle.instance()
-			get_root.owner.call_deferred("add_child", lightning_circle_instance)
-			lightning_circle_instance.position =  get_node("../../").global_position
-			lightning_circle_instance.rotation += lightning_angle
-			lightning_angle += deg2rad(15)
-			interval = 2
-			lightning_circle_instance.position = Vector2(0 , range_diff * count)
-			count += 1
-		else: 
-			count = 0
-			get_parent.is_ready = false
+func hitscan_lightning_circle(amount):
+#	for _i in range (amount):
+#		var lightning_circle_instance = lightning_circle.instance()
+#		get_root.owner.call_deferred("add_child", lightning_circle_instance)
+	pass#spawn ring/hoop
 
 
 func try_use():
@@ -39,6 +23,6 @@ func _on_cd_timeout():
 
 func _on_wave_interval_timeout():
 	if get_parent.is_ready:
-		hitscan_lightning_circle(24, lightning_angle)
+		hitscan_lightning_circle(24)
 		get_parent.is_ready = false
 		get_node("wave_interval").start()
