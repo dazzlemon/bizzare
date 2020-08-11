@@ -15,8 +15,16 @@ enum States {
 	CHASE,
 	ATTACK,
 	STOP,
+	DASH,
 }
 
+const state_funcs = {
+	States.IDLE : "idle",
+	States.WANDER : "wander",
+	States.CHASE : "chase",
+	States.ATTACK : "attack",
+	States.STOP : "stop",
+	States.DASH : "dash",}
 
 var state = States.CHASE
 
@@ -25,22 +33,8 @@ func _ready():
 	pick_random_state([States.IDLE, States.WANDER])
 
 
-func get_input_vector():
-	var input_vector: Vector2 
-	match state:
-		States.IDLE:
-			input_vector = idle()
-		States.WANDER:
-			input_vector = wander()
-		States.CHASE:
-			input_vector = chase()
-		States.ATTACK:
-			input_vector = attack()
-		States.STOP:
-			input_vector = stop()
-		States.DASH:
-			input_vector = dash()
-	return input_vector.normalized()
+func get_input_vector() -> Vector2:
+	return call(state_funcs[state]).normalized()
 
 
 func attack_pressed():
