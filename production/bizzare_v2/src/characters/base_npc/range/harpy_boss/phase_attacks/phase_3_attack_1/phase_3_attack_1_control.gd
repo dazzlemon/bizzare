@@ -13,5 +13,5 @@ func start():
 func spawn_apprentice(angle):
 	var apprentice_instance = apprentice.instance()
 	get_node("../../").call_deferred("add_child", apprentice_instance)
-	apprentice_instance.position = Vector2(sin(deg2rad(angle)), cos(deg2rad(angle))) * 50
+	apprentice_instance.position = Vector2(50, 0).rotated(deg2rad(angle))
 	return apprentice_instance

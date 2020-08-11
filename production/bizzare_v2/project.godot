@@ -64,7 +64,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/hitscan/base_hitscan.gd"
 }, {
-"base": "Reference",
+"base": "BaseHitscan",
 "class": "BaseHitscanAlly",
 "language": "GDScript",
 "path": "res://src/attack/hitscan/ally_hitscan/base_hitscan_ally.gd"
@@ -74,7 +74,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/hitscan/ally_hitscan/base_hitscan_ally_hitbox.gd"
 }, {
-"base": "Reference",
+"base": "BaseHitscan",
 "class": "BaseHitscanEnemy",
 "language": "GDScript",
 "path": "res://src/attack/hitscan/enemy_hitscan/base_hitscan_enemy.gd"
@@ -104,12 +104,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/melee/base_npc_melee.gd"
 }, {
-"base": "Reference",
+"base": "BaseNPCControl",
 "class": "BaseNPCMeleeControl",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/melee/base_npc_melee_control.gd"
 }, {
-"base": "Reference",
+"base": "BaseNPC",
 "class": "BaseNPCRange",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/base_npc_range.gd"
@@ -309,7 +309,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_1/phase_1_attack_1_control.gd"
 }, {
-"base": "Reference",
+"base": "HarpyBossProjectile",
 "class": "Phase1Attack1Projectile",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_1/phase_1_attack_1_projectile.gd"
@@ -329,12 +329,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_control.gd"
 }, {
-"base": "Reference",
+"base": "BaseHitscanEnemy",
 "class": "Phase2Attack1Hitscan",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_hitscan.gd"
 }, {
-"base": "Reference",
+"base": "BaseHitscanEnemyHitbox",
 "class": "Phase2Attack1HitscanHitbox",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_hitscan_hitbox.gd"
