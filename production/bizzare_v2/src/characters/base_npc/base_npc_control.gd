@@ -34,7 +34,7 @@ func _ready():
 
 
 func get_input_vector() -> Vector2:
-	return call(state_funcs[state]).normalized()
+	return call(state_funcs[state])#.normalized()
 
 
 func attack_pressed():

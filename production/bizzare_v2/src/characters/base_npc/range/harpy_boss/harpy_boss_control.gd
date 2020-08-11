@@ -6,6 +6,7 @@ var is_ready = true
 var current_phase_attack
 var roll = 0
 var dash_target: Vector2
+var dash_start: Vector2
 
 func _ready():
 	randomize()
@@ -16,12 +17,11 @@ func wander() -> Vector2:
 	return Vector2.ZERO
 
 
-func dash() -> Vector2: #no aggro through walls + stop when hit wall + stop in target 
-	if get_parent().global_position == dash_target :
+func dash() -> Vector2:
+	if get_parent().global_position == dash_target:
 		state = States.IDLE
-	return (dash_target - get_parent().global_position).normalized() * 400
-	
-	
+	return (dash_target - get_parent().global_position) * 3
+
 
 func phase_set(phase_new: int):
 	phase = phase_new
