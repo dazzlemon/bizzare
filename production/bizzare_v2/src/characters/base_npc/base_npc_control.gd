@@ -95,5 +95,5 @@ func stop() -> Vector2:
 	return Vector2.ZERO
 
 
-func dash():
-	pass
+func dash() -> Vector2:
+	return Vector2.ZERO

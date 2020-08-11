@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/characters/base_npc/range/base_npc_range.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/harpy_boss.gd" type="Script" id=2]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/harpy_boss_control.gd" type="Script" id=3]
 [ext_resource path="res://assets/textures/bosspups.png" type="Texture" id=4]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/attack/harpy_boss_projectile_attack.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/phase_2_attack_2_control.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/characters/base_npc/boss_stats.gd" type="Script" id=7]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_1/phase_1_attack_1_control.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_2/phase_1_attack_2_control.tscn" type="PackedScene" id=9]
@@ -35,21 +36,19 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="control" parent="." index="4"]
-margin_right = 40.0
-margin_bottom = 40.0
 script = ExtResource( 3 )
 
-[node name="phase_attack_duration" type="Timer" parent="control" index="0"]
-
-[node name="phase_cd" type="Timer" parent="control" index="1"]
+[node name="phase_cd" type="Timer" parent="control" index="0"]
 wait_time = 15.0
 one_shot = true
 
-[node name="phase_1_attack_1" parent="control" index="2" instance=ExtResource( 8 )]
+[node name="phase_1_attack_1" parent="control" index="1" instance=ExtResource( 8 )]
 
-[node name="phase_1_attack_2" parent="control" index="3" instance=ExtResource( 9 )]
+[node name="phase_1_attack_2" parent="control" index="2" instance=ExtResource( 9 )]
 
-[node name="phase_2_attack_1" parent="control" index="4" instance=ExtResource( 10 )]
+[node name="phase_2_attack_1" parent="control" index="3" instance=ExtResource( 10 )]
+
+[node name="phase_2_attack_2" parent="control" index="4" instance=ExtResource( 6 )]
 
 [node name="CollisionShape2D" parent="control/attack_range" index="0"]
 shape = SubResource( 2 )
@@ -65,7 +64,6 @@ shape = SubResource( 4 )
 [node name="stats" parent="." index="7"]
 script = ExtResource( 7 )
 max_health = 40
-[connection signal="timeout" from="control/phase_attack_duration" to="control" method="_on_phase_attack_duration_timeout"]
 [connection signal="timeout" from="control/phase_cd" to="control" method="_on_phase_cd_timeout"]
 
 [editable path="control/phase_1_attack_1"]
@@ -73,6 +71,8 @@ max_health = 40
 [editable path="control/phase_1_attack_2"]
 
 [editable path="control/phase_2_attack_1"]
+
+[editable path="control/phase_2_attack_2"]
 
 [editable path="control/attack_range"]
 

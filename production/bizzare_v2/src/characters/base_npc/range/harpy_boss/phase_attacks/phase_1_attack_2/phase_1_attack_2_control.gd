@@ -31,5 +31,15 @@ func angle_set(angle_new):
 		angle -= 360
 
 
+func start():
+	get_node("wave_interval").start()
+	get_node("duration").start()
+
+
 func _on_wave_interval_timeout():
 	projectile_spiral(angle)
+
+
+func _on_duration_timeout():
+	get_parent.phase_attack_ended()
+	get_node("wave_interval").stop()

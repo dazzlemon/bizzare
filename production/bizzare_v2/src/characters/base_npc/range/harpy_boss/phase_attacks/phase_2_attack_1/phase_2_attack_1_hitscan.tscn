@@ -12,7 +12,6 @@ script = ExtResource( 2 )
 
 [node name="hitbox" parent="." index="0"]
 script = ExtResource( 3 )
-damage = 1
 
 [node name="CollisionShape2D" parent="hitbox" index="0"]
 position = Vector2( 0, 200 )

@@ -18,5 +18,15 @@ func spawn_lightning(angle):
 	lightning_instance.rotation += angle
 
 
+func start():
+	get_node("wave_interval").start()
+	get_node("duration").start()
+
+
 func _on_wave_interval_timeout():
 	hitscan_lightning(24)
+
+
+func _on_duration_timeout():
+	get_parent.phase_attack_ended()
+	get_node("wave_interval").stop()
