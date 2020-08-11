@@ -38,6 +38,8 @@ func get_input_vector():
 			input_vector = attack()
 		States.STOP:
 			input_vector = stop()
+		States.DASH:
+			input_vector = dash()
 	return input_vector.normalized()
 
 
@@ -97,3 +99,7 @@ func attack() -> Vector2:
 
 func stop() -> Vector2:
 	return Vector2.ZERO
+
+
+func dash():
+	pass

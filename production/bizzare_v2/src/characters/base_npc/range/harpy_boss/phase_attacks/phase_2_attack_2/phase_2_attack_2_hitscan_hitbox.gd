@@ -1,2 +1,2 @@
 class_name Phase2Attack2HitscanHitbox
-extends BaseHitscanHitbox
+extends BaseHitscanEnemyHitbox

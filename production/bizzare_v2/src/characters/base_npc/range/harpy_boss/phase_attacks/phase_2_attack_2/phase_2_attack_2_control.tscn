@@ -2,15 +2,10 @@
 
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/phase_2_attack_2_control.gd" type="Script" id=1]
 
-[node name="Control" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Node" type="Node"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="wave_interval" type="Timer" parent="."]
-wait_time = 0.75
+wait_time = 0.01
 one_shot = true
 [connection signal="timeout" from="wave_interval" to="." method="_on_wave_interval_timeout"]
