@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_3_attack_1/phase_3_attack_1_control.gd" type="Script" id=1]
+
+[node name="Node" type="Node"]
+script = ExtResource( 1 )

@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "BaseNPCRange",
+"class": "Apprentice",
+"language": "GDScript",
+"path": "res://src/characters/base_npc/range/harpy_boss/apprentices/apprentice.gd"
+}, {
+"base": "BaseNPCRangeControl",
+"class": "ApprenticeControl",
+"language": "GDScript",
+"path": "res://src/characters/base_npc/range/harpy_boss/apprentices/control.gd"
+}, {
 "base": "BasePlayer",
 "class": "Archer",
 "language": "GDScript",
@@ -54,7 +64,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/hitscan/base_hitscan.gd"
 }, {
-"base": "BaseHitscan",
+"base": "Reference",
 "class": "BaseHitscanAlly",
 "language": "GDScript",
 "path": "res://src/attack/hitscan/ally_hitscan/base_hitscan_ally.gd"
@@ -64,7 +74,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/hitscan/ally_hitscan/base_hitscan_ally_hitbox.gd"
 }, {
-"base": "BaseHitscan",
+"base": "Reference",
 "class": "BaseHitscanEnemy",
 "language": "GDScript",
 "path": "res://src/attack/hitscan/enemy_hitscan/base_hitscan_enemy.gd"
@@ -94,12 +104,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/melee/base_npc_melee.gd"
 }, {
-"base": "BaseNPCControl",
+"base": "Reference",
 "class": "BaseNPCMeleeControl",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/melee/base_npc_melee_control.gd"
 }, {
-"base": "BaseNPC",
+"base": "Reference",
 "class": "BaseNPCRange",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/base_npc_range.gd"
@@ -299,7 +309,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_1/phase_1_attack_1_control.gd"
 }, {
-"base": "HarpyBossProjectile",
+"base": "Reference",
 "class": "Phase1Attack1Projectile",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_1/phase_1_attack_1_projectile.gd"
@@ -319,12 +329,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_control.gd"
 }, {
-"base": "BaseHitscanEnemy",
+"base": "Reference",
 "class": "Phase2Attack1Hitscan",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_hitscan.gd"
 }, {
-"base": "BaseHitscanEnemyHitbox",
+"base": "Reference",
 "class": "Phase2Attack1HitscanHitbox",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_hitscan_hitbox.gd"
@@ -343,6 +353,11 @@ _global_script_classes=[ {
 "class": "Phase2Attack2HitscanHitbox",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/phase_2_attack_2_hitscan_hitbox.gd"
+}, {
+"base": "Node",
+"class": "Phase3Attack1Control",
+"language": "GDScript",
+"path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_3_attack_1/phase_3_attack_1_control.gd"
 }, {
 "base": "Area2D",
 "class": "PlayerDetectionZone",
@@ -380,6 +395,8 @@ _global_script_classes=[ {
 "path": "res://src/levels/world_test_level.gd"
 } ]
 _global_script_class_icons={
+"Apprentice": "",
+"ApprenticeControl": "",
 "Archer": "",
 "ArcherASboost": "",
 "ArcherProjectile": "",
@@ -447,6 +464,7 @@ _global_script_class_icons={
 "Phase2Attack2": "",
 "Phase2Attack2Control": "",
 "Phase2Attack2HitscanHitbox": "",
+"Phase3Attack1Control": "",
 "PlayerDetectionZone": "",
 "RangeGoblin": "",
 "RangeGoblinControl": "",
