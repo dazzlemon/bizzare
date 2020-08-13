@@ -66,7 +66,7 @@ shape = SubResource( 4 )
 
 [node name="stats" parent="." index="7"]
 script = ExtResource( 7 )
-max_health = 40
+max_health = 40.0
 [connection signal="timeout" from="control/phase_cd" to="control" method="_on_phase_cd_timeout"]
 
 [editable path="control/phase_1_attack_1"]

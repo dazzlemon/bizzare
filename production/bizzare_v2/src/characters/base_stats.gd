@@ -7,11 +7,11 @@ extends Node
 signal no_health
 
 
-export var max_health = 1# int/float?
+export var max_health: float = 1# int/float?
 export var max_armor = 0# same
 
 
-onready var health = max_health setget set_health# same
+onready var health: float = max_health setget set_health# same
 onready var armor = max_armor setget set_armor# same
 onready var dmg = 1 setget set_dmg
 

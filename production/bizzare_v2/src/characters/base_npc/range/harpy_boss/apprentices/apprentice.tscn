@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/characters/base_npc/range/base_npc_range.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/apprentices/apprentice.gd" type="Script" id=2]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/apprentices/control.gd" type="Script" id=3]
 [ext_resource path="res://assets/textures/Coin.png" type="Texture" id=4]
+[ext_resource path="res://src/characters/base_npc/range/harpy_boss/apprentices/stats.gd" type="Script" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 5.25
+height = 11.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 20.7635
 
 [node name="base_npc" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -11,8 +19,19 @@ script = ExtResource( 2 )
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 4 )
 
+[node name="collision_box" parent="." index="3"]
+position = Vector2( 0.25, 13.75 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
 [node name="control" parent="." index="4"]
 script = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+shape = SubResource( 2 )
+
+[node name="stats" parent="." index="6"]
+script = ExtResource( 5 )
 
 [editable path="control/attack_range"]
 
