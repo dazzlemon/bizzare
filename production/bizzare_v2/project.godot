@@ -379,6 +379,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/range_goblin/range_goblin_control.gd"
 }, {
+"base": "RayCast2D",
+"class": "RayHitscan",
+"language": "GDScript",
+"path": "res://src/attack/ray_hitscan/ray_hitscan.gd"
+}, {
 "base": "BaseNPCMelee",
 "class": "Shadow",
 "language": "GDScript",
@@ -474,6 +479,7 @@ _global_script_class_icons={
 "PlayerDetectionZone": "",
 "RangeGoblin": "",
 "RangeGoblinControl": "",
+"RayHitscan": "",
 "Shadow": "",
 "ShadowControl": "",
 "WanderController": "",

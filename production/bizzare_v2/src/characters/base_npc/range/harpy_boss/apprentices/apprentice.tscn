@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/characters/base_npc/range/base_npc_range.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/apprentices/apprentice.gd" type="Script" id=2]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/apprentices/control.gd" type="Script" id=3]
 [ext_resource path="res://assets/textures/Coin.png" type="Texture" id=4]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/apprentices/stats.gd" type="Script" id=5]
+[ext_resource path="res://src/attack/ray_hitscan/ray_hitscan.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.25
@@ -25,6 +26,8 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="control" parent="." index="4"]
+margin_right = 40.0
+margin_bottom = 40.0
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
@@ -32,6 +35,11 @@ shape = SubResource( 2 )
 
 [node name="stats" parent="." index="6"]
 script = ExtResource( 5 )
+
+[node name="attack" parent="." index="7" instance=ExtResource( 6 )]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="control/attack_range"]
 

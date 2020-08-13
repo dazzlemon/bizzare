@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/attack/ray_hitscan/ray_hitscan.gd" type="Script" id=1]
+
+[node name="ray_hitscan" type="RayCast2D"]
+script = ExtResource( 1 )

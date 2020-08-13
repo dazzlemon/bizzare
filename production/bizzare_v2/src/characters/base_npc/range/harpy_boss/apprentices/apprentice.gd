@@ -6,3 +6,6 @@ func _process(delta):
 
 func drop_loot():
 	pass
+
+func _on_stats_no_health():
+	pass
