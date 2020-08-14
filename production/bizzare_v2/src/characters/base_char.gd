@@ -8,7 +8,6 @@ export var DECEL = 2000
 export var MAX_SPEED = 300# all of these have to be const, but changeable for inherited classes
 
 var knockback := Vector2.ZERO# eto vse v ideale ubrat
-const knockback_speed = 200# eto vse v ideale ubrat
 var velocity := Vector2.ZERO
 
 onready var stats = $stats
@@ -16,19 +15,19 @@ onready var control = $control#prolly dont need static typing
 onready var spell_1 = $spell_1
 onready var spell_2 = $spell_2
 
-func accelerate(delta: float, input_vector: Vector2) -> Vector2:
-	return velocity.move_toward(input_vector * MAX_SPEED, ACCEL * delta)
+func accelerate(delta: float, speed: Vector2, input_vector: Vector2) -> Vector2:
+	return speed.move_toward(input_vector * MAX_SPEED, ACCEL * delta)
 
 
-func decelerate(delta: float) -> Vector2:
-	return velocity.move_toward(Vector2.ZERO, DECEL * delta)
+func decelerate(delta: float, speed: Vector2) -> Vector2:
+	return speed.move_toward(Vector2.ZERO, DECEL * delta)
 
 
 func _physics_process(delta: float) -> void:
 	var input_vector: Vector2 = control.get_input_vector()#:=
-	velocity = decelerate(delta) if input_vector == Vector2.ZERO else accelerate(delta, input_vector)
+	velocity = decelerate(delta, velocity) if input_vector == Vector2.ZERO else accelerate(delta, velocity, input_vector)
 	velocity = move_and_slide(velocity)
-	knockback = knockback.move_toward(Vector2.ZERO, knockback_speed * delta)
+	knockback = decelerate(delta, knockback)#knockback.move_toward(Vector2.ZERO, knockback_speed * delta)
 	knockback = move_and_slide(knockback)
 
 

@@ -37,8 +37,6 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="control" parent="." index="4"]
-margin_right = 40.0
-margin_bottom = 40.0
 script = ExtResource( 3 )
 
 [node name="phase_cd" type="Timer" parent="control" index="0"]
@@ -70,9 +68,6 @@ shape = SubResource( 4 )
 script = ExtResource( 7 )
 max_health = 40.0
 [connection signal="timeout" from="control/phase_cd" to="control" method="_on_phase_cd_timeout"]
-[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
-[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="control/phase_1_attack_1"]
 
