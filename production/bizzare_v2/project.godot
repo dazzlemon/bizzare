@@ -492,6 +492,10 @@ config/name="bizzare_v2"
 run/main_scene="res://src/levels/world_test_level.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Pause="*res://src/autoloads/Pause.tscn"
+
 [display]
 
 window/size/width=480
