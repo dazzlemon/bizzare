@@ -7,13 +7,18 @@ export var ACCEL = 2000
 export var DECEL = 2000
 export var MAX_SPEED = 300# all of these have to be const, but changeable for inherited classes
 
-var knockback := Vector2.ZERO# eto vse v ideale ubrat
 var velocity := Vector2.ZERO
+var state = States.SMOOTH_MOVEMENT
 
 onready var stats = $stats
 onready var control = $control#prolly dont need static typing
 onready var spell_1 = $spell_1
 onready var spell_2 = $spell_2
+
+enum States {
+	KNOCKED_BACK,
+	SMOOTH_MOVEMENT,
+}
 
 func accelerate(delta: float, speed: Vector2, input_vector: Vector2) -> Vector2:
 	return speed.move_toward(input_vector * MAX_SPEED, ACCEL * delta)
@@ -25,10 +30,15 @@ func decelerate(delta: float, speed: Vector2) -> Vector2:
 
 func _physics_process(delta: float) -> void:
 	var input_vector: Vector2 = control.get_input_vector()#:=
-	velocity = decelerate(delta, velocity) if input_vector == Vector2.ZERO else accelerate(delta, velocity, input_vector)
-	velocity = move_and_slide(velocity)
-	knockback = decelerate(delta, knockback)#knockback.move_toward(Vector2.ZERO, knockback_speed * delta)
-	knockback = move_and_slide(knockback)
+	match(state):
+		States.KNOCKED_BACK:
+			velocity = decelerate(delta, velocity)#knockback.move_toward(Vector2.ZERO, knockback_speed * delta)
+			velocity = move_and_slide(velocity)
+			if velocity == Vector2.ZERO:
+				state = States.SMOOTH_MOVEMENT
+		States.SMOOTH_MOVEMENT:
+			velocity = decelerate(delta, velocity) if input_vector == Vector2.ZERO else accelerate(delta, velocity, input_vector)
+			velocity = move_and_slide(velocity)
 
 
 func _on_stats_no_health() -> void:
@@ -53,7 +63,8 @@ func die() -> void:
 
 func _on_hurtbox_area_entered(area) -> void:#hitscan hitreg
 	if area is KnightAOEHitbox:
-		knockback = area.knockback(self)
+		state = States.KNOCKED_BACK
+		velocity = area.knockback(self) # SDELAT' ROFLAN MASSU
 	if area is BaseHitscanHitbox:#tmp(without this condition getting an error)
 		take_damage(area.damage)
 

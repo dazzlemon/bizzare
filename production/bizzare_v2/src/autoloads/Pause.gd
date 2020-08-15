@@ -6,16 +6,16 @@ func _ready():
 	
 
 func _input(event):
-	
 	if event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		set_visible(!get_tree().paused)
-		get_tree().paused = !get_tree().paused
+		set_visible(!get_tree().paused)#hide if not paused
+		get_tree().paused = !get_tree().paused#switch status
 
 
 func _on_Button_pressed():
 	get_tree().paused = false
 	set_visible(false)
+
 
 func set_visible(is_visible):
 	for node in get_children():
