@@ -8,7 +8,7 @@ export var DECEL = 2000
 export var MAX_SPEED = 300# all of these have to be const, but changeable for inherited classes
 
 var velocity := Vector2.ZERO
-var state = States.SMOOTH_MOVEMENT
+var state = States.FRICTION
 
 onready var stats = $stats
 onready var control = $control#prolly dont need static typing
@@ -17,7 +17,8 @@ onready var spell_2 = $spell_2
 
 enum States {
 	KNOCKED_BACK,
-	SMOOTH_MOVEMENT,
+	FRICTION,
+	NO_FRICTION,
 }
 
 func accelerate(delta: float, speed: Vector2, input_vector: Vector2) -> Vector2:
@@ -36,10 +37,12 @@ func _physics_process(delta: float) -> void:
 			velocity = move_and_slide(velocity)
 			if velocity == Vector2.ZERO:
 				state = States.SMOOTH_MOVEMENT
-		States.SMOOTH_MOVEMENT:
+		States.FRICTION:
 			velocity = decelerate(delta, velocity) if input_vector == Vector2.ZERO else accelerate(delta, velocity, input_vector)
 			velocity = move_and_slide(velocity)
-
+		States.NO_FRICTION:
+			velocity = Vector2.ZERO
+			move_and_slide(input_vector * MAX_SPEED)
 
 func _on_stats_no_health() -> void:
 	die()

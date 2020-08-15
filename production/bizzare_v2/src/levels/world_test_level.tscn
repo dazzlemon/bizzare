@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/textures/background_checkerboard_test360p.png" type="Texture" id=1]
 [ext_resource path="res://src/characters/base_npc/melee/goblin/goblin.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/characters/base_player/knight/knight.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/characters/base_player/archer/archer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/levels/world_test_level.gd" type="Script" id=4]
 [ext_resource path="res://src/characters/base_npc/range/range_goblin/range_goblin.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/harpy_boss.tscn" type="PackedScene" id=6]

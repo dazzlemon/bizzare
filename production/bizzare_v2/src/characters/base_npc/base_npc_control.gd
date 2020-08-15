@@ -24,7 +24,8 @@ const state_funcs = {
 	States.CHASE : "chase",
 	States.ATTACK : "attack",
 	States.STOP : "stop",
-	States.DASH : "dash",}
+	States.DASH : "dash",
+	}
 
 var state = States.CHASE
 
