@@ -23,7 +23,7 @@ func _process(delta):
 
 func update_state():
 	var projectile_instance = projectile.instance()
-	get_node("../").owner.add_child(projectile_instance)
+	get_node("../").owner.call_deferred("add_child", projectile_instance)
 	projectile_instance.transform = get_node("../").global_transform
 	#projectile_instance.rotation += get_node("../").get_angle_to(get_node("../crosshair").global_position)#???useless?
 	projectile_instance.direction = (get_node("../crosshair").global_position - get_node("../").global_position).normalized()#use local crosshair's position instead of mice's one
