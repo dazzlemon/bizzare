@@ -394,6 +394,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/melee/shadow/shadow_control.gd"
 }, {
+"base": "BaseHitscanEnemy",
+"class": "ShadowHitscan",
+"language": "GDScript",
+"path": "res://src/characters/base_npc/melee/shadow/attack/shadow_hitscan.gd"
+}, {
+"base": "BaseHitscanEnemyHitbox",
+"class": "ShadowHitscanHitbox",
+"language": "GDScript",
+"path": "res://src/characters/base_npc/melee/shadow/attack/shadow_hitscan_hitbox.gd"
+}, {
 "base": "Node2D",
 "class": "WanderController",
 "language": "GDScript",
@@ -482,6 +492,8 @@ _global_script_class_icons={
 "RayHitscan": "",
 "Shadow": "",
 "ShadowControl": "",
+"ShadowHitscan": "",
+"ShadowHitscanHitbox": "",
 "WanderController": "",
 "WorldTestLevel": ""
 }
