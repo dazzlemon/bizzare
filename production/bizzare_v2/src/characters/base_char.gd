@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 			velocity = decelerate(delta, velocity)#knockback.move_toward(Vector2.ZERO, knockback_speed * delta)
 			velocity = move_and_slide(velocity)
 			if velocity == Vector2.ZERO:
-				state = States.SMOOTH_MOVEMENT
+				state = States.NO_FRICTION
 		States.FRICTION:
 			velocity = decelerate(delta, velocity) if input_vector == Vector2.ZERO else accelerate(delta, velocity, input_vector)
 			velocity = move_and_slide(velocity)

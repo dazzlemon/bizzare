@@ -10,3 +10,10 @@ script = ExtResource( 2 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+
+[node name="cd" type="Timer" parent="."]
+one_shot = true
+
+[node name="duration" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="duration" to="." method="_on_duration_timeout"]

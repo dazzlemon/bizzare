@@ -1,12 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/attack/projectile/enemy/base_projectile_enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/range/harpy/attack/harpy_projectile.gd" type="Script" id=2]
-[ext_resource path="res://src/AI/player_detection_zone.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/textures/Coin.png" type="Texture" id=4]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 98.7434
 
 [node name="base_projectile" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -14,17 +10,5 @@ script = ExtResource( 2 )
 [node name="sprite" parent="." index="0"]
 texture = ExtResource( 4 )
 
-[node name="player_detection_zone" parent="." index="2" instance=ExtResource( 3 )]
-
-[node name="CollisionShape2D" parent="player_detection_zone" index="0"]
-position = Vector2( 0, 0.56123 )
-shape = SubResource( 1 )
-
-[node name="LookAt" parent="player_detection_zone" index="1"]
-position = Vector2( -0.840897, 0 )
-
-[node name="update" type="Timer" parent="." index="3"]
-wait_time = 0.75
-[connection signal="timeout" from="update" to="." method="_on_update_timeout"]
-
-[editable path="player_detection_zone"]
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false

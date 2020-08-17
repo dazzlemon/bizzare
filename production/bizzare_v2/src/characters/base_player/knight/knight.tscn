@@ -94,6 +94,7 @@ shape = SubResource( 10 )
 
 [node name="stats" parent="." index="6"]
 script = ExtResource( 3 )
+max_health = 1000.0
 
 [node name="HUD" parent="Camera2D" index="0"]
 margin_right = -185.0
@@ -109,6 +110,9 @@ position = Vector2( 25, 0 )
 shape = SubResource( 11 )
 disabled = true
 
+[node name="interval" type="Timer" parent="attack" index="1"]
+one_shot = true
+
 [node name="spell_1" parent="." index="11" instance=ExtResource( 7 )]
 
 [node name="CollisionShape2D" parent="spell_1/hitbox" index="0"]
@@ -116,10 +120,7 @@ position = Vector2( 24.8614, -0.166855 )
 shape = SubResource( 12 )
 disabled = true
 
-[node name="duration" type="Timer" parent="spell_1" index="1"]
-one_shot = true
-
-[node name="cd" type="Timer" parent="spell_1" index="2"]
+[node name="interval" type="Timer" parent="spell_1" index="1"]
 one_shot = true
 
 [node name="spell_2" parent="." index="12" instance=ExtResource( 8 )]
