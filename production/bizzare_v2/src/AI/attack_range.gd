@@ -1,14 +1,12 @@
 class_name AttackRange
 extends Area2D
 
-#mb add static typing? + possibly need a rework to avoid using null reference
-
-
+onready var parent = get_node("../")
 
 func _on_area_entered(_area) -> void:
-	if get_node("../player_detection_zone").can_see_player() and get_node("../").state != get_node("../").States.DASH:
-		get_node("../").state = get_node("../").States.ATTACK	
+	if parent.get_node("player_detection_zone").can_see_player() and parent.state != parent.States.DASH:
+		parent.state = parent.States.ATTACK	
 
 
 func _on_area_exited(_area) -> void:
-	get_node("../").state = get_node("../").pick_random_state([get_node("../").States.IDLE, get_node("../").States.WANDER])
+	parent.state = parent.pick_random_state([parent.States.IDLE, parent.States.WANDER])

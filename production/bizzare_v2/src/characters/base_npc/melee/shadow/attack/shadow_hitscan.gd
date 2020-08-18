@@ -2,5 +2,5 @@ class_name ShadowHitscan
 extends BaseHitscanEnemy
 
 func _ready():
-	ATTACK_DURATION_SEC = 0.25
-	ATTACK_INTERVAL = 0.1
+	_DURATION = 0.25
+	_INTERVAL = 0.1

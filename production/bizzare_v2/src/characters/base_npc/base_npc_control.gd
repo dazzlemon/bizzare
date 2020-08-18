@@ -81,7 +81,6 @@ func chase() -> Vector2:
 		direction = this_enemy.global_position.direction_to(player.global_position)
 	else:
 		state = States.IDLE
-#	sprite.flip_h = velocity.x < 0 #(rotate spite in player direction)
 	return direction
 
 func attack() -> Vector2:
