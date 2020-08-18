@@ -379,7 +379,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/range_goblin/range_goblin_control.gd"
 }, {
-"base": "RayCast2D",
+"base": "SpellCdDuration",
 "class": "RayHitscan",
 "language": "GDScript",
 "path": "res://src/attack/ray_hitscan/ray_hitscan.gd"
