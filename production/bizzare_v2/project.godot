@@ -64,7 +64,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_control.gd"
 }, {
-"base": "Position2D",
+"base": "SpellCdDuration",
 "class": "BaseHitscan",
 "language": "GDScript",
 "path": "res://src/attack/hitscan/base_hitscan.gd"
@@ -405,6 +405,16 @@ _global_script_classes=[ {
 "path": "res://src/characters/base_npc/melee/shadow/attack/shadow_hitscan_hitbox.gd"
 }, {
 "base": "Node2D",
+"class": "SpellCd",
+"language": "GDScript",
+"path": "res://src/spell_cd/spell_cd.gd"
+}, {
+"base": "SpellCd",
+"class": "SpellCdDuration",
+"language": "GDScript",
+"path": "res://src/spell_cd/spell_cd_duration/spell_cd_duration.gd"
+}, {
+"base": "Node2D",
 "class": "WanderController",
 "language": "GDScript",
 "path": "res://src/AI/wander_controller.gd"
@@ -494,6 +504,8 @@ _global_script_class_icons={
 "ShadowControl": "",
 "ShadowHitscan": "",
 "ShadowHitscanHitbox": "",
+"SpellCd": "",
+"SpellCdDuration": "",
 "WanderController": "",
 "WorldTestLevel": ""
 }
