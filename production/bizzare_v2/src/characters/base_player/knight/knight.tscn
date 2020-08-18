@@ -68,6 +68,7 @@ hframes = 2
 [node name="AnimatedSprite" type="AnimatedSprite" parent="pivot" index="1"]
 frames = SubResource( 8 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="collision_box" parent="." index="3"]
