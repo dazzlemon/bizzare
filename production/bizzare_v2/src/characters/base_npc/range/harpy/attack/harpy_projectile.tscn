@@ -2,13 +2,12 @@
 
 [ext_resource path="res://src/attack/projectile/enemy/base_projectile_enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/range/harpy/attack/harpy_projectile.gd" type="Script" id=2]
-[ext_resource path="res://assets/textures/Coin.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
 
 [node name="base_projectile" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="sprite" parent="." index="0"]
-texture = ExtResource( 4 )
-
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false
+shape = SubResource( 1 )

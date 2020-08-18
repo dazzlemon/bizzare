@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/attack/ray_hitscan/ray_hitscan.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_3_attack_2/harpy_ray_hitscan.gd" type="Script" id=2]
+
+[node name="ray_hitscan" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
