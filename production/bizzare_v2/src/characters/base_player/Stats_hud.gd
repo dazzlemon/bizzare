@@ -3,6 +3,7 @@ extends RichTextLabel
 const utility = preload("res://src/etc/utility.gd")
 
 onready var player = get_node("../../")
+onready var spell1_dur = get_node("../../spell_1/duration")
 
 func _process(_delta):
 	set_text ("Class:" + str(utility.get_typeof(get_node("../../"))))
@@ -17,8 +18,9 @@ func _process(_delta):
 	add_text("Damage:" + str(get_node("../../stats").dmg))
 	newline()
 	
-	add_text("Spell_1_active:" + (str(stepify(get_node("../../spell_1/duration").get_time_left(),0.01)) if player.spell_1 != null else ""))	
-	newline()
+	if spell1_dur != null:
+		add_text("Spell_1_active:" + (str(stepify(spell1_dur.get_time_left(),0.01)) if player.spell_1 != null else ""))	
+		newline()
 	
 	add_text("Spell_1_cd:" + (str(stepify(get_node("../../spell_1/cd").get_time_left(),0.01)) if player.spell_1 != null else ""))
 	newline()

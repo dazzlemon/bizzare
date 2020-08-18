@@ -154,7 +154,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/projectile/ally/base_projectile_ally.gd"
 }, {
-"base": "Control",
+"base": "SpellCd",
 "class": "BaseProjectileAttack",
 "language": "GDScript",
 "path": "res://src/attack/projectile/base_projectile_attack.gd"
