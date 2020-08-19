@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/spell_cd/phase_attacks/phase_attacks.gd" type="Script" id=1]
+[ext_resource path="res://src/spell_cd/spell_cd_duration_wave/spell_cd_duration_wave.tscn" type="PackedScene" id=2]
+
+[node name="SpellCdDurationWave" instance=ExtResource( 2 )]
+script = ExtResource( 1 )

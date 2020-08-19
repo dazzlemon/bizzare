@@ -7,7 +7,7 @@
 [node name="base_hitscan" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
 
-[node name="Position2D" type="Position2D" parent="." index="4"]
+[node name="Position2D" type="Position2D" parent="." index="2"]
 
 [node name="hitbox" type="Area2D" parent="Position2D" index="0"]
 collision_layer = 32

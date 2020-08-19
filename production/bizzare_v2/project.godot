@@ -289,12 +289,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_3_attack_2/harpy_ray_hitscan.gd"
 }, {
-"base": "ExplosiveHitscan",
+"base": "Reference",
 "class": "HarpyStomp",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/harpy_stomp.gd"
 }, {
-"base": "ExplosionHitscan",
+"base": "Reference",
 "class": "HarpyStompHitbox",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/harpy_stomp_hitbox.gd"
@@ -334,7 +334,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_player/knight/knight_stats.gd"
 }, {
-"base": "Control",
+"base": "SpellCdDurationWave",
 "class": "Phase1Attack1Control",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_1/phase_1_attack_1_control.gd"
@@ -383,6 +383,11 @@ _global_script_classes=[ {
 "class": "Phase3Attack2Control",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_3_attack_2/phase_3_attack_2.gd"
+}, {
+"base": "SpellCdDurationWave",
+"class": "PhaseAttacks",
+"language": "GDScript",
+"path": "res://src/spell_cd/phase_attacks/phase_attacks.gd"
 }, {
 "base": "Area2D",
 "class": "PlayerDetectionZone",
@@ -535,6 +540,7 @@ _global_script_class_icons={
 "Phase2Attack2Control": "",
 "Phase3Attack1Control": "",
 "Phase3Attack2Control": "",
+"PhaseAttacks": "",
 "PlayerDetectionZone": "",
 "RangeGoblin": "",
 "RangeGoblinControl": "",

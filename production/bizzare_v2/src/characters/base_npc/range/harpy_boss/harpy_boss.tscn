@@ -46,6 +46,12 @@ one_shot = true
 
 [node name="phase_1_attack_1" parent="control" index="1" instance=ExtResource( 8 )]
 
+[node name="duration" parent="control/phase_1_attack_1" index="1"]
+wait_time = 1.0
+
+[node name="wave_interval" parent="control/phase_1_attack_1" index="2"]
+wait_time = 1.0
+
 [node name="phase_1_attack_2" parent="control" index="2" instance=ExtResource( 9 )]
 
 [node name="phase_2_attack_1" parent="control" index="3" instance=ExtResource( 10 )]
