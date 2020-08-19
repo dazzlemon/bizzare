@@ -3,17 +3,16 @@ extends Node
 
 
 var angle = 0 setget angle_set
-var angle_step = 10
+var angle_step = 40
 
 onready var projectile = preload("res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_3_attack_2/tornado_projectile.tscn")
 onready var stats = get_node("../../stats")
 onready var get_root = get_node("../../")
 onready var get_parent = get_node("../")
-#onready var look_at = $LookAt/RayCast2D
+onready var ray_hitscan = $ray_hitscan
 
 func _process(delta):
-	#look_at.cast_to(0,0)
-	pass
+	ray_hitscan.try_use()
 
 
 func projectile_tornado(amount, start):
@@ -26,6 +25,7 @@ func spawn_projectile(angle):
 	var projectile_instance = projectile.instance()
 	get_root.owner.call_deferred("add_child", projectile_instance)
 	projectile_instance.transform = get_root.global_transform
+	projectile_instance.position =  get_root.global_position + Vector2(0, 75).rotated(deg2rad(angle))
 	projectile_instance.direction = (Vector2(sin(angle), cos(angle)))
 	projectile_instance.damage = stats.dmg
 
@@ -42,7 +42,7 @@ func start():
 
 
 func _on_wave_interval_timeout():
-	projectile_tornado(1, angle)
+	projectile_tornado(3, angle)
 
 
 func _on_duration_timeout():
