@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/spell_cd/spell_cd_duration/spell_cd_duration.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/spell_cd/spell_cd_duration_wave/spell_cd_duration_wave.gd" type="Script" id=2]
+
+[node name="SpellCdDurationWave" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="wave_interval" type="Timer" parent="." index="2"]
+[connection signal="timeout" from="wave_interval" to="." method="_on_wave_interval_timeout"]
