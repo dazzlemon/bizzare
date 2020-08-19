@@ -42,7 +42,7 @@ func _on_phase_cd_timeout():
 		phase = 1################################## DEBUG
 		current_phase_attack = "phase_" + str(phase) + "_attack_" + str(roll)
 		print(current_phase_attack)
-		get_node(current_phase_attack)._try_use()
+		get_node(current_phase_attack).try_use()
 
 
 func phase_attack_ended():

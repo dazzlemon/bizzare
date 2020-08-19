@@ -13,7 +13,7 @@ export var max_armor = 0# same
 
 onready var health: float = max_health setget set_health# same
 onready var armor = max_armor setget set_armor# same
-onready var dmg = 1 setget set_dmg
+onready var damage = 1 setget set_damage
 
 func set_armor(value) -> void:#idk static type?
 	armor = value
@@ -33,9 +33,9 @@ func get_health():
 	return health
 
 
-func set_dmg(value) -> void:
-	dmg = value
+func set_damage(value) -> void:
+	damage = value
 
 
-func get_dmg():
-	return dmg
+func get_damage():
+	return damage

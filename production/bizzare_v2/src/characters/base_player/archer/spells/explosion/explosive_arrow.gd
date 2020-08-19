@@ -19,4 +19,4 @@ func update_state():
 	projectile_instance.transform = get_node("../").global_transform
 	projectile_instance.rotation += get_node("../").get_angle_to(get_global_mouse_position())
 	projectile_instance.direction = (get_global_mouse_position() - get_node("../").global_position).normalized()
-	projectile_instance.explosion_damage = get_node("../stats").dmg * 3
+	projectile_instance.explosion_damage = get_node("../stats").damage * 3

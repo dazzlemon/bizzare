@@ -29,13 +29,17 @@ func spawn_projectile(angle):
 	get_root.owner.call_deferred("add_child", projectile_instance)
 	projectile_instance.transform = get_root.global_transform
 	projectile_instance.direction = (Vector2(sin(angle), cos(angle)))
-	projectile_instance.damage = stats.dmg
+	projectile_instance.damage = stats.damage
 
 
 func angle_set(angle_new):
 	angle = angle_new
 	while angle >= 360:
 		angle -= 360
+
+
+func _stop():
+	get_parent.phase_attack_ended()
 
 #func projectile_circle(amount, start):
 #	for i in range(0, amount, 1): #maybe potencialniy amount + 1

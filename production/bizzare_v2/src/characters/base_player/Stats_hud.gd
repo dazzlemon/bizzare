@@ -7,7 +7,7 @@ func _process(_delta):#temporary so i wont even bother refactoring it
 	set_text ("Class:" + str(Utility.get_typeof(get_node("../../"))) + "\n".c_unescape())
 	add_text("HP:" + str(get_node("../../stats").health) + "\n".c_unescape())
 	add_text("Armor:" + str(get_node("../../stats").armor) + "\n".c_unescape())
-	add_text("Damage:" + str(get_node("../../stats").dmg) + "\n".c_unescape())
+	add_text("Damage:" + str(get_node("../../stats").damage) + "\n".c_unescape())
 	if spell1_dur != null:
 		add_text("Spell_1_active:" + (str(stepify(spell1_dur.get_time_left(),0.01)) if player.spell_1 != null else "") + "\n".c_unescape())
 	add_text("Spell_1_cd:" + (str(stepify(get_node("../../spell_1/cd").get_time_left(),0.01)) if player.spell_1 != null else "") + "\n".c_unescape())

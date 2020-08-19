@@ -24,7 +24,7 @@ func spawn_projectile(angle):
 	projectile_instance.transform = get_root.global_transform
 	projectile_instance.position = get_root.global_position + Vector2(0, 150).rotated(angle)
 	projectile_instance.direction = (Vector2(sin(angle), cos(angle)))
-	projectile_instance.damage = stats.dmg
+	projectile_instance.damage = stats.damage
 
 
 func angle_set(angle_new):

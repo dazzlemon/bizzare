@@ -15,6 +15,7 @@ func _on_wave_interval_timeout():
 
 
 func _on_duration_timeout():
+	_wave_interval.stop()
 	_stop()
 
 

@@ -22,7 +22,7 @@ func spawn_projectile(angle):
 	get_root.owner.call_deferred("add_child", projectile_instance)
 	projectile_instance.transform = get_root.global_transform
 	projectile_instance.direction = (Vector2(sin(deg2rad(angle)), cos(deg2rad(angle))))
-	projectile_instance.damage = stats.dmg
+	projectile_instance.damage = stats.damage
 
 
 func angle_set(angle_new):
