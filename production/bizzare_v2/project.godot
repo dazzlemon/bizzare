@@ -94,6 +94,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/hitscan/base_hitscan_hitbox.gd"
 }, {
+"base": "Area2D",
+"class": "BaseHurtbox",
+"language": "GDScript",
+"path": "res://src/characters/base_hurtbox.gd"
+}, {
 "base": "BaseChar",
 "class": "BaseNPC",
 "language": "GDScript",
@@ -467,6 +472,7 @@ _global_script_class_icons={
 "BaseHitscanEnemy": "",
 "BaseHitscanEnemyHitbox": "",
 "BaseHitscanHitbox": "",
+"BaseHurtbox": "",
 "BaseNPC": "",
 "BaseNPCControl": "",
 "BaseNPCMelee": "",

@@ -8,5 +8,4 @@
 script = ExtResource( 2 )
 
 [node name="RayCast2D" parent="." index="2"]
-enabled = true
 script = ExtResource( 3 )

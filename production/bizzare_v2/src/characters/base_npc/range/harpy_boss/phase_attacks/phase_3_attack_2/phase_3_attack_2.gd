@@ -11,9 +11,6 @@ onready var get_root = get_node("../../")
 onready var get_parent = get_node("../")
 onready var ray_hitscan = $ray_hitscan
 
-func _process(delta):
-	ray_hitscan.try_use()
-
 
 func projectile_tornado(amount, start):
 	for i in range(0, amount, 1): #maybe potencialniy amount + 1
@@ -39,7 +36,7 @@ func angle_set(angle_new):
 func start():
 	get_node("wave_interval").start()
 	get_node("duration").start()
-
+	ray_hitscan.try_use()
 
 func _on_wave_interval_timeout():
 	projectile_tornado(3, angle)
