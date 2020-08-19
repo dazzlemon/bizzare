@@ -8,4 +8,5 @@ func _process(delta):
 func _ready():
 	cast_to = Vector2(200,0)
 	crosshair = double_up.get_node("../../crosshair")
+	player_detection_zone = double_up.get_node("../player_detection_zone")
 	double_up = double_up.get_node("../../")
