@@ -19,8 +19,7 @@ func _on_Timer_timeout() -> void:
 
 
 func update_target_position() -> void:
-	var target_vector := Vector2(rand_range(-wander_range,wander_range), rand_range(-wander_range,wander_range))
-	position_target = position_start + target_vector
+	position_target = position_start + Vector2(rand_range(-wander_range,wander_range), rand_range(-wander_range,wander_range))
 
 
 func get_time_left():#idk what is return type, will add static typing later

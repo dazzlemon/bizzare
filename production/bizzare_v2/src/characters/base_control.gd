@@ -7,8 +7,7 @@ onready var attack = get_node("../attack")
 
 func _process(_delta) -> void:
 	if attack != null && attack is BaseHitscan:
-		var body_cross_dir = attack.get_angle_to(crosshair.global_position)
-		attack.rotation += body_cross_dir
+		attack.rotation += attack.get_angle_to(crosshair.global_position)
 
 
 func get_input_vector():

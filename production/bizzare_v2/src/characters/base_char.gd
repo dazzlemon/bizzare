@@ -21,6 +21,12 @@ enum States {
 	NO_FRICTION,
 }
 
+const state_funcs = {
+	States.KNOCKED_BACK : "knocked_back",
+	States.FRICTION : "friction",
+	States.NO_FRICTION : "no_friction",
+}
+
 func accelerate(delta: float, speed: Vector2, input_vector: Vector2) -> Vector2:
 	return speed.move_toward(input_vector * MAX_SPEED, ACCEL * delta)
 
@@ -30,19 +36,23 @@ func decelerate(delta: float, speed: Vector2) -> Vector2:
 
 
 func _physics_process(delta: float) -> void:
-	var input_vector: Vector2 = control.get_input_vector()#:=
-	match(state):
-		States.KNOCKED_BACK:
-			velocity = decelerate(delta, velocity)#knockback.move_toward(Vector2.ZERO, knockback_speed * delta)
-			velocity = move_and_slide(velocity)
-			if velocity == Vector2.ZERO:
-				state = States.NO_FRICTION
-		States.FRICTION:
-			velocity = decelerate(delta, velocity) if input_vector == Vector2.ZERO else accelerate(delta, velocity, input_vector)
-			velocity = move_and_slide(velocity)
-		States.NO_FRICTION:
-			velocity = Vector2.ZERO
-			move_and_slide(input_vector * MAX_SPEED)
+	call(state_funcs[state], delta, control.get_input_vector())
+
+
+func knocked_back(delta, input_vector):
+	velocity = move_and_slide(decelerate(delta, velocity))
+	if velocity == Vector2.ZERO:
+		state = States.NO_FRICTION
+
+
+func friction(delta, input_vector):
+	velocity = move_and_slide(decelerate(delta, velocity) if input_vector == Vector2.ZERO else accelerate(delta, velocity, input_vector))
+
+
+func no_friction(delta, input_vector):
+	velocity = Vector2.ZERO
+	move_and_slide(input_vector * MAX_SPEED)
+
 
 func _on_stats_no_health() -> void:
 	die()
@@ -56,8 +66,6 @@ func take_damage(damage) -> void:#idk type of damage, prolly float/int
 			stats.set_armor(0)
 	else:
 		stats.health -= damage * (1 - DMG_BLOCK)
-	print("hp:", stats.health)#DEBUG---------------------------
-	print("armor", stats.armor)#DEBUG--------------------------
 
 
 func die() -> void:

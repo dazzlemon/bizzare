@@ -39,7 +39,3 @@ func set_dmg(value) -> void:
 
 func get_dmg():
 	return dmg
-
-
-
-#mb rename to *_set *_get
