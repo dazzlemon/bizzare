@@ -12,6 +12,6 @@ script = ExtResource( 1 )
 wait_time = 10.0
 one_shot = true
 
-[node name="LookAt" parent="." instance=ExtResource( 2 )]
+[node name="ray_hitscan" parent="." instance=ExtResource( 2 )]
 [connection signal="timeout" from="wave_interval" to="." method="_on_wave_interval_timeout"]
 [connection signal="timeout" from="duration" to="." method="_on_duration_timeout"]

@@ -284,12 +284,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_3_attack_2/harpy_ray_hitscan.gd"
 }, {
-"base": "Reference",
+"base": "ExplosiveHitscan",
 "class": "HarpyStomp",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/harpy_stomp.gd"
 }, {
-"base": "Reference",
+"base": "ExplosionHitscan",
 "class": "HarpyStompHitbox",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/harpy_stomp_hitbox.gd"
@@ -398,6 +398,11 @@ _global_script_classes=[ {
 "class": "RayHitscan",
 "language": "GDScript",
 "path": "res://src/attack/ray_hitscan/ray_hitscan.gd"
+}, {
+"base": "RayCast2D",
+"class": "RayHitscanProcess",
+"language": "GDScript",
+"path": "res://src/attack/ray_hitscan/ray_process.gd"
 }, {
 "base": "BaseNPCMelee",
 "class": "Shadow",
@@ -518,6 +523,7 @@ _global_script_class_icons={
 "RangeGoblin": "",
 "RangeGoblinControl": "",
 "RayHitscan": "",
+"RayHitscanProcess": "",
 "Shadow": "",
 "ShadowControl": "",
 "ShadowHitscan": "",
