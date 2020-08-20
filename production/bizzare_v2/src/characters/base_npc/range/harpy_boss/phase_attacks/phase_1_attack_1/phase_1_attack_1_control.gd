@@ -12,7 +12,6 @@ onready var get_parent = get_node("../")
 func _ready():
 	_DURATION = 6.01
 	_WAVE_INTERVAL = 0.75
-	#_INTERVAL = 3
 
 
 func _start():

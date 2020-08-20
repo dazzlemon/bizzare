@@ -8,7 +8,7 @@ func _ready():
 
 func _on_charging_timeout():
 	get_node("duration").start()
-	get_node("hitbox/CollisionShape2D").disabled =false
+	get_node("Position2D/hitbox/CollisionShape2D").disabled =false
 
 
 func _on_duration_timeout():

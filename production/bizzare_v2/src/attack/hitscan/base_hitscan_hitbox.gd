@@ -5,3 +5,7 @@ class_name BaseHitscanHitbox
 extends Area2D
 
 export var damage = 1
+
+func _ready():
+	randomize()
+	get_node("CollisionShape2D").position = Vector2(0 , rand_range(50,200))

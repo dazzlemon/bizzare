@@ -1,28 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/attack/hitscan/enemy_hitscan/base_hitscan_enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_hitscan.gd" type="Script" id=2]
-[ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_hitscan_hitbox.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 29.6241
+radius = 41.0274
 
 [node name="enemy_hitscan" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="hitbox" parent="." index="0"]
-script = ExtResource( 3 )
-
-[node name="CollisionShape2D" parent="hitbox" index="0"]
-position = Vector2( 0, 200 )
-shape = SubResource( 1 )
-disabled = true
-
 [node name="charging" type="Timer" parent="." index="1"]
 one_shot = true
 
-[node name="duration" type="Timer" parent="." index="2"]
+[node name="duration" parent="." index="2"]
 wait_time = 0.25
-one_shot = true
+
+[node name="CollisionShape2D" parent="Position2D/hitbox" index="0"]
+shape = SubResource( 1 )
 [connection signal="timeout" from="charging" to="." method="_on_charging_timeout"]
-[connection signal="timeout" from="duration" to="." method="_on_duration_timeout"]

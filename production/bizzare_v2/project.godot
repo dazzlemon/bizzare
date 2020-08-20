@@ -289,12 +289,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_3_attack_2/harpy_ray_hitscan.gd"
 }, {
-"base": "ExplosiveHitscan",
+"base": "Reference",
 "class": "HarpyStomp",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/harpy_stomp.gd"
 }, {
-"base": "ExplosionHitscan",
+"base": "Reference",
 "class": "HarpyStompHitbox",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/harpy_stomp_hitbox.gd"
@@ -344,7 +344,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_1/phase_1_attack_1_projectile.gd"
 }, {
-"base": "Control",
+"base": "PhaseAttacks",
 "class": "Phase1Attack2Control",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_2/phase_1_attack_2_control.gd"
@@ -354,7 +354,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_2/phase_1_attack_2_projectile.gd"
 }, {
-"base": "Control",
+"base": "PhaseAttacks",
 "class": "Phase2Attack1Control",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_control.gd"

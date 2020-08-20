@@ -1,5 +1,5 @@
 class_name Phase1Attack2Control
-extends Control
+extends PhaseAttacks
 
 var angle = 0 setget angle_set
 var angle_step = 20
@@ -8,6 +8,14 @@ onready var projectile = preload("res://src/characters/base_npc/range/harpy_boss
 onready var stats = get_node("../../stats")
 onready var get_root = get_node("../../")
 onready var get_parent = get_node("../")
+
+func _ready():
+	_DURATION = 6.01
+	_WAVE_INTERVAL = 0.05
+
+
+func _start():
+	projectile_spiral(angle)
 
 
 func projectile_spiral(angle):
@@ -31,15 +39,8 @@ func angle_set(angle_new):
 		angle -= 360
 
 
-func start():
-	get_node("wave_interval").start()
-	get_node("duration").start()
-
-
-func _on_wave_interval_timeout():
-	projectile_spiral(angle)
-
-
-func _on_duration_timeout():
+func _stop():
 	get_parent.phase_attack_ended()
-	get_node("wave_interval").stop()
+
+
+

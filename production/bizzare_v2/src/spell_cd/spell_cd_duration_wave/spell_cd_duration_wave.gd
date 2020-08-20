@@ -10,10 +10,6 @@ extends SpellCdDuration
 onready var _wave_interval = $wave_interval
 var _WAVE_INTERVAL: float
 
-func _process(_delta):
-	print(str(_wave_interval.time_left))
-
-
 func _on_wave_interval_timeout():
 	_start()
 
