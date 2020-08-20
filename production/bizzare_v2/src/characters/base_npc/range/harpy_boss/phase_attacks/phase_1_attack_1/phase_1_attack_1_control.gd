@@ -15,12 +15,9 @@ func _ready():
 
 
 func _start():
-	projectile_circle(18, angle)
-
-
-func projectile_circle(amount, start):
+	var amount = 18
 	for i in range(0, amount, 1): #maybe potencialniy amount + 1
-		spawn_projectile(deg2rad(start + 360 / amount * i))
+		spawn_projectile(deg2rad(angle + 360 / amount * i))
 	angle += angle_step
 
 

@@ -15,12 +15,8 @@ func _ready():
 
 
 func _start():
-	projectile_spiral(angle)
-
-
-func projectile_spiral(angle):
 	spawn_projectile(angle)
-	#spawn_projectile(180 + angle)#injan
+	#spawn_projectile(180 + angle)#yingyang
 	spawn_projectile(-angle)#tentacli
 	self.angle += angle_step
 
