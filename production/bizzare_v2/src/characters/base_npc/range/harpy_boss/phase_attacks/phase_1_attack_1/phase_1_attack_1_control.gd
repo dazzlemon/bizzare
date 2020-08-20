@@ -1,5 +1,5 @@
 class_name Phase1Attack1Control
-extends SpellCdDurationWave
+extends PhaseAttacks
 
 var angle = 0 setget angle_set
 var angle_step = 10
@@ -11,10 +11,12 @@ onready var get_parent = get_node("../")
 
 func _ready():
 	_DURATION = 6.01
-	_INTERVAL = 0.75
+	_WAVE_INTERVAL = 0.75
+	#_INTERVAL = 3
 
 
 func _start():
+	print("start")
 	projectile_circle(18, angle)
 
 
@@ -41,35 +43,3 @@ func angle_set(angle_new):
 func _stop():
 	get_parent.phase_attack_ended()
 
-#func projectile_circle(amount, start):
-#	for i in range(0, amount, 1): #maybe potencialniy amount + 1
-#		spawn_projectile(deg2rad(start + 360 / amount * i))
-#	angle += angle_step
-#
-#
-#func spawn_projectile(angle):
-#	var projectile_instance = projectile.instance()
-#	get_root.owner.call_deferred("add_child", projectile_instance)
-#	projectile_instance.transform = get_root.global_transform
-#	projectile_instance.direction = (Vector2(sin(angle), cos(angle)))
-#	projectile_instance.damage = stats.dmg
-#
-#
-#func angle_set(angle_new):
-#	angle = angle_new
-#	while angle >= 360:
-#		angle -= 360
-#
-#
-#func start():
-#	get_node("wave_interval").start()
-#	get_node("duration").start()
-#
-#
-#func _on_wave_interval_timeout():
-#	projectile_circle(18, angle)
-#
-#
-#func _on_duration_timeout():
-#	get_parent.phase_attack_ended()
-#	get_node("wave_interval").stop()
