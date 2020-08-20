@@ -1,5 +1,5 @@
 class_name Phase3Attack1Control
-extends PhaseAttacks
+extends SpellCd
 
 var apprentice = preload("res://src/characters/base_npc/range/harpy_boss/apprentices/apprentice.tscn")
 var apprentices := [] 
