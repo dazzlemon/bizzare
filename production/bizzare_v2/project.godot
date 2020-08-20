@@ -379,7 +379,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_3_attack_1/phase_3_attack_1_control.gd"
 }, {
-"base": "Node",
+"base": "PhaseAttacks",
 "class": "Phase3Attack2Control",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_3_attack_2/phase_3_attack_2.gd"

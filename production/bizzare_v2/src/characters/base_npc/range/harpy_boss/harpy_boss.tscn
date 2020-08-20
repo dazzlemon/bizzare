@@ -78,6 +78,8 @@ max_health = 40.0
 
 [editable path="control/phase_2_attack_1"]
 
+[editable path="control/phase_3_attack_2"]
+
 [editable path="control/attack_range"]
 
 [editable path="control/player_detection_zone"]

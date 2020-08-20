@@ -38,8 +38,8 @@ func _on_phase_cd_timeout():
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
 		#roll = rng.randi_range(1, 2)
-		roll = 1################################### DEBUG
-		phase = 2################################## DEBUG
+		roll = 2################################### DEBUG
+		phase = 3################################## DEBUG
 		current_phase_attack = "phase_" + str(phase) + "_attack_" + str(roll)
 		print(current_phase_attack)
 		get_node(current_phase_attack).try_use()
