@@ -1,9 +1,18 @@
 class_name Phase2Attack2Control
-extends Node2D
+extends PhaseAttacks
+
+onready var get_parent = get_node("../")
+
+func _ready():
+	_DURATION = 9
+	_WAVE_INTERVAL = 3
 
 
+func _start():
+	dash()
 
-func start():
+
+func dash():
 	var control = get_node("../")
 	var target = get_node("../../../player").global_position
 	var ray = get_node("RayCast2D")
@@ -14,3 +23,6 @@ func start():
 		control.dash_start = global_position
 		control.state = control.States.DASH
 
+
+func _stop():
+	get_parent.phase_attack_ended()

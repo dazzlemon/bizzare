@@ -24,6 +24,7 @@ func dash() -> Vector2:
 		get_node("../").state = get_node("../").States.FRICTION
 		var stomp_instance = stomp.instance()
 		get_node("../").call_deferred("add_child" , stomp_instance)
+		#stomp_instance.global_position = get_node("../").global_position ETOGO NE BILO
 		state = States.IDLE
 	return (dash_target - get_parent().global_position).normalized() * 4.5 # NEED PLAY TEST
 
@@ -39,7 +40,7 @@ func _on_phase_cd_timeout():
 		rng.randomize()
 		#roll = rng.randi_range(1, 2)
 		roll = 2################################### DEBUG
-		phase = 3################################## DEBUG
+		phase = 2################################## DEBUG
 		current_phase_attack = "phase_" + str(phase) + "_attack_" + str(roll)
 		print(current_phase_attack)
 		get_node(current_phase_attack).try_use()

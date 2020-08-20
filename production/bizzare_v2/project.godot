@@ -369,7 +369,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_hitscan_hitbox.gd"
 }, {
-"base": "Node2D",
+"base": "PhaseAttacks",
 "class": "Phase2Attack2Control",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/phase_2_attack_2_control.gd"
