@@ -8,7 +8,11 @@ class_name SpellCdDurationWave
 extends SpellCdDuration
 
 onready var _wave_interval = $wave_interval
-var _WAVE_INTERVAL:float
+var _WAVE_INTERVAL: float
+
+func _process(_delta):
+	print(str(_wave_interval.time_left))
+
 
 func _on_wave_interval_timeout():
 	_start()
@@ -19,6 +23,6 @@ func _on_duration_timeout():
 	_stop()
 
 
-func _timer_start():
+func _timers_start():
 	_wave_interval.start(_WAVE_INTERVAL)
 	._timers_start()

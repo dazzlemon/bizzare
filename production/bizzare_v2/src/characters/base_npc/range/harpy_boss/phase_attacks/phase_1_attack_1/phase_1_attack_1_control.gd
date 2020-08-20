@@ -16,7 +16,6 @@ func _ready():
 
 
 func _start():
-	print("start")
 	projectile_circle(18, angle)
 
 
@@ -42,4 +41,3 @@ func angle_set(angle_new):
 
 func _stop():
 	get_parent.phase_attack_ended()
-
