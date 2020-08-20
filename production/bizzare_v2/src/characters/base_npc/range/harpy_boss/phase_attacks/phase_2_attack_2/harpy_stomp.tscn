@@ -5,3 +5,4 @@
 
 [node name="explosion_hitscan" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+

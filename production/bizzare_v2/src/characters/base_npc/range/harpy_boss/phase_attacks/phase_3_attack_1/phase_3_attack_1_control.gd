@@ -1,5 +1,5 @@
 class_name Phase3Attack1Control
-extends Node
+extends PhaseAttacks
 
 var apprentice = preload("res://src/characters/base_npc/range/harpy_boss/apprentices/apprentice.tscn")
 var apprentices := [] 
@@ -16,6 +16,11 @@ func _process(delta):
 			get_root.DMG_BLOCK = 0
 
 
+func _start():
+	for i in range(0, amount, 1):
+		apprentices.push_front(spawn_apprentice(360 / amount * i))
+
+
 func verify_apprentices():#GADSTVO GAVNO IS JOPI
 	var i = 0
 	while i < apprentices.size():
@@ -26,14 +31,13 @@ func verify_apprentices():#GADSTVO GAVNO IS JOPI
 		i += 1
 
 
-func start():
-	for i in range(0, amount, 1):
-		apprentices.push_front(spawn_apprentice(360 / amount * i))
-
-
 func spawn_apprentice(angle):
 	get_root.DMG_BLOCK = 1
 	var apprentice_instance = apprentice.instance()
 	get_node("../../").call_deferred("add_child", apprentice_instance)
 	apprentice_instance.position = Vector2(50, 0).rotated(deg2rad(angle))
 	return apprentice_instance
+
+
+func _stop():
+	get_parent.phase_attack_ended()
