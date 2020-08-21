@@ -4,7 +4,7 @@
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/harpy_stomp.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 100.0
+radius = 50.0
 
 [node name="explosion_hitscan" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
