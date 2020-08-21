@@ -48,4 +48,7 @@ func _on_phase_cd_timeout():
 
 func phase_attack_ended():
 	get_node("phase_cd").start(10)
-	state = States.CHASE
+	if attack_range.player != null:
+		state = States.ATTACK
+	else:
+		state = States.CHASE

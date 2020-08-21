@@ -5,9 +5,9 @@ extends BaseControl
 export var wander_target_range = 4
 
 onready var this_enemy = get_node("../")
-onready var playerDetectionZone = $player_detection_zone
-onready var wanderController = $wander_controller
-onready var attackRange = $attack_range
+onready var player_detection_zone = $player_detection_zone
+onready var wander_controller = $wander_controller
+onready var attack_range = $attack_range
 
 enum States {
 	IDLE,
@@ -45,7 +45,7 @@ func attack_pressed():
 
 
 func seek_player():
-	if playerDetectionZone.can_see_player():
+	if player_detection_zone.can_see_player():
 		state = States.CHASE
 
 
@@ -56,36 +56,37 @@ func pick_random_state(state_list):
 
 func idle() -> Vector2:
 	seek_player()
-	if wanderController.get_time_left() == 0:
+	if wander_controller.get_time_left() == 0:
 		state = pick_random_state([States.IDLE, States.WANDER])
-		wanderController.start_wander_timer(rand_range(1, 1.5))
+		wander_controller.start_wander_timer(rand_range(1, 1.5))
 	return Vector2.ZERO
 
 
 func wander() -> Vector2:
 	seek_player()
-	if wanderController.get_time_left() == 0:
+	if wander_controller.get_time_left() == 0:
 		state = pick_random_state([States.IDLE, States.WANDER])
-		wanderController.start_wander_timer(rand_range(1, 1.5))
-	var direction = this_enemy.global_position.direction_to(wanderController.position_target)
-	if this_enemy.global_position.distance_to(wanderController.position_target) <= wander_target_range :
+		wander_controller.start_wander_timer(rand_range(1, 1.5))
+	var direction = this_enemy.global_position.direction_to(wander_controller.position_target)
+	if this_enemy.global_position.distance_to(wander_controller.position_target) <= wander_target_range :
 		state = pick_random_state([States.IDLE, States.WANDER])
-		wanderController.start_wander_timer(rand_range(1, 3))
+		wander_controller.start_wander_timer(rand_range(1, 3))
 	return direction
 
 
 func chase() -> Vector2:
-	var player = playerDetectionZone.player
+	var player = player_detection_zone.player
 	var direction := Vector2.ZERO
-	if player != null and playerDetectionZone.can_see_player():
+	if player != null and player_detection_zone.can_see_player():
 		direction = this_enemy.global_position.direction_to(player.global_position)
 	else:
 		state = States.IDLE
 	return direction
 
+
 func attack() -> Vector2:
-	var player = playerDetectionZone.player
-	if player != null and playerDetectionZone.can_see_player():
+	var player = player_detection_zone.player
+	if player != null and player_detection_zone.can_see_player():
 		get_node("../crosshair").global_position = player.global_position
 	get_node("../attack").try_use()
 	return Vector2.ZERO

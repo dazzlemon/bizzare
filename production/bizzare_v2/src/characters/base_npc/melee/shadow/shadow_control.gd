@@ -7,11 +7,11 @@ onready var default_damage = 1
 
 func _process(delta):
 	._process(delta)
-	if playerDetectionZone.player != null and get_parent().global_position.distance_to(playerDetectionZone.player.global_position) < 25:
+	if player_detection_zone.player != null and get_parent().global_position.distance_to(player_detection_zone.player.global_position) < 25:
 		melee_attack()
 
 func melee_attack():
-	var player = playerDetectionZone.player
+	var player = player_detection_zone.player
 	if player != null and get_node("../pivot/sprite").visible:
 		get_node("../crosshair").global_position = player.global_position
 		crit_test()
@@ -20,7 +20,7 @@ func melee_attack():
 
 
 func crit_test():
-	if critical: 
+	if critical:
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
 		get_node("../attack/Position2D/hitbox").damage = default_damage * rng.randi_range(10, 20)

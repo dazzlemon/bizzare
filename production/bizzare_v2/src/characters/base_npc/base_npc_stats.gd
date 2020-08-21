@@ -4,7 +4,7 @@ extends BaseStats
 
 signal damage_from_behind
 
-onready var player_detection_zone = get_node("../control").playerDetectionZone
+onready var player_detection_zone = get_node("../control").player_detection_zone
 
 
 func set_health(value) -> void:
