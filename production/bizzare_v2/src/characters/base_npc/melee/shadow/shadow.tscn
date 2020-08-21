@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/characters/base_npc/melee/base_npc_melee.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/melee/shadow/shadow.gd" type="Script" id=2]
@@ -13,8 +13,6 @@ height = 14.9483
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 133.004
-
-[sub_resource type="CircleShape2D" id=3]
 
 [node name="base_npc" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -39,15 +37,6 @@ collision_mask = 6
 shape = SubResource( 2 )
 
 [node name="attack" parent="." index="6" instance=ExtResource( 6 )]
-
-[node name="hitbox" parent="attack" index="0"]
-collision_layer = 64
-collision_mask = 4
-
-[node name="CollisionShape2D" parent="attack/hitbox" index="0"]
-position = Vector2( 20, 0 )
-shape = SubResource( 3 )
-disabled = true
 
 [editable path="control/invis_controller"]
 

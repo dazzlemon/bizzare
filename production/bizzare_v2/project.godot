@@ -289,12 +289,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_3_attack_2/harpy_ray_hitscan.gd"
 }, {
-"base": "Reference",
+"base": "ExplosiveHitscan",
 "class": "HarpyStomp",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/harpy_stomp.gd"
 }, {
-"base": "Reference",
+"base": "ExplosionHitscan",
 "class": "HarpyStompHitbox",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/harpy_stomp_hitbox.gd"
@@ -575,6 +575,7 @@ window/size/height=270
 window/size/resizable=false
 window/size/test_width=1920
 window/size/test_height=1080
+window/vsync/use_vsync=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 

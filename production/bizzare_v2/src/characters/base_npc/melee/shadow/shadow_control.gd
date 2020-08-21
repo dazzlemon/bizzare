@@ -23,8 +23,8 @@ func crit_test():
 	if critical: 
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
-		get_node("../attack/hitbox").damage  = default_damage * rng.randi_range(10, 20)
+		get_node("../attack/Position2D/hitbox").damage = default_damage * rng.randi_range(10, 20)
 		critical = false
 	else: 
-		get_node("../attack/hitbox").damage  = default_damage 
+		get_node("../attack/Position2D/hitbox").damage = default_damage 
 	
