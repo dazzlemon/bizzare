@@ -46,7 +46,10 @@ func knocked_back(delta, input_vector):
 
 
 func friction(delta, input_vector):
-	velocity = move_and_slide(decelerate(delta, velocity) if input_vector == Vector2.ZERO else accelerate(delta, velocity, input_vector))
+	if input_vector == Vector2.ZERO:
+		velocity = move_and_slide(decelerate(delta, velocity))
+	else:
+		velocity = move_and_slide(accelerate(delta, velocity, input_vector))
 
 
 func no_friction(delta, input_vector):

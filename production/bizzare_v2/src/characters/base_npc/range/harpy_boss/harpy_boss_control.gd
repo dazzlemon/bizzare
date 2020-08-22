@@ -6,7 +6,7 @@ var is_ready = true
 var current_phase_attack
 var roll = 0
 var dash_target: Vector2
-var dash_start: Vector2
+
 
 var stomp = preload("res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/harpy_stomp.tscn")
 
@@ -24,7 +24,6 @@ func dash() -> Vector2:
 		get_node("../").state = get_node("../").States.FRICTION
 		var stomp_instance = stomp.instance()
 		get_node("../").call_deferred("add_child" , stomp_instance)
-		#stomp_instance.global_position = get_node("../").global_position ETOGO NE BILO
 		state = States.IDLE
 	return (dash_target - get_parent().global_position).normalized() * 4.5 # NEED PLAY TEST
 

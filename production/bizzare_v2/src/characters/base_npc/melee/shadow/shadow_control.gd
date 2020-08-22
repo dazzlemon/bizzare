@@ -15,7 +15,6 @@ func melee_attack():
 	if player != null and get_node("../pivot/sprite").visible:
 		get_node("../crosshair").global_position = player.global_position
 		crit_test()
-		#print(get_node("../attack/hitbox").damage )
 		get_node("../attack").try_use()
 
 

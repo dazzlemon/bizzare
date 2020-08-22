@@ -31,7 +31,7 @@ var state = States.CHASE
 
 func _ready():
 	randomize()
-	pick_random_state([States.IDLE, States.WANDER])
+	Utility.pick_random_state([States.IDLE, States.WANDER])
 
 
 func get_input_vector() -> Vector2:
@@ -49,27 +49,18 @@ func seek_player():
 		state = States.CHASE
 
 
-func pick_random_state(state_list):
-	state_list.shuffle()
-	return state_list.pop_front()
-
-
 func idle() -> Vector2:
 	seek_player()
-	if wander_controller.get_time_left() == 0:
-		state = pick_random_state([States.IDLE, States.WANDER])
-		wander_controller.start_wander_timer(rand_range(1, 1.5))
+	wander_controller() 
 	return Vector2.ZERO
 
 
 func wander() -> Vector2:
 	seek_player()
-	if wander_controller.get_time_left() == 0:
-		state = pick_random_state([States.IDLE, States.WANDER])
-		wander_controller.start_wander_timer(rand_range(1, 1.5))
+	wander_controller()
 	var direction = this_enemy.global_position.direction_to(wander_controller.position_target)
 	if this_enemy.global_position.distance_to(wander_controller.position_target) <= wander_target_range :
-		state = pick_random_state([States.IDLE, States.WANDER])
+		state = Utility.pick_random_state([States.IDLE, States.WANDER])
 		wander_controller.start_wander_timer(rand_range(1, 3))
 	return direction
 
@@ -98,3 +89,9 @@ func stop() -> Vector2:
 
 func dash() -> Vector2:
 	return Vector2.ZERO
+
+
+func wander_controller():
+	if wander_controller.get_time_left() == 0:
+		Utility.pick_random_state([States.IDLE, States.WANDER])
+		wander_controller.start_wander_timer(rand_range(1, 1.5))

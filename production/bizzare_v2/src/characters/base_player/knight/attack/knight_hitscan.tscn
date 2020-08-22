@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/attack/hitscan/ally_hitscan/base_hitscan_ally.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/characters/base_player/knight/attack/knight_hitscan.gd" type="Script" id=2]
+[ext_resource path="res://src/characters/base_player/knight/attack/knight_hitscan_hitbox.gd" type="Script" id=3]
+
+[node name="knight_attack" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Position2D" parent="." index="2"]
+position = Vector2( 15, 0 )
+
+[node name="hitbox" parent="Position2D" index="0"]
+script = ExtResource( 3 )
