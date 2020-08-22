@@ -2,10 +2,11 @@
 class_name BaseChar
 extends KinematicBody2D
 
-export var DMG_BLOCK = 0
-export var ACCEL = 2000
-export var DECEL = 2000
-export var MAX_SPEED = 300# all of these have to be const, but changeable for inherited classes
+export var DMG_BLOCK: float = 0
+export var ACCEL: float = 2000
+export var DECEL: float = 2000
+export var MAX_SPEED: float = 300# all of these have to be const, but changeable for inherited classes
+
 
 var velocity := Vector2.ZERO
 var state = States.FRICTION
@@ -20,7 +21,7 @@ enum States {
 	FRICTION,
 	NO_FRICTION,
 }
-
+#enum and const prolly could be merged into one object
 const state_funcs = {
 	States.KNOCKED_BACK : "knocked_back",
 	States.FRICTION : "friction",
@@ -61,12 +62,9 @@ func _on_stats_no_health() -> void:
 	die()
 
 
-func take_damage(damage) -> void:#idk type of damage, prolly float/int
-	if stats.armor > 0 :
+func take_damage(damage: float) -> void:
+	if stats.armor > 0:
 		stats.armor -= 0.7 * damage * (1 - DMG_BLOCK)#prolly need to make 0.7 as a variable
-		if stats.armor < 0 :
-			stats.health += stats.armor
-			stats.set_armor(0)
 	else:
 		stats.health -= damage * (1 - DMG_BLOCK)
 
@@ -78,8 +76,8 @@ func die() -> void:
 func _on_hurtbox_area_entered(area) -> void:#hitscan hitreg
 	if area is KnightAOEHitbox:
 		state = States.KNOCKED_BACK
-		velocity = area.knockback(self) # SDELAT' ROFLAN MASSU
-	if area is BaseHitscanHitbox:#tmp(without this condition getting an error)
+		velocity = area.knockback(self)
+	if area is BaseHitscanHitbox:
 		take_damage(area.damage)
 
 

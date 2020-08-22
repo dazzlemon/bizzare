@@ -1,8 +1,6 @@
 class_name ExplosiveArrow
 extends BaseProjectileAttackAlly
 
-onready var parent = get_node("../")
-
 func _ready():
 	projectile = preload("res://src/characters/base_player/archer/spells/explosion/explosive_arrow_projectile.tscn")
 	_INTERVAL = 10

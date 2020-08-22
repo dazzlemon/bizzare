@@ -4,7 +4,7 @@
 class_name WanderController
 extends Node2D
 
-export(int) var wander_range = 64
+export(float) var wander_range: float = 64
 
 onready var position_start: Vector2 = global_position
 onready var position_target: Vector2 = global_position
@@ -22,13 +22,13 @@ func update_target_position() -> void:
 	position_target = position_start + Vector2(wander_range(), wander_range())
 
 
-func get_time_left():#idk what is return type, will add static typing later
+func get_time_left() -> float:#idk what is return type, will add static typing later
 	return timer.time_left
 
 
-func start_wander_timer(duration) -> void:
+func start_wander_timer(duration: float) -> void:
 	timer.start(duration)
 
 
-func wander_range():
+func wander_range() -> float:
 	return rand_range(-wander_range,wander_range)

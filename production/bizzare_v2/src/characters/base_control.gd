@@ -10,5 +10,5 @@ func _process(_delta) -> void:
 		attack.rotation += attack.get_angle_to(crosshair.global_position)
 
 
-func get_input_vector():
+func get_input_vector() -> Vector2:
 	return Vector2.ZERO

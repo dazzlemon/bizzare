@@ -18,5 +18,12 @@ func input_loop():
 	if Input.is_action_pressed("attack") && attack != null:
 		attack.try_use()
 
+#var actions: Array = [action1, action2, ......]
+#func input_loop():
+#	for action in actions:
+#		if Input.is_action_just_pressed(action.str()) && action != null:
+#			action.try_use()
+
+
 func get_input_vector() -> Vector2:
 	return Vector2(Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"), Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")).normalized()

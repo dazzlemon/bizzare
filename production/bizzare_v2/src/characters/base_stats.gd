@@ -6,36 +6,20 @@ extends Node
 
 signal no_health
 
-
 export var max_health: float = 1# int/float?
-export var max_armor = 0# same
+export var max_armor: float = 0# same
 
+onready var health: float = max_health setget health_set
+onready var armor: float = max_armor setget armor_set
+onready var damage: float = 1
 
-onready var health: float = max_health setget set_health# same
-onready var armor = max_armor setget set_armor# same
-onready var damage = 1 setget set_damage
-
-func set_armor(value) -> void:#idk static type?
-	armor = value
-
-
-func get_armor():
-	return armor
-
-
-func set_health(value) -> void:# same
+func health_set(value: float) -> void:
 	health = value
 	if health <= 0:
 		emit_signal("no_health")
 
 
-func get_health():
-	return health
-
-
-func set_damage(value) -> void:
-	damage = value
-
-
-func get_damage():
-	return damage
+func armor_set(value: float) -> void:
+	if value < 0:
+			health += value
+			armor = 0

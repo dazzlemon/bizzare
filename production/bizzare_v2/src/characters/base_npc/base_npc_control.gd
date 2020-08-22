@@ -31,7 +31,7 @@ var state = States.CHASE
 
 func _ready():
 	randomize()
-	Utility.pick_random_state([States.IDLE, States.WANDER])
+	Utility.pick_random([States.IDLE, States.WANDER])
 
 
 func get_input_vector() -> Vector2:
@@ -60,7 +60,7 @@ func wander() -> Vector2:
 	wander_controller()
 	var direction = this_enemy.global_position.direction_to(wander_controller.position_target)
 	if this_enemy.global_position.distance_to(wander_controller.position_target) <= wander_target_range :
-		state = Utility.pick_random_state([States.IDLE, States.WANDER])
+		state = Utility.pick_random([States.IDLE, States.WANDER])
 		wander_controller.start_wander_timer(rand_range(1, 3))
 	return direction
 
@@ -93,5 +93,5 @@ func dash() -> Vector2:
 
 func wander_controller():
 	if wander_controller.get_time_left() == 0:
-		Utility.pick_random_state([States.IDLE, States.WANDER])
+		Utility.pick_random([States.IDLE, States.WANDER])
 		wander_controller.start_wander_timer(rand_range(1, 1.5))
