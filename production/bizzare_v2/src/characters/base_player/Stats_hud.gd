@@ -13,9 +13,9 @@ func _process(_delta) -> void:
 	add_text("Armor:" + str(stats.armor) + "\n".c_unescape())
 	add_text("Damage:" + str(stats.damage) + "\n".c_unescape())
 	if spell1_dur != null:
-		add_text("Spell_1_active:" + (str(stepify(spell1_dur.get_time_left(),0.01)) if player.spell_1 != null else "") + "\n".c_unescape())
-	add_text("Spell_1_cd:" + (str(stepify(spell1_cd.get_time_left(),0.01)) if player.spell_1 != null else "") + "\n".c_unescape())
-	add_text("Spell_2_active:" + (str(stepify(spell2_dur.get_time_left(),0.01)) if player.spell_2 != null else "") + "\n".c_unescape())
-	add_text("Spell_2_cd:" + (str(stepify(spell2_cd.get_time_left(),0.01)) if player.spell_2 != null else "") + "\n".c_unescape())
+		add_text("Spell_1_active:" + (str(stepify(spell1_dur.get_time_left(), 0.01)) if player.spell_1 != null else "") + "\n".c_unescape())
+	add_text("Spell_1_cd:" + (str(stepify(spell1_cd.get_time_left(), 0.01)) if player.spell_1 != null else "") + "\n".c_unescape())
+	add_text("Spell_2_active:" + (str(stepify(spell2_dur.get_time_left(), 0.01)) if player.spell_2 != null else "") + "\n".c_unescape())
+	add_text("Spell_2_cd:" + (str(stepify(spell2_cd.get_time_left(), 0.01)) if player.spell_2 != null else "") + "\n".c_unescape())
 	add_text("fps:" + str(Engine.get_frames_per_second()))
 	

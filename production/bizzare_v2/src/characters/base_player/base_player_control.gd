@@ -4,25 +4,22 @@ extends BaseControl
 
 onready var spell_1 = get_node("../spell_1")
 onready var spell_2 = get_node("../spell_2")
+onready var actions = {
+	"spell_1" : spell_1,
+	"spell_2" : spell_2,
+	"attack" : attack,
+}
 
 func _process(delta: float):
 	input_loop()
 	crosshair.global_position = get_global_mouse_position()
 	._process(delta)
 
-func input_loop():
-	if Input.is_action_just_pressed("spell_1") && spell_1 != null:
-		spell_1.try_use()
-	if Input.is_action_just_pressed("spell_2") && spell_2 != null:
-		spell_2.try_use()
-	if Input.is_action_pressed("attack") && attack != null:
-		attack.try_use()
 
-#var actions: Array = [action1, action2, ......]
-#func input_loop():
-#	for action in actions:
-#		if Input.is_action_just_pressed(action.str()) && action != null:
-#			action.try_use()
+func input_loop():
+	for action in actions:
+		if Input.is_action_pressed(action) && actions[action] != null:
+			actions[action].try_use()
 
 
 func get_input_vector() -> Vector2:

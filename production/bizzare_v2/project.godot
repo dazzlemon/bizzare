@@ -324,7 +324,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_player/knight/knight_control.gd"
 }, {
-"base": "Node",
+"base": "SpellCdDuration",
 "class": "KnightDMGBlock",
 "language": "GDScript",
 "path": "res://src/characters/base_player/knight/spells/knight_dmg_block.gd"

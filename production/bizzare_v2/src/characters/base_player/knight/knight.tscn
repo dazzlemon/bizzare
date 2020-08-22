@@ -9,7 +9,6 @@
 [ext_resource path="res://src/characters/base_player/knight/spells/knight_aoe.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/characters/base_player/knight/spells/knight_dmg_block.tscn" type="PackedScene" id=8]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
 
