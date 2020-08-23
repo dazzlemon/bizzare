@@ -9,12 +9,12 @@ func set_health(value) -> void:
 	health = value
 	if health <= 0:
 		emit_signal("no_health")
-	if not player_detection_zone.has_player_inside_fov() :
+	if not player_detection_zone.has_player_inside_fov():
 		emit_signal("damage_from_behind")
 	update_phase()
 
 
-func update_phase():
+func update_phase() -> void:
 	for phase in range(3, 0, -1):
 		if phase_check(phase):
 			get_node("../control").phase = phase

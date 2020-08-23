@@ -13,9 +13,9 @@ func try_use() -> void:
 		get_node("cd").start()
 
 
-func _on_duration_timeout():
+func _on_duration_timeout() -> void:
 	get_node("../attack")._INTERVAL = 0.5
 
 
-func _on_cd_timeout():
+func _on_cd_timeout() -> void:
 	can_be_used = true 

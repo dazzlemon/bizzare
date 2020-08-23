@@ -1,5 +1,5 @@
 class_name ExplosionArea
 extends BaseHitscanAllyHitbox
 
-func _ready():
+func _ready() -> void:
 	damage = 10

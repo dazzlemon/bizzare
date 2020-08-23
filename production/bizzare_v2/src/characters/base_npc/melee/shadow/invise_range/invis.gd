@@ -12,5 +12,5 @@ func _on_area_exited(_area) -> void:
 	status = false
 
 
-func _on_delay_timeout():
+func _on_delay_timeout() -> void:
 	get_node("../../pivot/sprite").visible = status

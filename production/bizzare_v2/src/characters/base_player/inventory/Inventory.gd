@@ -4,10 +4,5 @@ extends Node
 
 var array := []
 
-#func _process(delta):
-	#print(array.front())
-func print_inventory():
-	for i in range(array.size()):
-		print(array[i])
-
-
+#func add_item(item):
+# #TODO

@@ -1,12 +1,12 @@
 class_name ExplosiveArrow
 extends BaseProjectileAttackAlly
 
-func _ready():
+func _ready() -> void:
 	projectile = preload("res://src/characters/base_player/archer/spells/explosion/explosive_arrow_projectile.tscn")
 	_INTERVAL = 10
 
 
-func _start():
+func _start() -> void:
 	var projectile_instance = projectile.instance()
 	parent.owner.add_child(projectile_instance)
 	projectile_instance.transform = parent.global_transform

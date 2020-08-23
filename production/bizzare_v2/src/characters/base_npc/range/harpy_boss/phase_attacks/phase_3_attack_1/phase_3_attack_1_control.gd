@@ -8,7 +8,7 @@ var amount = 5
 onready var get_parent = get_node("../")
 onready var get_root = get_node("../../")
 
-func _process(delta):
+func _process(delta: float) -> void:
 	if not apprentices.empty():
 		verify_apprentices()
 		if apprentices.empty():
@@ -16,18 +16,17 @@ func _process(delta):
 			get_root.DMG_BLOCK = 0
 
 
-func _start():
+func _start() -> void:
 	for i in range(0, amount, 1):
 		apprentices.push_front(spawn_apprentice(360 / amount * i))
 
 
 func verify_apprentices():#GADSTVO GAVNO IS JOPI
-	var i = 0
+	var i = 0#wasnt working, so i didnt touch the code, but it could be optimized
 	while i < apprentices.size():
 		if apprentices[i].get_node("stats").health is float and apprentices[i].get_node("stats").health <= 0:# checking for float because it gets Nil from somewhere idk where(nice godot(govnot))
 			apprentices[i].die()
 			apprentices.remove(i)
-			#i += 1# MIKRO OPTIMIZACIYA (ostavil na ujin)
 		i += 1
 
 
@@ -39,5 +38,5 @@ func spawn_apprentice(angle):
 	return apprentice_instance
 
 
-func _stop():
+func _stop() -> void:
 	get_parent.phase_attack_ended()

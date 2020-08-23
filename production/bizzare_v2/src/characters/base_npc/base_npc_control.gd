@@ -29,7 +29,7 @@ const state_funcs = {
 
 var state = States.CHASE
 
-func _ready():
+func _ready() -> void:
 	randomize()
 	Utility.pick_random([States.IDLE, States.WANDER])
 
@@ -38,13 +38,13 @@ func get_input_vector() -> Vector2:
 	return call(state_funcs[state])#.normalized()
 
 
-func attack_pressed():
-	var rng = RandomNumberGenerator.new()
+func attack_pressed() -> bool:
+	var rng := RandomNumberGenerator.new()
 	rng.randomize()
 	return rng.randi_range(0, 1) == 0
 
 
-func seek_player():
+func seek_player() -> void:
 	if player_detection_zone.can_see_player():
 		state = States.CHASE
 
@@ -91,7 +91,7 @@ func dash() -> Vector2:
 	return Vector2.ZERO
 
 
-func wander_controller():
+func wander_controller() -> void:
 	if wander_controller.get_time_left() == 0:
 		Utility.pick_random([States.IDLE, States.WANDER])
 		wander_controller.start_wander_timer(rand_range(1, 1.5))

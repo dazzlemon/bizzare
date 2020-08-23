@@ -11,12 +11,12 @@ onready var get_root = get_node("../../")
 onready var get_parent = get_node("../")
 onready var ray_hitscan = $ray_hitscan
 
-func _ready():
+func _ready() -> void:
 	_DURATION = 8
 	_WAVE_INTERVAL = 2
 
 
-func _start():
+func _start() -> void:
 	var amount = 3
 	for i in range(0, amount, 1): #maybe potencialniy amount + 1
 		spawn_projectile(deg2rad(angle + 360 / amount * i))
@@ -24,7 +24,7 @@ func _start():
 	ray_hitscan.try_use()
 
 
-func spawn_projectile(angle):
+func spawn_projectile(angle: float) -> void:
 	var projectile_instance = projectile.instance()
 	get_root.owner.call_deferred("add_child", projectile_instance)
 	projectile_instance.transform = get_root.global_transform
@@ -33,11 +33,11 @@ func spawn_projectile(angle):
 	projectile_instance.damage = stats.damage
 
 
-func angle_set(angle_new):
+func angle_set(angle_new: float) -> void:
 	angle = angle_new
 	while angle >= 360:
 		angle -= 360
 
 
-func _stop():
+func _stop() -> void:
 	get_parent.phase_attack_ended()

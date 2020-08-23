@@ -23,4 +23,7 @@ func input_loop():
 
 
 func get_input_vector() -> Vector2:
-	return Vector2(Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"), Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")).normalized()
+	var dir := Vector2.ZERO
+	dir.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	dir.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	return dir.normalized()

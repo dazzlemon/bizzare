@@ -4,13 +4,13 @@ extends BaseChar
 
 var loot_scene = preload("res://src/loot/coin.tscn")
 
-func _ready():
+func _ready() -> void:
 	ACCEL = 300
 	MAX_SPEED = 100
 	DECEL = 200
 
 
-func drop_loot():
+func drop_loot() -> void:
 	randomize()
 	var random = randi() % 100 + 1
 	print(random)
@@ -20,6 +20,6 @@ func drop_loot():
 		get_node("../").add_child(loot)
 
 
-func die():
+func die() -> void:
 	.die()
 	drop_loot()

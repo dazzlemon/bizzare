@@ -1,9 +1,9 @@
 class_name ExplosiveHitscan
 extends BaseHitscanAlly
 
-func _ready():
+func _ready() -> void:
 	try_use()
 
 
-func _stop():
+func _stop() -> void:
 	queue_free()
