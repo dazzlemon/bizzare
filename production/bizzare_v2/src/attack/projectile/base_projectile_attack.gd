@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _start() -> void:
 	var projectile_instance = projectile.instance()
-	parent.owner.call_deferred("add_child", projectile_instance)
+	get_tree().get_root().get_node("Game/level").call_deferred("add_child", projectile_instance)
 	projectile_instance.transform = parent.global_transform
 	projectile_instance.direction = (crosshair.global_position - parent.global_position).normalized()
 	projectile_instance.damage = self.damage

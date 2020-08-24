@@ -5,13 +5,9 @@
 [ext_resource path="res://src/Menus/character_choise/character_choise.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/font_arcade_classsic.tres" type="DynamicFont" id=4]
 
-[node name="character_choise_menu" type="Control"]
-margin_left = 68.0
-margin_top = 25.0
-margin_right = 68.0
-margin_bottom = 25.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="character_choice_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -21,10 +17,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 146.208
-margin_top = 112.564
-margin_right = 203.208
-margin_bottom = 136.564
+margin_left = -28.5
+margin_top = -11.5
+margin_right = 28.5
+margin_bottom = 11.5
 custom_fonts/font = ExtResource( 4 )
 text = "Start"
 flat = true
@@ -32,57 +28,44 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 122.931
-margin_top = -26.2981
-margin_right = 190.931
-margin_bottom = 9.70193
+[node name="CharacterChoise" parent="." instance=ExtResource( 3 )]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 135.0
+margin_right = 480.0
+margin_bottom = 271.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Container" type="Container" parent="VBoxContainer"]
-margin_right = 68.0
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+margin_right = 238.0
+margin_bottom = 136.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="CharacterChoise" parent="VBoxContainer/Container" instance=ExtResource( 3 )]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 4.0
-margin_right = 68.0
-margin_bottom = 36.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
-margin_right = 32.0
-margin_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="KnightButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/CenterContainer"]
-margin_right = 32.0
-margin_bottom = 32.0
+[node name="KnightButton" type="TextureButton" parent="HBoxContainer/CenterContainer"]
+margin_left = 103.0
+margin_top = 52.0
+margin_right = 135.0
+margin_bottom = 84.0
 texture_normal = ExtResource( 1 )
 
-[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 36.0
-margin_right = 68.0
-margin_bottom = 32.0
+[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer"]
+margin_left = 242.0
+margin_right = 480.0
+margin_bottom = 136.0
 size_flags_horizontal = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
+size_flags_vertical = 3
 
-[node name="ArcherButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/CenterContainer2"]
-margin_right = 32.0
-margin_bottom = 32.0
+[node name="ArcherButton" type="TextureButton" parent="HBoxContainer/CenterContainer2"]
+margin_left = 103.0
+margin_top = 52.0
+margin_right = 135.0
+margin_bottom = 84.0
 texture_normal = ExtResource( 2 )
-[connection signal="pressed" from="start_button" to="VBoxContainer/Container/CharacterChoise" method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/CenterContainer/KnightButton" to="VBoxContainer/Container/CharacterChoise" method="_on_KnightButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/CenterContainer2/ArcherButton" to="VBoxContainer/Container/CharacterChoise" method="_on_ArcherButton_pressed"]
+[connection signal="pressed" from="start_button" to="CharacterChoise" method="_on_start_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/CenterContainer/KnightButton" to="CharacterChoise" method="_on_KnightButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/CenterContainer2/ArcherButton" to="CharacterChoise" method="_on_ArcherButton_pressed"]
