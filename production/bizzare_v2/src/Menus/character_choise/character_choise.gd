@@ -48,5 +48,7 @@ func _on_ArcherButton_pressed():
 
 
 func _on_start_button_pressed():
-	get_tree().get_root().get_node("Game").load_level(player_class.instance())
+	var player = player_class.instance()
+	player.name = "player"
+	get_tree().get_root().get_node("Game").load_level(player)
 	
