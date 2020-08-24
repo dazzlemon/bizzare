@@ -1,9 +1,9 @@
 extends Resource
 class_name ChoiseScreenStats
 
-export (String) var class_type
-export(float) var health = 100
-export(float) var armor = 100
-export(float) var speed = 100
-export(float) var damage = 100
+var class_type = "knight"
+var health = 0
+var armor = 0
+var speed = 0
+var damage = 0
 export(Image) var image = null

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Menus/character_choise/character_choise.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/knight_v04_new1.png" type="Texture" id=2]
 [ext_resource path="res://assets/font_arcade_classsic.tres" type="DynamicFont" id=3]
+[ext_resource path="res://src/Menus/character_choise/stats.gd" type="Script" id=4]
 
 [node name="CharacterChoise" type="Panel"]
 anchor_left = 0.5
@@ -20,6 +21,9 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 0.374573
+margin_right = 0.374573
+margin_bottom = 4.0
 custom_constants/margin_right = 4
 custom_constants/margin_top = 4
 custom_constants/margin_left = 4
@@ -32,30 +36,46 @@ __meta__ = {
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 162.0
-margin_bottom = 105.0
+margin_bottom = 109.0
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
-margin_right = 51.0
-margin_bottom = 101.0
+margin_right = 77.0
+margin_bottom = 105.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/CenterContainer"]
-margin_left = 9.0
-margin_top = 34.0
-margin_right = 41.0
-margin_bottom = 66.0
+margin_left = 22.0
+margin_top = 36.0
+margin_right = 54.0
+margin_bottom = 68.0
 texture = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 55.0
+margin_left = 81.0
 margin_right = 158.0
-margin_bottom = 101.0
+margin_bottom = 105.0
 size_flags_horizontal = 3
 
+[node name="stats_pogu" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 77.0
+margin_bottom = 105.0
+size_flags_vertical = 3
+
+[node name="stats" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/stats_pogu"]
+margin_right = 77.0
+margin_bottom = 105.0
+size_flags_horizontal = 3
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Class" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
+margin_top = 88.0
 margin_right = 103.0
-margin_bottom = 17.0
+margin_bottom = 105.0
 size_flags_horizontal = 3
 
 [node name="Class" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Class"]
@@ -77,9 +97,10 @@ __meta__ = {
 }
 
 [node name="Health" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 21.0
-margin_right = 103.0
-margin_bottom = 38.0
+visible = false
+margin_top = 4.0
+margin_right = 77.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 
 [node name="Health" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Health"]
@@ -90,7 +111,7 @@ text = "HP:"
 
 [node name="Data" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Health"]
 margin_left = 22.0
-margin_right = 103.0
+margin_right = 77.0
 margin_bottom = 17.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
@@ -101,9 +122,10 @@ __meta__ = {
 }
 
 [node name="Armor" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 42.0
-margin_right = 103.0
-margin_bottom = 59.0
+visible = false
+margin_top = 4.0
+margin_right = 77.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 
 [node name="Arrmor" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Armor"]
@@ -114,7 +136,7 @@ text = "Armor:"
 
 [node name="Data" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Armor"]
 margin_left = 49.0
-margin_right = 103.0
+margin_right = 77.0
 margin_bottom = 17.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
@@ -125,9 +147,10 @@ __meta__ = {
 }
 
 [node name="Speed" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 63.0
-margin_right = 103.0
-margin_bottom = 80.0
+visible = false
+margin_top = 4.0
+margin_right = 77.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 
 [node name="Speed" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Speed"]
@@ -138,7 +161,7 @@ text = "Speed:"
 
 [node name="Data" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Speed"]
 margin_left = 49.0
-margin_right = 103.0
+margin_right = 77.0
 margin_bottom = 17.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
@@ -149,9 +172,10 @@ __meta__ = {
 }
 
 [node name="Damage" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 84.0
-margin_right = 103.0
-margin_bottom = 101.0
+visible = false
+margin_top = 4.0
+margin_right = 77.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 
 [node name="Damage" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Damage"]
@@ -162,7 +186,7 @@ text = "Damage:"
 
 [node name="Data" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Damage"]
 margin_left = 58.0
-margin_right = 103.0
+margin_right = 77.0
 margin_bottom = 17.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
