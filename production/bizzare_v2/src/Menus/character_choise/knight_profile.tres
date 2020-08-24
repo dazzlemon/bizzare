@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://src/Menus/character_choise/choise_screen_stats.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/knight_v04_new1.png" type="Texture" id=2]
+
+
+[resource]
+script = ExtResource( 1 )
+class_type = "Knight"
+health = 100.0
+armor = 100.0
+speed = 100.0
+damage = 100.0
+image = ExtResource( 2 )

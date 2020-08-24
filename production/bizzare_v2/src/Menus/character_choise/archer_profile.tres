@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://src/Menus/character_choise/choise_screen_stats.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/Archer.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+class_type = "Archer"
+health = 90.0
+armor = 90.0
+speed = 90.0
+damage = 90.0
+image = ExtResource( 2 )
