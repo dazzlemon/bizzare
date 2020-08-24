@@ -579,7 +579,7 @@ _global_script_class_icons={
 [application]
 
 config/name="bizzare_v2"
-run/main_scene="res://src/Menus/character_choise/character_choise_menu.tscn"
+run/main_scene="res://src/levels/Game.tscn"
 config/icon="res://icon.png"
 
 [autoload]
