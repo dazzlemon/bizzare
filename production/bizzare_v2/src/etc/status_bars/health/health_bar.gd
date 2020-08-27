@@ -6,10 +6,6 @@ func _ready():
 	status_bar.value = stats.max_health
 	animation.max_value = stats.max_health
 
-func _process(delta):
-	update_max_value()
-	update_value()
-
 
 func update_max_value():
 	status_bar.value = status_bar.value / stats.max_health * status_bar.max_value #NEED PT

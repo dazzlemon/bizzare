@@ -32,12 +32,11 @@ shape = SubResource( 2 )
 
 [node name="stats" parent="." index="6"]
 script = ExtResource( 7 )
-max_health = 10.0
 
-[node name="HUD" parent="Camera2D" index="1"]
+[node name="HUD" parent="Camera2D" index="2"]
 margin_bottom = 9.0
 
-[node name="Inventory_HUD" parent="Camera2D" index="2"]
+[node name="Inventory_HUD" parent="Camera2D" index="3"]
 margin_top = 20.0
 
 [node name="attack" parent="." index="9" instance=ExtResource( 2 )]
