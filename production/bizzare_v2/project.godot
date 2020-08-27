@@ -304,6 +304,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/harpy_stomp_hitbox.gd"
 }, {
+"base": "StatusBar",
+"class": "HealthBar",
+"language": "GDScript",
+"path": "res://src/etc/status_bars/health/health_bar.gd"
+}, {
 "base": "Node",
 "class": "Inventory",
 "language": "GDScript",
@@ -464,6 +469,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/spell_cd/spell_cd_duration_wave/spell_cd_duration_wave.gd"
 }, {
+"base": "Control",
+"class": "StatusBar",
+"language": "GDScript",
+"path": "res://src/etc/status_bar.gd"
+}, {
 "base": "Node",
 "class": "Utility",
 "language": "GDScript",
@@ -539,6 +549,7 @@ _global_script_class_icons={
 "HarpyRayHitscan": "",
 "HarpyStomp": "",
 "HarpyStompHitbox": "",
+"HealthBar": "",
 "Inventory": "",
 "Knight": "",
 "KnightAOE": "",
@@ -571,6 +582,7 @@ _global_script_class_icons={
 "SpellCd": "",
 "SpellCdDuration": "",
 "SpellCdDurationWave": "",
+"StatusBar": "",
 "Utility": "",
 "WanderController": "",
 "WorldTestLevel": ""

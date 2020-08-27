@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/etc/status_bar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/etc/status_bars/health/health_bar.gd" type="Script" id=2]
+[ext_resource path="res://src/etc/status_bars/health/label.gd" type="Script" id=3]
+
+[node name="statusBar" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="RichTextLabel" parent="." index="0"]
+margin_left = 66.0
+margin_top = 20.0
+margin_right = 119.0
+margin_bottom = 35.0
+text = "eeee"
+script = ExtResource( 3 )

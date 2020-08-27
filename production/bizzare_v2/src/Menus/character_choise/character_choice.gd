@@ -5,14 +5,15 @@ var player_class = player_classes.KNIGHT
 const knight = preload("res://src/characters/base_player/knight/knight.tscn")
 const archer = preload("res://src/characters/base_player/archer/archer.tscn")
 
+
 enum player_classes {
 	KNIGHT,
 	ARCHER,
 }
 
-const player_classes_dict = {
-	player_classes.KNIGHT : [knight, "res://src/characters/base_player/knight/knight_stats.gd"],
-	player_classes.ARCHER : [archer, "res://src/characters/base_player/archer/archer_stats.gd"],
+var player_classes_dict = {
+	player_classes.KNIGHT : [knight, preload("res://src/characters/base_player/knight/knight_stats.gd")],
+	player_classes.ARCHER : [archer, preload("res://src/characters/base_player/archer/archer_stats.gd")],
 }
 
 func _on_KnightButton_pressed():
