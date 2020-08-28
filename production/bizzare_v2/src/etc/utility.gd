@@ -7,11 +7,11 @@ static func get_typeof(object):
 		return "Knight"
 	elif object is Archer:
 		return "Archer"
-	else :
+	else:
 		return "undefined"
 
 
 static func pick_random(list: Array):
 	randomize()
-	list.shuffle()#randomize()?
+	list.shuffle()
 	return list.pop_front()

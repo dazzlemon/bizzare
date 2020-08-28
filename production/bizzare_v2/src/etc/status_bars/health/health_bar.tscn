@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://src/etc/status_bar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/etc/status_bars/status_bar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/etc/status_bars/health/health_bar.gd" type="Script" id=2]
-[ext_resource path="res://src/etc/status_bars/health/label.gd" type="Script" id=3]
 
 [node name="statusBar" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -12,4 +11,3 @@ margin_left = 57.5147
 margin_top = 17.8232
 margin_right = 137.515
 margin_bottom = 34.8232
-script = ExtResource( 3 )

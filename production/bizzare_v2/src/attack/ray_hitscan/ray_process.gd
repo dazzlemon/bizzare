@@ -1,7 +1,7 @@
 class_name RayHitscanProcess
 extends RayCast2D
 
-var double_up
+onready var double_up = get_node("../../")
 var crosshair
 var player_detection_zone
 
