@@ -6,4 +6,4 @@ extends Area2D
 
 export var damage: float = 1
 
-
+onready var collision_shape = $CollisionShape2D
