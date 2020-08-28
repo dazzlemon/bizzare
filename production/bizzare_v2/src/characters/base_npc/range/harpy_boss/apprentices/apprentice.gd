@@ -1,6 +1,8 @@
 class_name Apprentice
 extends BaseNPCRange
 
+onready var player_detection_zone = control.player_detection_zone#src/characters/base_npc/range/harpy_boss/apprentices/apprentice_ray_hitscan_process.gd line6
+
 func _process(delta):
 	position = position.rotated(delta)
 
