@@ -12,7 +12,8 @@ script = ExtResource( 2 )
 visible = false
 
 [node name="animation" parent="." index="1"]
-texture_under = null
+value = 0.0
+texture_under = ExtResource( 4 )
 texture_over = null
 texture_progress = ExtResource( 3 )
 tint_progress = Color( 0.968627, 0.486275, 0.486275, 1 )
@@ -20,7 +21,6 @@ tint_progress = Color( 0.968627, 0.486275, 0.486275, 1 )
 [node name="status_bar" parent="." index="2"]
 margin_right = 91.0
 margin_bottom = 25.0
-texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 3 )
 tint_progress = Color( 0.8, 0.180392, 0.180392, 1 )
 

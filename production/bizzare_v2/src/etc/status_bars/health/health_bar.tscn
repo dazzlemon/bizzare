@@ -11,3 +11,6 @@ margin_left = 57.5147
 margin_top = 17.8232
 margin_right = 137.515
 margin_bottom = 34.8232
+
+[node name="status_bar" parent="." index="2"]
+tint_progress = Color( 0.862745, 0.258824, 0.313726, 1 )

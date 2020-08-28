@@ -3,7 +3,7 @@ extends BossStats
 
 
 func _ready():
-	max_health = 40
+	max_health = 80
 	health = max_health
 	._ready()
 
