@@ -3,12 +3,12 @@ extends Area2D
 
 var player = null
 
-onready var parent = get_node("../")
-onready var player_detection_zone = parent.get_node("player_detection_zone")
+onready var parent = get_parent()
 
 func _on_area_entered(area: Area2D) -> void:
-	player = area.get_node("../")
-	if player_detection_zone.can_see_player() and parent.state != parent.States.DASH:
+#area has to be character's hurtbox(set masks&layers for collisions)
+	player = area.owner
+	if parent.player_detection_zone.can_see_player() and parent.state != parent.States.DASH:
 		parent.state = parent.States.ATTACK
 
 
