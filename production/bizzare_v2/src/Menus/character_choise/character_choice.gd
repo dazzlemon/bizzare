@@ -27,4 +27,4 @@ func _on_ArcherButton_pressed():
 func _on_start_button_pressed():
 	var player = player_classes_dict[player_class][0].instance()
 	player.name = "player"
-	get_tree().get_root().get_node("Game").load_level(player)
+	get_tree().get_root().get_node("Game").load_level(player)#im not sure we can remove get_node from here
