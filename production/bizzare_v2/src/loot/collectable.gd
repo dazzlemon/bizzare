@@ -1,12 +1,3 @@
-#WIP
-#
-#
-#
-#
-#
-#
-#
-#SEEMS LIKE 04ko need refactor (imho)		SEEMS LIKE 04ko need refactor (imho)		SEEMS LIKE 04ko need refactor (imho)
 class_name Collectable
 extends Area2D
 export var item_name = "item"
