@@ -2,7 +2,9 @@ extends RayHitscanProcess
 
 func _ready():
 	._ready()
-	double_up = double_up.get_node("../../")
+	double_up = get_node("../../")
+	crosshair = double_up.owner.crosshair
+	player_detection_zone = double_up.get_parent().player_detection_zone
 
 
 func _process(delta):

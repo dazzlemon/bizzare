@@ -7,6 +7,9 @@ func _process(delta: float) -> void:
 
 func _ready() -> void:
 	cast_to = Vector2(200, 0)
-	crosshair = double_up.get_node("../../crosshair")
+	double_up = get_node("../../")
+	crosshair = double_up.get_owner().crosshair
 	player_detection_zone = double_up.get_node("../player_detection_zone")
-	double_up = double_up.get_node("../../")
+#	double_up = get_node("../../")
+#	crosshair = double_up.get_parent().crosshair
+#	player_detection_zone = double_up.get_parent().player_detection_zone
