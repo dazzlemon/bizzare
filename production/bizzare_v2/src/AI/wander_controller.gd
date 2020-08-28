@@ -22,7 +22,7 @@ func update_target_position() -> void:
 	position_target = position_start + Vector2(wander_range(), wander_range())
 
 
-func get_time_left() -> float:#idk what is return type, will add static typing later
+func get_time_left() -> float:
 	return timer.time_left
 
 

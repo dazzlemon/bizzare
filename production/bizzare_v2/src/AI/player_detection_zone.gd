@@ -10,7 +10,7 @@ var fov_deg = 270
 onready var look_at = $LookAt
 
 func _on_area_entered(area: Area2D) -> void:
-	player = area.get_node("../")
+	player = area.owner
 
 
 func _on_area_exited(_area: Area2D) -> void:

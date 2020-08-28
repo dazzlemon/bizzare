@@ -6,7 +6,7 @@ var armor = 0
 var speed = 0
 var damage = 0
 
-onready var character_choice = get_node("../")
+onready var character_choice = get_parent()
 
 func _process(delta):
 	var player_stats = character_choice.player_classes_dict[character_choice.player_class][1].new() 
