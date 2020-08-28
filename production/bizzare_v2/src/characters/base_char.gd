@@ -12,9 +12,10 @@ var velocity := Vector2.ZERO
 var state = States.FRICTION
 
 onready var stats = $stats
-onready var control = $control#prolly dont need static typing
+onready var control = $control
 onready var spell_1 = $spell_1
 onready var spell_2 = $spell_2
+onready var crosshair = $crosshair
 
 enum States {
 	KNOCKED_BACK,

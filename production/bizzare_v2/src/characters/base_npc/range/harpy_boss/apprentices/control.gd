@@ -1,21 +1,15 @@
-# ATTENTION
-#
-#
-#
-#
-#
-#NEED PLAY TEST		NEED PLAY TEST		NEED PLAY TEST		NEED PLAY TEST		NEED PLAY TEST		NEED PLAY TEST
+# NOT WORKING
 class_name ApprenticeControl
 extends BaseNPCRangeControl
-
-#onready var player_detection_zone_ = get_node("../../control/player_detection_zone")
 
 func _ready():
 	state = States.ATTACK
 
+
 func wander() -> Vector2:
 	state = States.IDLE
 	return Vector2.ZERO
+
 
 func attack() -> Vector2:
 	var player = player_detection_zone.player
