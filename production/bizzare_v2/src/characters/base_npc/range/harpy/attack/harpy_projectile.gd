@@ -7,6 +7,7 @@ onready var player = get_tree().get_root().get_node("Game/level").player
 func _ready():
 	speed = 50
 	LIFETIME = 10
+	damage = 10
 
 
 func _process(delta):

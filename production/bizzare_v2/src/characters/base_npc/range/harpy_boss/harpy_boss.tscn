@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/textures/bosspups.png" type="Texture" id=4]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/attack/harpy_boss_projectile_attack.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/phase_2_attack_2_control.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/characters/base_npc/boss_stats.gd" type="Script" id=7]
+[ext_resource path="res://src/characters/base_npc/range/harpy_boss/harpy_boss_stats.gd" type="Script" id=7]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_1/phase_1_attack_1_control.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_2/phase_1_attack_2_control.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_control.tscn" type="PackedScene" id=10]
@@ -69,7 +69,6 @@ shape = SubResource( 4 )
 
 [node name="stats" parent="." index="7"]
 script = ExtResource( 7 )
-max_health = 40.0
 [connection signal="timeout" from="control/phase_cd" to="control" method="_on_phase_cd_timeout"]
 
 [editable path="control/phase_1_attack_1"]

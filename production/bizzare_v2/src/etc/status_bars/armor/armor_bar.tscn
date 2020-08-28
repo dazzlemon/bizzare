@@ -9,15 +9,13 @@
 script = ExtResource( 2 )
 
 [node name="RichTextLabel" parent="." index="0"]
-margin_top = 20.0
-margin_bottom = 35.0
+margin_left = 50.6924
+margin_top = 17.8127
+margin_right = 142.692
+margin_bottom = 34.8127
 script = ExtResource( 3 )
 
-[node name="animation" parent="." index="1"]
-value = 0.0
-
 [node name="status_bar" parent="." index="2"]
-value = 0.0
 tint_progress = Color( 0.713726, 0.34902, 0.0980392, 1 )
 
 [node name="TextureRect" parent="." index="3"]

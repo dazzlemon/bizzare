@@ -6,9 +6,7 @@ signal damage_from_behind
 
 onready var player_detection_zone = get_node("../control").player_detection_zone
 
-func set_health(value) -> void:
-	health = value
-	if health <= 0:
-		emit_signal("no_health")
+func health_set(value) -> void:
+	.health_set(value)
 	if not player_detection_zone.has_player_inside_fov() :
 		emit_signal("damage_from_behind")

@@ -5,12 +5,8 @@ const phase_map = {1: 0.75, 2: 0.5, 3: 0.25}# % of health where phase x starts
 
 onready var control = get_node("../control")
 
-func set_health(value) -> void:
-	health = value
-	if health <= 0:
-		emit_signal("no_health")
-	if not player_detection_zone.has_player_inside_fov():
-		emit_signal("damage_from_behind")
+func health_set(value) -> void:
+	.health_set(value)
 	update_phase()
 
 

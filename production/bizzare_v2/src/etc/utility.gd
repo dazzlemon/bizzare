@@ -1,6 +1,7 @@
 class_name Utility
 extends Node
 
+
 static func get_typeof(object):
 	if object is Knight:
 		return "Knight"
@@ -11,5 +12,6 @@ static func get_typeof(object):
 
 
 static func pick_random(list: Array):
+	randomize()
 	list.shuffle()#randomize()?
 	return list.pop_front()
