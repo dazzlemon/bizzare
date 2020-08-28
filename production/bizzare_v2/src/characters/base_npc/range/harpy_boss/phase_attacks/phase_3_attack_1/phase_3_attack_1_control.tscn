@@ -5,6 +5,3 @@
 
 [node name="Control" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-
-
-C:\D\Project\bizzare\production\bizzare_v2\src\spell_cd

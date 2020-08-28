@@ -4,9 +4,4 @@
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_control.gd" type="Script" id=2]
 
 [node name="Control" instance=ExtResource( 1 )]
-anchor_right = 1.0
-anchor_bottom = 1.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}

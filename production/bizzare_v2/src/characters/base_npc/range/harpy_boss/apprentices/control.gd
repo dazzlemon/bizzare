@@ -8,7 +8,7 @@
 class_name ApprenticeControl
 extends BaseNPCRangeControl
 
-#onready var player_detection_zone = get_node("../../control/player_detection_zone")
+#onready var player_detection_zone_ = get_node("../../control/player_detection_zone")
 
 func _ready():
 	state = States.ATTACK

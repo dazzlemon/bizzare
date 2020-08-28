@@ -2,4 +2,4 @@ class_name HarpyStompHitbox
 extends ExplosionHitscan
 
 func _ready():
-	damage = 100
+	damage = 10
