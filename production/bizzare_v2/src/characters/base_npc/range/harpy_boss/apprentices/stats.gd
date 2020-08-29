@@ -3,6 +3,6 @@ extends BaseNPCStats
 
 
 func _ready():
-	health = 1
-	max_health =1
+	health = 5
+	max_health =5
 

@@ -6,7 +6,7 @@ onready var stats = get_node("../../stats")
 onready var update_tween = $UpdateTween
 onready var animation = $animation
 onready var label = $RichTextLabel
-onready var pulse_tween = $PulseTween
+#onready var pulse_tween = $PulseTween
 
 #export (Color) var pulse_color = Color ("#902a34")
 #var is_pulsing = false

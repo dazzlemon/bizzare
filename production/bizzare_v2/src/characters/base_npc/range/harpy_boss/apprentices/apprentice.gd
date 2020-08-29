@@ -11,3 +11,6 @@ func drop_loot():
 
 func _on_stats_no_health():
 	pass
+
+func take_damage(damage: float) -> void:
+	stats.health -= 1

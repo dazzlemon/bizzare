@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/loot/collectable.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/textures/coin_sprit.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/money_bag.png" type="Texture" id=2]
 [ext_resource path="res://src/loot/currency/cureency_1.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 5.12919
+radius = 8.69377
 
 [node name="currency" instance=ExtResource( 1 )]
 
@@ -16,5 +16,5 @@ script = ExtResource( 3 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="Area2D" index="1"]
-position = Vector2( 0.551216, 0.511844 )
+position = Vector2( -0.0100137, 1.42384 )
 shape = SubResource( 1 )

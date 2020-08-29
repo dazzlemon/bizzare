@@ -64,7 +64,3 @@ __meta__ = {
 }
 
 [node name="UpdateTween" type="Tween" parent="."]
-
-[node name="PulseTween" type="Tween" parent="."]
-repeat = true
-playback/repeat = true

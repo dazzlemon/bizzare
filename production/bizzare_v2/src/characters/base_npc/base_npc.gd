@@ -15,7 +15,7 @@ func drop_loot() -> void:
 	randomize()
 	var random = randi() % 100 + 1
 	print(random)
-	if random <= 50:
+	if random <= 1:
 		var loot = loot_scene.instance()
 		loot.global_position = global_position
 		get_node("../").add_child(loot)
