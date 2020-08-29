@@ -71,3 +71,5 @@ __meta__ = {
 
 [node name="Inventory" type="Node" parent="." index="8"]
 script = ExtResource( 5 )
+
+[editable path="Camera2D/currency_hud"]

@@ -3,7 +3,8 @@ class_name BaseNPC
 extends BaseChar
 
 var loot_scene = preload("res://src/loot/coin.tscn")
-var currency_1_scene = preload("res://src/loot/currency/currency_1.tscn")
+var currency_bag_scene = preload("res://src/loot/currency/currency_bag.tscn")
+var currency_coins_scene = preload("res://src/loot/currency/currency_coins.tscn")
 
 func _ready() -> void:
 	ACCEL = 300
@@ -19,10 +20,14 @@ func drop_loot() -> void:
 		var loot = loot_scene.instance()
 		loot.global_position = global_position
 		get_node("../").add_child(loot)
+	elif random >1 and random < 50  :
+		var currency_bag = currency_bag_scene.instance()
+		currency_bag.global_position = global_position
+		get_node("../").add_child(currency_bag)
 	else:
-		var currency = currency_1_scene.instance()
-		currency.global_position = global_position
-		get_node("../").add_child(currency)
+		var currency_coins = currency_coins_scene.instance()
+		currency_coins.global_position = global_position
+		get_node("../").add_child(currency_coins)
 
 func die() -> void:
 	.die()

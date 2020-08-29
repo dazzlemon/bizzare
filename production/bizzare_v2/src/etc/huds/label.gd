@@ -1,5 +1,6 @@
 extends Label
-var amount = 0
+onready var inventory = get_node("../../../Inventory")
+
 
 func _process(delta):
-	set_text(str(amount))
+	set_text(str(inventory.currency_amount))

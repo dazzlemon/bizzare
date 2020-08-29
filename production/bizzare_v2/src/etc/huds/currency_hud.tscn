@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://assets/textures/coin_sprit.png" type="Texture" id=1]
+[ext_resource path="res://assets/textures/gold.png" type="Texture" id=1]
 [ext_resource path="res://src/etc/huds/label.gd" type="Script" id=2]
 
 [node name="Control" type="Control"]
@@ -21,10 +21,10 @@ __meta__ = {
 }
 
 [node name="label" type="Label" parent="."]
-margin_left = 435.302
-margin_top = 81.7377
-margin_right = 475.302
-margin_bottom = 97.7377
+margin_left = 441.195
+margin_top = 81.4571
+margin_right = 481.195
+margin_bottom = 97.4571
 text = "0"
 script = ExtResource( 2 )
 __meta__ = {

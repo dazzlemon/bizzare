@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_control.gd"
 }, {
+"base": "Collectable",
+"class": "BaseCurrency",
+"language": "GDScript",
+"path": "res://src/loot/currency/base_currency.gd"
+}, {
 "base": "SpellCdDuration",
 "class": "BaseHitscan",
 "language": "GDScript",
@@ -208,6 +213,16 @@ _global_script_classes=[ {
 "class": "Crosshair",
 "language": "GDScript",
 "path": "res://src/characters/crosshair.gd"
+}, {
+"base": "BaseCurrency",
+"class": "CurrencyBag",
+"language": "GDScript",
+"path": "res://src/loot/currency/currency_bag.gd"
+}, {
+"base": "BaseCurrency",
+"class": "CurrencyCoins",
+"language": "GDScript",
+"path": "res://src/loot/currency/currency_coins.gd"
 }, {
 "base": "BaseHitscanAllyHitbox",
 "class": "ExplosionArea",
@@ -522,6 +537,7 @@ _global_script_class_icons={
 "AttackRange": "",
 "BaseChar": "",
 "BaseControl": "",
+"BaseCurrency": "",
 "BaseHitscan": "",
 "BaseHitscanAlly": "",
 "BaseHitscanAllyHitbox": "",
@@ -550,6 +566,8 @@ _global_script_class_icons={
 "ChoiseScreenStats": "",
 "Collectable": "",
 "Crosshair": "",
+"CurrencyBag": "",
+"CurrencyCoins": "",
 "ExplosionArea": "",
 "ExplosionHitscan": "",
 "ExplosiveArrow": "",
