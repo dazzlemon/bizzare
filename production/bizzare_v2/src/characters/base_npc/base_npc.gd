@@ -17,17 +17,18 @@ func drop_loot() -> void:
 	var random = randi() % 100 + 1
 	print(random)
 	if random <= 1:
-		var loot = loot_scene.instance()
-		loot.global_position = global_position
-		get_node("../").add_child(loot)
+		spawn_instance(loot_scene)
 	elif random >1 and random < 50  :
-		var currency_bag = currency_bag_scene.instance()
-		currency_bag.global_position = global_position
-		get_node("../").add_child(currency_bag)
+		spawn_instance(currency_bag_scene)
 	else:
-		var currency_coins = currency_coins_scene.instance()
-		currency_coins.global_position = global_position
-		get_node("../").add_child(currency_coins)
+		spawn_instance(currency_coins_scene)
+
+
+func spawn_instance(url) -> void:
+	var instance = url.instance()
+	instance.global_position = global_position
+	get_node("../").add_child(instance)
+
 
 func die() -> void:
 	.die()
