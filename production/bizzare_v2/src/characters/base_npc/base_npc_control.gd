@@ -4,7 +4,6 @@ extends BaseControl
 
 export var wander_target_range = 4
 
-onready var this_enemy = get_node("../")
 onready var player_detection_zone = $player_detection_zone
 onready var wander_controller = $wander_controller
 onready var attack_range = $attack_range
@@ -35,6 +34,7 @@ func _ready() -> void:
 
 
 func get_input_vector() -> Vector2:
+	print(state_funcs[state])
 	return call(state_funcs[state])#.normalized()
 
 
@@ -56,10 +56,9 @@ func idle() -> Vector2:
 
 
 func wander() -> Vector2:
-	seek_player()
-	wander_controller()
-	var direction = this_enemy.global_position.direction_to(wander_controller.position_target)
-	if this_enemy.global_position.distance_to(wander_controller.position_target) <= wander_target_range :
+	idle()
+	var direction = owner.global_position.direction_to(wander_controller.position_target)
+	if owner.global_position.distance_to(wander_controller.position_target) <= wander_target_range:
 		state = Utility.pick_random([States.IDLE, States.WANDER])
 		wander_controller.start_wander_timer(rand_range(1, 3))
 	return direction
@@ -69,7 +68,7 @@ func chase() -> Vector2:
 	var player = player_detection_zone.player
 	var direction := Vector2.ZERO
 	if player != null and player_detection_zone.can_see_player():
-		direction = this_enemy.global_position.direction_to(player.global_position)
+		direction = owner.global_position.direction_to(player.global_position)
 	else:
 		state = States.IDLE
 	return direction
@@ -93,5 +92,5 @@ func dash() -> Vector2:
 
 func wander_controller() -> void:
 	if wander_controller.get_time_left() == 0:
-		Utility.pick_random([States.IDLE, States.WANDER])
+		state = Utility.pick_random([States.IDLE, States.WANDER])
 		wander_controller.start_wander_timer(rand_range(1, 1.5))
