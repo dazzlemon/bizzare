@@ -38,8 +38,6 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="control" parent="." index="4"]
-margin_right = 40.0
-margin_bottom = 40.0
 script = ExtResource( 3 )
 
 [node name="phase_cd" type="Timer" parent="control" index="0"]

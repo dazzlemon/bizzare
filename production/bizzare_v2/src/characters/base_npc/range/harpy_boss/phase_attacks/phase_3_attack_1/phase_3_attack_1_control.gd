@@ -25,6 +25,7 @@ func verify_apprentices():#GADSTVO GAVNO IS JOPI
 	var i = 0#wasnt working, so i didnt touch the code, but it could be optimized
 	while i < apprentices.size():
 		if apprentices[i].get_node("stats").health is float and apprentices[i].get_node("stats").health <= 0:# checking for float because it gets Nil from somewhere idk where(nice godot(govnot))
+			print(apprentices[i].get_node("stats").health)
 			apprentices[i].die()
 			apprentices.remove(i)
 		i += 1
