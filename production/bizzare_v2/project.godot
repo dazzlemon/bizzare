@@ -74,7 +74,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_control.gd"
 }, {
-"base": "Collectable",
+"base": "Consumable",
 "class": "BaseCurrency",
 "language": "GDScript",
 "path": "res://src/loot/currency/base_currency.gd"
@@ -209,10 +209,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Menus/character_choise/choise_screen_stats.gd"
 }, {
-"base": "Area2D",
+"base": "Consumable",
 "class": "Collectable",
 "language": "GDScript",
 "path": "res://src/loot/collectable.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Consumable",
+"language": "GDScript",
+"path": "res://src/loot/consumable.gd"
 }, {
 "base": "Position2D",
 "class": "Crosshair",
@@ -586,6 +591,7 @@ _global_script_class_icons={
 "BossStats": "",
 "ChoiseScreenStats": "",
 "Collectable": "",
+"Consumable": "",
 "Crosshair": "",
 "CurrencyBag": "",
 "CurrencyCoins": "",

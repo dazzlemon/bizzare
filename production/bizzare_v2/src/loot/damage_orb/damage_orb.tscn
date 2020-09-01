@@ -5,16 +5,13 @@
 [ext_resource path="res://assets/textures/damage_orb.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 8.42058
 
 [node name="collectable" instance=ExtResource( 1 )]
-
-[node name="Area2D" parent="." index="0"]
 script = ExtResource( 2 )
-item_name = "damage_orb"
+item_name = null
 
-[node name="sprite" parent="Area2D" index="0"]
+[node name="sprite" parent="area" index="0"]
 texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" parent="Area2D" index="1"]
+[node name="collision_shape" parent="area" index="1"]
 shape = SubResource( 1 )

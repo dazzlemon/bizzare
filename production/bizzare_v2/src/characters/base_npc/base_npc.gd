@@ -2,7 +2,6 @@
 class_name BaseNPC
 extends BaseChar
 
-var loot_scene = preload("res://src/loot/coin.tscn")
 var currency_bag_scene = preload("res://src/loot/currency/currency_bag.tscn")
 var currency_coins_scene = preload("res://src/loot/currency/currency_coins.tscn")
 var health_orb_scene = preload("res://src/loot/health_orb/health_orb.tscn")
@@ -20,9 +19,7 @@ func drop_loot() -> void:
 	randomize()
 	var random = randi() % 100 + 1
 	print(random)
-	if random <= 1:
-		spawn_instance(loot_scene)
-	elif random > 2 and random < 3 :
+	if random > 2 and random < 3 :
 		spawn_instance(currency_bag_scene)
 	elif random > 4 and random < 5 :
 		spawn_instance(currency_coins_scene)
