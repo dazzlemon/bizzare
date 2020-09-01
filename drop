@@ -1,0 +1,28 @@
+Tier SSS(ULTRA IMBA, can drop once per run)(press x to win)
+Tier S(semi imba + once per run)
+Tier A(non imba passive+active?)
+Tier B(small buffs)
+Tier C(consumable)
+
+ways to obtain loot:
+    Tier SSS
+        elite_mobs._on_death 0.1%
+        boss._on_death 2.5%
+    Tier S
+        mobs._on_death 0.1%
+        level._on_start 0.05%
+        elite_mobs._on_death 1%
+        boss._on_death 15%
+    Tier A
+        mobs._on_death 0.5%
+        level._on_start 0.5%
+        elite_mobs._on_death 10%
+        boss._on_death 80%
+    Tier B
+        mobs._on_death 1%
+        level._on_start 5%
+        elite_mobs._on_death 25%
+    Tier C
+        mobs._on_death 2%
+        elite_mobs._on_death 50%
+        boss._on_death 100%(amount is random(50, 100))#subject to change
