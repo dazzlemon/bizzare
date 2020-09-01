@@ -25,8 +25,8 @@ anchor_bottom = 0.5
 margin_right = 1.688
 margin_bottom = 2.5
 custom_constants/vseparation = 11
-custom_constants/hseparation = 8
-columns = 12
+custom_constants/hseparation = 20
+columns = 10
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

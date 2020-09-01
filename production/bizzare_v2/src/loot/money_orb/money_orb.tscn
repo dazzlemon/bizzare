@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/loot/collectable.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/loot/money_orb/money_orb.gd" type="Script" id=2]
-[ext_resource path="res://assets/textures/money_orb.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/coin_sprit.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.82294
@@ -13,7 +13,7 @@ radius = 8.82294
 script = ExtResource( 2 )
 item_name = "money_orb"
 
-[node name="Sprite" parent="Area2D" index="0"]
+[node name="sprite" parent="Area2D" index="0"]
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="Area2D" index="1"]

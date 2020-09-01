@@ -12,15 +12,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="textrect" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 16.0
-margin_bottom = 16.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="label" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -28,6 +19,16 @@ margin_left = 13.0
 margin_top = 7.0
 margin_right = 27.0
 margin_bottom = 21.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="textrect" type="TextureRect" parent="."]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 16.0
+margin_bottom = 16.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

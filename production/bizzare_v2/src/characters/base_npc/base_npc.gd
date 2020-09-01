@@ -22,15 +22,15 @@ func drop_loot() -> void:
 	print(random)
 	if random <= 1:
 		spawn_instance(loot_scene)
-	elif random > 2 and random < 3  :
+	elif random > 2 and random < 3 :
 		spawn_instance(currency_bag_scene)
-	elif random >4 and random < 5 :
+	elif random > 4 and random < 5 :
 		spawn_instance(currency_coins_scene)
-	elif random > 6 and random < 7: 
+	elif random > 60 and random < 70: 
 		spawn_instance(health_orb_scene)
-	elif random > 8 and random < 9:
+	elif random > 80 and random < 90:
 		spawn_instance(damage_orb_scene)
-	elif random > 10 and random < 11:
+	elif random > 70 and random < 80:
 		spawn_instance(armor_orb_scene)
 	else:
 		spawn_instance(money_orb_scene)

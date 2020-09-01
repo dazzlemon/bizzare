@@ -1,7 +1,7 @@
 extends GridContainer
 
 var slot_scene = preload("res://src/etc/inventory_hud/slot.tscn")
-var max_slots = 24
+var max_slots = 20
 var slots := []
 onready var coin_texture
 onready var inventory = get_node("../../../../Inventory").array
@@ -33,8 +33,7 @@ func _update_slots():
 func _draw_slots():
 	for slot in slots:
 		if not slot.empty:
-			print("jpoka")
-			slot.get_node("textrect").texture = load("res://assets/textures/Coin.png")#texture_dict[slot.contents[2]]#texture
+			slot.get_node("textrect").texture = slot.contents[2]#texture
 			slot.get_node("label").text = str(slot.contents[1])#amount
 		else:
 			slot.empty = slot.empty#tmp, need to set counter to "", and empty structure
