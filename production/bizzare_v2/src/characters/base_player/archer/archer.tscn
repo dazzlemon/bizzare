@@ -33,17 +33,16 @@ shape = SubResource( 2 )
 [node name="stats" parent="." index="6"]
 script = ExtResource( 7 )
 
-[node name="HUD" parent="Camera2D" index="2"]
+[node name="HUD" parent="Camera2D" index="3"]
 margin_bottom = 9.0
-
-[node name="Inventory_HUD" parent="Camera2D" index="3"]
-margin_top = 20.0
 
 [node name="attack" parent="." index="9" instance=ExtResource( 2 )]
 
 [node name="spell_1" parent="." index="11" instance=ExtResource( 6 )]
 
 [node name="spell_2" parent="." index="12" instance=ExtResource( 5 )]
+
+[editable path="Camera2D/currency_hud"]
 
 [editable path="spell_1"]
 

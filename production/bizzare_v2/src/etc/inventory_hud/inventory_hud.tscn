@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/etc/inventory_hud/GridContainer.gd" type="Script" id=1]
+
+[node name="inventory_hud" type="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -148.0
+margin_right = 148.0
+margin_bottom = 55.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 296.0
+margin_bottom = 55.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="TextureRect"]
+margin_right = 296.0
+margin_bottom = 55.0
+custom_constants/vseparation = 11
+custom_constants/hseparation = 8
+columns = 12
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

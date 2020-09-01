@@ -2,6 +2,8 @@ extends Panel
 
 var player_class = player_classes.KNIGHT
 
+onready var icon = get_node("VBoxContainer/TextureRect")
+
 const knight = preload("res://src/characters/base_player/knight/knight.tscn")
 const archer = preload("res://src/characters/base_player/archer/archer.tscn")
 
@@ -18,11 +20,11 @@ var player_classes_dict = {
 
 func _on_KnightButton_pressed():
 	player_class = player_classes.KNIGHT
-
+	icon.texture = load("res://assets/textures/knight_v04_new1.png")
 
 func _on_ArcherButton_pressed():
 	player_class = player_classes.ARCHER
-
+	icon.texture = load("res://assets/textures/Archer.png")
 
 func _on_start_button_pressed():
 	var player = player_classes_dict[player_class][0].instance()

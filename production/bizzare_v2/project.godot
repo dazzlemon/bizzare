@@ -54,6 +54,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/etc/status_bars/armor/armor_bar.gd"
 }, {
+"base": "Collectable",
+"class": "ArmorOrb",
+"language": "GDScript",
+"path": "res://src/loot/armor_orb/armor_orb.gd"
+}, {
 "base": "Area2D",
 "class": "AttackRange",
 "language": "GDScript",
@@ -79,7 +84,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/hitscan/base_hitscan.gd"
 }, {
-"base": "BaseHitscan",
+"base": "Reference",
 "class": "BaseHitscanAlly",
 "language": "GDScript",
 "path": "res://src/attack/hitscan/ally_hitscan/base_hitscan_ally.gd"
@@ -89,7 +94,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/hitscan/ally_hitscan/base_hitscan_ally_hitbox.gd"
 }, {
-"base": "BaseHitscan",
+"base": "Reference",
 "class": "BaseHitscanEnemy",
 "language": "GDScript",
 "path": "res://src/attack/hitscan/enemy_hitscan/base_hitscan_enemy.gd"
@@ -124,12 +129,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/melee/base_npc_melee.gd"
 }, {
-"base": "BaseNPCControl",
+"base": "Reference",
 "class": "BaseNPCMeleeControl",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/melee/base_npc_melee_control.gd"
 }, {
-"base": "BaseNPC",
+"base": "Reference",
 "class": "BaseNPCRange",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/base_npc_range.gd"
@@ -223,6 +228,11 @@ _global_script_classes=[ {
 "class": "CurrencyCoins",
 "language": "GDScript",
 "path": "res://src/loot/currency/currency_coins.gd"
+}, {
+"base": "Collectable",
+"class": "DamageOrb",
+"language": "GDScript",
+"path": "res://src/loot/damage_orb/damage_orb.gd"
 }, {
 "base": "BaseHitscanAllyHitbox",
 "class": "ExplosionArea",
@@ -339,6 +349,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/etc/status_bars/health/health_bar.gd"
 }, {
+"base": "Reference",
+"class": "HealthOrb",
+"language": "GDScript",
+"path": "res://src/loot/health_orb/health_orb.gd"
+}, {
 "base": "Node",
 "class": "Inventory",
 "language": "GDScript",
@@ -384,6 +399,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_player/knight/knight_stats.gd"
 }, {
+"base": "Collectable",
+"class": "MoneyOrb",
+"language": "GDScript",
+"path": "res://src/loot/money_orb/money_orb.gd"
+}, {
 "base": "StatusBar",
 "class": "NPCHealthBar",
 "language": "GDScript",
@@ -394,7 +414,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_1/phase_1_attack_1_control.gd"
 }, {
-"base": "HarpyBossProjectile",
+"base": "Reference",
 "class": "Phase1Attack1Projectile",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_1_attack_1/phase_1_attack_1_projectile.gd"
@@ -419,7 +439,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_hitscan.gd"
 }, {
-"base": "BaseHitscanEnemyHitbox",
+"base": "Reference",
 "class": "Phase2Attack1HitscanHitbox",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_hitscan_hitbox.gd"
@@ -534,6 +554,7 @@ _global_script_class_icons={
 "ArcherProjectileAttack": "",
 "ArcherStats": "",
 "ArmorBar": "",
+"ArmorOrb": "",
 "AttackRange": "",
 "BaseChar": "",
 "BaseControl": "",
@@ -568,6 +589,7 @@ _global_script_class_icons={
 "Crosshair": "",
 "CurrencyBag": "",
 "CurrencyCoins": "",
+"DamageOrb": "",
 "ExplosionArea": "",
 "ExplosionHitscan": "",
 "ExplosiveArrow": "",
@@ -591,6 +613,7 @@ _global_script_class_icons={
 "HarpyStomp": "",
 "HarpyStompHitbox": "",
 "HealthBar": "",
+"HealthOrb": "",
 "Inventory": "",
 "Knight": "",
 "KnightAOE": "",
@@ -600,6 +623,7 @@ _global_script_class_icons={
 "KnightHitscan": "",
 "KnightHitscanHitbox": "",
 "KnightStats": "",
+"MoneyOrb": "",
 "NPCHealthBar": "",
 "Phase1Attack1Control": "",
 "Phase1Attack1Projectile": "",

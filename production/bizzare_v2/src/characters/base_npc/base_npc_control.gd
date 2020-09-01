@@ -34,7 +34,7 @@ func _ready() -> void:
 
 
 func get_input_vector() -> Vector2:
-	print(state_funcs[state])
+	#print(state_funcs[state])
 	return call(state_funcs[state])#.normalized()
 
 
