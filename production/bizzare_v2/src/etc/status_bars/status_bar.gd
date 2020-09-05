@@ -32,7 +32,7 @@ func update_max_value():
 
 
 func update_value():
-	if status_bar.value != stats.get(value_str):
+	if status_bar.value != stats.get(value_str) and not update_tween.is_active():
 		status_bar.value = stats.get(value_str)
 		update_tween.interpolate_property(animation, "value", animation.value, stats.get(value_str), 0.175, Tween.TRANS_SINE, Tween.EASE_IN_OUT, 0.175)
 		update_tween.start()
