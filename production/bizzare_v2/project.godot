@@ -222,7 +222,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "ChoiseScreenStats",
 "language": "GDScript",
-"path": "res://src/Menus/character_choise/choise_screen_stats.gd"
+"path": "res://src/Menus/character_choice/choice_screen_stats.gd"
 }, {
 "base": "Consumable",
 "class": "Collectable",

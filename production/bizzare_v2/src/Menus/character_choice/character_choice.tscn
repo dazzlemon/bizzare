@@ -1,9 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/Menus/character_choise/character_choice.gd" type="Script" id=1]
+[ext_resource path="res://src/Menus/character_choice/character_choice.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/knight_v04_new1.png" type="Texture" id=2]
 [ext_resource path="res://assets/font_arcade_classsic.tres" type="DynamicFont" id=3]
-[ext_resource path="res://src/Menus/character_choise/stats.gd" type="Script" id=4]
+[ext_resource path="res://src/Menus/character_choice/stats.gd" type="Script" id=4]
+
 
 [node name="Character_choice" type="Panel"]
 anchor_left = 0.5

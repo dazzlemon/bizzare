@@ -52,7 +52,7 @@ func drop_loot() -> void:
 func spawn_instance(url) -> void:
 	var instance = url.instance()
 	instance.global_position = global_position
-	get_node("../").add_child(instance)
+	get_node("../").call_deferred("add_child", instance)
 
 
 func die() -> void:

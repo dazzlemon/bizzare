@@ -3,18 +3,22 @@ extends Panel
 class PlayableChar:
 	var scene
 	var stats_script
+	var scene_script
 
-	func _init(scene, stats_script):
+	func _init(scene, stats_script, scene_script):
 		self.scene = scene
 		self.stats_script = stats_script
+		self.scene_script = scene_script
 
 var knight = PlayableChar.new(
 	preload("res://src/characters/base_player/knight/knight.tscn"),
-	preload("res://src/characters/base_player/knight/knight_stats.gd")
+	preload("res://src/characters/base_player/knight/knight_stats.gd"),
+	preload("res://src/characters/base_player/knight/knight.gd")
 )
 var archer = PlayableChar.new(
 	preload("res://src/characters/base_player/archer/archer.tscn"),
-	preload("res://src/characters/base_player/archer/archer_stats.gd")
+	preload("res://src/characters/base_player/archer/archer_stats.gd"),
+	preload("res://src/characters/base_player/archer/archer.gd")
 )
 
 onready var player_class = knight
