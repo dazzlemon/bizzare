@@ -8,6 +8,7 @@
 
 [node name="collectable" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+item_name = "health_orb"
 
 [node name="sprite" parent="area" index="0"]
 texture = ExtResource( 2 )

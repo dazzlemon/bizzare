@@ -68,6 +68,7 @@ hframes = 2
 [node name="AnimatedSprite" type="AnimatedSprite" parent="pivot" index="1"]
 frames = SubResource( 8 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="collision_box" parent="." index="3"]
@@ -88,14 +89,15 @@ shape = SubResource( 10 )
 [node name="stats" parent="." index="6"]
 script = ExtResource( 3 )
 
-[node name="HUD" parent="Camera2D" index="2"]
-margin_bottom = 23.0
-
-[node name="Inventory_HUD" parent="Camera2D" index="3"]
-margin_top = 20.0
+[node name="HUD" parent="Camera2D" index="0"]
+margin_left = -240.0
+margin_top = 0.0
+margin_right = -3.0
 
 [node name="spell_2" parent="." index="10" instance=ExtResource( 8 )]
 
 [node name="attack" parent="." index="11" instance=ExtResource( 6 )]
 
 [node name="spell_1" parent="." index="12" instance=ExtResource( 7 )]
+
+[editable path="Camera2D/currency_hud"]
