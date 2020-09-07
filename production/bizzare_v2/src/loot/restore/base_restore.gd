@@ -5,6 +5,7 @@ var restore_value = 50
 #var max_value_str = "max_health" #DEFAULT VALUE
 #var value_str = "health"
 
+
 func die(area):
 	restore_hp(area.get_node("../stats"))
 
