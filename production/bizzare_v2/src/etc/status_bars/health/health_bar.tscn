@@ -7,7 +7,7 @@
 script = ExtResource( 2 )
 
 [node name="RichTextLabel" parent="." index="0"]
-margin_left = 57.5147
-margin_top = 17.8232
-margin_right = 137.515
-margin_bottom = 34.8232
+margin_left = 56.6308
+margin_top = 19.9445
+margin_right = 136.631
+margin_bottom = 36.9445
