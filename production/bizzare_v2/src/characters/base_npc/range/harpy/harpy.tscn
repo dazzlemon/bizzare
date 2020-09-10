@@ -113,10 +113,10 @@ radius = 5.49299
 height = 18.0273
 
 [sub_resource type="CircleShape2D" id=13]
-radius = 52.5933
+radius = 78.622
 
 [sub_resource type="CircleShape2D" id=14]
-radius = 96.3098
+radius = 156.149
 
 [sub_resource type="CircleShape2D" id=15]
 radius = 17.9834
@@ -140,7 +140,7 @@ parameters/harpy_idles/blend_position = Vector2( -0.501, -0.25 )
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 4 )
 hframes = 32
-frame = 28
+frame = 27
 
 [node name="sprite2" type="Sprite" parent="pivot" index="1"]
 position = Vector2( 0, 12 )

@@ -5,7 +5,7 @@ var angle_coeffitient = 500
 onready var player = get_tree().get_root().get_node("Game/level").player
 
 func _ready():
-	speed = 50
+	speed = 100
 	LIFETIME = 10
 	damage = 10
 
