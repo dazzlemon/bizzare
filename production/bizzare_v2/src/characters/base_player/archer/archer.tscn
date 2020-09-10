@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/characters/base_player/base_player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_player/archer/attack/archer_projectile_attack.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://src/characters/base_player/archer/spells/as_increase/as_increase.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/characters/base_player/archer/spells/explosion/explosive_arrow.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/characters/base_player/archer/archer_stats.gd" type="Script" id=7]
+[ext_resource path="res://src/characters/base_hurtbox.gd" type="Script" id=8]
+[ext_resource path="res://src/characters/crosshair.gd" type="Script" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 6.05109
@@ -27,22 +29,35 @@ position = Vector2( 0.264874, 13.5082 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
+[node name="control" parent="." index="4"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="hurtbox" parent="." index="5"]
+script = ExtResource( 8 )
+
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 shape = SubResource( 2 )
-
-[node name="stats" parent="." index="6"]
-script = ExtResource( 7 )
 
 [node name="HUD" parent="Camera2D" index="0"]
 margin_left = -239.0
 margin_top = 0.0
 margin_right = -2.0
 
-[node name="attack" parent="." index="9" instance=ExtResource( 2 )]
+[node name="attack" parent="." index="8" instance=ExtResource( 2 )]
 
-[node name="spell_1" parent="." index="11" instance=ExtResource( 6 )]
+[node name="stats" parent="." index="9"]
+script = ExtResource( 7 )
 
-[node name="spell_2" parent="." index="12" instance=ExtResource( 5 )]
+[node name="spell_1" parent="." index="10" instance=ExtResource( 6 )]
+
+[node name="spell_2" parent="." index="11" instance=ExtResource( 5 )]
+
+[node name="crosshair" parent="." index="12"]
+script = ExtResource( 9 )
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="Camera2D/currency_hud"]
 

@@ -11,6 +11,7 @@ export var MAX_SPEED: float = 300# all of these have to be const, but changeable
 var velocity := Vector2.ZERO
 var state = States.FRICTION
 
+onready var animation_player = $AnimationPlayer
 onready var stats = $stats
 onready var control = $control
 onready var spell_1 = $spell_1
