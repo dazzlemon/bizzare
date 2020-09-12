@@ -1,20 +1,31 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/characters/base_player/base_player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_player/archer/attack/archer_projectile_attack.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/textures/Chilopups.png" type="Texture" id=3]
+[ext_resource path="res://src/characters/base_player/archer/Sprite.gd" type="Script" id=3]
 [ext_resource path="res://src/characters/base_player/archer/archer.gd" type="Script" id=4]
 [ext_resource path="res://src/characters/base_player/archer/spells/as_increase/as_increase.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/characters/base_player/archer/spells/explosion/explosive_arrow.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/characters/base_player/archer/archer_stats.gd" type="Script" id=7]
-[ext_resource path="res://src/characters/base_hurtbox.gd" type="Script" id=8]
-[ext_resource path="res://src/characters/crosshair.gd" type="Script" id=9]
+[ext_resource path="res://assets/textures/archer/b1.png" type="Texture" id=8]
+[ext_resource path="res://assets/textures/archer/b4.png" type="Texture" id=9]
+[ext_resource path="res://assets/textures/archer/b3.png" type="Texture" id=10]
+[ext_resource path="res://assets/textures/archer/b2.png" type="Texture" id=11]
+[ext_resource path="res://assets/textures/archer/right_down.png" type="Texture" id=12]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 6.05109
 height = 11.0326
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 16.8761
 
 [node name="player" instance=ExtResource( 1 )]
@@ -22,22 +33,32 @@ collision_mask = 10
 script = ExtResource( 4 )
 
 [node name="sprite" parent="pivot" index="0"]
-texture = ExtResource( 3 )
+visible = false
+texture = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="pivot" index="1"]
+z_index = 1
+texture = ExtResource( 12 )
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="pivot" index="2"]
+frames = SubResource( 1 )
+frame = 2
+playing = true
 
 [node name="collision_box" parent="." index="3"]
 position = Vector2( 0.264874, 13.5082 )
 rotation = 1.5708
-shape = SubResource( 1 )
-
-[node name="control" parent="." index="4"]
-margin_right = 40.0
-margin_bottom = 40.0
+shape = SubResource( 2 )
 
 [node name="hurtbox" parent="." index="5"]
-script = ExtResource( 8 )
+visible = false
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
+
+[node name="stats" parent="." index="6"]
+script = ExtResource( 7 )
 
 [node name="HUD" parent="Camera2D" index="0"]
 margin_left = -239.0
@@ -46,18 +67,9 @@ margin_right = -2.0
 
 [node name="attack" parent="." index="8" instance=ExtResource( 2 )]
 
-[node name="stats" parent="." index="9"]
-script = ExtResource( 7 )
-
 [node name="spell_1" parent="." index="10" instance=ExtResource( 6 )]
 
 [node name="spell_2" parent="." index="11" instance=ExtResource( 5 )]
-
-[node name="crosshair" parent="." index="12"]
-script = ExtResource( 9 )
-[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
-[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="Camera2D/currency_hud"]
 
