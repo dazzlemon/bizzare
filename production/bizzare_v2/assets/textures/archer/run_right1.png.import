@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/b2.png-0bd2faecbcbf94c0be42a09eb433388b.stex"
+path="res://.import/run_right1.png-7da1152d84233d303b978a8e957a41f9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/archer/b2.png"
-dest_files=[ "res://.import/b2.png-0bd2faecbcbf94c0be42a09eb433388b.stex" ]
+source_file="res://assets/textures/archer/run_right1.png"
+dest_files=[ "res://.import/run_right1.png-7da1152d84233d303b978a8e957a41f9.stex" ]
 
 [params]
 

@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func _start() -> void:
 	var projectile_instance = projectile.instance()
-	parent.owner.add_child(projectile_instance)
+	owner.get_parent().add_child(projectile_instance)
 	projectile_instance.transform = parent.global_transform
 	projectile_instance.rotation += parent.get_angle_to(get_global_mouse_position())
 	projectile_instance.direction = (get_global_mouse_position() - parent.global_position).normalized()

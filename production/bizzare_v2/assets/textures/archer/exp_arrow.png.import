@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/run_right_up1.png-8940c8ed594a3772a8dadadf044dc782.stex"
+path="res://.import/exp_arrow.png-3ceffe405a71fb3e4b85dd164286ae80.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/archer/run_right_up1.png"
-dest_files=[ "res://.import/run_right_up1.png-8940c8ed594a3772a8dadadf044dc782.stex" ]
+source_file="res://assets/textures/archer/exp_arrow.png"
+dest_files=[ "res://.import/exp_arrow.png-3ceffe405a71fb3e4b85dd164286ae80.stex" ]
 
 [params]
 
