@@ -16,6 +16,8 @@ script = ExtResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+
 [node name="pivot" type="Position2D" parent="."]
 
 [node name="sprite" type="Sprite" parent="pivot"]

@@ -11,7 +11,7 @@ var max_armor: float = 0
 
 onready var health: float = 1 setget health_set
 onready var armor: float setget armor_set
-onready var damage: float = 1
+var damage: float = 1
 
 func _ready():
 	health = max_health
