@@ -1,8 +1,6 @@
 class_name Harpy
 extends BaseNPCRange
 
-onready var animation_tree = $AnimationTree
-
 
 func _ready():
 	MAX_SPEED = 50

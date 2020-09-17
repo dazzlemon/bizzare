@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/characters/base_npc/range/base_npc_range.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/range/harpy/harpy.gd" type="Script" id=2]
@@ -6,9 +6,8 @@
 [ext_resource path="res://assets/textures/harpy/sheet.png" type="Texture" id=4]
 [ext_resource path="res://src/characters/base_npc/range/harpy/harpy_stats.gd" type="Script" id=5]
 [ext_resource path="res://assets/textures/harpy/shadow.png" type="Texture" id=6]
-[ext_resource path="res://src/characters/base_hurtbox.gd" type="Script" id=7]
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=1]
 resource_name = "harpy_idle_down"
 length = 0.8
 loop = true
@@ -25,7 +24,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=2]
 resource_name = "harpy_idle_front"
 length = 0.8
 loop = true
@@ -42,7 +41,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=3]
 resource_name = "harpy_idle_left"
 length = 0.8
 loop = true
@@ -71,7 +70,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=4]
 resource_name = "harpy_idle_right"
 length = 0.8
 loop = true
@@ -100,73 +99,71 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=5]
 animation = "harpy_idle_left"
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "harpy_idle_down"
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "harpy_idle_front"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "harpy_idle_right"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=20]
-blend_point_0/node = SubResource( 16 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=9]
+blend_point_0/node = SubResource( 5 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 17 )
+blend_point_1/node = SubResource( 6 )
 blend_point_1/pos = Vector2( 0, 1.1 )
-blend_point_2/node = SubResource( 18 )
+blend_point_2/node = SubResource( 7 )
 blend_point_2/pos = Vector2( 0, -1.1 )
-blend_point_3/node = SubResource( 19 )
+blend_point_3/node = SubResource( 8 )
 blend_point_3/pos = Vector2( 1, 0 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachine" id=21]
-states/harpy_idles/node = SubResource( 20 )
+[sub_resource type="AnimationNodeStateMachine" id=10]
+states/harpy_idles/node = SubResource( 9 )
 states/harpy_idles/position = Vector2( 537, 99 )
 start_node = "harpy_idles"
 end_node = "harpy_idles"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=22]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
-[sub_resource type="CapsuleShape2D" id=8]
+[sub_resource type="CapsuleShape2D" id=12]
 radius = 5.49299
 height = 18.0273
 
-[sub_resource type="CircleShape2D" id=9]
+[sub_resource type="CircleShape2D" id=13]
 radius = 78.622
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=14]
 radius = 156.149
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=15]
 radius = 17.9834
 
 [node name="base_npc" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" parent="." index="0"]
-anims/harpy_idle_down = SubResource( 12 )
-anims/harpy_idle_front = SubResource( 13 )
-anims/harpy_idle_left = SubResource( 14 )
-anims/harpy_idle_right = SubResource( 15 )
+anims/harpy_idle_down = SubResource( 1 )
+anims/harpy_idle_front = SubResource( 2 )
+anims/harpy_idle_left = SubResource( 3 )
+anims/harpy_idle_right = SubResource( 4 )
 
 [node name="AnimationTree" parent="." index="2"]
-tree_root = SubResource( 21 )
-anim_player = NodePath("../AnimationPlayer")
-active = true
-parameters/playback = SubResource( 22 )
+tree_root = SubResource( 10 )
+parameters/playback = SubResource( 11 )
 parameters/harpy_idles/blend_position = Vector2( -0.423913, 0.052381 )
 
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 24
-frame = 21
+frame = 17
 
 [node name="sprite2" type="Sprite" parent="pivot" index="1"]
 position = Vector2( 0, 12 )
@@ -175,37 +172,22 @@ texture = ExtResource( 6 )
 [node name="collision_box" parent="." index="4"]
 position = Vector2( -0.280617, 13.7502 )
 rotation = 1.5708
-shape = SubResource( 8 )
-script = null
+shape = SubResource( 12 )
 
 [node name="attack" parent="." index="5" instance=ExtResource( 3 )]
 
-[node name="control" parent="." index="6"]
-margin_right = 40.0
-margin_bottom = 40.0
-
 [node name="CollisionShape2D" parent="control/attack_range" index="0"]
-shape = SubResource( 9 )
+shape = SubResource( 13 )
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
 position = Vector2( -1.66855, 0.667419 )
-shape = SubResource( 10 )
-
-[node name="hurtbox" parent="." index="7"]
-script = ExtResource( 7 )
+shape = SubResource( 14 )
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
-shape = SubResource( 11 )
-script = null
+shape = SubResource( 15 )
 
 [node name="stats" parent="." index="8"]
 script = ExtResource( 5 )
-
-[node name="sprite" parent="crosshair" index="0"]
-script = null
-[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
-[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="control/attack_range"]
 
