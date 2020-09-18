@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/loot/restore/base_restore.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/loot/restore/full_restore/full_restore.gd" type="Script" id=2]
-[ext_resource path="res://assets/textures/restore/full_restore.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/full_restore_honey_jar.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 8.88292
