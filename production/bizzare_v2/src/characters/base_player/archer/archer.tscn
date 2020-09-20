@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://src/characters/base_player/base_player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_player/archer/attack/archer_projectile_attack.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://src/characters/base_player/archer/archer_stats.gd" type="Script" id=7]
 [ext_resource path="res://assets/textures/archer/3(seems like normalno).png" type="Texture" id=8]
 [ext_resource path="res://assets/textures/archer/sheet.png" type="Texture" id=9]
+[ext_resource path="res://assets/textures/archer/leaf particles.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "archer_idle_down"
@@ -420,6 +421,30 @@ height = 11.0326
 [sub_resource type="CircleShape2D" id=36]
 radius = 16.8761
 
+[sub_resource type="CanvasItemMaterial" id=37]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=38]
+_data = [ Vector2( 0.00151745, 0.842045 ), 0.0, 0.0, 0, 0, Vector2( 0.995448, 0.542045 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=39]
+curve = SubResource( 38 )
+
+[sub_resource type="ParticlesMaterial" id=40]
+lifetime_randomness = 0.12
+emission_shape = 2
+emission_box_extents = Vector3( 10, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, -98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 39 )
+anim_speed = 2.0
+anim_speed_random = 0.08
+
 [node name="player" instance=ExtResource( 1 )]
 collision_mask = 10
 script = ExtResource( 4 )
@@ -483,6 +508,16 @@ margin_right = -2.0
 wait_time = 10.0
 
 [node name="spell_2" parent="." index="11" instance=ExtResource( 5 )]
+
+[node name="Particles2D" type="Particles2D" parent="spell_2" index="2"]
+material = SubResource( 37 )
+position = Vector2( 0, 5.07043 )
+z_index = 4
+emitting = false
+explosiveness = 0.23
+randomness = 0.23
+process_material = SubResource( 40 )
+texture = ExtResource( 10 )
 
 [node name="stats" parent="." index="12"]
 script = ExtResource( 7 )

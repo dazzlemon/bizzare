@@ -76,9 +76,9 @@ margin_right = -250.01
 margin_bottom = -139.337
 
 [node name="inventory_hud" parent="Camera2D" index="5" instance=ExtResource( 8 )]
-margin_left = -85.6606
+margin_left = -74.0
 margin_top = -129.0
-margin_right = 171.339
+margin_right = 171.0
 margin_bottom = -74.0
 
 [node name="damage_hud" parent="Camera2D" index="6" instance=ExtResource( 7 )]

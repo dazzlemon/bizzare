@@ -4,7 +4,7 @@ extends BasePlayer
 
 
 func _ready():
-	MAX_SPEED = 175
+	MAX_SPEED = 150
 
 
 func _physics_process(delta):
@@ -15,3 +15,6 @@ func _physics_process(delta):
 	else:
 		animation_tree.get("parameters/playback").travel("archer_idles")
 	._physics_process(delta)
+	
+
+

@@ -1,12 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/etc/inventory_hud/inventory_hud_grid.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/inv.png" type="Texture" id=2]
 
 [node name="inventory_hud" type="Control"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -148.0
-margin_right = 148.0
+margin_right = 94.0
 margin_bottom = 55.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -15,15 +16,25 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 296.0
 margin_bottom = 55.0
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GridContainer" type="GridContainer" parent="TextureRect"]
-anchor_right = 0.197
-anchor_bottom = 0.5
-margin_right = 1.688
-margin_bottom = 2.5
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 242.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="TextureRect/MarginContainer"]
+margin_right = 238.0
+margin_bottom = 47.0
 custom_constants/vseparation = 11
 custom_constants/hseparation = 20
 columns = 10
