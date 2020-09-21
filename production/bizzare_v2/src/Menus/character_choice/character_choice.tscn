@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Menus/character_choice/character_choice.gd" type="Script" id=1]
-[ext_resource path="res://assets/textures/knight_v04_new1.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/knight24.png" type="Texture" id=2]
 [ext_resource path="res://assets/new_dynamicfont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://src/Menus/character_choice/stats.gd" type="Script" id=4]
 
@@ -43,7 +43,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-margin_top = 42.0
+margin_top = 46.0
 margin_right = 40.0
-margin_bottom = 74.0
+margin_bottom = 70.0
 texture = ExtResource( 2 )

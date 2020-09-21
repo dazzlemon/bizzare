@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/loot/restore/base_restore.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/restore/hp/small_health.png" type="Texture" id=2]
 [ext_resource path="res://src/loot/restore/small_health_restore/small_health_restore.gd" type="Script" id=3]
+[ext_resource path="res://assets/textures/shadow.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.58584
@@ -10,8 +11,12 @@ radius = 4.58584
 [node name="consumable" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
-[node name="sprite" parent="area" index="0"]
+[node name="Sprite" parent="area" index="0"]
+position = Vector2( 0.574524, -0.972271 )
+texture = ExtResource( 4 )
+
+[node name="sprite" parent="area" index="1"]
 texture = ExtResource( 2 )
 
-[node name="collision_shape" parent="area" index="1"]
+[node name="collision_shape" parent="area" index="2"]
 shape = SubResource( 1 )

@@ -24,34 +24,46 @@ func _ready() -> void:
 func drop_loot() -> void:
 	randomize()
 	var random = randi() % 100 + 1
+	var coins_random = randi() % 5 + 1
 	print(random)
-	if random > 0 and random <= 10 :
-		spawn_instance(currency_bag_scene)
-	elif random >= 11 and random <= 20 :
+	print(coins_random)
+	if coins_random == 1:
+		pass
+	elif coins_random == 2:
 		spawn_instance(currency_coins_scene)
-	elif random >= 21 and random <= 30: 
+	elif coins_random == 3:
+		spawn_instance(currency_coins_scene)
+		spawn_instance(currency_coins_scene)
+	elif coins_random == 4:
+		spawn_instance(currency_bag_scene)
+	elif coins_random == 5: 
+		spawn_instance(currency_bag_scene)
+		spawn_instance(currency_coins_scene)
+	if random >= 1 and random <= 10: 
 		spawn_instance(health_orb_scene)
-	elif random >= 31 and random <= 40:
+	elif random >= 11 and random <= 20:
 		spawn_instance(damage_orb_scene)
-	elif random >= 41 and random <= 50:
+	elif random >= 21 and random <= 30:
 		spawn_instance(armor_orb_scene)
-	elif random >= 51 and random <= 60:
+	elif random >= 31 and random <= 40:
 		spawn_instance(money_orb_scene)
-	elif random >= 61  and random <= 70:
+	elif random >= 41  and random <= 50:
 		spawn_instance(small_hp_restore)
-	elif random >= 71 and random <= 80:
+	elif random >= 51 and random <= 60:
 		spawn_instance(big_hp_restore)
-	elif random >= 91 and random <= 95:
+	elif random >= 61 and random <= 70:
 		spawn_instance(small_armor_restore)
-	elif random >= 96 and random <= 100:
+	elif random >= 71 and random <= 80:
 		spawn_instance(full_restore)
-	else:
+	elif random >= 81 and random <= 90:
 		spawn_instance(big_armor_restore)
+	else:
+		pass
 
 
 func spawn_instance(url) -> void:
 	var instance = url.instance()
-	instance.global_position = global_position
+	instance.global_position = global_position + Vector2( rand_range(0,30) , rand_range(0,30))
 	get_node("../").call_deferred("add_child", instance)
 
 

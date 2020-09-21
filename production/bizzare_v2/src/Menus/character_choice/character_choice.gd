@@ -26,11 +26,15 @@ onready var icon = get_node("VBoxContainer/TextureRect")
 
 func _on_KnightButton_pressed():
 	player_class = knight
-	icon.texture = load("res://assets/textures/knight_v04_new1.png")
+	icon.texture = load("res://assets/textures/knight24.png")
+	icon.flip_h = false
+
 
 func _on_ArcherButton_pressed():
 	player_class = archer
-	icon.texture = load("res://assets/textures/Archer.png")
+	icon.texture = load("res://assets/textures/archer24.png")
+	icon.flip_h = true
+
 
 func _on_start_button_pressed():
 	var player = player_class.scene.instance()
