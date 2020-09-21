@@ -11,8 +11,8 @@ position = Vector2( -0.148649, 0.780416 )
 script = ExtResource( 2 )
 item_name = "money_orb"
 
-[node name="Sprite" parent="area" index="0"]
-position = Vector2( -3.90208, 2.7872 )
+[node name="shadow" parent="area" index="0"]
+position = Vector2( -3.84489, 2.96101 )
 
 [node name="sprite" parent="area" index="1"]
 texture = ExtResource( 3 )

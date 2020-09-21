@@ -478,7 +478,6 @@ frame = 5
 
 [node name="hands" type="Sprite" parent="pivot" index="1"]
 position = Vector2( 0, 5 )
-rotation = -3.14159
 z_index = 2
 texture = ExtResource( 8 )
 offset = Vector2( 3, -4 )

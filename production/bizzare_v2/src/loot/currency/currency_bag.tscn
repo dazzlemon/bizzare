@@ -1,18 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/loot/currency/currency_bag.gd" type="Script" id=1]
 [ext_resource path="res://src/loot/collectable.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/textures/money_bag.png" type="Texture" id=3]
-[ext_resource path="res://assets/textures/shadow.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="currency" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 
-[node name="Sprite" parent="area" index="0"]
-position = Vector2( 0, 4.60139 )
-texture = ExtResource( 4 )
+[node name="shadow" parent="area" index="0"]
+position = Vector2( 0, 4.24744 )
 
 [node name="sprite" parent="area" index="1"]
 texture = ExtResource( 3 )

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/loot/consumable.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/shadow.png" type="Texture" id=2]
 
 [node name="consumable" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -9,9 +10,14 @@ script = ExtResource( 1 )
 collision_layer = 0
 collision_mask = 4
 
-[node name="Sprite" type="Sprite" parent="area"]
+[node name="shadow" type="Sprite" parent="area"]
+texture = ExtResource( 2 )
 
 [node name="sprite" type="Sprite" parent="area"]
 
 [node name="collision_shape" type="CollisionShape2D" parent="area"]
+
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback/repeat = true
 [connection signal="area_entered" from="area" to="." method="_on_area_entered"]
