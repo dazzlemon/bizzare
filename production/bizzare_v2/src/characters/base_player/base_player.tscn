@@ -25,12 +25,8 @@ script = ExtResource( 3 )
 [node name="AnimationTree" parent="." index="2"]
 parameters/playback = SubResource( 1 )
 
-[node name="control" parent="." index="5"]
+[node name="control" parent="." index="6"]
 script = ExtResource( 4 )
-
-[node name="hurtbox" parent="." index="6"]
-collision_layer = 4
-collision_mask = 72
 
 [node name="Camera2D" type="Camera2D" parent="." index="7"]
 z_index = 999
@@ -86,7 +82,11 @@ margin_bottom = -74.0
 [node name="Inventory" type="Node" parent="." index="8"]
 script = ExtResource( 5 )
 
-[node name="stats" parent="." index="9"]
+[node name="hurtbox" parent="." index="9"]
+collision_layer = 4
+collision_mask = 72
+
+[node name="stats" parent="." index="10"]
 script = ExtResource( 2 )
 
 [editable path="Camera2D/currency_hud"]

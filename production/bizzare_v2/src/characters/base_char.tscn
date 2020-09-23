@@ -26,6 +26,8 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 2 )
 
+[node name="AttackPlayer" type="AnimationPlayer" parent="."]
+
 [node name="pivot" type="Position2D" parent="."]
 
 [node name="sprite" type="Sprite" parent="pivot"]

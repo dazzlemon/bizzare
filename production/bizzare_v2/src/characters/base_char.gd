@@ -18,6 +18,7 @@ onready var spell_1 = $spell_1
 onready var spell_2 = $spell_2
 onready var crosshair = $crosshair
 onready var animation_tree = $AnimationTree
+onready var attack_player = $AttackPlayer
 
 
 enum States {
