@@ -29,12 +29,18 @@ parameters/playback = SubResource( 1 )
 visible = false
 texture = ExtResource( 4 )
 
-[node name="collision_box" parent="." index="4"]
+[node name="collision_box" parent="." index="5"]
 position = Vector2( 0.420456, 13.4543 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
-[node name="control" parent="." index="5"]
+[node name="attack" parent="." index="6" instance=ExtResource( 6 )]
+
+[node name="hitbox" parent="attack/Position2D" index="0"]
+collision_layer = 64
+collision_mask = 4
+
+[node name="control" parent="." index="7"]
 script = ExtResource( 3 )
 
 [node name="invis_controller" parent="control" index="0" instance=ExtResource( 5 )]
@@ -44,22 +50,16 @@ collision_mask = 6
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
 shape = SubResource( 3 )
 
-[node name="attack" parent="." index="6" instance=ExtResource( 6 )]
-
-[node name="hitbox" parent="attack/Position2D" index="0"]
-collision_layer = 64
-collision_mask = 4
-
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 shape = SubResource( 4 )
 
 [node name="statusBar" parent="Control" index="0"]
 visible = false
 
+[editable path="attack"]
+
 [editable path="control/invis_controller"]
 
 [editable path="control/player_detection_zone"]
 
 [editable path="control/wander_controller"]
-
-[editable path="attack"]
