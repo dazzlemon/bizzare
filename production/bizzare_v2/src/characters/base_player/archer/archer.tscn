@@ -504,17 +504,17 @@ offset = Vector2( 3, -1 )
 hframes = 7
 script = ExtResource( 3 )
 
-[node name="collision_box" parent="." index="5"]
+[node name="collision_box" parent="." index="6"]
 position = Vector2( 0.264874, 13.5082 )
 rotation = 1.5708
 shape = SubResource( 36 )
+
+[node name="attack" parent="." index="8" instance=ExtResource( 2 )]
 
 [node name="HUD" parent="Camera2D" index="1"]
 margin_left = -239.0
 margin_top = 0.0
 margin_right = -2.0
-
-[node name="attack" parent="." index="8" instance=ExtResource( 2 )]
 
 [node name="spell_1" parent="." index="10" instance=ExtResource( 6 )]
 
@@ -533,13 +533,13 @@ randomness = 0.23
 process_material = SubResource( 40 )
 texture = ExtResource( 10 )
 
-[node name="hurtbox" parent="." index="12"]
+[node name="hurtbox" parent="." index="13"]
 visible = false
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 shape = SubResource( 41 )
 
-[node name="stats" parent="." index="13"]
+[node name="stats" parent="." index="14"]
 script = ExtResource( 7 )
 [connection signal="animation_finished" from="AttackPlayer" to="." method="_on_AttackPlayer_animation_finished"]
 

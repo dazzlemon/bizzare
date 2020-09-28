@@ -8,6 +8,7 @@ onready var actions = {
 	"spell_1" : spell_1,
 	"spell_2" : spell_2,
 	"attack" : attack,
+	"shift_dodge" : shift_dodge,
 }
 
 func _process(delta: float):

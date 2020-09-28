@@ -14,7 +14,8 @@ func melee_attack():
 	var player = player_detection_zone.player
 	if player != null and get_node("../pivot/sprite").visible:
 		get_node("../crosshair").global_position = player.global_position
-		crit_test()
+		if get_node("../attack/Position2D/hitbox/CollisionShape2D").disabled:#if get_node("../attack/duration").time_left == 0:
+			crit_test()
 		get_node("../attack").try_use()
 
 
@@ -24,6 +25,6 @@ func crit_test():
 		rng.randomize()
 		get_node("../attack/Position2D/hitbox").damage = default_damage * rng.randi_range(10, 20)
 		critical = false
-	else: 
+	else:
 		get_node("../attack/Position2D/hitbox").damage = default_damage 
 	

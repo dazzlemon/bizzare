@@ -7,7 +7,7 @@
 script = ExtResource( 2 )
 
 [node name="level" parent="." instance=ExtResource( 1 )]
-margin_left = -1.42638
-margin_top = -0.21109
-margin_right = -1.42639
-margin_bottom = -0.21109
+margin_left = -1.66236
+margin_top = 0.0248872
+margin_right = -1.66235
+margin_bottom = 0.0249023

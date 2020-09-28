@@ -4,6 +4,7 @@ extends Control
 
 onready var crosshair = get_node("../crosshair")
 onready var attack = get_node("../attack")
+onready var shift_dodge = get_node("../shift_dodge")
 
 func _process(_delta) -> void:
 	if attack != null && attack is BaseHitscan:

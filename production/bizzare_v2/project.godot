@@ -94,7 +94,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/hitscan/ally_hitscan/base_hitscan_ally_hitbox.gd"
 }, {
-"base": "Reference",
+"base": "BaseHitscan",
 "class": "BaseHitscanEnemy",
 "language": "GDScript",
 "path": "res://src/attack/hitscan/enemy_hitscan/base_hitscan_enemy.gd"
@@ -129,7 +129,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/melee/base_npc_melee.gd"
 }, {
-"base": "Reference",
+"base": "BaseNPCControl",
 "class": "BaseNPCMeleeControl",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/melee/base_npc_melee_control.gd"
@@ -292,12 +292,12 @@ _global_script_classes=[ {
 "base": "BaseNPCMelee",
 "class": "Goblin",
 "language": "GDScript",
-"path": "res://src/characters/base_npc/melee/goblin/goblin.gd"
+"path": "res://src/characters/base_npc/melee/goblin/orc_melee.gd"
 }, {
 "base": "BaseNPCMeleeControl",
 "class": "GoblinControl",
 "language": "GDScript",
-"path": "res://src/characters/base_npc/melee/goblin/goblin_control.gd"
+"path": "res://src/characters/base_npc/melee/goblin/orc_melee_control.gd"
 }, {
 "base": "BaseProjectileEnemy",
 "class": "GoblinProjectile",
@@ -539,6 +539,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/melee/shadow/attack/shadow_hitscan_hitbox.gd"
 }, {
+"base": "SpellCdDuration",
+"class": "ShiftDodge",
+"language": "GDScript",
+"path": "res://src/characters/base_player/shift_dodge.gd"
+}, {
 "base": "BaseRestore",
 "class": "SmallArmorRestore",
 "language": "GDScript",
@@ -706,6 +711,7 @@ _global_script_class_icons={
 "ShadowControl": "",
 "ShadowHitscan": "",
 "ShadowHitscanHitbox": "",
+"ShiftDodge": "",
 "SmallArmorRestore": "",
 "SmallHPRestore": "",
 "Speel1CDHUD": "",
@@ -807,6 +813,11 @@ spell_1={
 spell_2={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
+ ]
+}
+shift_dodge={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"unicode":0,"echo":false,"script":null)
  ]
 }
 
