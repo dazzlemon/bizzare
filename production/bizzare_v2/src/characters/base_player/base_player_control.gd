@@ -19,7 +19,7 @@ func _process(delta: float):
 
 func input_loop():
 	for action in actions:
-		if Input.is_action_pressed(action) && actions[action] != null:
+		if Input.is_action_pressed(action):
 			actions[action].try_use()
 
 

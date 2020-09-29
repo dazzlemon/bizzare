@@ -20,7 +20,6 @@ onready var crosshair = $crosshair
 onready var animation_tree = $AnimationTree
 onready var attack_player = $AttackPlayer
 
-
 enum States {
 	KNOCKED_BACK,
 	FRICTION,

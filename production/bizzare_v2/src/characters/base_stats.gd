@@ -19,14 +19,19 @@ func _ready():
 
 
 func health_set(value: float) -> void:
-	health = value
-	if health <= 0:
-		emit_signal("no_health")
+	if value > max_health:
+		health = max_health
+	else:
+		health = value
+		if health <= 0:
+			emit_signal("no_health")
 
 
 func armor_set(value: float) -> void:
 	if value < 0:
 		health += value
 		armor = 0
+	elif value > max_armor:
+		armor = max_armor
 	else:
 		armor = value

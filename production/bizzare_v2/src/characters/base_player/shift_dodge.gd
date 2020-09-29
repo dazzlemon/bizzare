@@ -1,18 +1,27 @@
 class_name ShiftDodge
 extends SpellCdDuration
 
+var color_start = Color(1, 1, 1, 0.5)#opacity = 0.5
+var color_stop = Color(1, 1, 1, 1)#opacity = 1
+
+onready var sprite = get_node("../pivot/sprite")
+onready var hurtbox_collision = get_node("../hurtbox/CollisionShape2D")
+onready var hands = get_node("../pivot/hands")
+
 func _ready():
 	_INTERVAL = 3
 	_DURATION = 0.25
 
 
 func _start():
-	get_node("../pivot/sprite").modulate = Color (1,1,1,0.5)
-	get_node("../").DMG_BLOCK = 1
-	get_node("../pivot/hands").modulate = Color (1,1,1,0.5) 
+	_toggle()
 
 
 func _stop():
-	get_node("../pivot/sprite").modulate = Color (1,1,1,1)
-	get_node("../").DMG_BLOCK = 0
-	get_node("../pivot/hands").modulate = Color (1,1,1,1)
+	_toggle()
+
+
+func _toggle():
+	hurtbox_collision.disabled = not hurtbox_collision.disabled
+	sprite.modulate = color_start if hurtbox_collision.disabled else color_stop
+	hands.modulate = sprite.modulate

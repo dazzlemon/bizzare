@@ -13,7 +13,7 @@ func push_item(item, area) -> void:
 			found = true
 			break
 	if not found:
-		inventory.push_front(item)
+		inventory.push_front(item)##############GAVNO NADA REFACTOr
 
 
 func die(area):

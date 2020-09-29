@@ -2,7 +2,8 @@
 
 [ext_resource path="res://src/loot/restore/small_health_restore/small_health_restore.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/restore/hp/big_health.png" type="Texture" id=2]
-[ext_resource path="res://src/loot/restore/big_health_restore/big_health_resrore.gd" type="Script" id=3]
+[ext_resource path="res://src/loot/restore/big_health_restore/big_health_restore.gd" type="Script" id=3]
+
 
 [node name="consumable" instance=ExtResource( 1 )]
 script = ExtResource( 3 )

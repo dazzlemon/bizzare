@@ -2,14 +2,13 @@ class_name BaseRestore
 extends Consumable
 
 var restore_value = 50
-#var max_value_str = "max_health" #DEFAULT VALUE
-#var value_str = "health"
+var max_value_str = "max_health" #DEFAULT VALUE
+var value_str = "health"
 
 
 func die(area):
-	restore_hp(area.get_node("../stats"))
+	restore(area.get_node("../stats"))
 
 
-func restore_hp(stats):
-	#stats.get(value_str) = stats.get(max_value_str)#??????????????????????????????????????????????????GODOT
-	stats.health = stats.max_health
+func restore(stats):
+	stats.set(value_str, stats.get(max_value_str))
