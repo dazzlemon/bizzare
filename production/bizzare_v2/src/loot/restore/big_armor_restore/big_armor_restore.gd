@@ -3,5 +3,3 @@ extends SmallArmorRestore
 
 func _ready():
 	restore_value = 25
-
-

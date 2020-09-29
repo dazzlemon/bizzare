@@ -3,12 +3,7 @@ extends GridContainer
 var slot_scene = preload("res://src/etc/inventory_hud/slot.tscn")
 var max_slots = 20
 var slots := []
-onready var coin_texture
 onready var inventory = get_node("../../../../../Inventory").array
-
-var texture_dict = {
-	coin_texture : preload("res://assets/textures/Coin.png")
-}
 
 func _ready():
 	for i in range(max_slots):

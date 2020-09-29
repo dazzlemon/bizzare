@@ -8,7 +8,7 @@ var wander_range: float = 64
 
 onready var position_start: Vector2 = global_position
 onready var position_target: Vector2 = global_position
-onready var timer = $Timer#static typing?
+onready var timer = $Timer
 
 func _ready() -> void:
 	update_target_position()
