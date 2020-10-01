@@ -516,6 +516,9 @@ texture = ExtResource( 8 )
 offset = Vector2( 3, -1 )
 hframes = 7
 
+[node name="shadow" parent="pivot" index="2"]
+position = Vector2( 0, 11 )
+
 [node name="collision_box" parent="." index="6"]
 position = Vector2( 0.264874, 13.5082 )
 rotation = 1.5708

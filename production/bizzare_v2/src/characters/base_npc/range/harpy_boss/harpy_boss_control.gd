@@ -30,16 +30,16 @@ func dash() -> Vector2:
 
 func phase_set(phase_new: int) -> void:
 	phase = phase_new
-	get_node("phase_cd").start(rand_range(0, 5))# need play test
+	get_node("phase_cd").start(rand_range(0, 2.5))# need play test
 
 
 func _on_phase_cd_timeout() -> void:
 	if is_ready:
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
-		#roll = rng.randi_range(1, 2)
-		roll = 1################################### DEBUG
-		phase = 3################################## DEBUG
+		roll = rng.randi_range(1, 2)
+#		roll = 1################################### DEBUG
+#		phase = 3################################## DEBUG
 		current_phase_attack = "phase_" + str(phase) + "_attack_" + str(roll)
 		print(current_phase_attack)
 		get_node(current_phase_attack).try_use()

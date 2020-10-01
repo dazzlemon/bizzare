@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/characters/base_npc/melee/goblin/orc_melee.gd" type="Script" id=1]
 [ext_resource path="res://src/characters/base_npc/melee/goblin/orc_melee_control.gd" type="Script" id=2]
 [ext_resource path="res://src/characters/base_npc/melee/base_npc_melee.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/textures/Chelobuff.png" type="Texture" id=4]
+[ext_resource path="res://src/characters/base_npc/melee/goblin/stats.gd" type="Script" id=5]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -35,12 +36,17 @@ shape = SubResource( 2 )
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 4 )
 
+[node name="shadow" parent="pivot" index="2"]
+position = Vector2( 0, 20 )
+
 [node name="collision_box" parent="." index="6"]
 position = Vector2( 0.834274, 14.5164 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="control" parent="." index="7"]
+margin_right = 40.0
+margin_bottom = 40.0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
@@ -48,6 +54,13 @@ shape = SubResource( 4 )
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 shape = SubResource( 5 )
+
+[node name="stats" parent="." index="10"]
+script = ExtResource( 5 )
+[connection signal="timeout" from="attack/duration" to="attack" method="_on_duration_timeout"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="attack"]
 

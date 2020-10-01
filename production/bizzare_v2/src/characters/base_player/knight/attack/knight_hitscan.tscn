@@ -12,3 +12,4 @@ position = Vector2( 15, 0 )
 
 [node name="hitbox" parent="Position2D" index="0"]
 script = ExtResource( 3 )
+[connection signal="timeout" from="duration" to="." method="_on_duration_timeout"]

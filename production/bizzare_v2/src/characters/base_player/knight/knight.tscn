@@ -15,11 +15,11 @@ resource_name = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=2]
 
-[sub_resource type="CapsuleShape2D" id=10]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 4.49611
 height = 12.2982
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=4]
 radius = 16.441
 
 [node name="player" instance=ExtResource( 1 )]
@@ -39,10 +39,14 @@ position = Vector2( -0.108841, -0.0251846 )
 texture = ExtResource( 9 )
 offset = Vector2( 16.0859, -1.86683 )
 
+[node name="shadow" parent="pivot" index="2"]
+position = Vector2( 0, 10 )
+z_index = -1
+
 [node name="collision_box" parent="." index="6"]
 position = Vector2( -0.44545, 14.0317 )
 rotation = 1.5708
-shape = SubResource( 10 )
+shape = SubResource( 3 )
 
 [node name="control" parent="." index="7"]
 script = ExtResource( 5 )
@@ -70,15 +74,23 @@ wait_time = 5.0
 [node name="duration" parent="spell_1" index="1"]
 wait_time = 0.15
 
+[node name="hitbox" parent="spell_1/Position2D" index="0"]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="spell_1/Position2D/hitbox" index="0"]
+disabled = true
+
 [node name="hurtbox" parent="." index="13"]
 collision_layer = 2147483652
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 position = Vector2( -0.222733, 0 )
-shape = SubResource( 11 )
+shape = SubResource( 4 )
 
 [node name="stats" parent="." index="14"]
 script = ExtResource( 3 )
+[connection signal="timeout" from="spell_1/duration" to="spell_1" method="_on_duration_timeout"]
 
 [editable path="Camera2D/currency_hud"]
 

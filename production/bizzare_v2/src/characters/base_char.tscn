@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/characters/base_char.gd" type="Script" id=1]
 [ext_resource path="res://src/characters/base_stats.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/textures/crosshair.png" type="Texture" id=5]
 [ext_resource path="res://src/characters/base_hurtbox.gd" type="Script" id=6]
 [ext_resource path="res://src/characters/hands.gd" type="Script" id=7]
+[ext_resource path="res://assets/textures/harpy/shadow.png" type="Texture" id=8]
 
 [sub_resource type="AnimationNodeStateMachine" id=1]
 
@@ -35,6 +36,9 @@ parameters/playback = SubResource( 2 )
 
 [node name="hands" type="Sprite" parent="pivot"]
 script = ExtResource( 7 )
+
+[node name="shadow" type="Sprite" parent="pivot"]
+texture = ExtResource( 8 )
 
 [node name="collision_box" type="CollisionShape2D" parent="."]
 

@@ -41,24 +41,24 @@ func drop_loot() -> void:
 		spawn_instance(currency_coins_scene)
 	if random >= 1 and random <= 10: 
 		spawn_instance(health_orb_scene)
-#	elif random >= 11 and random <= 20:
-#		spawn_instance(damage_orb_scene)
-#	elif random >= 21 and random <= 30:
-#		spawn_instance(armor_orb_scene)
-#	elif random >= 31 and random <= 40:
-#		spawn_instance(money_orb_scene)
-#	elif random >= 41  and random <= 50:
-#		spawn_instance(small_hp_restore)
-#	elif random >= 51 and random <= 60:
-#		spawn_instance(big_hp_restore)
-#	elif random >= 61 and random <= 70:
-#		spawn_instance(small_armor_restore)
-#	elif random >= 71 and random <= 80:
-#		spawn_instance(full_restore)
-#	elif random >= 81 and random <= 90:
-#		spawn_instance(big_armor_restore)
-	else:
+	elif random >= 11 and random <= 20:
+		spawn_instance(damage_orb_scene)
+	elif random >= 21 and random <= 30:
+		spawn_instance(armor_orb_scene)
+	elif random >= 31 and random <= 40:
+		spawn_instance(money_orb_scene)
+	elif random >= 41  and random <= 50:
+		spawn_instance(small_hp_restore)
+	elif random >= 51 and random <= 60:
+		spawn_instance(big_hp_restore)
+	elif random >= 61 and random <= 70:
+		spawn_instance(small_armor_restore)
+	elif random >= 71 and random <= 80:
 		spawn_instance(full_restore)
+	elif random >= 81 and random <= 90:
+		spawn_instance(big_armor_restore)
+	else:
+		pass
 
 
 func spawn_instance(url) -> void:

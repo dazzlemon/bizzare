@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/characters/base_npc/range/base_npc_range.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/harpy_boss.gd" type="Script" id=2]
@@ -13,31 +13,44 @@
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_3_attack_1/phase_3_attack_1_control.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_3_attack_2/phase_3_attack_2.tscn" type="PackedScene" id=12]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 4.07981
 height = 17.0234
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 120.053
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 radius = 159.482
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=5]
 radius = 16.6692
 
 [node name="harpy_boss" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
+[node name="AnimationTree" parent="." index="2"]
+parameters/playback = SubResource( 1 )
+
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 4 )
 
-[node name="collision_box" parent="." index="3"]
+[node name="shadow" parent="pivot" index="2"]
+position = Vector2( 0, 20 )
+
+[node name="attack" parent="." index="5" instance=ExtResource( 5 )]
+
+[node name="collision_box" parent="." index="6"]
 position = Vector2( -0.486946, 15.1791 )
 rotation = 1.5708
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
-[node name="control" parent="." index="4"]
+[node name="control" parent="." index="7"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
 script = ExtResource( 3 )
 
 [node name="phase_cd" type="Timer" parent="control" index="0"]
@@ -57,19 +70,20 @@ one_shot = true
 [node name="phase_3_attack_2" parent="control" index="6" instance=ExtResource( 12 )]
 
 [node name="CollisionShape2D" parent="control/attack_range" index="0"]
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
 shape = SubResource( 3 )
 
-[node name="attack" parent="." index="5" instance=ExtResource( 5 )]
-
-[node name="CollisionShape2D" parent="hurtbox" index="0"]
+[node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
 shape = SubResource( 4 )
 
-[node name="stats" parent="." index="7"]
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+shape = SubResource( 5 )
+
+[node name="stats" parent="." index="10"]
 script = ExtResource( 7 )
 [connection signal="timeout" from="control/phase_cd" to="control" method="_on_phase_cd_timeout"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="control/phase_1_attack_1"]
 

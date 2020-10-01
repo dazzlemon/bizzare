@@ -4,6 +4,7 @@ extends SpellCd
 var apprentice = preload("res://src/characters/base_npc/range/harpy_boss/apprentices/apprentice.tscn")
 var apprentices := [] 
 var amount = 5
+var are_apprentices_spawned = false
 
 onready var get_parent = get_node("../")
 onready var get_root = get_node("../../")
@@ -17,6 +18,8 @@ func _process(delta: float) -> void:
 
 
 func _start() -> void:
+	#if !are_apprentices_spawned: 
+		#are_apprentices_spawned = true
 	for i in range(0, amount, 1):
 		apprentices.push_front(spawn_apprentice(360 / amount * i))
 
