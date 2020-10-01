@@ -163,18 +163,22 @@ parameters/harpy_idles/blend_position = Vector2( -0.423913, 0.052381 )
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 24
-frame = 17
+frame = 22
 
 [node name="sprite2" type="Sprite" parent="pivot" index="1"]
 position = Vector2( 0, 12 )
 texture = ExtResource( 6 )
 
-[node name="collision_box" parent="." index="4"]
+[node name="attack" parent="." index="5" instance=ExtResource( 3 )]
+
+[node name="collision_box" parent="." index="6"]
 position = Vector2( -0.280617, 13.7502 )
 rotation = 1.5708
 shape = SubResource( 12 )
 
-[node name="attack" parent="." index="5" instance=ExtResource( 3 )]
+[node name="control" parent="." index="7"]
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="CollisionShape2D" parent="control/attack_range" index="0"]
 shape = SubResource( 13 )
@@ -186,7 +190,7 @@ shape = SubResource( 14 )
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 shape = SubResource( 15 )
 
-[node name="stats" parent="." index="8"]
+[node name="stats" parent="." index="10"]
 script = ExtResource( 5 )
 
 [editable path="control/attack_range"]

@@ -4,7 +4,6 @@
 [ext_resource path="res://assets/textures/restore/hp/big_health.png" type="Texture" id=2]
 [ext_resource path="res://src/loot/restore/big_health_restore/big_health_restore.gd" type="Script" id=3]
 
-
 [node name="consumable" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
@@ -13,4 +12,3 @@ position = Vector2( -0.353554, 2.20971 )
 
 [node name="sprite" parent="area" index="1"]
 texture = ExtResource( 2 )
-[connection signal="area_entered" from="area" to="." method="_on_area_entered"]

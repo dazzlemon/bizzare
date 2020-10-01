@@ -7,8 +7,5 @@ func _ready():
 
 
 func _physics_process(delta):
-	if control.get_input_vector() != Vector2.ZERO:
-		animation_tree["parameters/harpy_idles/blend_position"] = control.get_input_vector()
+	animation_tree["parameters/harpy_idles/blend_position"] = (crosshair.global_position - global_position).normalized()
 	._physics_process(delta)
-
-

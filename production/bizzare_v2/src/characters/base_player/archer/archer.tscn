@@ -429,6 +429,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath("attack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "delayed_start"
+} ]
+}
 
 [sub_resource type="CapsuleShape2D" id=36]
 radius = 6.05109
@@ -483,7 +497,7 @@ anims/archer_run_up = SubResource( 12 )
 tree_root = SubResource( 33 )
 parameters/playback = SubResource( 34 )
 parameters/archer_idles/blend_position = Vector2( 0, 0.0189655 )
-parameters/archer_run/blend_position = Vector2( -0.126812, 0.455172 )
+parameters/archer_run/blend_position = Vector2( -0.00133157, 0.0396826 )
 
 [node name="AttackPlayer" parent="." index="3"]
 anims/attack = SubResource( 35 )
@@ -493,7 +507,7 @@ z_index = 2
 texture = ExtResource( 9 )
 flip_h = true
 hframes = 16
-frame = 4
+frame = 5
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 0, 5 )
@@ -501,7 +515,6 @@ z_index = 2
 texture = ExtResource( 8 )
 offset = Vector2( 3, -1 )
 hframes = 7
-frame = 6
 
 [node name="collision_box" parent="." index="6"]
 position = Vector2( 0.264874, 13.5082 )
