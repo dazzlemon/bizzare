@@ -9,7 +9,6 @@
 [ext_resource path="res://src/characters/hands.gd" type="Script" id=7]
 [ext_resource path="res://assets/textures/harpy/shadow.png" type="Texture" id=8]
 
-
 [sub_resource type="AnimationNodeStateMachine" id=1]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=2]

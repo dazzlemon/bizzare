@@ -3,4 +3,4 @@ extends BaseNPCStats
 
 func _ready():
 	max_health = 70
-	health = 70
+	._ready()

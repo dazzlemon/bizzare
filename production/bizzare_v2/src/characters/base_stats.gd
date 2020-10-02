@@ -8,9 +8,8 @@ signal no_health
 
 var max_health: float = 1
 var max_armor: float = 0
-
-onready var health: float = 1 setget health_set
-onready var armor: float setget armor_set
+var health: float setget health_set
+var armor: float setget armor_set
 var damage: float = 1
 
 func _ready():

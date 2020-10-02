@@ -5,6 +5,10 @@ const phase_map = {1: 0.75, 2: 0.5, 3: 0.25}# % of health where phase x starts
 
 onready var control = get_node("../control")
 
+func _ready():
+	._ready()
+
+
 func health_set(value) -> void:
 	.health_set(value)
 	update_phase()

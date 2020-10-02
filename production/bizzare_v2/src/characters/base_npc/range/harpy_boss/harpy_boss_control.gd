@@ -10,8 +10,8 @@ var dash_start: Vector2
 
 var stomp = preload("res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/harpy_stomp.tscn")
 
-func _ready() -> void:
-	randomize()
+#func _ready() -> void:
+#	randomize()
 
 
 func wander() -> Vector2:
