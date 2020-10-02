@@ -1,8 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/autoloads/Pause.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/etc/Black.png" type="Texture" id=2]
-
+[ext_resource path="res://assets/fonts/new_dynamicfont.tres" type="DynamicFont" id=3]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 pause_mode = 2
@@ -28,8 +28,12 @@ margin_left = -34.5
 margin_top = -36.7572
 margin_right = 34.5
 margin_bottom = -16.7572
+custom_fonts/font = ExtResource( 3 )
 text = "Continue"
 flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Screen" type="Button" parent="."]
 anchor_left = 0.5
@@ -40,6 +44,7 @@ margin_left = -27.5
 margin_top = -10.0
 margin_right = 27.5
 margin_bottom = 10.0
+custom_fonts/font = ExtResource( 3 )
 text = "Screen"
 flat = true
 __meta__ = {
@@ -55,11 +60,12 @@ margin_left = -19.3484
 margin_top = 18.0316
 margin_right = 15.6516
 margin_bottom = 38.0316
+custom_fonts/font = ExtResource( 3 )
 text = "Exit"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Continue" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Screen" to="." method="_on_Screen_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]

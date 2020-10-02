@@ -31,7 +31,7 @@ func spawn_projectile(angle: float) -> void:
 	projectile_instance.position = get_root.global_position + Vector2(0, 150).rotated(angle)
 	projectile_instance.direction = (Vector2(sin(angle), cos(angle)))
 	projectile_instance.damage = stats.damage
-
+	ray_hitscan.visible = true
 
 func angle_set(angle_new: float) -> void:
 	angle = angle_new
@@ -41,3 +41,4 @@ func angle_set(angle_new: float) -> void:
 
 func _stop() -> void:
 	get_parent.phase_attack_ended()
+	ray_hitscan.visible = false

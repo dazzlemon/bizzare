@@ -7,14 +7,12 @@ func _ready() -> void:
 
 func _input(event) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().paused = !get_tree().paused
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = not get_tree().paused
 		set_visible(get_tree().paused)
-
-
-func _on_Button_pressed() -> void:
-	get_tree().paused = false
-	set_visible(false)
 
 
 func set_visible(is_visible) -> void:
@@ -23,8 +21,14 @@ func set_visible(is_visible) -> void:
 
 
 func _on_Screen_pressed() -> void:
-	OS.window_fullscreen = !OS.window_fullscreen
+	OS.window_fullscreen = not OS.window_fullscreen
 
 
 func _on_Exit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_Continue_pressed():
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	set_visible(false)
