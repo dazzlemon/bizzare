@@ -9,10 +9,9 @@
 [node name="RayCast2D" parent="." index="2"]
 script = ExtResource( 2 )
 
-[node name="Sprite" parent="." index="3"]
-position = Vector2( 0, 8 )
-rotation = 1.5708
-z_index = 1
+[node name="Sprite" parent="RayCast2D" index="0"]
 texture = ExtResource( 3 )
+centered = false
+offset = Vector2( 0, -5 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 20, 10 )
+region_rect = Rect2( 0, 0, 16, 10 )
