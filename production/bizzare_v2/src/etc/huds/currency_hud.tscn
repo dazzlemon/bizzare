@@ -1,8 +1,11 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/textures/gold.png" type="Texture" id=1]
+[ext_resource path="res://assets/textures/items/gold.png" type="Texture" id=1]
 [ext_resource path="res://src/etc/huds/label.gd" type="Script" id=2]
 [ext_resource path="res://assets/new_dynamicfont.tres" type="DynamicFont" id=3]
+
+
+
 
 [node name="Control" type="Control"]
 margin_right = 40.0

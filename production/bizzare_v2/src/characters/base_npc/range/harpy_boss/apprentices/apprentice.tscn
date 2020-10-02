@@ -3,9 +3,10 @@
 [ext_resource path="res://src/characters/base_npc/range/base_npc_range.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/apprentices/apprentice.gd" type="Script" id=2]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/apprentices/control.gd" type="Script" id=3]
-[ext_resource path="res://assets/textures/Coin.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/etc/Coin.png" type="Texture" id=4]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/apprentices/stats.gd" type="Script" id=5]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/apprentices/apprentice_ray_hitscan.tscn" type="PackedScene" id=6]
+
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 

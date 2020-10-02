@@ -3,8 +3,9 @@
 [ext_resource path="res://src/characters/base_npc/melee/goblin/orc_melee.gd" type="Script" id=1]
 [ext_resource path="res://src/characters/base_npc/melee/goblin/orc_melee_control.gd" type="Script" id=2]
 [ext_resource path="res://src/characters/base_npc/melee/base_npc_melee.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/textures/Chelobuff.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/etc/Chelobuff.png" type="Texture" id=4]
 [ext_resource path="res://src/characters/base_npc/melee/goblin/stats.gd" type="Script" id=5]
+
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 

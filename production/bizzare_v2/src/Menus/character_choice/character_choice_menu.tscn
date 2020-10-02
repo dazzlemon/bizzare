@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/textures/knight24.png" type="Texture" id=1]
-[ext_resource path="res://assets/textures/archer24.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/knight/knight24.png" type="Texture" id=1]
+[ext_resource path="res://assets/textures/archer/archer24.png" type="Texture" id=2]
 [ext_resource path="res://src/Menus/character_choice/character_choice.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/new_dynamicfont.tres" type="DynamicFont" id=4]
 

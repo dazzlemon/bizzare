@@ -3,6 +3,8 @@
 [ext_resource path="res://src/etc/inventory_hud/slot.gd" type="Script" id=1]
 [ext_resource path="res://assets/new_dynamicfont.tres" type="DynamicFont" id=2]
 
+
+
 [node name="slot" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0

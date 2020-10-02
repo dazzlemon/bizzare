@@ -26,13 +26,13 @@ onready var icon = get_node("VBoxContainer/TextureRect")
 
 func _on_KnightButton_pressed():
 	player_class = knight
-	icon.texture = load("res://assets/textures/knight24.png")
+	icon.texture = load("res://assets/textures/knight/knight24.png")
 	icon.flip_h = false
 
 
 func _on_ArcherButton_pressed():
 	player_class = archer
-	icon.texture = load("res://assets/textures/archer24.png")
+	icon.texture = load("res://assets/textures/archer/archer24.png")
 	icon.flip_h = true
 
 
