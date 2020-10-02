@@ -10,6 +10,7 @@ var direction: Vector2
 
 func _ready():
 	$age.start(LIFETIME)
+	global_position += direction * 24
 
 
 func _process(delta) -> void:

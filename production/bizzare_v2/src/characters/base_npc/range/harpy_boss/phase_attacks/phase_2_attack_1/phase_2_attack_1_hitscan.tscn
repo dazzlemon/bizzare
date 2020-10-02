@@ -29,7 +29,7 @@ wait_time = 0.25
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Position2D" index="0"]
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="hitbox" parent="Position2D" index="1"]
