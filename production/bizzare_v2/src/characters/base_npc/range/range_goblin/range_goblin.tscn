@@ -7,7 +7,6 @@
 [ext_resource path="res://src/characters/base_npc/range/range_goblin/attack/goblin_projectile_attack.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/characters/base_npc/range/range_goblin/stats.gd" type="Script" id=6]
 
-
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -44,7 +43,6 @@ shape = SubResource( 2 )
 
 [node name="control" parent="." index="7"]
 margin_top = 0.111362
-margin_right = 40.0
 margin_bottom = 40.1114
 script = ExtResource( 4 )
 
@@ -59,10 +57,7 @@ shape = SubResource( 5 )
 
 [node name="stats" parent="." index="10"]
 script = ExtResource( 6 )
-[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="damage_from_behind" from="stats" to="control" method="_on_stats_damage_from_behind"]
-[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="control/attack_range"]
 

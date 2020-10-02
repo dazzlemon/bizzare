@@ -4,6 +4,7 @@ extends BaseHitscanEnemy
 
 func _ready():
 	get_node("charging").start()
+	get_node("AnimatedSprite").playing = true
 
 
 func _on_charging_timeout():
