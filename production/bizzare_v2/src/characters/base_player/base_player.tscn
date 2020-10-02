@@ -11,9 +11,10 @@
 [ext_resource path="res://src/etc/status_bars/health/health_bar.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/etc/status_bars/armor/armor_bar.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/etc/huds/currency_hud.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/new_dynamicfont.tres" type="DynamicFont" id=12]
+[ext_resource path="res://assets/fonts/new_dynamicfont.tres" type="DynamicFont" id=12]
 [ext_resource path="res://src/etc/huds/spell_cd_hud.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/characters/base_player/shift_dodge.tscn" type="PackedScene" id=14]
+
 
 
 
