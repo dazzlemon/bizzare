@@ -1,7 +1,7 @@
 extends RayHitscanProcess
 
 func _process(delta: float) -> void:
-	cast_to = cast_to.rotated(deg2rad(delta * 20))
+	cast_to = cast_to.rotated(deg2rad(delta * 50))
 	._process(delta)
 
 
