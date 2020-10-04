@@ -6,8 +6,8 @@ func _ready():
 	projectile = preload("res://src/characters/base_player/archer/attack/archer_projectile.tscn")
 	_INTERVAL = 0.525
 
-func _start():
-	pass
+#func _start():
+	#pass
 
 func delayed_start():
-	._start()
+	pass

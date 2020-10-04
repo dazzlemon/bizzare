@@ -507,7 +507,7 @@ z_index = 2
 texture = ExtResource( 9 )
 flip_h = true
 hframes = 16
-frame = 4
+frame = 5
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 0, 5 )
@@ -515,7 +515,7 @@ z_index = 2
 texture = ExtResource( 8 )
 offset = Vector2( 3, -1 )
 hframes = 7
-frame = 5
+frame = 6
 
 [node name="shadow" parent="pivot" index="2"]
 position = Vector2( 0, 11 )

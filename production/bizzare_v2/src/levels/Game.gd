@@ -1,5 +1,8 @@
 extends Node
 
+func _ready():
+	OS.window_fullscreen = true
+
 func load_level(player):
 	if has_node("level"):
 		remove_child($level) 
