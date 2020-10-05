@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/Menus/title_screen/menu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Menus/title_screen/title_screen_side_bar.gd" type="Script" id=2]
+[ext_resource path="res://assets/textures/temporary/logo_tmp.png" type="Texture" id=3]
+
+[node name="Panel" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="VBoxContainer" parent="." index="0"]
+margin_left = 15.5892
+margin_top = 50.0
+margin_right = 120.0
+margin_bottom = 200.0
+
+[node name="TextureRect" type="TextureRect" parent="." index="1"]
+margin_left = 9.47028
+margin_top = 10.0
+margin_right = 120.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
