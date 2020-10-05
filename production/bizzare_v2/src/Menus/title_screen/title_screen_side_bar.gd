@@ -1,6 +1,7 @@
 extends Menu
 
 func _ready():
+	OS.window_fullscreen = true
 	separation = 15
 	buttons = [
 		Menu_Button.new("Play", "play"),
