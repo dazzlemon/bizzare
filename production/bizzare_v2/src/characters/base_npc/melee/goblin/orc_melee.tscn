@@ -162,6 +162,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=7]
 resource_name = "run_down"
 length = 0.4
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -342,8 +343,8 @@ playback/speed = 5.0
 
 [node name="AnimationTree" parent="." index="2"]
 parameters/playback = SubResource( 13 )
-parameters/orc_melee_idles/blend_position = Vector2( 0.143833, 0.212903 )
-parameters/orc_melee_run/blend_position = Vector2( -0.00113851, 0 )
+parameters/orc_melee_idles/blend_position = Vector2( -0.516152, -0.122576 )
+parameters/orc_melee_run/blend_position = Vector2( -0.522613, 0.103473 )
 
 [node name="attack" parent="." index="4"]
 script = ExtResource( 8 )
@@ -360,6 +361,7 @@ shape = SubResource( 14 )
 position = Vector2( 0, 0.984312 )
 z_index = 2
 texture = ExtResource( 4 )
+flip_h = true
 hframes = 16
 frame = 8
 

@@ -68,7 +68,10 @@ func chase() -> Vector2:
 	var player = player_detection_zone.player
 	var direction := Vector2.ZERO
 	if player != null and player_detection_zone.can_see_player():
-		direction = owner.global_position.direction_to(player.global_position)
+		if get_parent().global_position.distance_to(player_detection_zone.player.global_position) < 25:
+			direction = Vector2.ZERO
+		else:
+			direction = owner.global_position.direction_to(player.global_position)
 	else:
 		state = States.IDLE
 	return direction
