@@ -4,7 +4,6 @@ extends SpellCd
 var apprentice = preload("res://src/characters/base_npc/range/harpy_boss/apprentices/apprentice.tscn")
 var apprentices := [] 
 var amount = 5
-var are_apprentices_spawned = false
 
 onready var get_parent = get_node("../")
 onready var get_root = get_node("../../")
@@ -18,8 +17,6 @@ func _process(delta: float) -> void:
 
 
 func _start() -> void:
-	#if !are_apprentices_spawned: 
-		#are_apprentices_spawned = true
 	for i in range(0, amount, 1):
 		apprentices.push_front(spawn_apprentice(360 / amount * i))
 
@@ -27,8 +24,7 @@ func _start() -> void:
 func verify_apprentices():#GADSTVO GAVNO IS JOPI
 	var i = 0#wasnt working, so i didnt touch the code, but it could be optimized
 	while i < apprentices.size():
-		if apprentices[i].get_node("stats").health is float and apprentices[i].get_node("stats").health <= 0:# checking for float because it gets Nil from somewhere idk where(nice godot(govnot))
-			print(apprentices[i].get_node("stats").health)
+		if apprentices[i].get_node("stats").health <= 0:# checking for float because it gets Nil from somewhere idk where(nice godot(govnot))
 			apprentices[i].die()
 			apprentices.remove(i)
 		i += 1

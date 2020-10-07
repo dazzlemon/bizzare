@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/characters/base_npc/range/base_npc_range.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/apprentices/apprentice.gd" type="Script" id=2]
@@ -7,16 +7,123 @@
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/apprentices/stats.gd" type="Script" id=5]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/apprentices/apprentice_ray_hitscan.tscn" type="PackedScene" id=6]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "idle_left_down"
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "idle_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "idle_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "idle_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "idle_right_up"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "idle_left_up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=9]
+blend_point_0/node = SubResource( 1 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 2 )
+blend_point_1/pos = Vector2( -0.6, 0.7 )
+blend_point_2/node = SubResource( 3 )
+blend_point_2/pos = Vector2( 0, 1.1 )
+blend_point_3/node = SubResource( 4 )
+blend_point_3/pos = Vector2( 0.6, 0.7 )
+blend_point_4/node = SubResource( 5 )
+blend_point_4/pos = Vector2( 1, 0 )
+blend_point_5/node = SubResource( 6 )
+blend_point_5/pos = Vector2( 0.6, -0.7 )
+blend_point_6/node = SubResource( 7 )
+blend_point_6/pos = Vector2( 0, -1.1 )
+blend_point_7/node = SubResource( 8 )
+blend_point_7/pos = Vector2( -0.6, -0.7 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "run_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "run_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "run_down"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "run_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "run_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "run_right_up"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "run_up"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "run_left_up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=18]
+blend_point_0/node = SubResource( 10 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 11 )
+blend_point_1/pos = Vector2( -0.6, 0.7 )
+blend_point_2/node = SubResource( 12 )
+blend_point_2/pos = Vector2( 0, 1.1 )
+blend_point_3/node = SubResource( 13 )
+blend_point_3/pos = Vector2( 0.6, 0.7 )
+blend_point_4/node = SubResource( 14 )
+blend_point_4/pos = Vector2( 1, 0 )
+blend_point_5/node = SubResource( 15 )
+blend_point_5/pos = Vector2( 0.6, -0.7 )
+blend_point_6/node = SubResource( 16 )
+blend_point_6/pos = Vector2( 0, -1.1 )
+blend_point_7/node = SubResource( 17 )
+blend_point_7/pos = Vector2( -0.6, -0.7 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachine" id=21]
+states/orc_melee_idles/node = SubResource( 9 )
+states/orc_melee_idles/position = Vector2( 490, 194 )
+states/orc_melee_run/node = SubResource( 18 )
+states/orc_melee_run/position = Vector2( 719, 194 )
+transitions = [ "orc_melee_idles", "orc_melee_run", SubResource( 19 ), "orc_melee_run", "orc_melee_idles", SubResource( 20 ) ]
+start_node = "orc_melee_idles"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=22]
+
+[sub_resource type="CircleShape2D" id=23]
 radius = 20.7635
 
 [node name="apprentice" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="AnimationTree" parent="." index="2"]
-parameters/playback = SubResource( 1 )
+tree_root = SubResource( 21 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 22 )
+parameters/orc_melee_idles/blend_position = Vector2( 0, 0 )
+parameters/orc_melee_run/blend_position = Vector2( 0, 0 )
 
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 4 )
@@ -31,13 +138,18 @@ rotation = 1.5708
 [node name="attack" parent="." index="6" instance=ExtResource( 6 )]
 
 [node name="control" parent="." index="7"]
+margin_right = 40.0
+margin_bottom = 40.0
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 23 )
 
 [node name="stats" parent="." index="10"]
 script = ExtResource( 5 )
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="control/attack_range"]
 
