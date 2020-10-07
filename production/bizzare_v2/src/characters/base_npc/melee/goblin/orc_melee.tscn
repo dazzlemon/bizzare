@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://src/characters/base_npc/melee/goblin/orc_melee.gd" type="Script" id=1]
 [ext_resource path="res://src/characters/base_npc/melee/goblin/orc_melee_control.gd" type="Script" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://assets/textures/orc_melee/melee orc sheet.png" type="Texture" id=4]
 [ext_resource path="res://src/characters/base_npc/melee/goblin/stats.gd" type="Script" id=5]
 [ext_resource path="res://assets/textures/orc_melee/hands_melee.png" type="Texture" id=6]
-[ext_resource path="res://src/characters/base_npc/melee/goblin/hands.gd" type="Script" id=7]
+[ext_resource path="res://assets/textures/etc/Coin.png" type="Texture" id=7]
 [ext_resource path="res://src/attack/hitscan/enemy_hitscan/orc_melee_hitscan.gd" type="Script" id=8]
+[ext_resource path="res://src/characters/base_npc/melee/goblin/orc_crosshair.gd" type="Script" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
@@ -304,6 +305,108 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "idle_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "idle_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "idle_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "idle_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "idle_right_up"
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "idle_left_up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=26]
+blend_point_0/node = SubResource( 18 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 19 )
+blend_point_1/pos = Vector2( -0.6, 0.7 )
+blend_point_2/node = SubResource( 20 )
+blend_point_2/pos = Vector2( 0, 1.1 )
+blend_point_3/node = SubResource( 21 )
+blend_point_3/pos = Vector2( 0.6, 0.7 )
+blend_point_4/node = SubResource( 22 )
+blend_point_4/pos = Vector2( 1, 0 )
+blend_point_5/node = SubResource( 23 )
+blend_point_5/pos = Vector2( 0.6, -0.7 )
+blend_point_6/node = SubResource( 24 )
+blend_point_6/pos = Vector2( 0, -1.1 )
+blend_point_7/node = SubResource( 25 )
+blend_point_7/pos = Vector2( -0.6, -0.7 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "run_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "run_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "run_down"
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "run_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "run_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "run_right_up"
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "run_up"
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "run_left_up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=35]
+blend_point_0/node = SubResource( 27 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 28 )
+blend_point_1/pos = Vector2( -0.6, 0.7 )
+blend_point_2/node = SubResource( 29 )
+blend_point_2/pos = Vector2( 0, 1.1 )
+blend_point_3/node = SubResource( 30 )
+blend_point_3/pos = Vector2( 0.6, 0.7 )
+blend_point_4/node = SubResource( 31 )
+blend_point_4/pos = Vector2( 1, 0 )
+blend_point_5/node = SubResource( 32 )
+blend_point_5/pos = Vector2( 0.6, -0.7 )
+blend_point_6/node = SubResource( 33 )
+blend_point_6/pos = Vector2( 0, -1.1 )
+blend_point_7/node = SubResource( 34 )
+blend_point_7/pos = Vector2( -0.6, -0.7 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+
+[sub_resource type="AnimationNodeStateMachine" id=38]
+states/orc_melee_idles/node = SubResource( 26 )
+states/orc_melee_idles/position = Vector2( 490, 194 )
+states/orc_melee_run/node = SubResource( 35 )
+states/orc_melee_run/position = Vector2( 719, 194 )
+transitions = [ "orc_melee_idles", "orc_melee_run", SubResource( 36 ), "orc_melee_run", "orc_melee_idles", SubResource( 37 ) ]
+start_node = "orc_melee_idles"
+
 [sub_resource type="AnimationNodeStateMachinePlayback" id=13]
 
 [sub_resource type="CircleShape2D" id=14]
@@ -316,7 +419,7 @@ height = 4.71614
 radius = 114.7
 
 [sub_resource type="CircleShape2D" id=17]
-radius = 19.8498
+radius = 13.3371
 
 [node name="base_npc" instance=ExtResource( 3 )]
 z_index = 2
@@ -342,6 +445,9 @@ playback_speed = 5.0
 playback/speed = 5.0
 
 [node name="AnimationTree" parent="." index="2"]
+tree_root = SubResource( 38 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 13 )
 parameters/orc_melee_idles/blend_position = Vector2( -0.516152, -0.122576 )
 parameters/orc_melee_run/blend_position = Vector2( -0.522613, 0.103473 )
@@ -370,7 +476,6 @@ position = Vector2( -0.399193, 5.26278 )
 z_index = 2
 texture = ExtResource( 6 )
 offset = Vector2( -0.5, -7 )
-script = ExtResource( 7 )
 
 [node name="shadow" parent="pivot" index="2"]
 position = Vector2( 0, 12.7161 )
@@ -382,6 +487,8 @@ rotation = 1.5708
 shape = SubResource( 15 )
 
 [node name="control" parent="." index="7"]
+margin_right = 40.0
+margin_bottom = 40.0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
@@ -392,7 +499,16 @@ shape = SubResource( 17 )
 
 [node name="stats" parent="." index="10"]
 script = ExtResource( 5 )
+
+[node name="crosshair" parent="." index="11"]
+script = ExtResource( 9 )
+
+[node name="sprite" parent="crosshair" index="0"]
+texture = ExtResource( 7 )
 [connection signal="tween_completed" from="Tween" to="attack" method="_on_Tween_tween_completed"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="attack"]
 

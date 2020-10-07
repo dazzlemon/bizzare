@@ -449,10 +449,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/etc/status_bars/npc_health/nps_health_bar.gd"
 }, {
-"base": "BaseHands",
-"class": "OrcMeleeHands",
+"base": "Crosshair",
+"class": "OrcCrosshair",
 "language": "GDScript",
-"path": "res://src/characters/base_npc/melee/goblin/hands.gd"
+"path": "res://src/characters/base_npc/melee/goblin/orc_crosshair.gd"
 }, {
 "base": "BaseHitscanEnemy",
 "class": "OrcMeleeHitscan",
@@ -718,7 +718,7 @@ _global_script_class_icons={
 "Menu": "",
 "MoneyOrb": "",
 "NPCHealthBar": "",
-"OrcMeleeHands": "",
+"OrcCrosshair": "",
 "OrcMeleeHitscan": "",
 "Phase1Attack1Control": "",
 "Phase1Attack1Projectile": "",

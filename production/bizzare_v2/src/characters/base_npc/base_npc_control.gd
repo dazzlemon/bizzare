@@ -67,7 +67,7 @@ func wander() -> Vector2:
 func chase() -> Vector2:
 	var player = player_detection_zone.player
 	var direction := Vector2.ZERO
-	if player != null and player_detection_zone.can_see_player():
+	if player_detection_zone.can_see_player():
 		if get_parent().global_position.distance_to(player_detection_zone.player.global_position) < 25:
 			direction = Vector2.ZERO
 		else:
@@ -79,7 +79,7 @@ func chase() -> Vector2:
 
 func attack() -> Vector2:
 	var player = player_detection_zone.player
-	if player != null and player_detection_zone.can_see_player():
+	if player_detection_zone.can_see_player():
 		get_node("../crosshair").global_position = player.global_position
 	get_node("../attack").try_use()
 	return Vector2.ZERO
