@@ -36,4 +36,9 @@ func _on_stats_damage_from_behind() -> void:
 	if player != null:#look at player
 #		if get_node("../../") is BaseNPCRange:
 #			get_node("../../attack").try_use()
-		look_at.set_cast_to(player.global_position - look_at.global_position)
+		look_at.cast_to = player.global_position - look_at.global_position
+		#get_node("../").state = get_node("../").States.ATTACK
+		 
+
+
+

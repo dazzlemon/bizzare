@@ -47,8 +47,6 @@ script = ExtResource( 3 )
 
 [node name="sprite" parent="crosshair" index="0"]
 texture = null
-[connection signal="area_entered" from="control/player_detection_zone" to="control/player_detection_zone" method="_on_area_entered"]
-[connection signal="area_exited" from="control/player_detection_zone" to="control/player_detection_zone" method="_on_area_exited"]
 [connection signal="damage_from_behind" from="stats" to="control/player_detection_zone" method="_on_stats_damage_from_behind"]
 
 [editable path="control/player_detection_zone"]

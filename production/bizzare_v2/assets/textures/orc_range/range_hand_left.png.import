@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/melee orc sheet.png-7fb79eb1dee651fec352b5d6c175a43c.stex"
+path="res://.import/range_hand_left.png-d56b8de141e4edf1749c852fc6a33800.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/orc_melee/melee orc sheet.png"
-dest_files=[ "res://.import/melee orc sheet.png-7fb79eb1dee651fec352b5d6c175a43c.stex" ]
+source_file="res://assets/textures/orc_range/range_hand_left.png"
+dest_files=[ "res://.import/range_hand_left.png-d56b8de141e4edf1749c852fc6a33800.stex" ]
 
 [params]
 

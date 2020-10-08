@@ -3,7 +3,7 @@
 [ext_resource path="res://src/characters/base_npc/melee/goblin/orc_melee.gd" type="Script" id=1]
 [ext_resource path="res://src/characters/base_npc/melee/goblin/orc_melee_control.gd" type="Script" id=2]
 [ext_resource path="res://src/characters/base_npc/melee/base_npc_melee.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/textures/orc_melee/melee orc sheet.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/orc_melee/melee_orc_sheet.png" type="Texture" id=4]
 [ext_resource path="res://src/characters/base_npc/melee/goblin/stats.gd" type="Script" id=5]
 [ext_resource path="res://assets/textures/orc_melee/hands_melee.png" type="Texture" id=6]
 [ext_resource path="res://src/attack/hitscan/enemy_hitscan/orc_melee_hitscan.gd" type="Script" id=8]
@@ -445,8 +445,6 @@ playback/speed = 5.0
 
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 33 )
-anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 34 )
 parameters/orc_melee_idles/blend_position = Vector2( -0.516152, -0.122576 )
 parameters/orc_melee_run/blend_position = Vector2( -0.522613, 0.103473 )
@@ -486,8 +484,6 @@ rotation = 1.5708
 shape = SubResource( 36 )
 
 [node name="control" parent="." index="7"]
-margin_right = 40.0
-margin_bottom = 40.0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
@@ -502,9 +498,6 @@ script = ExtResource( 5 )
 [node name="crosshair" parent="." index="11"]
 script = ExtResource( 9 )
 [connection signal="tween_completed" from="Tween" to="attack" method="_on_Tween_tween_completed"]
-[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
-[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="attack"]
 
