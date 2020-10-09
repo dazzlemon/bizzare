@@ -399,7 +399,7 @@ start_node = "orc_range_idles"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=34]
 
-[sub_resource type="Animation" id=39]
+[sub_resource type="Animation" id=35]
 resource_name = "attack"
 length = 0.5
 loop = true
@@ -417,17 +417,17 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=35]
+[sub_resource type="CapsuleShape2D" id=36]
 radius = 3.5636
 height = 15.6475
 
-[sub_resource type="CircleShape2D" id=36]
+[sub_resource type="CircleShape2D" id=37]
 radius = 103.618
 
-[sub_resource type="CircleShape2D" id=37]
+[sub_resource type="CircleShape2D" id=38]
 radius = 150.72
 
-[sub_resource type="CircleShape2D" id=38]
+[sub_resource type="CircleShape2D" id=39]
 radius = 16.6229
 
 [node name="orc_range" instance=ExtResource( 1 )]
@@ -455,7 +455,7 @@ parameters/orc_range_idles/blend_position = Vector2( 0.0107682, 0.152032 )
 parameters/orc_range_run/blend_position = Vector2( -0.16094, -0.353252 )
 
 [node name="AttackPlayer" parent="." index="3"]
-anims/attack = SubResource( 39 )
+anims/attack = SubResource( 35 )
 
 [node name="sprite" parent="pivot" index="0"]
 z_index = 2
@@ -485,7 +485,7 @@ script = ExtResource( 9 )
 [node name="collision_box" parent="." index="6"]
 position = Vector2( -0.445454, 15.4794 )
 rotation = 1.5708
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 
 [node name="control" parent="." index="7"]
 margin_top = 0.111362
@@ -493,13 +493,13 @@ margin_bottom = 40.1114
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" parent="control/attack_range" index="0"]
-shape = SubResource( 36 )
-
-[node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
 shape = SubResource( 37 )
 
-[node name="CollisionShape2D" parent="hurtbox" index="0"]
+[node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
 shape = SubResource( 38 )
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+shape = SubResource( 39 )
 
 [node name="stats" parent="." index="10"]
 script = ExtResource( 6 )
