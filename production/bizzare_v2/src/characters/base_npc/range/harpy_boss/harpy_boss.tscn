@@ -136,8 +136,6 @@ script = ExtResource( 2 )
 
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 21 )
-anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 22 )
 parameters/orc_melee_idles/blend_position = Vector2( 0, 0 )
 parameters/orc_melee_run/blend_position = Vector2( 0, 0 )
@@ -156,8 +154,6 @@ rotation = 1.5708
 shape = SubResource( 23 )
 
 [node name="control" parent="." index="7"]
-margin_right = 40.0
-margin_bottom = 40.0
 script = ExtResource( 3 )
 
 [node name="phase_cd" type="Timer" parent="control" index="0"]

@@ -162,7 +162,7 @@ parameters/harpy_idles/blend_position = Vector2( -0.423913, 0.052381 )
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 24
-frame = 16
+frame = 21
 
 [node name="shadow" parent="pivot" index="2"]
 position = Vector2( 0, 15 )

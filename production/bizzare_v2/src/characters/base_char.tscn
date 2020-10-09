@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/characters/base_char.gd" type="Script" id=1]
 [ext_resource path="res://src/characters/base_stats.gd" type="Script" id=2]
@@ -54,64 +54,12 @@ min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=10]
-animation = "run_left_down"
+[sub_resource type="AnimationNodeStateMachine" id=10]
+states/shadow_idles/node = SubResource( 9 )
+states/shadow_idles/position = Vector2( 422, 173 )
+start_node = "shadow_idles"
 
-[sub_resource type="AnimationNodeAnimation" id=11]
-animation = "run_left_down"
-
-[sub_resource type="AnimationNodeAnimation" id=12]
-animation = "run_down"
-
-[sub_resource type="AnimationNodeAnimation" id=13]
-animation = "run_right_down"
-
-[sub_resource type="AnimationNodeAnimation" id=14]
-animation = "run_right_down"
-
-[sub_resource type="AnimationNodeAnimation" id=15]
-animation = "run_right_up"
-
-[sub_resource type="AnimationNodeAnimation" id=16]
-animation = "run_up"
-
-[sub_resource type="AnimationNodeAnimation" id=17]
-animation = "run_left_up"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id=18]
-blend_point_0/node = SubResource( 10 )
-blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 11 )
-blend_point_1/pos = Vector2( -0.6, 0.7 )
-blend_point_2/node = SubResource( 12 )
-blend_point_2/pos = Vector2( 0, 1.1 )
-blend_point_3/node = SubResource( 13 )
-blend_point_3/pos = Vector2( 0.6, 0.7 )
-blend_point_4/node = SubResource( 14 )
-blend_point_4/pos = Vector2( 1, 0 )
-blend_point_5/node = SubResource( 15 )
-blend_point_5/pos = Vector2( 0.6, -0.7 )
-blend_point_6/node = SubResource( 16 )
-blend_point_6/pos = Vector2( 0, -1.1 )
-blend_point_7/node = SubResource( 17 )
-blend_point_7/pos = Vector2( -0.6, -0.7 )
-min_space = Vector2( -1, -1.1 )
-max_space = Vector2( 1, 1.1 )
-blend_mode = 1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=19]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=20]
-
-[sub_resource type="AnimationNodeStateMachine" id=21]
-states/orc_melee_idles/node = SubResource( 9 )
-states/orc_melee_idles/position = Vector2( 490, 194 )
-states/orc_melee_run/node = SubResource( 18 )
-states/orc_melee_run/position = Vector2( 719, 194 )
-transitions = [ "orc_melee_idles", "orc_melee_run", SubResource( 19 ), "orc_melee_run", "orc_melee_idles", SubResource( 20 ) ]
-start_node = "orc_melee_idles"
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=22]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
 [node name="base_char" type="KinematicBody2D"]
 collision_layer = 0
@@ -123,12 +71,11 @@ script = ExtResource( 1 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 21 )
+tree_root = SubResource( 10 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 22 )
-parameters/orc_melee_idles/blend_position = Vector2( 0, 0 )
-parameters/orc_melee_run/blend_position = Vector2( 0, 0 )
+parameters/playback = SubResource( 11 )
+parameters/shadow_idles/blend_position = Vector2( 0, 0 )
 
 [node name="AttackPlayer" type="AnimationPlayer" parent="."]
 
