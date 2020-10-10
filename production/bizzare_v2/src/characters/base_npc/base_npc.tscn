@@ -29,14 +29,11 @@ script = ExtResource( 4 )
 collision_layer = 16
 collision_mask = 0
 
-[node name="Control" type="Control" parent="." index="8"]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="StatusBar" type="Node2D" parent="." index="8"]
+position = Vector2( 0, 30 )
+z_index = 3
 
-[node name="statusBar" parent="Control" index="0" instance=ExtResource( 7 )]
+[node name="statusBar" parent="StatusBar" index="0" instance=ExtResource( 7 )]
 margin_left = -58.8658
 margin_top = -80.2716
 margin_right = -58.8658
