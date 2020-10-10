@@ -464,6 +464,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/hitscan/enemy_hitscan/orc_melee_hitscan.gd"
 }, {
+"base": "BaseHands",
+"class": "OrcRangeHands",
+"language": "GDScript",
+"path": "res://src/characters/base_npc/range/range_goblin/orc_range_hands.gd"
+}, {
 "base": "PhaseAttacks",
 "class": "Phase1Attack1Control",
 "language": "GDScript",
@@ -726,6 +731,7 @@ _global_script_class_icons={
 "NPCHealthBar": "",
 "OrcCrosshair": "",
 "OrcMeleeHitscan": "",
+"OrcRangeHands": "",
 "Phase1Attack1Control": "",
 "Phase1Attack1Projectile": "",
 "Phase1Attack2Control": "",

@@ -6,6 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.22136
+height = 0.0
 
 [node name="base_projectile" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -15,6 +16,6 @@ texture = ExtResource( 3 )
 offset = Vector2( -1, -1.5 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( -0.884884, 0.0589905 )
+position = Vector2( 8.02137, -0.0972595 )
 rotation = 1.5708
 shape = SubResource( 1 )

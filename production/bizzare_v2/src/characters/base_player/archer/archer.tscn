@@ -458,8 +458,9 @@ scale_curve = SubResource( 39 )
 anim_speed = 2.0
 anim_speed_random = 0.08
 
-[sub_resource type="CircleShape2D" id=41]
-radius = 16.8761
+[sub_resource type="CapsuleShape2D" id=41]
+radius = 10.2287
+height = 7.17251
 
 [node name="player" instance=ExtResource( 1 )]
 collision_mask = 10
@@ -493,7 +494,7 @@ z_index = 2
 texture = ExtResource( 9 )
 flip_h = true
 hframes = 16
-frame = 5
+frame = 4
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 0, 5 )
@@ -533,9 +534,6 @@ explosiveness = 0.23
 randomness = 0.23
 process_material = SubResource( 40 )
 texture = ExtResource( 10 )
-
-[node name="hurtbox" parent="." index="13"]
-visible = false
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 shape = SubResource( 41 )
