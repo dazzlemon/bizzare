@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://src/characters/base_npc/melee/base_npc_melee.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/melee/shadow/shadow.gd" type="Script" id=2]
@@ -233,6 +233,56 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -1.5 ) ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "idle_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "idle_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "idle_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "idle_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "idle_right_up"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id=19]
+animation = "idle_left_up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=20]
+blend_point_0/node = SubResource( 12 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 13 )
+blend_point_1/pos = Vector2( -0.6, 0.7 )
+blend_point_2/node = SubResource( 14 )
+blend_point_2/pos = Vector2( 0, 1.1 )
+blend_point_3/node = SubResource( 15 )
+blend_point_3/pos = Vector2( 0.6, 0.7 )
+blend_point_4/node = SubResource( 16 )
+blend_point_4/pos = Vector2( 1, 0 )
+blend_point_5/node = SubResource( 17 )
+blend_point_5/pos = Vector2( 0.6, -0.7 )
+blend_point_6/node = SubResource( 18 )
+blend_point_6/pos = Vector2( 0, -1.1 )
+blend_point_7/node = SubResource( 19 )
+blend_point_7/pos = Vector2( -0.6, -0.7 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachine" id=21]
+states/shadow_idles/node = SubResource( 20 )
+states/shadow_idles/position = Vector2( 422, 173 )
+start_node = "shadow_idles"
+
 [sub_resource type="AnimationNodeStateMachinePlayback" id=7]
 
 [sub_resource type="CircleShape2D" id=8]
@@ -260,6 +310,9 @@ anims/idle_right_up = SubResource( 5 )
 anims/idle_up = SubResource( 6 )
 
 [node name="AnimationTree" parent="." index="2"]
+tree_root = SubResource( 21 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 7 )
 parameters/shadow_idles/blend_position = Vector2( -0.00143576, 0.00616252 )
 
@@ -277,12 +330,12 @@ shape = SubResource( 8 )
 
 [node name="sprite" parent="pivot" index="0"]
 visible = false
-position = Vector2( 0, -0.509356 )
+position = Vector2( 0, -0.180699 )
 z_index = 2
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 8
-frame = 4
+frame = 5
 
 [node name="hands" parent="pivot" index="1"]
 visible = false
@@ -290,6 +343,7 @@ position = Vector2( 5, 0 )
 z_index = 2
 texture = ExtResource( 10 )
 offset = Vector2( -1, 0 )
+flip_h = true
 
 [node name="shadow" parent="pivot" index="2"]
 visible = false
@@ -312,6 +366,8 @@ shape = SubResource( 9 )
 
 [node name="control" parent="." index="7"]
 visible = false
+margin_right = 40.0
+margin_bottom = 40.0
 script = ExtResource( 3 )
 
 [node name="invis_controller" parent="control" index="0" instance=ExtResource( 5 )]
@@ -324,7 +380,7 @@ shape = SubResource( 10 )
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 shape = SubResource( 11 )
 
-[node name="statusBar" parent="Control" index="0"]
+[node name="StatusBar" parent="." index="9"]
 visible = false
 
 [node name="stats" parent="." index="10"]

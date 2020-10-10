@@ -14,7 +14,7 @@ func _on_area_exited(_area) -> void:
 
 func _on_delay_timeout() -> void:
 	get_node("../../pivot/sprite").visible = status
-	get_node("../../Control/statusBar").visible = status
+	get_node("../../StatusBar/statusBar").visible = status
 	get_node("../../pivot/shadow").visible = status
 	get_node("../../pivot/hands").visible = status
 	get_node("../../pivot/left_hand").visible = status
