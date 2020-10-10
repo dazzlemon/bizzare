@@ -12,10 +12,11 @@ height = 0.0
 script = ExtResource( 2 )
 
 [node name="sprite" parent="." index="0"]
+position = Vector2( 3, 0 )
 texture = ExtResource( 3 )
-offset = Vector2( -1, -1.5 )
+offset = Vector2( 0, -1.5 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 8.02137, -0.0972595 )
+position = Vector2( 12, 0 )
 rotation = 1.5708
 shape = SubResource( 1 )

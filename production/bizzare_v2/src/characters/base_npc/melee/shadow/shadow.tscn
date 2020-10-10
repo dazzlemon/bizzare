@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://src/characters/base_npc/melee/base_npc_melee.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/melee/shadow/shadow.gd" type="Script" id=2]
@@ -233,69 +233,127 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -1.5 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=12]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "idle_left_down"
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "idle_left_down"
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "idle_down"
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "idle_right_down"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "idle_right_down"
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=12]
 animation = "idle_right_up"
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=13]
 animation = "idle_up"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "idle_left_up"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=20]
-blend_point_0/node = SubResource( 12 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=15]
+blend_point_0/node = SubResource( 7 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 13 )
+blend_point_1/node = SubResource( 8 )
 blend_point_1/pos = Vector2( -0.6, 0.7 )
-blend_point_2/node = SubResource( 14 )
+blend_point_2/node = SubResource( 9 )
 blend_point_2/pos = Vector2( 0, 1.1 )
-blend_point_3/node = SubResource( 15 )
+blend_point_3/node = SubResource( 10 )
 blend_point_3/pos = Vector2( 0.6, 0.7 )
-blend_point_4/node = SubResource( 16 )
+blend_point_4/node = SubResource( 11 )
 blend_point_4/pos = Vector2( 1, 0 )
-blend_point_5/node = SubResource( 17 )
+blend_point_5/node = SubResource( 12 )
 blend_point_5/pos = Vector2( 0.6, -0.7 )
-blend_point_6/node = SubResource( 18 )
+blend_point_6/node = SubResource( 13 )
 blend_point_6/pos = Vector2( 0, -1.1 )
-blend_point_7/node = SubResource( 19 )
+blend_point_7/node = SubResource( 14 )
 blend_point_7/pos = Vector2( -0.6, -0.7 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachine" id=21]
-states/shadow_idles/node = SubResource( 20 )
+[sub_resource type="AnimationNodeStateMachine" id=16]
+states/shadow_idles/node = SubResource( 15 )
 states/shadow_idles/position = Vector2( 422, 173 )
 start_node = "shadow_idles"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="Animation" id=22]
+resource_name = "left_hand"
+length = 0.45
+step = 0.09
+tracks/0/type = "value"
+tracks/0/path = NodePath("pivot/left_hand:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.09, 0.18, 0.27, 0.36 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pivot/left_hand:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "right_hand"
+length = 0.45
+step = 0.09
+tracks/0/type = "value"
+tracks/0/path = NodePath("pivot/hands:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.09, 0.18, 0.27, 0.36 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pivot/hands:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="CircleShape2D" id=18]
 radius = 8.79366
 
-[sub_resource type="CapsuleShape2D" id=9]
+[sub_resource type="CapsuleShape2D" id=19]
 radius = 3.42415
 height = 8.67005
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=20]
 radius = 133.004
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=21]
 radius = 12.7785
 
 [node name="base_npc" instance=ExtResource( 1 )]
@@ -310,11 +368,14 @@ anims/idle_right_up = SubResource( 5 )
 anims/idle_up = SubResource( 6 )
 
 [node name="AnimationTree" parent="." index="2"]
-tree_root = SubResource( 21 )
-anim_player = NodePath("../AnimationPlayer")
-active = true
-parameters/playback = SubResource( 7 )
+tree_root = SubResource( 16 )
+parameters/playback = SubResource( 17 )
 parameters/shadow_idles/blend_position = Vector2( -0.00143576, 0.00616252 )
+
+[node name="AttackPlayer" parent="." index="3"]
+playback_speed = 2.0
+anims/left_hand = SubResource( 22 )
+anims/right_hand = SubResource( 23 )
 
 [node name="attack" parent="." index="4"]
 script = ExtResource( 6 )
@@ -326,11 +387,11 @@ script = ExtResource( 7 )
 
 [node name="CollisionShape2D" parent="attack/Position2D/hitbox" index="0"]
 position = Vector2( 20, 0 )
-shape = SubResource( 8 )
+shape = SubResource( 18 )
 
 [node name="sprite" parent="pivot" index="0"]
 visible = false
-position = Vector2( 0, -0.180699 )
+position = Vector2( 0, -0.132395 )
 z_index = 2
 texture = ExtResource( 4 )
 flip_h = true
@@ -338,12 +399,13 @@ hframes = 8
 frame = 5
 
 [node name="hands" parent="pivot" index="1"]
-visible = false
-position = Vector2( 5, 0 )
+position = Vector2( 3, 1 )
 z_index = 2
 texture = ExtResource( 10 )
-offset = Vector2( -1, 0 )
+offset = Vector2( 3, -1 )
 flip_h = true
+hframes = 4
+frame = 1
 
 [node name="shadow" parent="pivot" index="2"]
 visible = false
@@ -351,23 +413,22 @@ position = Vector2( 0, -7.02332 )
 offset = Vector2( 0, 20 )
 
 [node name="left_hand" type="Sprite" parent="pivot" index="3"]
-visible = false
-position = Vector2( -5, 0 )
+position = Vector2( -4, 1 )
 z_index = 2
 texture = ExtResource( 10 )
-offset = Vector2( 1, 0 )
+offset = Vector2( 3, -1 )
 flip_h = true
+hframes = 4
+frame = 1
 script = ExtResource( 9 )
 
 [node name="collision_box" parent="." index="6"]
 position = Vector2( 0.420456, 13.4543 )
 rotation = 1.5708
-shape = SubResource( 9 )
+shape = SubResource( 19 )
 
 [node name="control" parent="." index="7"]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
 script = ExtResource( 3 )
 
 [node name="invis_controller" parent="control" index="0" instance=ExtResource( 5 )]
@@ -375,10 +436,10 @@ collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
-shape = SubResource( 10 )
+shape = SubResource( 20 )
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
-shape = SubResource( 11 )
+shape = SubResource( 21 )
 
 [node name="StatusBar" parent="." index="9"]
 visible = false
