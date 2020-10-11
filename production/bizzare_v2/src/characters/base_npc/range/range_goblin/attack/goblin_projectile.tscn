@@ -12,6 +12,7 @@ height = 4.25419
 script = ExtResource( 2 )
 
 [node name="sprite" parent="." index="0"]
+rotation = -1.5708
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="1"]

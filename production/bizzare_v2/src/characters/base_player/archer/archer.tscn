@@ -489,12 +489,15 @@ parameters/archer_run/blend_position = Vector2( -0.00133157, 0.0396826 )
 [node name="AttackPlayer" parent="." index="3"]
 anims/attack = SubResource( 35 )
 
+[node name="pivot" parent="." index="5"]
+position = Vector2( 0, -5 )
+
 [node name="sprite" parent="pivot" index="0"]
 z_index = 2
 texture = ExtResource( 9 )
 flip_h = true
 hframes = 16
-frame = 4
+frame = 5
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 0, 5 )
@@ -507,7 +510,7 @@ hframes = 7
 position = Vector2( 0, 11 )
 
 [node name="collision_box" parent="." index="6"]
-position = Vector2( 0, 12 )
+position = Vector2( 0, 7 )
 rotation = 1.5708
 shape = SubResource( 36 )
 
@@ -534,6 +537,9 @@ explosiveness = 0.23
 randomness = 0.23
 process_material = SubResource( 40 )
 texture = ExtResource( 10 )
+
+[node name="hurtbox" parent="." index="13"]
+position = Vector2( 0, -5 )
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 shape = SubResource( 41 )
