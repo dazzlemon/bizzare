@@ -15,6 +15,7 @@ func _on_area_entered(area: Area2D) -> void:
 
 func _on_area_exited(_area: Area2D) -> void:
 	player = null#mb need to check wheter area exited is player?
+	get_node("../").state = get_node("../").States.IDLE
 
 
 func can_see_player() -> bool:
@@ -34,11 +35,8 @@ func has_actual_player_inside_fov() -> bool:
 	
 func _on_stats_damage_from_behind() -> void:
 	if player != null:#look at player
-#		if get_node("../../") is BaseNPCRange:
-#			get_node("../../attack").try_use()
 		look_at.cast_to = player.global_position - look_at.global_position
-		#get_node("../").state = get_node("../").States.ATTACK
-		 
-
-
-
+		if get_node("../attack_range").player != null:
+			get_node("../").state = get_node("../").States.ATTACK
+		else:
+			get_node("../").state = get_node("../").States.CHASE
