@@ -1,7 +1,7 @@
 class_name BaseHands
 extends Sprite
 
-var rotation_limit = 29.22
+var rotation_limit = 24.4
 #var start_angle = 0
 
 onready var tween = get_node("../../Tween")
