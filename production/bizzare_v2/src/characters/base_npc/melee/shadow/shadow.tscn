@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://src/characters/base_npc/melee/base_npc_melee.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/melee/shadow/shadow.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://src/characters/base_npc/melee/shadow/stats.gd" type="Script" id=8]
 [ext_resource path="res://src/characters/hands.gd" type="Script" id=9]
 [ext_resource path="res://assets/textures/shadow/shadow_hand.png" type="Texture" id=10]
+[ext_resource path="res://assets/textures/shadow/shadow_hand1.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
@@ -285,7 +286,7 @@ start_node = "shadow_idles"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=18]
 resource_name = "left_hand"
 length = 0.45
 step = 0.09
@@ -314,7 +315,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=19]
 resource_name = "right_hand"
 length = 0.45
 step = 0.09
@@ -343,17 +344,17 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="CircleShape2D" id=18]
+[sub_resource type="CircleShape2D" id=20]
 radius = 8.79366
 
-[sub_resource type="CapsuleShape2D" id=19]
+[sub_resource type="CapsuleShape2D" id=21]
 radius = 3.42415
 height = 8.67005
 
-[sub_resource type="CircleShape2D" id=20]
+[sub_resource type="CircleShape2D" id=22]
 radius = 133.004
 
-[sub_resource type="CircleShape2D" id=21]
+[sub_resource type="CircleShape2D" id=23]
 radius = 12.7785
 
 [node name="base_npc" instance=ExtResource( 1 )]
@@ -374,8 +375,8 @@ parameters/shadow_idles/blend_position = Vector2( -0.00143576, 0.00616252 )
 
 [node name="AttackPlayer" parent="." index="3"]
 playback_speed = 2.0
-anims/left_hand = SubResource( 22 )
-anims/right_hand = SubResource( 23 )
+anims/left_hand = SubResource( 18 )
+anims/right_hand = SubResource( 19 )
 
 [node name="attack" parent="." index="4"]
 script = ExtResource( 6 )
@@ -387,18 +388,19 @@ script = ExtResource( 7 )
 
 [node name="CollisionShape2D" parent="attack/Position2D/hitbox" index="0"]
 position = Vector2( 20, 0 )
-shape = SubResource( 18 )
+shape = SubResource( 20 )
 
 [node name="sprite" parent="pivot" index="0"]
 visible = false
-position = Vector2( 0, -0.132395 )
+position = Vector2( 0, -0.913204 )
 z_index = 2
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 8
-frame = 5
+frame = 4
 
 [node name="hands" parent="pivot" index="1"]
+visible = false
 position = Vector2( 3, 1 )
 z_index = 2
 texture = ExtResource( 10 )
@@ -413,19 +415,19 @@ position = Vector2( 0, -7.02332 )
 offset = Vector2( 0, 20 )
 
 [node name="left_hand" type="Sprite" parent="pivot" index="3"]
+visible = false
 position = Vector2( -4, 1 )
 z_index = 2
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 offset = Vector2( 3, -1 )
 flip_h = true
 hframes = 4
-frame = 1
 script = ExtResource( 9 )
 
 [node name="collision_box" parent="." index="6"]
 position = Vector2( 0.420456, 13.4543 )
 rotation = 1.5708
-shape = SubResource( 19 )
+shape = SubResource( 21 )
 
 [node name="control" parent="." index="7"]
 visible = false
@@ -436,12 +438,12 @@ collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
-shape = SubResource( 20 )
+shape = SubResource( 22 )
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
-shape = SubResource( 21 )
+shape = SubResource( 23 )
 
-[node name="StatusBar" parent="." index="9"]
+[node name="statusBar" parent="StatusBar" index="0"]
 visible = false
 
 [node name="stats" parent="." index="10"]

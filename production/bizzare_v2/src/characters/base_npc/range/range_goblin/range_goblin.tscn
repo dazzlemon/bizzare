@@ -450,7 +450,6 @@ anims/run_up = SubResource( 12 )
 
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 33 )
-active = false
 parameters/playback = SubResource( 34 )
 parameters/orc_range_idles/blend_position = Vector2( 0.0107682, 0.152032 )
 parameters/orc_range_run/blend_position = Vector2( -0.16094, -0.353252 )
@@ -463,7 +462,7 @@ z_index = 2
 texture = ExtResource( 2 )
 flip_h = true
 hframes = 16
-frame = 4
+frame = 6
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( -6, 2 )
@@ -471,6 +470,7 @@ z_index = 2
 texture = ExtResource( 8 )
 offset = Vector2( 0, -7 )
 hframes = 4
+frame = 3
 script = ExtResource( 11 )
 
 [node name="shadow" parent="pivot" index="2"]
