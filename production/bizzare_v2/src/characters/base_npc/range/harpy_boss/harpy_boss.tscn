@@ -1,9 +1,9 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/characters/base_npc/range/base_npc_range.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/harpy_boss.gd" type="Script" id=2]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/harpy_boss_control.gd" type="Script" id=3]
-[ext_resource path="res://assets/textures/etc/bosspups.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/harpy_boss/harpy_boss_temporary_sheet.png" type="Texture" id=4]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/attack/harpy_boss_projectile_attack.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_2/phase_2_attack_2_control.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/harpy_boss_stats.gd" type="Script" id=7]
@@ -13,145 +13,164 @@
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_3_attack_1/phase_3_attack_1_control.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_3_attack_2/phase_3_attack_2.tscn" type="PackedScene" id=12]
 
-[sub_resource type="AnimationNodeAnimation" id=1]
-animation = "idle_left_down"
+[sub_resource type="Animation" id=1]
+resource_name = "idle_left"
+length = 1.02
+loop = true
+step = 0.085
+tracks/0/type = "value"
+tracks/0/path = NodePath("pivot/sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.085, 0.17, 0.255, 0.34, 0.425, 0.51, 0.595, 0.68, 0.765, 0.85, 0.935 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pivot/sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pivot/sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.51 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -4 ), Vector2( 0, 0 ) ]
+}
 
-[sub_resource type="AnimationNodeAnimation" id=2]
-animation = "idle_left_down"
+[sub_resource type="Animation" id=2]
+resource_name = "idle_right"
+length = 1.02
+loop = true
+step = 0.085
+tracks/0/type = "value"
+tracks/0/path = NodePath("pivot/sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.085, 0.17, 0.255, 0.34, 0.425, 0.51, 0.595, 0.68, 0.765, 0.85, 0.935 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pivot/sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pivot/sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.51 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -4 ), Vector2( 0, 0 ) ]
+}
 
 [sub_resource type="AnimationNodeAnimation" id=3]
-animation = "idle_down"
+animation = "idle_left"
 
 [sub_resource type="AnimationNodeAnimation" id=4]
-animation = "idle_right_down"
+animation = "idle_left"
 
 [sub_resource type="AnimationNodeAnimation" id=5]
-animation = "idle_right_down"
+animation = "idle_right"
 
 [sub_resource type="AnimationNodeAnimation" id=6]
-animation = "idle_right_up"
+animation = "idle_right"
 
-[sub_resource type="AnimationNodeAnimation" id=7]
-animation = "idle_up"
-
-[sub_resource type="AnimationNodeAnimation" id=8]
-animation = "idle_left_up"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id=9]
-blend_point_0/node = SubResource( 1 )
-blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 2 )
-blend_point_1/pos = Vector2( -0.6, 0.7 )
-blend_point_2/node = SubResource( 3 )
-blend_point_2/pos = Vector2( 0, 1.1 )
-blend_point_3/node = SubResource( 4 )
-blend_point_3/pos = Vector2( 0.6, 0.7 )
-blend_point_4/node = SubResource( 5 )
-blend_point_4/pos = Vector2( 1, 0 )
-blend_point_5/node = SubResource( 6 )
-blend_point_5/pos = Vector2( 0.6, -0.7 )
-blend_point_6/node = SubResource( 7 )
-blend_point_6/pos = Vector2( 0, -1.1 )
-blend_point_7/node = SubResource( 8 )
-blend_point_7/pos = Vector2( -0.6, -0.7 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=7]
+blend_point_0/node = SubResource( 3 )
+blend_point_0/pos = Vector2( -0.7, 0.6 )
+blend_point_1/node = SubResource( 4 )
+blend_point_1/pos = Vector2( -0.7, -0.6 )
+blend_point_2/node = SubResource( 5 )
+blend_point_2/pos = Vector2( 0.6, 0.6 )
+blend_point_3/node = SubResource( 6 )
+blend_point_3/pos = Vector2( 0.6, -0.6 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=10]
-animation = "run_left_down"
+[sub_resource type="AnimationNodeStateMachine" id=8]
+states/harpy_boss_idles/node = SubResource( 7 )
+states/harpy_boss_idles/position = Vector2( 223, 123 )
+start_node = "harpy_boss_idles"
 
-[sub_resource type="AnimationNodeAnimation" id=11]
-animation = "run_left_down"
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
 
-[sub_resource type="AnimationNodeAnimation" id=12]
-animation = "run_down"
-
-[sub_resource type="AnimationNodeAnimation" id=13]
-animation = "run_right_down"
-
-[sub_resource type="AnimationNodeAnimation" id=14]
-animation = "run_right_down"
-
-[sub_resource type="AnimationNodeAnimation" id=15]
-animation = "run_right_up"
-
-[sub_resource type="AnimationNodeAnimation" id=16]
-animation = "run_up"
-
-[sub_resource type="AnimationNodeAnimation" id=17]
-animation = "run_left_up"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id=18]
-blend_point_0/node = SubResource( 10 )
-blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 11 )
-blend_point_1/pos = Vector2( -0.6, 0.7 )
-blend_point_2/node = SubResource( 12 )
-blend_point_2/pos = Vector2( 0, 1.1 )
-blend_point_3/node = SubResource( 13 )
-blend_point_3/pos = Vector2( 0.6, 0.7 )
-blend_point_4/node = SubResource( 14 )
-blend_point_4/pos = Vector2( 1, 0 )
-blend_point_5/node = SubResource( 15 )
-blend_point_5/pos = Vector2( 0.6, -0.7 )
-blend_point_6/node = SubResource( 16 )
-blend_point_6/pos = Vector2( 0, -1.1 )
-blend_point_7/node = SubResource( 17 )
-blend_point_7/pos = Vector2( -0.6, -0.7 )
-min_space = Vector2( -1, -1.1 )
-max_space = Vector2( 1, 1.1 )
-blend_mode = 1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=19]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=20]
-
-[sub_resource type="AnimationNodeStateMachine" id=21]
-states/orc_melee_idles/node = SubResource( 9 )
-states/orc_melee_idles/position = Vector2( 490, 194 )
-states/orc_melee_run/node = SubResource( 18 )
-states/orc_melee_run/position = Vector2( 719, 194 )
-transitions = [ "orc_melee_idles", "orc_melee_run", SubResource( 19 ), "orc_melee_run", "orc_melee_idles", SubResource( 20 ) ]
-start_node = "orc_melee_idles"
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=22]
-
-[sub_resource type="CapsuleShape2D" id=23]
+[sub_resource type="CapsuleShape2D" id=10]
 radius = 4.07981
 height = 17.0234
 
-[sub_resource type="CircleShape2D" id=24]
+[sub_resource type="CircleShape2D" id=11]
 radius = 120.053
 
-[sub_resource type="CircleShape2D" id=25]
+[sub_resource type="CircleShape2D" id=12]
 radius = 159.482
 
-[sub_resource type="CircleShape2D" id=26]
+[sub_resource type="CircleShape2D" id=13]
 radius = 16.6692
 
 [node name="harpy_boss" instance=ExtResource( 1 )]
 z_index = 1
 script = ExtResource( 2 )
 
+[node name="AnimationPlayer" parent="." index="0"]
+anims/idle_left = SubResource( 1 )
+anims/idle_right = SubResource( 2 )
+
 [node name="AnimationTree" parent="." index="2"]
-tree_root = SubResource( 21 )
-parameters/playback = SubResource( 22 )
-parameters/orc_melee_idles/blend_position = Vector2( 0, 0 )
-parameters/orc_melee_run/blend_position = Vector2( 0, 0 )
+tree_root = SubResource( 8 )
+parameters/playback = SubResource( 9 )
+parameters/harpy_boss_idles/blend_position = Vector2( 0, 0 )
 
 [node name="sprite" parent="pivot" index="0"]
+position = Vector2( 0, -2.63686 )
 texture = ExtResource( 4 )
+flip_h = true
+hframes = 7
+frame = 3
 
 [node name="shadow" parent="pivot" index="2"]
-position = Vector2( 0, 20 )
+position = Vector2( 0, 24 )
 
 [node name="attack" parent="." index="5" instance=ExtResource( 5 )]
 
 [node name="collision_box" parent="." index="6"]
 position = Vector2( -0.486946, 15.1791 )
 rotation = 1.5708
-shape = SubResource( 23 )
+shape = SubResource( 10 )
 
 [node name="control" parent="." index="7"]
 script = ExtResource( 3 )
@@ -176,13 +195,13 @@ one_shot = true
 visible = false
 
 [node name="CollisionShape2D" parent="control/attack_range" index="0"]
-shape = SubResource( 24 )
+shape = SubResource( 11 )
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
-shape = SubResource( 25 )
+shape = SubResource( 12 )
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
-shape = SubResource( 26 )
+shape = SubResource( 13 )
 
 [node name="stats" parent="." index="10"]
 script = ExtResource( 7 )
