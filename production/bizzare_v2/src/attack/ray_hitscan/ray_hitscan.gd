@@ -6,7 +6,7 @@ onready var apprentice = get_node("../")
 
 func _ready() -> void:
 	_DURATION = 0.25
-	_INTERVAL = 0.5
+	_INTERVAL = 0.6
 
 
 func _start() -> void:

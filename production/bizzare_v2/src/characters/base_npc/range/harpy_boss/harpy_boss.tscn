@@ -156,11 +156,11 @@ parameters/playback = SubResource( 9 )
 parameters/harpy_boss_idles/blend_position = Vector2( 0, 0 )
 
 [node name="sprite" parent="pivot" index="0"]
-position = Vector2( 0, -2.63686 )
+position = Vector2( 0, -0.0903887 )
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 7
-frame = 3
+frame = 6
 
 [node name="shadow" parent="pivot" index="2"]
 position = Vector2( 0, 24 )

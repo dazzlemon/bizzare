@@ -483,7 +483,7 @@ anims/archer_run_up = SubResource( 12 )
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 33 )
 parameters/playback = SubResource( 34 )
-parameters/archer_idles/blend_position = Vector2( -0.593928, 0.486636 )
+parameters/archer_idles/blend_position = Vector2( -0.458737, 0.253553 )
 parameters/archer_run/blend_position = Vector2( -0.00133157, 0.0396826 )
 
 [node name="AttackPlayer" parent="." index="3"]
@@ -497,7 +497,7 @@ z_index = 2
 texture = ExtResource( 9 )
 flip_h = true
 hframes = 16
-frame = 4
+frame = 7
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 0, 5 )
