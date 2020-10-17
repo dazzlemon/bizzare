@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/harpy_boss_temporary_sheet.png-dcd509b8a00c7c2815785fc902ccab03.stex"
+path="res://.import/harpy_boss_sheet.png-98ace2ac6c956eb458a8456299df1d48.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/harpy_boss/harpy_boss_temporary_sheet.png"
-dest_files=[ "res://.import/harpy_boss_temporary_sheet.png-dcd509b8a00c7c2815785fc902ccab03.stex" ]
+source_file="res://assets/textures/harpy_boss/harpy_boss_sheet.png"
+dest_files=[ "res://.import/harpy_boss_sheet.png-98ace2ac6c956eb458a8456299df1d48.stex" ]
 
 [params]
 

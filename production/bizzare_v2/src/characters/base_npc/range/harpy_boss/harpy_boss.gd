@@ -1,6 +1,9 @@
 class_name HarpyBoss
 extends BaseNPCRange
 
+func _ready():
+	MAX_SPEED = 75
+
 
 func _physics_process(delta):
 	if velocity != Vector2.ZERO:

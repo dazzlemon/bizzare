@@ -8,7 +8,7 @@ onready var timer = get_node("AttackPlayer/Timer")
 var checker = false
 
 func _ready():
-	MAX_SPEED = 150
+	MAX_SPEED = 125
 
 
 func _physics_process(delta):
