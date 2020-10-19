@@ -434,6 +434,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/range/range_goblin/left_hand.gd"
 }, {
+"base": "BasePlayer",
+"class": "Mage",
+"language": "GDScript",
+"path": "res://src/characters/base_player/mage/mage.gd"
+}, {
+"base": "BasePlayerStats",
+"class": "MageStats",
+"language": "GDScript",
+"path": "res://src/characters/base_player/mage/mage_stats.gd"
+}, {
 "base": "BaseNPCStats",
 "class": "MeleeOrcSprite",
 "language": "GDScript",
@@ -725,6 +735,8 @@ _global_script_class_icons={
 "KnightHitscanHitbox": "",
 "KnightStats": "",
 "LeftHand": "",
+"Mage": "",
+"MageStats": "",
 "MeleeOrcSprite": "",
 "Menu": "",
 "MoneyOrb": "",

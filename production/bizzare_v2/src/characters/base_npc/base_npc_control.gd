@@ -7,6 +7,7 @@ export var wander_target_range = 4
 onready var player_detection_zone = $player_detection_zone
 onready var wander_controller = $wander_controller
 onready var attack_range = $attack_range
+onready var raycast = $player_detection_zone/LookAt
 
 enum States {
 	IDLE,
@@ -58,6 +59,7 @@ func idle() -> Vector2:
 func wander() -> Vector2:
 	idle()
 	var direction = owner.global_position.direction_to(wander_controller.position_target)
+	#raycast.cast_to = direction
 	if owner.global_position.distance_to(wander_controller.position_target) <= wander_target_range:
 		state = Utility.pick_random([States.IDLE, States.WANDER])
 		wander_controller.start_wander_timer(rand_range(1, 3))

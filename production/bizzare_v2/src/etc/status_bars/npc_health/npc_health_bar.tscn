@@ -5,7 +5,6 @@
 [ext_resource path="res://assets/textures/huds/npc_health_bar/npc_health_bar_progress.png" type="Texture" id=3]
 [ext_resource path="res://assets/textures/huds/npc_health_bar/npc_health_bar.png" type="Texture" id=4]
 
-
 [node name="statusBar" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
@@ -23,7 +22,7 @@ tint_progress = Color( 0.968627, 0.486275, 0.486275, 1 )
 margin_right = 91.0
 margin_bottom = 25.0
 texture_progress = ExtResource( 3 )
-tint_progress = Color( 0.2, 0.8, 0.2, 1 )
+tint_progress = Color( 0.213043, 0.699219, 0.213043, 1 )
 
 [node name="TextureRect" parent="." index="3"]
 visible = false

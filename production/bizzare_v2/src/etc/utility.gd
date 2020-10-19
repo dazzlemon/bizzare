@@ -7,6 +7,8 @@ static func get_typeof(object):
 		return "Knight"
 	elif object is Archer:
 		return "Archer"
+	elif object is Mage:
+		return "Mage"
 	else:
 		return "undefined"
 
