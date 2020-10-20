@@ -4,7 +4,7 @@
 [ext_resource path="res://src/characters/base_player/mage/mage_stats.gd" type="Script" id=2]
 [ext_resource path="res://assets/textures/mage/mage_sheet.png" type="Texture" id=3]
 [ext_resource path="res://src/characters/base_player/mage/mage.gd" type="Script" id=4]
-[ext_resource path="res://src/attack/projectile/base_projectile_attack.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/characters/base_player/mage/attack/MageProjectileAttack.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/textures/mage/scepter.png" type="Texture" id=6]
 [ext_resource path="res://src/characters/base_npc/range/range_goblin/left_hand.gd" type="Script" id=7]
 [ext_resource path="res://assets/textures/mage/left_hand.png" type="Texture" id=8]
@@ -309,109 +309,109 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "idle_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "idle_left_down"
+
 [sub_resource type="AnimationNodeAnimation" id=15]
-animation = "idle_left_down"
-
-[sub_resource type="AnimationNodeAnimation" id=16]
-animation = "idle_left_down"
-
-[sub_resource type="AnimationNodeAnimation" id=17]
 animation = "idle_down"
 
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "idle_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "idle_right_down"
+
 [sub_resource type="AnimationNodeAnimation" id=18]
-animation = "idle_right_down"
-
-[sub_resource type="AnimationNodeAnimation" id=19]
-animation = "idle_right_down"
-
-[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "idle_right_up"
 
-[sub_resource type="AnimationNodeAnimation" id=21]
+[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "idle_up"
 
-[sub_resource type="AnimationNodeAnimation" id=22]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "idle_left_up"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=23]
-blend_point_0/node = SubResource( 15 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=21]
+blend_point_0/node = SubResource( 13 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 16 )
+blend_point_1/node = SubResource( 14 )
 blend_point_1/pos = Vector2( -0.6, 0.7 )
-blend_point_2/node = SubResource( 17 )
+blend_point_2/node = SubResource( 15 )
 blend_point_2/pos = Vector2( 0, 1.1 )
-blend_point_3/node = SubResource( 18 )
+blend_point_3/node = SubResource( 16 )
 blend_point_3/pos = Vector2( 0.6, 0.7 )
-blend_point_4/node = SubResource( 19 )
+blend_point_4/node = SubResource( 17 )
 blend_point_4/pos = Vector2( 1, 0 )
-blend_point_5/node = SubResource( 20 )
+blend_point_5/node = SubResource( 18 )
 blend_point_5/pos = Vector2( 0.6, -0.7 )
-blend_point_6/node = SubResource( 21 )
+blend_point_6/node = SubResource( 19 )
 blend_point_6/pos = Vector2( 0, -1.1 )
-blend_point_7/node = SubResource( 22 )
+blend_point_7/node = SubResource( 20 )
 blend_point_7/pos = Vector2( -0.6, -0.7 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "run_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "run_left_down"
 
 [sub_resource type="AnimationNodeAnimation" id=24]
-animation = "run_left_down"
-
-[sub_resource type="AnimationNodeAnimation" id=25]
-animation = "run_left_down"
-
-[sub_resource type="AnimationNodeAnimation" id=26]
 animation = "run_down"
 
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "run_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "run_right_down"
+
 [sub_resource type="AnimationNodeAnimation" id=27]
-animation = "run_right_down"
-
-[sub_resource type="AnimationNodeAnimation" id=28]
-animation = "run_right_down"
-
-[sub_resource type="AnimationNodeAnimation" id=29]
 animation = "run_right_up"
 
-[sub_resource type="AnimationNodeAnimation" id=30]
+[sub_resource type="AnimationNodeAnimation" id=28]
 animation = "run_up"
 
-[sub_resource type="AnimationNodeAnimation" id=31]
+[sub_resource type="AnimationNodeAnimation" id=29]
 animation = "run_left_up "
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=32]
-blend_point_0/node = SubResource( 24 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=30]
+blend_point_0/node = SubResource( 22 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 25 )
+blend_point_1/node = SubResource( 23 )
 blend_point_1/pos = Vector2( -0.6, 0.7 )
-blend_point_2/node = SubResource( 26 )
+blend_point_2/node = SubResource( 24 )
 blend_point_2/pos = Vector2( 0, 1.1 )
-blend_point_3/node = SubResource( 27 )
+blend_point_3/node = SubResource( 25 )
 blend_point_3/pos = Vector2( 0.6, 0.7 )
-blend_point_4/node = SubResource( 28 )
+blend_point_4/node = SubResource( 26 )
 blend_point_4/pos = Vector2( 1, 0 )
-blend_point_5/node = SubResource( 29 )
+blend_point_5/node = SubResource( 27 )
 blend_point_5/pos = Vector2( 0.6, -0.7 )
-blend_point_6/node = SubResource( 30 )
+blend_point_6/node = SubResource( 28 )
 blend_point_6/pos = Vector2( 0, -1.1 )
-blend_point_7/node = SubResource( 31 )
+blend_point_7/node = SubResource( 29 )
 blend_point_7/pos = Vector2( -0.6, -0.7 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
 
-[sub_resource type="AnimationNodeStateMachine" id=13]
-states/mage_idles/node = SubResource( 23 )
+[sub_resource type="AnimationNodeStateMachine" id=33]
+states/mage_idles/node = SubResource( 21 )
 states/mage_idles/position = Vector2( 156, 74 )
-states/mage_run/node = SubResource( 32 )
+states/mage_run/node = SubResource( 30 )
 states/mage_run/position = Vector2( 449, 74 )
-transitions = [ "mage_idles", "mage_run", SubResource( 33 ), "mage_run", "mage_idles", SubResource( 34 ) ]
+transitions = [ "mage_idles", "mage_run", SubResource( 31 ), "mage_run", "mage_idles", SubResource( 32 ) ]
 start_node = "mage_idles"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=14]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=34]
 
 [sub_resource type="CapsuleShape2D" id=35]
 radius = 3.93192
@@ -439,8 +439,8 @@ anims/run_right_up = SubResource( 11 )
 anims/run_up = SubResource( 12 )
 
 [node name="AnimationTree" parent="." index="2"]
-tree_root = SubResource( 13 )
-parameters/playback = SubResource( 14 )
+tree_root = SubResource( 33 )
+parameters/playback = SubResource( 34 )
 parameters/mage_idles/blend_position = Vector2( 0.57066, 0.0366086 )
 parameters/mage_run/blend_position = Vector2( 0.000672936, -0.00871634 )
 
@@ -450,7 +450,7 @@ parameters/mage_run/blend_position = Vector2( 0.000672936, -0.00871634 )
 z_index = 2
 texture = ExtResource( 3 )
 hframes = 16
-frame = 4
+frame = 6
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 6, 3 )

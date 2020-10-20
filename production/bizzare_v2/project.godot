@@ -439,6 +439,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_player/mage/mage.gd"
 }, {
+"base": "BaseProjectileAlly",
+"class": "MageProjectile",
+"language": "GDScript",
+"path": "res://src/characters/base_player/mage/attack/mage_projectile.gd"
+}, {
+"base": "BaseProjectileAttackAlly",
+"class": "MageProjectileAttack",
+"language": "GDScript",
+"path": "res://src/characters/base_player/mage/attack/MageProjectileAttack.gd"
+}, {
 "base": "BasePlayerStats",
 "class": "MageStats",
 "language": "GDScript",
@@ -736,6 +746,8 @@ _global_script_class_icons={
 "KnightStats": "",
 "LeftHand": "",
 "Mage": "",
+"MageProjectile": "",
+"MageProjectileAttack": "",
 "MageStats": "",
 "MeleeOrcSprite": "",
 "Menu": "",
