@@ -27,7 +27,15 @@ const state_funcs = {
 	States.DASH : "dash",
 	}
 
-var state = States.CHASE
+var state = States.CHASE setget state_set
+
+func state_set(state_):
+	if state != States.DASH:
+		if state_ == States.ATTACK and player_detection_zone.can_see_player():
+			player_detection_zone.look_at.cast_to = player_detection_zone.player.global_position - owner.global_position
+			state = States.ATTACK
+		else:
+			state = state_
 
 func _ready() -> void:
 	randomize()
@@ -80,9 +88,8 @@ func chase() -> Vector2:
 
 
 func attack() -> Vector2:
-	var player = player_detection_zone.player
 	if player_detection_zone.can_see_player():
-		get_node("../crosshair").global_position = player.global_position
+		get_node("../crosshair").global_position = player_detection_zone.player.global_position
 	get_node("../attack").try_use()
 	return Vector2.ZERO
 
