@@ -10,10 +10,10 @@ onready var max_deg = 360 - rotation_limit
 
 func _process(_delta):
 	if not tween.is_active():
-		var rot = fposmod(owner.get_angle_to(owner.crosshair.global_position), 2  * PI)
-		_update_z(rad2deg(rot))
+		var rot = owner.get_angle_to(owner.crosshair.global_position)
+		_update_z(fposmod(rad2deg(rot), 360))
 		set_rotation(rot)
 
 
 func _update_z(rot_deg) -> void:
-	z_index = 1 + int(fposmod(rot_deg, 360) < min_deg or fposmod(rot_deg, 360) > max_deg)
+	z_index = 1 + int(rot_deg < min_deg or rot_deg > max_deg)

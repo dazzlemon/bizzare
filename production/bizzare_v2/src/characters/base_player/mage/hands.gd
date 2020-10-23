@@ -5,4 +5,7 @@ func _ready():
 	._ready()
 
 func set_rotation(value):
-	flip_v = value <= -90 or value >= 90
+	var flip_v_old = flip_v
+	var rot_deg = fposmod(rad2deg(value), 360)
+	flip_v = rot_deg < min_deg or rot_deg > max_deg
+	position.x *= pow(-1, int(flip_v_old != flip_v))

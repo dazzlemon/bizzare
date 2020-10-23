@@ -447,27 +447,27 @@ parameters/mage_run/blend_position = Vector2( 0.000672936, -0.00871634 )
 
 [node name="attack" parent="." index="5" instance=ExtResource( 5 )]
 
-[node name="sprite" parent="pivot" index="0"]
+[node name="left_hand" type="Sprite" parent="pivot" index="0"]
+position = Vector2( -4, 5 )
+z_index = 2
+texture = ExtResource( 8 )
+script = ExtResource( 7 )
+
+[node name="sprite" parent="pivot" index="1"]
 z_index = 2
 texture = ExtResource( 3 )
 hframes = 16
-frame = 6
+frame = 4
 
-[node name="hands" parent="pivot" index="1"]
+[node name="hands" parent="pivot" index="2"]
 position = Vector2( 6, 3 )
 z_index = 2
 texture = ExtResource( 6 )
 offset = Vector2( 2, 0 )
 script = ExtResource( 9 )
 
-[node name="shadow" parent="pivot" index="2"]
+[node name="shadow" parent="pivot" index="3"]
 position = Vector2( 0, 11 )
-
-[node name="left_hand" type="Sprite" parent="pivot" index="3"]
-position = Vector2( -4, 5 )
-z_index = 2
-texture = ExtResource( 8 )
-script = ExtResource( 7 )
 
 [node name="collision_box" parent="." index="7"]
 position = Vector2( 0.420456, 12.2981 )
