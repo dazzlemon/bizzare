@@ -4,7 +4,7 @@
 [ext_resource path="res://src/Menus/title_screen/title_screen_side_bar.gd" type="Script" id=2]
 [ext_resource path="res://assets/textures/temporary/logo_tmp.png" type="Texture" id=3]
 
-[node name="Panel" instance=ExtResource( 1 )]
+[node name="title_screen" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="VBoxContainer" parent="." index="0"]
