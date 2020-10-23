@@ -2,12 +2,15 @@
 class_name BaseNPCControl
 extends BaseControl
 
+
+var state = States.IDLE setget state_set
 export var wander_target_range = 4
 
 onready var player_detection_zone = $player_detection_zone
 onready var wander_controller = $wander_controller
 onready var attack_range = $attack_range
 onready var raycast = $player_detection_zone/LookAt
+onready var animation_player = get_node("../AttackPlayer")
 
 enum States {
 	IDLE,
@@ -27,7 +30,10 @@ const state_funcs = {
 	States.DASH : "dash",
 	}
 
-var state = States.IDLE setget state_set
+func _process(delta):
+	if state != States.ATTACK:
+		animation_player.stop()
+
 
 func state_set(state_):
 	if state != States.DASH:
@@ -35,8 +41,9 @@ func state_set(state_):
 			if state_ == States.CHASE and attack_range.player != null:
 				return
 			player_detection_zone.look_at.cast_to = player_detection_zone.player.global_position - owner.global_position
-			state = state_
-
+		state = state_
+	if state != States.ATTACK:
+		animation_player.stop()
 
 func _ready() -> void:
 	randomize()
