@@ -457,7 +457,7 @@ script = ExtResource( 7 )
 z_index = 2
 texture = ExtResource( 3 )
 hframes = 16
-frame = 4
+frame = 6
 
 [node name="hands" parent="pivot" index="2"]
 position = Vector2( 6, 3 )
