@@ -31,10 +31,8 @@ var state = States.CHASE setget state_set
 
 func state_set(state_):
 	if state != States.DASH:
-		if state_ == States.ATTACK and player_detection_zone.can_see_player():
+		if (state_ == States.ATTACK or state_ == States.CHASE) and player_detection_zone.can_see_player():
 			player_detection_zone.look_at.cast_to = player_detection_zone.player.global_position - owner.global_position
-			state = States.ATTACK
-		else:
 			state = state_
 
 func _ready() -> void:
@@ -43,14 +41,7 @@ func _ready() -> void:
 
 
 func get_input_vector() -> Vector2:
-	#print(state_funcs[state])
 	return call(state_funcs[state])#.normalized()
-
-
-func attack_pressed() -> bool:
-	var rng := RandomNumberGenerator.new()
-	rng.randomize()
-	return rng.randi_range(0, 1) == 0
 
 
 func seek_player() -> void:
@@ -83,14 +74,16 @@ func chase() -> Vector2:
 		else:
 			direction = owner.global_position.direction_to(player.global_position)
 	else:
-		state = States.IDLE
+		state = Utility.pick_random([States.IDLE, States.WANDER])
 	return direction
 
 
 func attack() -> Vector2:
 	if player_detection_zone.can_see_player():
 		get_node("../crosshair").global_position = player_detection_zone.player.global_position
-	get_node("../attack").try_use()
+		get_node("../attack").try_use()
+	else:
+		state = Utility.pick_random([States.IDLE, States.WANDER])
 	return Vector2.ZERO
 
 

@@ -19,9 +19,16 @@ func _on_area_exited(_area: Area2D) -> void:
 
 
 func can_see_player() -> bool:
-	if has_player_inside_fov() and player != null:
+	if has_player_inside_fov():
 		look_at.cast_to = player.global_position - look_at.global_position
-		return not (look_at.is_colliding() and look_at.get_collider() is BaseNPC)#to see trough NPC's
+		if look_at.is_colliding():
+			if look_at.get_collider() is BaseNPC:
+				return true
+			else:
+				return false
+		else:
+			return true
+		#return not (look_at.is_colliding() and look_at.get_collider() is BaseNPC)#to see trough NPC's
 	return false
 
 

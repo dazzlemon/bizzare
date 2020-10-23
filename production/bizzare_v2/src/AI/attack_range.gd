@@ -13,6 +13,6 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _on_area_exited(_area: Area2D) -> void:
-	parent.state = Utility.pick_random([parent.States.IDLE, parent.States.WANDER])
+	parent.state = parent.States.CHASE
 	player = null
 	animation_player.stop()
