@@ -27,13 +27,16 @@ const state_funcs = {
 	States.DASH : "dash",
 	}
 
-var state = States.CHASE setget state_set
+var state = States.IDLE setget state_set
 
 func state_set(state_):
 	if state != States.DASH:
 		if (state_ == States.ATTACK or state_ == States.CHASE) and player_detection_zone.can_see_player():
+			if state_ == States.CHASE and attack_range.player != null:
+				return
 			player_detection_zone.look_at.cast_to = player_detection_zone.player.global_position - owner.global_position
 			state = state_
+
 
 func _ready() -> void:
 	randomize()
@@ -66,6 +69,9 @@ func wander() -> Vector2:
 
 
 func chase() -> Vector2:
+	if attack_range != null and attack_range.player != null:
+		state = States.ATTACK
+		return Vector2.ZERO
 	var player = player_detection_zone.player
 	var direction := Vector2.ZERO
 	if player_detection_zone.can_see_player():
@@ -80,6 +86,8 @@ func chase() -> Vector2:
 
 func attack() -> Vector2:
 	if player_detection_zone.can_see_player():
+		if attack_range != null and attack_range.player == null:
+			state = States.CHASE
 		get_node("../crosshair").global_position = player_detection_zone.player.global_position
 		get_node("../attack").try_use()
 	else:

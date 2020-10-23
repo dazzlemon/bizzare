@@ -22,13 +22,9 @@ func can_see_player() -> bool:
 	if has_player_inside_fov():
 		look_at.cast_to = player.global_position - look_at.global_position
 		if look_at.is_colliding():
-			if look_at.get_collider() is BaseNPC:
-				return true
-			else:
-				return false
+			return look_at.get_collider() is BaseNPC#to see trough NPC's
 		else:
 			return true
-		#return not (look_at.is_colliding() and look_at.get_collider() is BaseNPC)#to see trough NPC's
 	return false
 
 
