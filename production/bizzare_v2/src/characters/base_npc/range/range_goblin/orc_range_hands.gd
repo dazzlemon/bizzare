@@ -3,5 +3,5 @@ extends BaseHands
 
 func _update_z(rot_deg):
 	._update_z(rot_deg)
-	return(Utility.map(z_index, 1, 2, 1, 4))
+	z_index = (Utility.map(z_index, 1, 2, 1, 4))
 

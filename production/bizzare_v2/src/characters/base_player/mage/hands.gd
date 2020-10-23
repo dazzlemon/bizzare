@@ -5,7 +5,6 @@ func _ready():
 	._ready()
 
 func set_rotation(value):
-	var flip_v_old = flip_v
-	var rot_deg = fposmod(rad2deg(value), 360)
-	flip_v = rot_deg < min_deg or rot_deg > max_deg
-	position.x *= pow(-1, int(flip_v_old != flip_v))
+	flip_v = bool(Utility.map(z_index, 1, 2, 0, 1))
+	position.x *= pow(-1, int(flip_v == (position.x < 0)))
+	
