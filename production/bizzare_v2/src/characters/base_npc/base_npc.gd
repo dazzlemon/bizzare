@@ -21,6 +21,12 @@ func _ready() -> void:
 	DECEL = 200
 
 
+func _physics_process(delta):
+	._physics_process(delta)
+	if velocity != Vector2.ZERO:
+		crosshair.global_position = global_position + velocity.normalized()
+
+
 func drop_loot() -> void:
 	randomize()
 	var random = randi() % 100 + 1
@@ -65,8 +71,6 @@ func spawn_instance(url) -> void:
 	var instance = url.instance()
 	instance.global_position = global_position + Vector2( rand_range(0,30) , rand_range(0,30))
 	get_node("../").call_deferred("add_child", instance)
-
-
 
 
 func die() -> void:

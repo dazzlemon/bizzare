@@ -30,6 +30,7 @@ const state_funcs = {
 	States.DASH : "dash",
 	}
 
+
 func _process(delta):
 	if state != States.ATTACK:
 		animation_player.stop()

@@ -54,21 +54,21 @@ min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=12]
+[sub_resource type="AnimationNodeBlendSpace2D" id=10]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
 
-[sub_resource type="AnimationNodeStateMachine" id=10]
+[sub_resource type="AnimationNodeStateMachine" id=13]
 states/idle/node = SubResource( 9 )
 states/idle/position = Vector2( 138, 87 )
-states/run/node = SubResource( 12 )
+states/run/node = SubResource( 10 )
 states/run/position = Vector2( 293, 88 )
-transitions = [ "idle", "run", SubResource( 13 ), "run", "idle", SubResource( 14 ) ]
+transitions = [ "idle", "run", SubResource( 11 ), "run", "idle", SubResource( 12 ) ]
 start_node = "idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=11]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=14]
 
 [node name="base_char" type="KinematicBody2D"]
 collision_layer = 0
@@ -80,10 +80,10 @@ script = ExtResource( 1 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 10 )
+tree_root = SubResource( 13 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 11 )
+parameters/playback = SubResource( 14 )
 parameters/idle/blend_position = Vector2( 0, 0 )
 parameters/run/blend_position = Vector2( 0, 0 )
 

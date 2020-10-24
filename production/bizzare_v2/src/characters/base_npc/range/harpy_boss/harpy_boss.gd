@@ -3,5 +3,5 @@ extends BaseNPCRange
 
 func _ready():
 	MAX_SPEED = 75
-	unit_type = "idle_only"
+	unit_type = Animations.new(1, 0)#"idle_run"
 
