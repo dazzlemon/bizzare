@@ -404,12 +404,12 @@ blend_mode = 1
 [sub_resource type="AnimationNodeStateMachineTransition" id=32]
 
 [sub_resource type="AnimationNodeStateMachine" id=33]
-states/archer_idles/node = SubResource( 21 )
-states/archer_idles/position = Vector2( 436, 89 )
-states/archer_run/node = SubResource( 30 )
-states/archer_run/position = Vector2( 718, 89 )
-transitions = [ "archer_idles", "archer_run", SubResource( 31 ), "archer_run", "archer_idles", SubResource( 32 ) ]
-start_node = "archer_idles"
+states/idle/node = SubResource( 21 )
+states/idle/position = Vector2( 436, 89 )
+states/run/node = SubResource( 30 )
+states/run/position = Vector2( 718, 89 )
+transitions = [ "idle", "run", SubResource( 31 ), "run", "idle", SubResource( 32 ) ]
+start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=34]
 
@@ -483,8 +483,6 @@ anims/archer_run_up = SubResource( 12 )
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 33 )
 parameters/playback = SubResource( 34 )
-parameters/archer_idles/blend_position = Vector2( -0.458737, 0.253553 )
-parameters/archer_run/blend_position = Vector2( -0.00133157, 0.0396826 )
 
 [node name="AttackPlayer" parent="." index="3"]
 anims/attack = SubResource( 35 )
@@ -497,7 +495,7 @@ z_index = 2
 texture = ExtResource( 9 )
 flip_h = true
 hframes = 16
-frame = 4
+frame = 5
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 0, 5 )

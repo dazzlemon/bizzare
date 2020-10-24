@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/characters/base_char.gd" type="Script" id=1]
 [ext_resource path="res://src/characters/base_stats.gd" type="Script" id=2]
@@ -54,10 +54,19 @@ min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
+[sub_resource type="AnimationNodeBlendSpace2D" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
 [sub_resource type="AnimationNodeStateMachine" id=10]
-states/shadow_idles/node = SubResource( 9 )
-states/shadow_idles/position = Vector2( 422, 173 )
-start_node = "shadow_idles"
+states/idle/node = SubResource( 9 )
+states/idle/position = Vector2( 138, 87 )
+states/run/node = SubResource( 12 )
+states/run/position = Vector2( 293, 88 )
+transitions = [ "idle", "run", SubResource( 13 ), "run", "idle", SubResource( 14 ) ]
+start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
@@ -75,7 +84,8 @@ tree_root = SubResource( 10 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 11 )
-parameters/shadow_idles/blend_position = Vector2( 0, 0 )
+parameters/idle/blend_position = Vector2( 0, 0 )
+parameters/run/blend_position = Vector2( 0, 0 )
 
 [node name="AttackPlayer" type="AnimationPlayer" parent="."]
 

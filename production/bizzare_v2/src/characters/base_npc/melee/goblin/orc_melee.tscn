@@ -399,12 +399,12 @@ blend_mode = 1
 [sub_resource type="AnimationNodeStateMachineTransition" id=32]
 
 [sub_resource type="AnimationNodeStateMachine" id=33]
-states/orc_melee_idles/node = SubResource( 21 )
-states/orc_melee_idles/position = Vector2( 490, 194 )
-states/orc_melee_run/node = SubResource( 30 )
-states/orc_melee_run/position = Vector2( 719, 194 )
-transitions = [ "orc_melee_idles", "orc_melee_run", SubResource( 31 ), "orc_melee_run", "orc_melee_idles", SubResource( 32 ) ]
-start_node = "orc_melee_idles"
+states/idle/node = SubResource( 21 )
+states/idle/position = Vector2( 490, 194 )
+states/run/node = SubResource( 30 )
+states/run/position = Vector2( 719, 194 )
+transitions = [ "idle", "run", SubResource( 31 ), "run", "idle", SubResource( 32 ) ]
+start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=34]
 
@@ -446,8 +446,6 @@ playback/speed = 5.0
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 33 )
 parameters/playback = SubResource( 34 )
-parameters/orc_melee_idles/blend_position = Vector2( -0.516152, -0.122576 )
-parameters/orc_melee_run/blend_position = Vector2( -0.522613, 0.103473 )
 
 [node name="attack" parent="." index="4"]
 script = ExtResource( 8 )

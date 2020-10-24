@@ -391,12 +391,12 @@ blend_mode = 1
 [sub_resource type="AnimationNodeStateMachineTransition" id=32]
 
 [sub_resource type="AnimationNodeStateMachine" id=33]
-states/orc_range_idles/node = SubResource( 21 )
-states/orc_range_idles/position = Vector2( 316, 157 )
-states/orc_range_run/node = SubResource( 30 )
-states/orc_range_run/position = Vector2( 630, 157 )
-transitions = [ "orc_range_idles", "orc_range_run", SubResource( 31 ), "orc_range_run", "orc_range_idles", SubResource( 32 ) ]
-start_node = "orc_range_idles"
+states/idle/node = SubResource( 21 )
+states/idle/position = Vector2( 316, 157 )
+states/run/node = SubResource( 30 )
+states/run/position = Vector2( 630, 157 )
+transitions = [ "idle", "run", SubResource( 31 ), "run", "idle", SubResource( 32 ) ]
+start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=34]
 
@@ -451,8 +451,6 @@ anims/run_up = SubResource( 12 )
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 33 )
 parameters/playback = SubResource( 34 )
-parameters/orc_range_idles/blend_position = Vector2( 0.0107682, 0.152032 )
-parameters/orc_range_run/blend_position = Vector2( -0.16094, -0.353252 )
 
 [node name="AttackPlayer" parent="." index="3"]
 anims/attack = SubResource( 35 )
@@ -470,7 +468,6 @@ z_index = 2
 texture = ExtResource( 8 )
 offset = Vector2( 7, 0 )
 hframes = 4
-frame = 3
 script = ExtResource( 11 )
 
 [node name="shadow" parent="pivot" index="2"]

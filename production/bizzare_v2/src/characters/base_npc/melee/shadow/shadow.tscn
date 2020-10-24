@@ -280,9 +280,9 @@ max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id=16]
-states/shadow_idles/node = SubResource( 15 )
-states/shadow_idles/position = Vector2( 422, 173 )
-start_node = "shadow_idles"
+states/idle/node = SubResource( 15 )
+states/idle/position = Vector2( 422, 173 )
+start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
@@ -371,7 +371,6 @@ anims/idle_up = SubResource( 6 )
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 16 )
 parameters/playback = SubResource( 17 )
-parameters/shadow_idles/blend_position = Vector2( -0.00143576, 0.00616252 )
 
 [node name="AttackPlayer" parent="." index="3"]
 playback_speed = 2.0
@@ -392,7 +391,7 @@ shape = SubResource( 20 )
 
 [node name="sprite" parent="pivot" index="0"]
 visible = false
-position = Vector2( 0, -0.913204 )
+position = Vector2( 0, -1.31491 )
 z_index = 2
 texture = ExtResource( 4 )
 flip_h = true

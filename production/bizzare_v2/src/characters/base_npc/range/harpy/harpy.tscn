@@ -124,10 +124,10 @@ max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id=10]
-states/harpy_idles/node = SubResource( 9 )
-states/harpy_idles/position = Vector2( 537, 99 )
-start_node = "harpy_idles"
-end_node = "harpy_idles"
+states/idle/node = SubResource( 9 )
+states/idle/position = Vector2( 537, 99 )
+start_node = "idle"
+end_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
@@ -155,16 +155,13 @@ anims/harpy_idle_right = SubResource( 4 )
 
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 10 )
-anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 11 )
-parameters/harpy_idles/blend_position = Vector2( -0.423913, 0.052381 )
 
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 24
-frame = 21
+frame = 17
 
 [node name="shadow" parent="pivot" index="2"]
 position = Vector2( 0, 15 )
@@ -175,10 +172,6 @@ position = Vector2( 0, 15 )
 position = Vector2( -0.280617, 13.7502 )
 rotation = 1.5708
 shape = SubResource( 12 )
-
-[node name="control" parent="." index="7"]
-margin_right = 40.0
-margin_bottom = 40.0
 
 [node name="CollisionShape2D" parent="control/attack_range" index="0"]
 shape = SubResource( 13 )

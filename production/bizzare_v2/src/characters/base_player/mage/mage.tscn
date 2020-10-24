@@ -405,12 +405,12 @@ blend_mode = 1
 [sub_resource type="AnimationNodeStateMachineTransition" id=32]
 
 [sub_resource type="AnimationNodeStateMachine" id=33]
-states/mage_idles/node = SubResource( 21 )
-states/mage_idles/position = Vector2( 156, 74 )
-states/mage_run/node = SubResource( 30 )
-states/mage_run/position = Vector2( 449, 74 )
-transitions = [ "mage_idles", "mage_run", SubResource( 31 ), "mage_run", "mage_idles", SubResource( 32 ) ]
-start_node = "mage_idles"
+states/idle/node = SubResource( 21 )
+states/idle/position = Vector2( 156, 74 )
+states/run/node = SubResource( 30 )
+states/run/position = Vector2( 449, 74 )
+transitions = [ "idle", "run", SubResource( 31 ), "run", "idle", SubResource( 32 ) ]
+start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=34]
 
@@ -442,8 +442,6 @@ anims/run_up = SubResource( 12 )
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 33 )
 parameters/playback = SubResource( 34 )
-parameters/mage_idles/blend_position = Vector2( 0.57066, 0.0366086 )
-parameters/mage_run/blend_position = Vector2( 0.000672936, -0.00871634 )
 
 [node name="attack" parent="." index="5" instance=ExtResource( 5 )]
 
@@ -456,6 +454,7 @@ script = ExtResource( 7 )
 [node name="sprite" parent="pivot" index="1"]
 z_index = 2
 texture = ExtResource( 3 )
+flip_h = true
 hframes = 16
 frame = 6
 
