@@ -68,7 +68,7 @@ func idle() -> Vector2:
 func wander() -> Vector2:
 	idle()
 	var direction = owner.global_position.direction_to(wander_controller.position_target)
-	#raycast.cast_to = direction
+	raycast.cast_to = direction * 20
 	if owner.global_position.distance_to(wander_controller.position_target) <= wander_target_range:
 		state = Utility.pick_random([States.IDLE, States.WANDER])
 		wander_controller.start_wander_timer(rand_range(1, 3))

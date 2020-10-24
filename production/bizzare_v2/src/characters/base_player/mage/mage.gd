@@ -10,3 +10,6 @@ func _ready():
 	MAX_SPEED = 125
 	unit_type = "idle_run"
 
+
+func _physics_process(delta):
+	._physics_process(delta)
