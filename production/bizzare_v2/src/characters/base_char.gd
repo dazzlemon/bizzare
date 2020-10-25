@@ -19,14 +19,12 @@ var unit_type = Animations.new(true, false)
 var velocity := Vector2.ZERO
 var state = States.FRICTION
 
-onready var animation_player = $AnimationPlayer
 onready var stats = $stats
 onready var control = $control
 onready var spell_1 = $spell_1
 onready var spell_2 = $spell_2
 onready var crosshair = $crosshair
 onready var animation_tree = $AnimationTree
-onready var attack_player = $AttackPlayer
 onready var tween = $Tween
 
 
@@ -55,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	var animation = "run" if input_vector != Vector2.ZERO else "idle"
 	var blend_pos = (crosshair.global_position - global_position).normalized()
 	_blend_travel(animation, blend_pos)
-	call(state_funcs[state], delta, input_vector)
+	call((var2str(States.keys()[state]).to_lower().lstrip("\"").rstrip("\"")), delta, input_vector)
 
 
 func _blend_travel(animation: String, blend_pos):
