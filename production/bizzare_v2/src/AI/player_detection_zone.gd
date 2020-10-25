@@ -8,6 +8,8 @@ var player = null#mb add static typing? + possibly need a rework to avoid using 
 var fov_deg = 270
 
 onready var look_at = $LookAt
+onready var attack_range = get_node("../attack_range")
+onready var parent = get_node("../")
 
 func _on_area_entered(area: Area2D) -> void:
 	player = area.owner
@@ -39,7 +41,7 @@ func has_actual_player_inside_fov() -> bool:
 func _on_stats_damage_from_behind() -> void:
 	if player != null:#look at player
 		look_at.cast_to = player.global_position - look_at.global_position
-		if get_node("../attack_range").player != null:
-			get_node("../").state = get_node("../").States.ATTACK
+		if attack_range != null and attack_range.player != null:
+			parent.state = parent.States.ATTACK
 		else:
-			get_node("../").state = get_node("../").States.CHASE
+			parent.state = parent.States.CHASE

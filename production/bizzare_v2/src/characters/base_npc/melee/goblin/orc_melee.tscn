@@ -445,7 +445,11 @@ playback/speed = 5.0
 
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 33 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 34 )
+parameters/idle/blend_position = Vector2( 0, 0 )
+parameters/run/blend_position = Vector2( 0, 0 )
 
 [node name="attack" parent="." index="4"]
 script = ExtResource( 8 )
@@ -464,7 +468,7 @@ z_index = 2
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 16
-frame = 10
+frame = 8
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( -0.399193, 5.26278 )
@@ -482,6 +486,8 @@ rotation = 1.5708
 shape = SubResource( 36 )
 
 [node name="control" parent="." index="7"]
+margin_right = 40.0
+margin_bottom = 40.0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
@@ -496,6 +502,9 @@ script = ExtResource( 5 )
 [node name="crosshair" parent="." index="11"]
 script = ExtResource( 9 )
 [connection signal="tween_completed" from="Tween" to="attack" method="_on_Tween_tween_completed"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="attack"]
 

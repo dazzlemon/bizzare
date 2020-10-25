@@ -370,7 +370,10 @@ anims/idle_up = SubResource( 6 )
 
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 16 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 17 )
+parameters/idle/blend_position = Vector2( 0, 0 )
 
 [node name="AttackPlayer" parent="." index="3"]
 playback_speed = 2.0
@@ -391,12 +394,12 @@ shape = SubResource( 20 )
 
 [node name="sprite" parent="pivot" index="0"]
 visible = false
-position = Vector2( 0, -1.31491 )
+position = Vector2( 0, -0.456235 )
 z_index = 2
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 8
-frame = 4
+frame = 5
 
 [node name="hands" parent="pivot" index="1"]
 visible = false
@@ -430,6 +433,8 @@ shape = SubResource( 21 )
 
 [node name="control" parent="." index="7"]
 visible = false
+margin_right = 40.0
+margin_bottom = 40.0
 script = ExtResource( 3 )
 
 [node name="invis_controller" parent="control" index="0" instance=ExtResource( 5 )]
@@ -447,6 +452,9 @@ visible = false
 
 [node name="stats" parent="." index="10"]
 script = ExtResource( 8 )
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="attack"]
 
