@@ -397,11 +397,12 @@ blend_point_7/node = SubResource( 29 )
 blend_point_7/pos = Vector2( -0.6, -0.7 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
-blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
+switch_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=32]
+switch_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id=33]
 states/idle/node = SubResource( 21 )
@@ -495,7 +496,7 @@ z_index = 2
 texture = ExtResource( 9 )
 flip_h = true
 hframes = 16
-frame = 5
+frame = 10
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 0, 5 )
