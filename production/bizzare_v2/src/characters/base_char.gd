@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	var animation = "run" if input_vector != Vector2.ZERO else "idle"
 	var blend_pos = (crosshair.global_position - global_position).normalized()
 	_blend_travel(animation, blend_pos)
-	call((var2str(States.keys()[state]).to_lower().lstrip("\"").rstrip("\"")), delta, input_vector)
+	call((var2str(States.keys()[state]).to_lower().replace("\"", "")), delta, input_vector)
 
 
 func _blend_travel(animation: String, blend_pos):

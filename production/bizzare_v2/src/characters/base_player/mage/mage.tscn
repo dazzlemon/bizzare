@@ -456,7 +456,7 @@ z_index = 2
 texture = ExtResource( 3 )
 flip_h = true
 hframes = 16
-frame = 6
+frame = 4
 
 [node name="hands" parent="pivot" index="2"]
 position = Vector2( 6, 3 )

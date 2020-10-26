@@ -614,8 +614,8 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/loot/restore/small_health_restore/small_health_restore.gd"
 }, {
-"base": "Spell2CDHUD",
-"class": "Speel1CDHUD",
+"base": "SpellCDHUD",
+"class": "Spell1CDHUD",
 "language": "GDScript",
 "path": "res://src/etc/huds/spell_1_cd.gd"
 }, {
@@ -781,7 +781,7 @@ _global_script_class_icons={
 "ShiftDodge": "",
 "SmallArmorRestore": "",
 "SmallHPRestore": "",
-"Speel1CDHUD": "",
+"Spell1CDHUD": "",
 "Spell2CDHUD": "",
 "SpellCd": "",
 "SpellCdDuration": "",

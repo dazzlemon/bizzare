@@ -4,7 +4,6 @@
 [ext_resource path="res://src/loot/damage_orb/damage_orb.gd" type="Script" id=2]
 [ext_resource path="res://assets/textures/items/dagger.png" type="Texture" id=3]
 
-
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="collectable" instance=ExtResource( 1 )]
@@ -12,11 +11,16 @@ position = Vector2( 0.222977, 0.66893 )
 script = ExtResource( 2 )
 item_name = "damage_orb"
 
-[node name="shadow" parent="area" index="0"]
+[node name="area" parent="." index="0"]
+collision_layer = 8
+collision_mask = 5
+
+[node name="shadow" parent="area" index="1"]
 position = Vector2( -4.45954, 3.04735 )
 
-[node name="sprite" parent="area" index="1"]
+[node name="sprite" parent="area" index="2"]
 texture = ExtResource( 3 )
 
-[node name="collision_shape" parent="area" index="2"]
+[node name="collision_shape" parent="." index="2"]
+scale = Vector2( 1, 1 )
 shape = SubResource( 1 )

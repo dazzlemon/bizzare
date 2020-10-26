@@ -5,18 +5,21 @@
 [ext_resource path="res://src/loot/restore/small_armor_restore/small_armor_restore.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 5.92546
+radius = 4.88064
 
 [node name="consumable" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
 
-[node name="shadow" parent="area" index="0"]
+[node name="area" parent="." index="0"]
+collision_layer = 8
+
+[node name="shadow" parent="area" index="1"]
 position = Vector2( -0.446459, 0.595277 )
 
-[node name="sprite" parent="area" index="1"]
+[node name="sprite" parent="area" index="2"]
 position = Vector2( 0, -1.28977 )
 texture = ExtResource( 1 )
 
-[node name="collision_shape" parent="area" index="2"]
-position = Vector2( -0.198427, 1.09134 )
+[node name="collision_shape" parent="." index="2"]
+scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
