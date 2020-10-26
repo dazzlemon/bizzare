@@ -14,13 +14,11 @@ func _ready():
 
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	speed = Vector2(300, 300)#rng.randf_range(-100, 100), rng.randf_range(-100, 100))
+	speed = Vector2(rng.randf_range(-150, 150), rng.randf_range(-150, 150))
 
 func _physics_process(delta):
 	speed = speed.move_toward(Vector2.ZERO, DECEL * delta)
-	var col = move_and_slide(speed)
-	#if col:
-	#	speed = Vector2.ZERO#otherwise it doesnt work
+	move_and_slide(speed)
 
 
 func _on_area_entered(area):
