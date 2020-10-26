@@ -14,6 +14,10 @@ func _ready() -> void:
 	update_target_position()
 
 
+func _process(delta):
+	update_position_start()
+
+
 func _on_Timer_timeout() -> void:
 	update_target_position()
 
@@ -32,3 +36,7 @@ func start_wander_timer(duration: float) -> void:
 
 func wander_range() -> float:
 	return rand_range(-wander_range, wander_range)
+
+
+func update_position_start():
+	position_start = global_position
