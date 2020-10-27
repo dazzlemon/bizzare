@@ -19,6 +19,8 @@ animations = [ {
 } ]
 
 [node name="base_projectile" instance=ExtResource( 1 )]
+contacts_reported = 1
+contact_monitor = true
 script = ExtResource( 2 )
 
 [node name="sprite" parent="." index="0"]
@@ -29,4 +31,5 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" parent="." index="3"]
 frames = SubResource( 2 )
-frame = 8
+frame = 2
+[connection signal="timeout" from="age" to="." method="_on_age_timeout"]
