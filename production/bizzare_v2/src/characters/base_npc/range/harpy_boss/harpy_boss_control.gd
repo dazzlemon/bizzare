@@ -34,7 +34,7 @@ func phase_set(phase_new: int) -> void:
 
 
 func _on_phase_cd_timeout() -> void:
-	if is_ready:
+	if is_ready and get_node("phase_3_attack_1").apprentices.empty():
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
 		roll = rng.randi_range(1, 2)

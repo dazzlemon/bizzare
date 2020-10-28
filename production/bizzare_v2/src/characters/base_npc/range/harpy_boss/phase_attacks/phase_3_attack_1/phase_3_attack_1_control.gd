@@ -2,7 +2,7 @@ class_name Phase3Attack1Control
 extends SpellCd
 
 var apprentice = preload("res://src/characters/base_npc/range/harpy_boss/apprentices/apprentice.tscn")
-var apprentices := [] 
+var apprentices :=[]
 var amount = 5
 
 onready var get_parent = get_node("../")
@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 
 
 func _start() -> void:
+	#apprentices = [] 
 	for i in range(0, amount, 1):
 		apprentices.push_front(spawn_apprentice(360 / amount * i))
 
@@ -38,5 +39,5 @@ func spawn_apprentice(angle):
 	return apprentice_instance
 
 
-func _stop() -> void:
-	get_parent.phase_attack_ended()
+#func _stop() -> void:
+	#get_parent.phase_attack_ended()
