@@ -173,7 +173,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 12, 13, 14, 15 ]
+"values": [ 13, 14, 15, 12 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -189,7 +189,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 8, 9, 10, 11 ]
+"values": [ 9, 10, 11, 8 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("pivot/sprite:flip_h")
@@ -217,7 +217,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 4, 5, 6, 7 ]
+"values": [ 5, 6, 7, 4 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("pivot/sprite:flip_h")
@@ -245,7 +245,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 8, 9, 10, 11 ]
+"values": [ 9, 10, 11, 8 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("pivot/sprite:flip_h")
@@ -273,7 +273,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 4, 5, 6, 7 ]
+"values": [ 5, 6, 7, 4 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("pivot/sprite:flip_h")
@@ -301,7 +301,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [ 1, 2, 3, 0 ]
 }
 
 [sub_resource type="AnimationNodeAnimation" id=13]
@@ -445,11 +445,7 @@ playback/speed = 5.0
 
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 33 )
-anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 34 )
-parameters/idle/blend_position = Vector2( 0, 0 )
-parameters/run/blend_position = Vector2( 0, 0 )
 
 [node name="attack" parent="." index="4"]
 script = ExtResource( 8 )
@@ -468,7 +464,7 @@ z_index = 2
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 16
-frame = 8
+frame = 10
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( -0.399193, 5.26278 )
@@ -486,8 +482,6 @@ rotation = 1.5708
 shape = SubResource( 36 )
 
 [node name="control" parent="." index="7"]
-margin_right = 40.0
-margin_bottom = 40.0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
@@ -502,9 +496,6 @@ script = ExtResource( 5 )
 [node name="crosshair" parent="." index="11"]
 script = ExtResource( 9 )
 [connection signal="tween_completed" from="Tween" to="attack" method="_on_Tween_tween_completed"]
-[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
-[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="attack"]
 

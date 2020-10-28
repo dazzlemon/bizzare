@@ -162,7 +162,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [ 1, 2, 3, 0 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -178,7 +178,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 4, 5, 6, 7 ]
+"values": [ 5, 6, 7, 4 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("pivot/sprite:flip_h")
@@ -207,7 +207,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 8, 9, 10, 11 ]
+"values": [ 9, 10, 11, 8 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("pivot/sprite:flip_h")
@@ -235,7 +235,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 4, 5, 6, 7 ]
+"values": [ 5, 6, 7, 4 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("pivot/sprite:flip_h")
@@ -264,7 +264,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 8, 9, 10, 11 ]
+"values": [ 9, 10, 11, 8 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("pivot/sprite:flip_h")
@@ -293,7 +293,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 12, 13, 14, 15 ]
+"values": [ 13, 14, 15, 12 ]
 }
 
 [sub_resource type="AnimationNodeAnimation" id=13]
@@ -460,7 +460,7 @@ z_index = 2
 texture = ExtResource( 2 )
 flip_h = true
 hframes = 16
-frame = 4
+frame = 6
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( -5, 2 )
