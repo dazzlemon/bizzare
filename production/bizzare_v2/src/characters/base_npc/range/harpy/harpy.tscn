@@ -161,7 +161,7 @@ parameters/playback = SubResource( 11 )
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 24
-frame = 22
+frame = 23
 
 [node name="shadow" parent="pivot" index="2"]
 position = Vector2( 0, 15 )
@@ -180,11 +180,11 @@ shape = SubResource( 13 )
 position = Vector2( -1.66855, 0.667419 )
 shape = SubResource( 14 )
 
+[node name="stats" parent="." index="8"]
+script = ExtResource( 5 )
+
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 shape = SubResource( 15 )
-
-[node name="stats" parent="." index="10"]
-script = ExtResource( 5 )
 
 [editable path="control/attack_range"]
 

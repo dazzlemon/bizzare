@@ -464,7 +464,7 @@ z_index = 2
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 16
-frame = 8
+frame = 10
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( -0.399193, 5.26278 )
@@ -487,11 +487,11 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
 shape = SubResource( 37 )
 
+[node name="stats" parent="." index="8"]
+script = ExtResource( 5 )
+
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 shape = SubResource( 38 )
-
-[node name="stats" parent="." index="10"]
-script = ExtResource( 5 )
 
 [node name="crosshair" parent="." index="11"]
 script = ExtResource( 9 )

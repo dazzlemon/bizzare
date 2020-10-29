@@ -4,7 +4,7 @@ extends BossStats
 
 func _ready():
 	max_health = 500
-	damage = 20
+	self.damage = 20
 	._ready()
 	
 

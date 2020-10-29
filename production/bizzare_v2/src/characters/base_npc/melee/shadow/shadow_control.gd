@@ -23,7 +23,7 @@ func melee_attack():
 		get_node("../attack").try_use()
 
 
-func crit_test():
+func crit_test(): ###ZANESTI V ATAKY
 	if critical:
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()

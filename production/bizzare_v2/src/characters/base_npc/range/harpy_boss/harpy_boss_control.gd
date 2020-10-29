@@ -37,9 +37,9 @@ func _on_phase_cd_timeout() -> void:
 	if is_ready and get_node("phase_3_attack_1").apprentices.empty():
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
-		#roll = rng.randi_range(1, 2)
-		roll = 2################################### DEBUG
-		phase = 2################################## DEBUG
+		roll = rng.randi_range(1, 2)
+		#roll = 2################################### DEBUG
+		#phase = 2################################## DEBUG
 		current_phase_attack = "phase_" + str(phase) + "_attack_" + str(roll)
 		print(current_phase_attack)
 		get_node(current_phase_attack).try_use()

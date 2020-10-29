@@ -495,7 +495,7 @@ z_index = 2
 texture = ExtResource( 9 )
 flip_h = true
 hframes = 16
-frame = 4
+frame = 5
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 0, 5 )
@@ -536,14 +536,14 @@ randomness = 0.23
 process_material = SubResource( 40 )
 texture = ExtResource( 10 )
 
-[node name="hurtbox" parent="." index="13"]
+[node name="stats" parent="." index="13"]
+script = ExtResource( 7 )
+
+[node name="hurtbox" parent="." index="14"]
 position = Vector2( 0, -5 )
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 shape = SubResource( 41 )
-
-[node name="stats" parent="." index="14"]
-script = ExtResource( 7 )
 [connection signal="animation_finished" from="AttackPlayer" to="." method="_on_AttackPlayer_animation_finished"]
 
 [editable path="Camera2D/currency_hud"]

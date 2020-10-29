@@ -17,4 +17,4 @@ func _start() -> void:
 	level.call_deferred("add_child", projectile_instance)
 	projectile_instance.transform = parent.global_transform
 	projectile_instance.direction = (parent.crosshair.global_position - parent.global_position).normalized()
-	projectile_instance.damage = stats.damage
+	projectile_instance.damage = damage

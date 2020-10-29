@@ -323,11 +323,11 @@ tree_root = SubResource( 16 )
 parameters/playback = SubResource( 17 )
 
 [node name="sprite" parent="pivot" index="0"]
-position = Vector2( 0, -0.388719 )
+position = Vector2( 0, -2.09818 )
 z_index = 2
 texture = ExtResource( 4 )
 hframes = 28
-frame = 13
+frame = 9
 
 [node name="shadow" parent="pivot" index="2"]
 position = Vector2( 0, 24 )
@@ -367,11 +367,11 @@ shape = SubResource( 19 )
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
 shape = SubResource( 20 )
 
+[node name="stats" parent="." index="8"]
+script = ExtResource( 7 )
+
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 shape = SubResource( 21 )
-
-[node name="stats" parent="." index="10"]
-script = ExtResource( 7 )
 [connection signal="timeout" from="control/phase_cd" to="control" method="_on_phase_cd_timeout"]
 
 [editable path="control/phase_1_attack_1"]
