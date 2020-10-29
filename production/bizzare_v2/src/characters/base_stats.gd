@@ -21,8 +21,10 @@ func _ready():
 
 
 func damage_set(value: float) -> void:
-	damage = value ## need to think about negative value
-	attack.damage = damage
+	if value > 0:
+		damage = value
+		if attack != null:
+			attack.damage = damage
 
 
 func health_set(value: float) -> void:

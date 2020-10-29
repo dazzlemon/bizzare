@@ -109,19 +109,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="stats" type="Node" parent="."]
+script = ExtResource( 2 )
+
 [node name="hurtbox" type="Area2D" parent="."]
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-
-[node name="stats" type="Node" parent="."]
-script = ExtResource( 2 )
 
 [node name="crosshair" type="Position2D" parent="."]
 script = ExtResource( 4 )
 
 [node name="sprite" type="Sprite" parent="crosshair"]
 texture = ExtResource( 5 )
+[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
-[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
