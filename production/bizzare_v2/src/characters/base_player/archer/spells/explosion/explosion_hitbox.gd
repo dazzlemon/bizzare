@@ -1,4 +1,0 @@
-class_name ExplosionHitscan
-extends BaseHitscanAllyHitbox
-
-

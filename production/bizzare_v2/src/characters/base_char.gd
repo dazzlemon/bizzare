@@ -97,11 +97,11 @@ func die() -> void:
 
 
 func _on_hurtbox_area_entered(area) -> void:#hitscan hitreg
-	if area is KnightAOEHitbox:
+	if area.owner is KnightAOE:
 		state = States.KNOCKED_BACK
-		velocity = area.knockback(self)
-	if area is BaseHitscanHitbox:
-		take_damage(area.damage)
+		velocity = area.owner.knockback(self)
+	if area.owner is BaseHitscan:
+		take_damage(area.owner.damage)
 
 
 func _on_hurtbox_body_entered(body) -> void:#projectile hitreg

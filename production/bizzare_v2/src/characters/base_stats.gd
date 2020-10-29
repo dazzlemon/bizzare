@@ -10,11 +10,19 @@ var max_health: float = 1
 var max_armor: float = 0
 var health: float = 1 setget health_set
 var armor: float setget armor_set
-var damage: float = 1
+var damage: float = 1 setget damage_set
+
+onready var attack = get_node("../attack")
+
 
 func _ready():
 	health = max_health
 	armor = max_armor
+
+
+func damage_set(value: float) -> void:
+	damage = value ## need to think about negative value
+	attack.damage = damage
 
 
 func health_set(value: float) -> void:

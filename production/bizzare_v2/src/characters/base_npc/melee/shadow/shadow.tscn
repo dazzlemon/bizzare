@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://src/characters/base_npc/melee/base_npc_melee.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/melee/shadow/shadow.gd" type="Script" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://assets/textures/shadow/shadow_sprite_sheet.png" type="Texture" id=4]
 [ext_resource path="res://src/characters/base_npc/melee/shadow/invise_range/invis.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/characters/base_npc/melee/shadow/attack/shadow_hitscan.gd" type="Script" id=6]
-[ext_resource path="res://src/characters/base_npc/melee/shadow/attack/shadow_hitscan_hitbox.gd" type="Script" id=7]
 [ext_resource path="res://src/characters/base_npc/melee/shadow/stats.gd" type="Script" id=8]
 [ext_resource path="res://src/characters/hands.gd" type="Script" id=9]
 [ext_resource path="res://assets/textures/shadow/shadow_hand.png" type="Texture" id=10]
@@ -370,10 +369,7 @@ anims/idle_up = SubResource( 6 )
 
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 16 )
-anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 17 )
-parameters/idle/blend_position = Vector2( 0, 0 )
 
 [node name="AttackPlayer" parent="." index="3"]
 playback_speed = 2.0
@@ -386,7 +382,6 @@ script = ExtResource( 6 )
 [node name="hitbox" parent="attack/Position2D" index="0"]
 collision_layer = 64
 collision_mask = 4
-script = ExtResource( 7 )
 
 [node name="CollisionShape2D" parent="attack/Position2D/hitbox" index="0"]
 position = Vector2( 20, 0 )
@@ -394,7 +389,7 @@ shape = SubResource( 20 )
 
 [node name="sprite" parent="pivot" index="0"]
 visible = false
-position = Vector2( 0, -0.456235 )
+position = Vector2( 0, -1.24434 )
 z_index = 2
 texture = ExtResource( 4 )
 flip_h = true
@@ -433,8 +428,6 @@ shape = SubResource( 21 )
 
 [node name="control" parent="." index="7"]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
 script = ExtResource( 3 )
 
 [node name="invis_controller" parent="control" index="0" instance=ExtResource( 5 )]
@@ -452,9 +445,6 @@ visible = false
 
 [node name="stats" parent="." index="10"]
 script = ExtResource( 8 )
-[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
-[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="attack"]
 

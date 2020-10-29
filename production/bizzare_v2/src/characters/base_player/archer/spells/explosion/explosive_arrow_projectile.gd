@@ -11,7 +11,7 @@ func _ready() -> void:
 func die() -> void:
 	var explosion = explosion_scene.instance()
 	explosion.global_position = global_position
-	explosion.get_node("Position2D/hitbox").damage = explosion_damage
+	explosion.damage = explosion_damage
 	get_tree().get_root().call_deferred("add_child", explosion)
 	.die()
 

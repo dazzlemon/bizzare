@@ -74,6 +74,10 @@ wait_time = 5.0
 
 [node name="attack" parent="." index="11" instance=ExtResource( 6 )]
 
+[node name="hitbox" parent="attack/Position2D" index="0"]
+collision_layer = 32
+collision_mask = 16
+
 [node name="spell_1" parent="." index="12" instance=ExtResource( 7 )]
 
 [node name="cd" parent="spell_1" index="0"]
@@ -81,6 +85,10 @@ wait_time = 5.0
 
 [node name="duration" parent="spell_1" index="1"]
 wait_time = 0.15
+
+[node name="hitbox" parent="spell_1/Position2D" index="0"]
+collision_layer = 32
+collision_mask = 16
 
 [node name="hurtbox" parent="." index="13"]
 collision_layer = 2147483652
@@ -97,5 +105,7 @@ script = ExtResource( 3 )
 [editable path="Camera2D/currency_hud"]
 
 [editable path="spell_2"]
+
+[editable path="attack"]
 
 [editable path="spell_1"]

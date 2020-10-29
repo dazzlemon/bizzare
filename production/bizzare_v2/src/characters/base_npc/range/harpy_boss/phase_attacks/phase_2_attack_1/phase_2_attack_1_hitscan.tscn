@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/attack/hitscan/enemy_hitscan/base_hitscan_enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_hitscan.gd" type="Script" id=2]
-[ext_resource path="res://src/characters/base_npc/range/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_hitscan_hitbox.gd" type="Script" id=3]
 [ext_resource path="res://assets/textures/temporary/Exp_temporary3.png" type="Texture" id=4]
 [ext_resource path="res://assets/textures/temporary/Exp_temporary2.png" type="Texture" id=5]
 [ext_resource path="res://assets/textures/temporary/Exp_temporary1.png" type="Texture" id=6]
@@ -29,12 +28,12 @@ wait_time = 0.25
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Position2D" index="0"]
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="hitbox" parent="Position2D" index="1"]
 collision_layer = 64
 collision_mask = 4
-script = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="Position2D/hitbox" index="0"]
 shape = SubResource( 2 )

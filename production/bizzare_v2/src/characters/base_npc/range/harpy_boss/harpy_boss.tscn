@@ -323,11 +323,11 @@ tree_root = SubResource( 16 )
 parameters/playback = SubResource( 17 )
 
 [node name="sprite" parent="pivot" index="0"]
-position = Vector2( 0, -2.415 )
+position = Vector2( 0, -0.388719 )
 z_index = 2
 texture = ExtResource( 4 )
 hframes = 28
-frame = 8
+frame = 13
 
 [node name="shadow" parent="pivot" index="2"]
 position = Vector2( 0, 24 )
