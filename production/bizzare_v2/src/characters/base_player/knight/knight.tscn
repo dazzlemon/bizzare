@@ -12,7 +12,7 @@
 [ext_resource path="res://assets/textures/knight/knight_knockback(main).png" type="Texture" id=10]
 [ext_resource path="res://assets/textures/knight/knight_damage_block.png" type="Texture" id=11]
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=1]
 resource_name = "idle_down"
 length = 0.8
 loop = true
@@ -29,8 +29,7 @@ tracks/0/keys = {
 "values": [ 8, 10, 10, 8 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "idle_left_down"
+[sub_resource type="Animation" id=2]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -58,7 +57,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=3]
 resource_name = "idle_left_up "
 length = 0.8
 loop = true
@@ -87,8 +86,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "idle_right_down"
+[sub_resource type="Animation" id=4]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -116,7 +114,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=5]
 resource_name = "idle_right_up"
 length = 0.8
 loop = true
@@ -145,7 +143,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=6]
 resource_name = "idle_up"
 length = 0.8
 loop = true
@@ -162,7 +160,7 @@ tracks/0/keys = {
 "values": [ 4, 6, 6, 4 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=7]
 resource_name = "run_down"
 length = 0.4
 loop = true
@@ -179,7 +177,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=8]
 resource_name = "run_left_down "
 length = 0.4
 loop = true
@@ -208,7 +206,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=9]
 resource_name = "run_right_down"
 length = 0.4
 loop = true
@@ -237,7 +235,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=10]
 resource_name = "run_up"
 length = 0.4
 loop = true
@@ -254,7 +252,7 @@ tracks/0/keys = {
 "values": [ 5, 6, 7, 4 ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=11]
 resource_name = "run_up_left "
 length = 0.4
 loop = true
@@ -283,7 +281,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=12]
 resource_name = "run_up_right"
 length = 0.4
 loop = true
@@ -312,29 +310,74 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=22]
+[sub_resource type="AnimationNodeAnimation" id=13]
 animation = "idle_left_down"
 
-[sub_resource type="AnimationNodeAnimation" id=23]
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "idle_left_down"
 
-[sub_resource type="AnimationNodeAnimation" id=24]
+[sub_resource type="AnimationNodeAnimation" id=15]
 animation = "idle_down"
 
-[sub_resource type="AnimationNodeAnimation" id=25]
+[sub_resource type="AnimationNodeAnimation" id=16]
 animation = "idle_right_down"
 
-[sub_resource type="AnimationNodeAnimation" id=26]
+[sub_resource type="AnimationNodeAnimation" id=17]
 animation = "idle_right_down"
 
-[sub_resource type="AnimationNodeAnimation" id=27]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "idle_right_up"
 
-[sub_resource type="AnimationNodeAnimation" id=28]
+[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "idle_up"
 
-[sub_resource type="AnimationNodeAnimation" id=29]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "idle_left_up "
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=21]
+blend_point_0/node = SubResource( 13 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 14 )
+blend_point_1/pos = Vector2( -0.6, 0.7 )
+blend_point_2/node = SubResource( 15 )
+blend_point_2/pos = Vector2( 0, 1.1 )
+blend_point_3/node = SubResource( 16 )
+blend_point_3/pos = Vector2( 0.6, 0.7 )
+blend_point_4/node = SubResource( 17 )
+blend_point_4/pos = Vector2( 1, 0 )
+blend_point_5/node = SubResource( 18 )
+blend_point_5/pos = Vector2( 0.6, -0.7 )
+blend_point_6/node = SubResource( 19 )
+blend_point_6/pos = Vector2( 0, -1.1 )
+blend_point_7/node = SubResource( 20 )
+blend_point_7/pos = Vector2( -0.6, -0.7 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "run_left_down "
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "run_left_down "
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "run_down"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "run_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "run_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "run_up_right"
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "run_up"
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "run_up_left "
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=30]
 blend_point_0/node = SubResource( 22 )
@@ -357,93 +400,48 @@ min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=31]
-animation = "run_left_down "
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
 
-[sub_resource type="AnimationNodeAnimation" id=32]
-animation = "run_left_down "
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
 
-[sub_resource type="AnimationNodeAnimation" id=33]
-animation = "run_down"
-
-[sub_resource type="AnimationNodeAnimation" id=34]
-animation = "run_right_down"
-
-[sub_resource type="AnimationNodeAnimation" id=35]
-animation = "run_right_down"
-
-[sub_resource type="AnimationNodeAnimation" id=36]
-animation = "run_up_right"
-
-[sub_resource type="AnimationNodeAnimation" id=37]
-animation = "run_up"
-
-[sub_resource type="AnimationNodeAnimation" id=38]
-animation = "run_up_left "
-
-[sub_resource type="AnimationNodeBlendSpace2D" id=39]
-blend_point_0/node = SubResource( 31 )
-blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 32 )
-blend_point_1/pos = Vector2( -0.6, 0.7 )
-blend_point_2/node = SubResource( 33 )
-blend_point_2/pos = Vector2( 0, 1.1 )
-blend_point_3/node = SubResource( 34 )
-blend_point_3/pos = Vector2( 0.6, 0.7 )
-blend_point_4/node = SubResource( 35 )
-blend_point_4/pos = Vector2( 1, 0 )
-blend_point_5/node = SubResource( 36 )
-blend_point_5/pos = Vector2( 0.6, -0.7 )
-blend_point_6/node = SubResource( 37 )
-blend_point_6/pos = Vector2( 0, -1.1 )
-blend_point_7/node = SubResource( 38 )
-blend_point_7/pos = Vector2( -0.6, -0.7 )
-min_space = Vector2( -1, -1.1 )
-max_space = Vector2( 1, 1.1 )
-blend_mode = 1
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=40]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=41]
-
-[sub_resource type="AnimationNodeStateMachine" id=8]
-states/idle/node = SubResource( 30 )
+[sub_resource type="AnimationNodeStateMachine" id=33]
+states/idle/node = SubResource( 21 )
 states/idle/position = Vector2( 257, 62 )
-states/run/node = SubResource( 39 )
+states/run/node = SubResource( 30 )
 states/run/position = Vector2( 512, 62 )
-transitions = [ "idle", "run", SubResource( 40 ), "run", "idle", SubResource( 41 ) ]
+transitions = [ "idle", "run", SubResource( 31 ), "run", "idle", SubResource( 32 ) ]
 start_node = "idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=34]
 
-[sub_resource type="CapsuleShape2D" id=10]
+[sub_resource type="CapsuleShape2D" id=35]
 radius = 4.49611
 height = 12.2982
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=36]
 radius = 16.441
 
 [node name="player" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" parent="." index="0"]
-anims/idle_down = SubResource( 12 )
-anims/idle_left_down = SubResource( 1 )
-"anims/idle_left_up " = SubResource( 18 )
-anims/idle_right_down = SubResource( 2 )
-anims/idle_right_up = SubResource( 19 )
-anims/idle_up = SubResource( 13 )
-anims/run_down = SubResource( 14 )
-"anims/run_left_down " = SubResource( 15 )
-anims/run_right_down = SubResource( 16 )
-anims/run_up = SubResource( 17 )
-"anims/run_up_left " = SubResource( 20 )
-anims/run_up_right = SubResource( 21 )
+anims/idle_down = SubResource( 1 )
+anims/idle_left_down = SubResource( 2 )
+"anims/idle_left_up " = SubResource( 3 )
+anims/idle_right_down = SubResource( 4 )
+anims/idle_right_up = SubResource( 5 )
+anims/idle_up = SubResource( 6 )
+anims/run_down = SubResource( 7 )
+"anims/run_left_down " = SubResource( 8 )
+anims/run_right_down = SubResource( 9 )
+anims/run_up = SubResource( 10 )
+"anims/run_up_left " = SubResource( 11 )
+anims/run_up_right = SubResource( 12 )
 
 [node name="AnimationTree" parent="." index="2"]
-tree_root = SubResource( 8 )
-parameters/playback = SubResource( 9 )
-parameters/idle/blend_position = Vector2( -0.24112, 0.437402 )
+tree_root = SubResource( 33 )
+parameters/playback = SubResource( 34 )
+parameters/idle/blend_position = Vector2( -0.00819671, 0.559483 )
 parameters/run/blend_position = Vector2( 0.000683069, 0.974409 )
 
 [node name="sprite" parent="pivot" index="0"]
@@ -451,7 +449,7 @@ z_index = 2
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 16
-frame = 9
+frame = 10
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 0, 6 )
@@ -467,7 +465,7 @@ z_index = -1
 [node name="collision_box" parent="." index="6"]
 position = Vector2( -0.44545, 14.0317 )
 rotation = 1.5708
-shape = SubResource( 10 )
+shape = SubResource( 35 )
 
 [node name="control" parent="." index="7"]
 script = ExtResource( 5 )
@@ -509,7 +507,7 @@ collision_layer = 2147483652
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 position = Vector2( -0.222733, 0 )
-shape = SubResource( 11 )
+shape = SubResource( 36 )
 [connection signal="tween_completed" from="Tween" to="attack" method="_on_Tween_tween_completed"]
 
 [editable path="Camera2D/Control"]

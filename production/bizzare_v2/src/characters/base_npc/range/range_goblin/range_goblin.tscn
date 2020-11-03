@@ -423,7 +423,7 @@ radius = 3.5636
 height = 15.6475
 
 [sub_resource type="CircleShape2D" id=37]
-radius = 103.618
+radius = 64.407
 
 [sub_resource type="CircleShape2D" id=38]
 radius = 150.72
@@ -450,7 +450,11 @@ anims/run_up = SubResource( 12 )
 
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 33 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 34 )
+parameters/idle/blend_position = Vector2( 0, 0 )
+parameters/run/blend_position = Vector2( 0, 0 )
 
 [node name="AttackPlayer" parent="." index="3"]
 anims/attack = SubResource( 35 )
@@ -488,6 +492,7 @@ shape = SubResource( 36 )
 
 [node name="control" parent="." index="7"]
 margin_top = 0.111362
+margin_right = 40.0
 margin_bottom = 40.1114
 script = ExtResource( 4 )
 
@@ -507,6 +512,9 @@ shape = SubResource( 39 )
 script = ExtResource( 7 )
 [connection signal="animation_finished" from="AttackPlayer" to="attack" method="_on_AttackPlayer_animation_finished"]
 [connection signal="damage_from_behind" from="stats" to="control" method="_on_stats_damage_from_behind"]
+[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
 
 [editable path="control/attack_range"]
 

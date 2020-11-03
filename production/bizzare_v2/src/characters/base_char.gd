@@ -57,10 +57,11 @@ func _physics_process(delta: float) -> void:
 
 
 func _blend_travel(animation: String, blend_pos):
-	if unit_type.get(animation):
-		var p = "parameters/"
-		animation_tree[p + animation + "/blend_position"] = blend_pos
-		animation_tree.get(p + "playback").travel(animation)
+	if not unit_type.get(animation):
+		animation = "idle"
+	var p = "parameters/"
+	animation_tree[p + animation + "/blend_position"] = blend_pos
+	animation_tree.get(p + "playback").travel(animation)
 
 
 func knocked_back(delta, input_vector):
