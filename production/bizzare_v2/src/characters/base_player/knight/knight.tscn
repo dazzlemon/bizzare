@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://src/characters/base_player/base_player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_player/knight/knight.gd" type="Script" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://assets/textures/knight/axe.png" type="Texture" id=9]
 [ext_resource path="res://assets/textures/knight/knight_knockback(main).png" type="Texture" id=10]
 [ext_resource path="res://assets/textures/knight/knight_damage_block.png" type="Texture" id=11]
+[ext_resource path="res://assets/textures/knight/FIRE.png" type="Texture" id=12]
+[ext_resource path="res://assets/textures/knight/pepel.png" type="Texture" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
@@ -418,6 +420,27 @@ start_node = "idle"
 radius = 4.49611
 height = 12.2982
 
+[sub_resource type="CanvasItemMaterial" id=37]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticlesMaterial" id=38]
+lifetime_randomness = 0.12
+emission_shape = 2
+emission_box_extents = Vector3( 10, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, -30, 0 )
+initial_velocity = 2.0
+angular_velocity = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.8
+scale_random = 1.0
+anim_speed = 2.0
+anim_speed_random = 0.08
+
 [sub_resource type="CircleShape2D" id=36]
 radius = 16.441
 
@@ -449,7 +472,7 @@ z_index = 2
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 16
-frame = 10
+frame = 8
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 0, 6 )
@@ -488,6 +511,29 @@ wait_time = 10.0
 
 [node name="duration" parent="spell_2" index="1"]
 wait_time = 5.0
+
+[node name="fire_part" type="Particles2D" parent="spell_2" index="2"]
+material = SubResource( 37 )
+position = Vector2( 0, 5 )
+z_index = 2
+emitting = false
+amount = 3
+explosiveness = 0.23
+randomness = 0.23
+process_material = SubResource( 38 )
+texture = ExtResource( 12 )
+
+[node name="pepel" type="Particles2D" parent="spell_2" index="3"]
+material = SubResource( 37 )
+position = Vector2( 0, 5 )
+z_index = 2
+emitting = false
+amount = 3
+lifetime = 1.5
+explosiveness = 0.23
+randomness = 0.23
+process_material = SubResource( 38 )
+texture = ExtResource( 13 )
 
 [node name="spell_1" parent="." index="11" instance=ExtResource( 7 )]
 
