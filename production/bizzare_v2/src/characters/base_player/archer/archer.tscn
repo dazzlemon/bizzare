@@ -528,7 +528,7 @@ wait_time = 10.0
 
 [node name="Particles2D" type="Particles2D" parent="spell_2" index="2"]
 material = SubResource( 37 )
-position = Vector2( 0, 5.07043 )
+position = Vector2( 1, 5.07043 )
 z_index = 4
 emitting = false
 explosiveness = 0.23
