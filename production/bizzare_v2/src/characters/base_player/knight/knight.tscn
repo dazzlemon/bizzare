@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://src/characters/base_player/base_player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_player/knight/knight.gd" type="Script" id=2]
@@ -420,13 +420,19 @@ start_node = "idle"
 radius = 4.49611
 height = 12.2982
 
-[sub_resource type="CanvasItemMaterial" id=37]
+[sub_resource type="CanvasItemMaterial" id=36]
 particles_animation = true
 particles_anim_h_frames = 3
 particles_anim_v_frames = 1
-particles_anim_loop = false
+particles_anim_loop = true
 
-[sub_resource type="ParticlesMaterial" id=38]
+[sub_resource type="Curve" id=39]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.987952, 0.445455 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=40]
+curve = SubResource( 39 )
+
+[sub_resource type="ParticlesMaterial" id=37]
 lifetime_randomness = 0.12
 emission_shape = 2
 emission_box_extents = Vector3( 10, 1, 1 )
@@ -438,10 +444,11 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.8
 scale_random = 1.0
+scale_curve = SubResource( 40 )
 anim_speed = 2.0
 anim_speed_random = 0.08
 
-[sub_resource type="CircleShape2D" id=36]
+[sub_resource type="CircleShape2D" id=38]
 radius = 16.441
 
 [node name="player" instance=ExtResource( 1 )]
@@ -512,19 +519,8 @@ wait_time = 10.0
 [node name="duration" parent="spell_2" index="1"]
 wait_time = 5.0
 
-[node name="fire_part" type="Particles2D" parent="spell_2" index="2"]
-material = SubResource( 37 )
-position = Vector2( 0, 5 )
-z_index = 2
-emitting = false
-amount = 3
-explosiveness = 0.23
-randomness = 0.23
-process_material = SubResource( 38 )
-texture = ExtResource( 12 )
-
-[node name="pepel" type="Particles2D" parent="spell_2" index="3"]
-material = SubResource( 37 )
+[node name="ash" type="Particles2D" parent="spell_2" index="2"]
+material = SubResource( 36 )
 position = Vector2( 0, 5 )
 z_index = 2
 emitting = false
@@ -532,8 +528,20 @@ amount = 3
 lifetime = 1.5
 explosiveness = 0.23
 randomness = 0.23
-process_material = SubResource( 38 )
+process_material = SubResource( 37 )
 texture = ExtResource( 13 )
+
+[node name="fire_part" type="Particles2D" parent="spell_2" index="3"]
+material = SubResource( 36 )
+position = Vector2( 0, 5 )
+z_index = 2
+emitting = false
+amount = 3
+explosiveness = 0.22
+randomness = 0.04
+visibility_rect = Rect2( -100, -100, 200, 200 )
+process_material = SubResource( 37 )
+texture = ExtResource( 12 )
 
 [node name="spell_1" parent="." index="11" instance=ExtResource( 7 )]
 
@@ -553,7 +561,7 @@ collision_layer = 2147483652
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 position = Vector2( -0.222733, 0 )
-shape = SubResource( 36 )
+shape = SubResource( 38 )
 [connection signal="tween_completed" from="Tween" to="attack" method="_on_Tween_tween_completed"]
 
 [editable path="Camera2D/Control"]
