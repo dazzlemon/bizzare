@@ -199,7 +199,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/loot/restore/big_armor_restore/big_armor_restore.gd"
 }, {
-"base": "BaseRestore",
+"base": "SmallHPRestore",
 "class": "BigHPRestore",
 "language": "GDScript",
 "path": "res://src/loot/restore/big_health_restore/big_health_restore.gd"

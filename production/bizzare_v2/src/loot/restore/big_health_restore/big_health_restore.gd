@@ -1,5 +1,5 @@
 class_name BigHPRestore
-extends BaseRestore
+extends SmallHPRestore
 
 func _ready():
 	restore_value = 100

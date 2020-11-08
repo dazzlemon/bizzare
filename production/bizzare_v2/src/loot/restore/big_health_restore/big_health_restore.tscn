@@ -18,5 +18,3 @@ texture = ExtResource( 4 )
 
 [node name="sprite" parent="area" index="2"]
 texture = ExtResource( 2 )
-[connection signal="area_entered" from="area" to="." method="_on_area_entered"]
-[connection signal="body_entered" from="area" to="." method="_on_body_entered"]

@@ -3,5 +3,15 @@ extends BaseRestore
 
 func _ready():
 	restore_value = 10
-	max_value_str = "max_armor"
-	value_str = "armor"
+
+
+func _on_area_entered(area):
+	if area.get_node("../stats").armor != area.get_node("../stats").max_armor:
+		._on_area_entered(area) 
+
+
+func restore_hp(stats):
+	stats.armor += restore_value
+	if stats.armor> stats.max_armor:
+		.restore_hp(stats)
+	
