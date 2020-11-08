@@ -5,7 +5,6 @@
 [sub_resource type="CapsuleShape2D" id=1]
 
 [node name="Tree" type="StaticBody2D"]
-z_as_relative = false
 collision_mask = 11
 
 [node name="Sprite" type="Sprite" parent="."]

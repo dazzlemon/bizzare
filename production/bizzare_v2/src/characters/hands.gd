@@ -16,4 +16,4 @@ func _process(_delta):
 
 
 func _update_z(rot_deg) -> void:
-	z_index = 1 + int(rot_deg < min_deg or rot_deg > max_deg)
+	z_index = -1 + int(rot_deg < min_deg or rot_deg > max_deg)

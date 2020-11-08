@@ -1,7 +1,8 @@
-extends LeftHand
+extends Sprite#LeftHand
 
-func _ready():
-	max_val_z = 2
+onready var main_hand = get_node("../hands")
 
 func _process(delta):
-	z_index = Utility.map(main_hand.z_index, 1, max_val_z, 1, 3)
+	z_index = main_hand.z_index
+	flip_v = bool(z_index)
+	position.x *= pow(-1, int(flip_v == (position.x < 0)))

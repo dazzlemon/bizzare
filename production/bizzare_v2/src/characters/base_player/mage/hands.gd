@@ -6,5 +6,5 @@ func _ready():
 
 
 func set_rotation(value):
-	flip_v = bool(Utility.map(z_index, 1, 2, 0, 1))
+	flip_v = not bool(z_index)
 	position.x *= pow(-1, int(flip_v == (position.x < 0)))
