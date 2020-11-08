@@ -480,4 +480,7 @@ script = ExtResource( 2 )
 position = Vector2( 0.358871, 2.10224 )
 shape = SubResource( 36 )
 
+[node name="crosshair" parent="." index="13"]
+position = Vector2( 0, 0.105112 )
+
 [editable path="Camera2D/currency_hud"]

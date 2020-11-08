@@ -2,4 +2,4 @@ class_name ArcherProjectile
 extends BaseProjectileAlly
 
 func _ready():
-	rotation = get_angle_to(get_tree().get_root().get_node("Game/level/player/crosshair").global_position)
+	rotation = get_angle_to(get_node("../player/crosshair").global_position)
