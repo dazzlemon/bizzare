@@ -118,6 +118,8 @@ script = ExtResource( 6 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
 
 [node name="crosshair" type="Position2D" parent="."]
+z_index = 999
+z_as_relative = false
 script = ExtResource( 4 )
 
 [node name="sprite" type="Sprite" parent="crosshair"]

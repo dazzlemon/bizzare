@@ -463,6 +463,7 @@ radius = 10.2287
 height = 7.17251
 
 [node name="player" instance=ExtResource( 1 )]
+z_index = 0
 collision_mask = 10
 script = ExtResource( 4 )
 
@@ -487,28 +488,24 @@ parameters/playback = SubResource( 34 )
 [node name="AttackPlayer" parent="." index="3"]
 anims/attack = SubResource( 35 )
 
-[node name="pivot" parent="." index="5"]
-position = Vector2( 0, -5 )
+[node name="shadow" parent="pivot" index="0"]
+position = Vector2( 0, 11 )
+z_index = -1
 
-[node name="sprite" parent="pivot" index="0"]
-z_index = 2
+[node name="sprite" parent="pivot" index="1"]
 texture = ExtResource( 9 )
 flip_h = true
 hframes = 16
 frame = 5
 
-[node name="hands" parent="pivot" index="1"]
+[node name="hands" parent="pivot" index="2"]
 position = Vector2( 0, 5 )
-z_index = 2
 texture = ExtResource( 8 )
 offset = Vector2( 3, -1 )
 hframes = 7
 
-[node name="shadow" parent="pivot" index="2"]
-position = Vector2( 0, 11 )
-
 [node name="collision_box" parent="." index="6"]
-position = Vector2( 0, 7 )
+position = Vector2( 0, 10 )
 rotation = 1.5708
 shape = SubResource( 36 )
 
@@ -539,11 +536,12 @@ texture = ExtResource( 10 )
 [node name="stats" parent="." index="13"]
 script = ExtResource( 7 )
 
-[node name="hurtbox" parent="." index="14"]
-position = Vector2( 0, -5 )
-
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 shape = SubResource( 41 )
+
+[node name="crosshair" parent="." index="15"]
+z_index = 0
+z_as_relative = true
 [connection signal="animation_finished" from="AttackPlayer" to="." method="_on_AttackPlayer_animation_finished"]
 
 [editable path="Camera2D/currency_hud"]

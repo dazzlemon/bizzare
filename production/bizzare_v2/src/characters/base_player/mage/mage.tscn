@@ -482,7 +482,5 @@ shape = SubResource( 36 )
 
 [node name="crosshair" parent="." index="13"]
 position = Vector2( 0, 0.105112 )
-z_index = 999
-z_as_relative = false
 
 [editable path="Camera2D/currency_hud"]
