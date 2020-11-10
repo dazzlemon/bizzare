@@ -350,8 +350,8 @@ radius = 8.79366
 radius = 3.42415
 height = 8.67005
 
-[sub_resource type="CircleShape2D" id=22]
-radius = 133.004
+[sub_resource type="CircleShape2D" id=24]
+radius = 300.0
 
 [sub_resource type="CircleShape2D" id=23]
 radius = 12.7785
@@ -387,27 +387,27 @@ collision_mask = 4
 position = Vector2( 20, 0 )
 shape = SubResource( 20 )
 
-[node name="shadow" parent="pivot" index="0"]
+[node name="sprite" parent="pivot" index="0"]
 visible = false
-position = Vector2( 0, -7.02332 )
-z_index = -1
-offset = Vector2( 0, 20 )
-
-[node name="sprite" parent="pivot" index="1"]
-visible = false
-position = Vector2( 0, -0.158292 )
+position = Vector2( 0, -0.400909 )
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 8
-frame = 5
+frame = 4
 
-[node name="hands" parent="pivot" index="2"]
+[node name="hands" parent="pivot" index="1"]
 visible = false
 position = Vector2( 3, 1 )
 texture = ExtResource( 10 )
 offset = Vector2( 3, -1 )
 flip_h = true
 hframes = 4
+
+[node name="shadow" parent="pivot" index="2"]
+visible = false
+position = Vector2( 0, -7.02332 )
+z_index = -1
+offset = Vector2( 0, 20 )
 
 [node name="left_hand" type="Sprite" parent="pivot" index="3"]
 visible = false
@@ -432,7 +432,8 @@ collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
-shape = SubResource( 22 )
+z_as_relative = false
+shape = SubResource( 24 )
 
 [node name="stats" parent="." index="8"]
 script = ExtResource( 8 )

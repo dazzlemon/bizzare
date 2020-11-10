@@ -33,12 +33,6 @@ enum States {
 	FRICTION,
 	NO_FRICTION,
 }
-#enum and const prolly could be merged into one object
-const state_funcs = {
-	States.KNOCKED_BACK : "knocked_back",
-	States.FRICTION : "friction",
-	States.NO_FRICTION : "no_friction",
-}
 
 func accelerate(delta: float, speed: Vector2, input_vector: Vector2) -> Vector2:
 	return speed.move_toward(input_vector * MAX_SPEED, ACCEL * delta)
