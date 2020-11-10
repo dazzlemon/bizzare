@@ -64,23 +64,25 @@ func wander() -> Vector2:
 
 func chase() -> Vector2:
 	var direction := Vector2.ZERO
-	if attack_range != null and attack_range.player != null:#only for range!!!!!!!!
-		state = States.ATTACK
-	else:
+	if player_detection_zone.can_see_player():
 		var player_pos = player_detection_zone.player.global_position
 		var owner_pos = owner.global_position
-		if player_detection_zone.can_see_player():
-			if owner_pos.distance_to(player_pos) > 25:#for range
+		if attack_range != null:#range
+			if attack_range.player == null:
 				direction = owner_pos.direction_to(player_pos)
 			else:
 				state = States.ATTACK
-		else:
-			state = Utility.pick_random([States.IDLE, States.WANDER])
+		else:#melee
+			if owner_pos.distance_to(player_pos) > 25:
+				direction = owner_pos.direction_to(player_pos)
+			else:
+				state = States.ATTACK
+	else:
+		state = Utility.pick_random([States.IDLE, States.WANDER])
 	return direction
 
 
 func attack() -> Vector2:
-	var direction = Vector2.ZERO
 	if player_detection_zone.can_see_player():
 		if _can_attack():
 			get_node("../crosshair").global_position = player_detection_zone.player.global_position
@@ -89,7 +91,7 @@ func attack() -> Vector2:
 			state = States.CHASE
 	else:
 		state = Utility.pick_random([States.IDLE, States.WANDER])
-	return direction
+	return Vector2.ZERO
 
 
 func _can_attack() -> bool:

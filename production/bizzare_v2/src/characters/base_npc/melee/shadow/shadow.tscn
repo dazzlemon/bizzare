@@ -389,7 +389,7 @@ shape = SubResource( 20 )
 
 [node name="sprite" parent="pivot" index="0"]
 visible = false
-position = Vector2( 0, -0.400909 )
+position = Vector2( 0, -1.48328 )
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 8
