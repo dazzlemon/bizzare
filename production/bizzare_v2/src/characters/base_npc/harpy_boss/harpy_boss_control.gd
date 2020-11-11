@@ -8,7 +8,7 @@ var roll = 0
 var dash_target: Vector2
 var dash_start: Vector2
 
-var stomp = preload("res://src/characters/base_npc/harpy_boss/phase_attacks/phase_2_attack_2/harpy_stomp.tscn")
+var stomp = preload("res://src/characters/base_npc/harpy_boss/phase_attacks/phase_2_attack_2/phase_2_attack_2_stomp.tscn")
 
 #func _ready() -> void:
 #	randomize()
@@ -38,7 +38,7 @@ func _on_phase_cd_timeout() -> void:
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
 		roll = rng.randi_range(1, 2)
-		roll = 1################################### DEBUG
+		roll = 2################################### DEBUG
 		phase = 3################################## DEBUG
 		current_phase_attack = "phase_" + str(phase) + "_attack_" + str(roll)
 		print(current_phase_attack)

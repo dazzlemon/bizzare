@@ -5,7 +5,7 @@ extends PhaseAttacks
 var angle = 0 setget angle_set
 var angle_step = 40
 
-onready var projectile = preload("res://src/characters/base_npc/harpy_boss/phase_attacks/phase_3_attack_2/tornado_projectile.tscn")
+onready var projectile = preload("res://src/characters/base_npc/harpy_boss/phase_attacks/phase_3_attack_2/phase_3_attack_2_tornado_projectile.tscn")
 onready var stats = get_node("../../stats")
 onready var get_root = get_node("../../")
 onready var get_parent = get_node("../")

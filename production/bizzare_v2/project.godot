@@ -302,7 +302,7 @@ _global_script_classes=[ {
 "base": "HarpyProjectile",
 "class": "HarpyBossTornadoProjectile",
 "language": "GDScript",
-"path": "res://src/characters/base_npc/harpy_boss/phase_attacks/phase_3_attack_2/tornado_projectile.gd"
+"path": "res://src/characters/base_npc/harpy_boss/phase_attacks/phase_3_attack_2/phase_3_attack_2_tornado_projectile.gd"
 }, {
 "base": "BaseProjectileEnemy",
 "class": "HarpyProjectile",
@@ -317,7 +317,7 @@ _global_script_classes=[ {
 "base": "RayHitscan",
 "class": "HarpyRayHitscan",
 "language": "GDScript",
-"path": "res://src/characters/base_npc/harpy_boss/phase_attacks/phase_3_attack_2/harpy_ray_hitscan.gd"
+"path": "res://src/characters/base_npc/harpy_boss/phase_attacks/phase_3_attack_2/phase_3_attack_2_hitscan.gd"
 }, {
 "base": "BaseNPCStats",
 "class": "HarpyStats",
@@ -327,7 +327,7 @@ _global_script_classes=[ {
 "base": "ExplosiveHitscan",
 "class": "HarpyStomp",
 "language": "GDScript",
-"path": "res://src/characters/base_npc/harpy_boss/phase_attacks/phase_2_attack_2/harpy_stomp.gd"
+"path": "res://src/characters/base_npc/harpy_boss/phase_attacks/phase_2_attack_2/phase_2_attack_2_stomp.gd"
 }, {
 "base": "StatusBar",
 "class": "HealthBar",
