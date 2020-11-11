@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/characters/base_npc/melee/base_npc_melee.gd" type="Script" id=1]
 [ext_resource path="res://src/characters/base_npc/melee/base_npc_melee_control.gd" type="Script" id=2]
 [ext_resource path="res://src/characters/base_npc/base_npc.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/attack/hitscan/enemy_hitscan/base_hitscan_enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/AI/attack_range.tscn" type="PackedScene" id=5]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 25.0
 
 [node name="base_npc" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
@@ -18,8 +22,17 @@ parameters/playback = SubResource( 1 )
 [node name="control" parent="." index="7"]
 script = ExtResource( 2 )
 
+[node name="attack_range" parent="control" index="0" instance=ExtResource( 5 )]
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape2D" parent="control/attack_range" index="0"]
+shape = SubResource( 2 )
+
 [node name="LookAt" parent="control/player_detection_zone" index="1"]
 cast_to = Vector2( 0, -50 )
+
+[editable path="control/attack_range"]
 
 [editable path="control/player_detection_zone"]
 
