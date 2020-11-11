@@ -249,12 +249,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/loot/restore/full_restore/full_restore.gd"
 }, {
-"base": "BaseNPC",
+"base": "Reference",
 "class": "Goblin",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_melee/orc_melee.gd"
 }, {
-"base": "BaseNPCControl",
+"base": "Reference",
 "class": "GoblinControl",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_melee/orc_melee_control.gd"
@@ -272,7 +272,7 @@ _global_script_classes=[ {
 "base": "BaseNPC",
 "class": "Harpy",
 "language": "GDScript",
-"path": "res://src/characters/base_npc/range/harpy/harpy.gd"
+"path": "res://src/characters/base_npc/harpy/harpy.gd"
 }, {
 "base": "BaseNPC",
 "class": "HarpyBoss",
@@ -307,12 +307,12 @@ _global_script_classes=[ {
 "base": "BaseProjectileEnemy",
 "class": "HarpyProjectile",
 "language": "GDScript",
-"path": "res://src/characters/base_npc/range/harpy/attack/harpy_projectile.gd"
+"path": "res://src/characters/base_npc/harpy/attack/harpy_projectile.gd"
 }, {
 "base": "BaseProjectileAttackEnemy",
 "class": "HarpyProjectileAttack",
 "language": "GDScript",
-"path": "res://src/characters/base_npc/range/harpy/attack/harpy_projectile_attack.gd"
+"path": "res://src/characters/base_npc/harpy/attack/harpy_projectile_attack.gd"
 }, {
 "base": "RayHitscan",
 "class": "HarpyRayHitscan",
@@ -322,7 +322,7 @@ _global_script_classes=[ {
 "base": "BaseNPCStats",
 "class": "HarpyStats",
 "language": "GDScript",
-"path": "res://src/characters/base_npc/range/harpy/harpy_stats.gd"
+"path": "res://src/characters/base_npc/harpy/harpy_stats.gd"
 }, {
 "base": "ExplosiveHitscan",
 "class": "HarpyStomp",
@@ -399,7 +399,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_player/mage/mage_stats.gd"
 }, {
-"base": "BaseNPCStats",
+"base": "Reference",
 "class": "MeleeOrcSprite",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_melee/stats.gd"
@@ -419,7 +419,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/etc/status_bars/npc_health/nps_health_bar.gd"
 }, {
-"base": "Crosshair",
+"base": "Reference",
 "class": "OrcCrosshair",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_melee/orc_crosshair.gd"
