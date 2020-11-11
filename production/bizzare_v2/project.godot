@@ -374,7 +374,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_player/knight/knight_stats.gd"
 }, {
-"base": "Sprite",
+"base": "Reference",
 "class": "LeftHand",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_range/left_hand.gd"
@@ -419,7 +419,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/etc/status_bars/npc_health/nps_health_bar.gd"
 }, {
-"base": "Reference",
+"base": "Crosshair",
 "class": "OrcCrosshair",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_melee/orc_melee_crosshair.gd"
@@ -429,7 +429,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/hitscan/enemy_hitscan/orc_melee_hitscan.gd"
 }, {
-"base": "BaseHands",
+"base": "Reference",
 "class": "OrcRangeHands",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_range/orc_range_hands.gd"
@@ -489,17 +489,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/AI/player_detection_zone.gd"
 }, {
-"base": "Reference",
+"base": "BaseNPC",
 "class": "RangeGoblin",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_range/orc_range.gd"
 }, {
-"base": "Reference",
+"base": "BaseNPCControl",
 "class": "RangeGoblinControl",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_range/orc_range_control.gd"
 }, {
-"base": "BaseNPCStats",
+"base": "Reference",
 "class": "RangeOrcSprite",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_range/orc_range_stats.gd"
