@@ -350,7 +350,7 @@ radius = 8.79366
 radius = 3.42415
 height = 8.67005
 
-[sub_resource type="CircleShape2D" id=24]
+[sub_resource type="CircleShape2D" id=22]
 radius = 300.0
 
 [sub_resource type="CircleShape2D" id=23]
@@ -369,7 +369,10 @@ anims/idle_up = SubResource( 6 )
 
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 16 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 17 )
+parameters/idle/blend_position = Vector2( 0, 0 )
 
 [node name="AttackPlayer" parent="." index="3"]
 playback_speed = 2.0
@@ -389,11 +392,11 @@ shape = SubResource( 20 )
 
 [node name="sprite" parent="pivot" index="0"]
 visible = false
-position = Vector2( 0, -1.48328 )
+position = Vector2( 0, -0.52502 )
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 8
-frame = 4
+frame = 5
 
 [node name="hands" parent="pivot" index="1"]
 visible = false
@@ -425,6 +428,8 @@ shape = SubResource( 21 )
 
 [node name="control" parent="." index="7"]
 visible = false
+margin_right = 40.0
+margin_bottom = 40.0
 script = ExtResource( 3 )
 
 [node name="invis_controller" parent="control" index="0" instance=ExtResource( 5 )]
@@ -433,7 +438,7 @@ collision_mask = 6
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
 z_as_relative = false
-shape = SubResource( 24 )
+shape = SubResource( 22 )
 
 [node name="stats" parent="." index="8"]
 script = ExtResource( 8 )
