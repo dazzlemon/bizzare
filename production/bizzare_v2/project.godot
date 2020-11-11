@@ -427,7 +427,7 @@ _global_script_classes=[ {
 "base": "BaseHitscanEnemy",
 "class": "OrcMeleeHitscan",
 "language": "GDScript",
-"path": "res://src/attack/hitscan/enemy_hitscan/orc_melee_hitscan.gd"
+"path": "res://src/characters/base_npc/orc_melee/attack/orc_melee_hitscan.gd"
 }, {
 "base": "Reference",
 "class": "OrcRangeHands",
