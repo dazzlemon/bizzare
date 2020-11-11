@@ -249,12 +249,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/loot/restore/full_restore/full_restore.gd"
 }, {
-"base": "Reference",
+"base": "BaseNPC",
 "class": "Goblin",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_melee/orc_melee.gd"
 }, {
-"base": "Reference",
+"base": "BaseNPCControl",
 "class": "GoblinControl",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_melee/orc_melee_control.gd"
@@ -399,7 +399,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_player/mage/mage_stats.gd"
 }, {
-"base": "Reference",
+"base": "BaseNPCStats",
 "class": "MeleeOrcSprite",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_melee/stats.gd"
@@ -419,7 +419,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/etc/status_bars/npc_health/nps_health_bar.gd"
 }, {
-"base": "Reference",
+"base": "Crosshair",
 "class": "OrcCrosshair",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_melee/orc_crosshair.gd"
