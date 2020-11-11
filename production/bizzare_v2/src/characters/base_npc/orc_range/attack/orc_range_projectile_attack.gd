@@ -4,7 +4,7 @@ extends BaseProjectileAttackEnemy
 onready var animation_player = get_node("../AttackPlayer")
 
 func _ready() -> void: 
-	projectile = preload("res://src/characters/base_npc/range_goblin/attack/goblin_projectile.tscn")
+	projectile = preload("res://src/characters/base_npc/orc_range/attack/orc_range_projectile.tscn")
 	_INTERVAL = 0.5
 
 

@@ -1,21 +1,21 @@
 [gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://src/AI/player_detection_zone.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/textures/orc_range/range_orc_sheet.png" type="Texture" id=2]
-[ext_resource path="res://src/characters/base_npc/range_goblin/range_goblin.gd" type="Script" id=3]
-[ext_resource path="res://src/characters/base_npc/range_goblin/range_goblin_control.gd" type="Script" id=4]
-[ext_resource path="res://src/characters/base_npc/range_goblin/attack/goblin_projectile_attack.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/characters/base_npc/range_goblin/stats.gd" type="Script" id=6]
-[ext_resource path="res://src/characters/base_npc/orc_melee/orc_crosshair.gd" type="Script" id=7]
+[ext_resource path="res://src/AI/wander_controller.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/etc/status_bars/npc_health/npc_health_bar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/characters/base_hurtbox.gd" type="Script" id=4]
+[ext_resource path="res://src/AI/attack_range.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/textures/harpy/shadow.png" type="Texture" id=6]
+[ext_resource path="res://assets/textures/orc_range/range_orc_sheet.png" type="Texture" id=7]
 [ext_resource path="res://assets/textures/orc_range/range_hands_sheet.png" type="Texture" id=8]
-[ext_resource path="res://src/characters/base_npc/range_goblin/left_hand.gd" type="Script" id=9]
-[ext_resource path="res://assets/textures/orc_range/range_hand_left.png" type="Texture" id=10]
-[ext_resource path="res://src/characters/base_npc/range_goblin/orc_range_hands.gd" type="Script" id=11]
-[ext_resource path="res://src/AI/wander_controller.tscn" type="PackedScene" id=12]
-[ext_resource path="res://src/etc/status_bars/npc_health/npc_health_bar.tscn" type="PackedScene" id=13]
-[ext_resource path="res://src/characters/base_hurtbox.gd" type="Script" id=14]
-[ext_resource path="res://src/AI/attack_range.tscn" type="PackedScene" id=15]
-[ext_resource path="res://assets/textures/harpy/shadow.png" type="Texture" id=16]
+[ext_resource path="res://assets/textures/orc_range/range_hand_left.png" type="Texture" id=9]
+[ext_resource path="res://src/characters/base_npc/orc_range/orc_range_hands.gd" type="Script" id=10]
+[ext_resource path="res://src/characters/base_npc/orc_range/orc_range_control.gd" type="Script" id=11]
+[ext_resource path="res://src/characters/base_npc/orc_range/left_hand.gd" type="Script" id=12]
+[ext_resource path="res://src/characters/base_npc/orc_range/orc_range_stats.gd" type="Script" id=13]
+[ext_resource path="res://src/characters/base_npc/orc_melee/orc_melee_crosshair.gd" type="Script" id=14]
+[ext_resource path="res://src/characters/base_npc/orc_range/orc_range.gd" type="Script" id=15]
+[ext_resource path="res://src/characters/base_npc/orc_range/attack/orc_range_projectile_attack.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
@@ -439,7 +439,7 @@ radius = 16.6229
 [node name="orc_range" type="KinematicBody2D"]
 collision_layer = 2147483656
 collision_mask = 2147483658
-script = ExtResource( 3 )
+script = ExtResource( 15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/idle_down = SubResource( 1 )
@@ -471,29 +471,29 @@ anims/attack = SubResource( 35 )
 [node name="pivot" type="Position2D" parent="."]
 
 [node name="sprite" type="Sprite" parent="pivot"]
-texture = ExtResource( 2 )
+texture = ExtResource( 7 )
 flip_h = true
 hframes = 16
-frame = 4
+frame = 6
 
 [node name="hands" type="Sprite" parent="pivot"]
 position = Vector2( -5, 2 )
 texture = ExtResource( 8 )
 offset = Vector2( 7, 0 )
 hframes = 4
-script = ExtResource( 11 )
+script = ExtResource( 10 )
 
 [node name="shadow" type="Sprite" parent="pivot"]
 position = Vector2( -0.166855, 11.991 )
 z_index = -1
-texture = ExtResource( 16 )
+texture = ExtResource( 6 )
 
 [node name="left_hand" type="Sprite" parent="pivot"]
 position = Vector2( 6, 5 )
-texture = ExtResource( 10 )
-script = ExtResource( 9 )
+texture = ExtResource( 9 )
+script = ExtResource( 12 )
 
-[node name="attack" parent="." instance=ExtResource( 5 )]
+[node name="attack" parent="." instance=ExtResource( 16 )]
 
 [node name="collision_box" type="CollisionShape2D" parent="."]
 position = Vector2( -0.445454, 15.4794 )
@@ -504,12 +504,12 @@ shape = SubResource( 36 )
 margin_top = 0.111362
 margin_right = 40.0
 margin_bottom = 40.1114
-script = ExtResource( 4 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="attack_range" parent="control" instance=ExtResource( 15 )]
+[node name="attack_range" parent="control" instance=ExtResource( 5 )]
 collision_layer = 0
 collision_mask = 6
 
@@ -521,16 +521,16 @@ shape = SubResource( 37 )
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
 shape = SubResource( 38 )
 
-[node name="wander_controller" parent="control" instance=ExtResource( 12 )]
+[node name="wander_controller" parent="control" instance=ExtResource( 2 )]
 
 [node name="stats" type="Node" parent="."]
-script = ExtResource( 6 )
+script = ExtResource( 13 )
 
 [node name="StatusBar" type="Node2D" parent="."]
 position = Vector2( 0, 30 )
 z_index = 3
 
-[node name="statusBar" parent="StatusBar" instance=ExtResource( 13 )]
+[node name="statusBar" parent="StatusBar" instance=ExtResource( 3 )]
 margin_left = -58.8658
 margin_top = -80.2716
 margin_right = -58.8658
@@ -539,7 +539,7 @@ margin_bottom = -80.2716
 [node name="hurtbox" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 0
-script = ExtResource( 14 )
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
 shape = SubResource( 39 )
@@ -547,12 +547,10 @@ shape = SubResource( 39 )
 [node name="crosshair" type="Position2D" parent="."]
 z_index = 999
 z_as_relative = false
-script = ExtResource( 7 )
+script = ExtResource( 14 )
 
 [node name="sprite" type="Sprite" parent="crosshair"]
 [connection signal="animation_finished" from="AttackPlayer" to="attack" method="_on_AttackPlayer_animation_finished"]
-[connection signal="damage_from_behind" from="stats" to="control/player_detection_zone" method="_on_stats_damage_from_behind"]
-[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
 
