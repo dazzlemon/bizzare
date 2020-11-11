@@ -1,5 +1,5 @@
 class_name Shadow
-extends BaseNPCMelee
+extends BaseNPC
 
 func _ready():
 	ACCEL = 300

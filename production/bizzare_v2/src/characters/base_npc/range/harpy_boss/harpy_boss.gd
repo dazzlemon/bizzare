@@ -1,5 +1,5 @@
 class_name HarpyBoss
-extends BaseNPCRange
+extends BaseNPC
 
 func _ready():
 	MAX_SPEED = 75

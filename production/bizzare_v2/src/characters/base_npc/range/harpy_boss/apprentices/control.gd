@@ -1,6 +1,6 @@
 # NOT WORKING
 class_name ApprenticeControl
-extends BaseNPCRangeControl
+extends BaseNPCControl
 
 func _ready():
 	state = States.ATTACK

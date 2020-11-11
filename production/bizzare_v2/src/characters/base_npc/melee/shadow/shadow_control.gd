@@ -1,2 +1,2 @@
 class_name ShadowControl
-extends BaseNPCMeleeControl
+extends BaseNPCControl

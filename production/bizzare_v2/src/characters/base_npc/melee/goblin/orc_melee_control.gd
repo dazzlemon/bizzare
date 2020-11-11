@@ -1,4 +1,4 @@
 #
 class_name GoblinControl
-extends BaseNPCMeleeControl
+extends BaseNPCControl
 

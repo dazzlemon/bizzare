@@ -1,5 +1,5 @@
 class_name HarpyBossControl
-extends BaseNPCRangeControl
+extends BaseNPCControl
 
 var phase := 0 setget phase_set
 var is_ready = true

@@ -1,5 +1,5 @@
 class_name Harpy
-extends BaseNPCRange
+extends BaseNPC
 
 
 func _ready():

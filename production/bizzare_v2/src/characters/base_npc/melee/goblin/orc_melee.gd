@@ -1,6 +1,6 @@
 #
 class_name Goblin
-extends BaseNPCMelee
+extends BaseNPC
 
 func _ready():
 	ACCEL = 300

@@ -1,3 +1,3 @@
 class_name RangeGoblinControl
-extends BaseNPCRangeControl
+extends BaseNPCControl
 
