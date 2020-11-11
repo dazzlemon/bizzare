@@ -7,11 +7,12 @@
 [ext_resource path="res://assets/textures/tilemap/fall_tree.png" type="Texture" id=5]
 [ext_resource path="res://src/characters/base_npc/harpy_boss/harpy_boss.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/characters/base_npc/shadow/shadow.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/characters/base_npc/range/range_goblin/range_goblin.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/characters/base_npc/range_goblin/range_goblin.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/textures/tilemap/grass_24_tile + shadow.png" type="Texture" id=11]
 [ext_resource path="res://assets/textures/tilemap/path_24.png" type="Texture" id=12]
 [ext_resource path="res://assets/textures/tilemap/flowers+grass.png" type="Texture" id=13]
 [ext_resource path="res://assets/textures/tilemap/leaf_wall.png" type="Texture" id=14]
+
 
 
 
