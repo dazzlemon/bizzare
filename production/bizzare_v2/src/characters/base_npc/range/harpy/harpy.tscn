@@ -154,16 +154,13 @@ anims/harpy_idle_right = SubResource( 4 )
 
 [node name="AnimationTree" parent="." index="2"]
 tree_root = SubResource( 10 )
-anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 11 )
-parameters/idle/blend_position = Vector2( 0, 0 )
 
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 24
-frame = 17
+frame = 16
 
 [node name="shadow" parent="pivot" index="2"]
 position = Vector2( 0, 15 )
@@ -174,10 +171,6 @@ position = Vector2( 0, 15 )
 position = Vector2( -0.280617, 13.7502 )
 rotation = 1.5708
 shape = SubResource( 12 )
-
-[node name="control" parent="." index="7"]
-margin_right = 40.0
-margin_bottom = 40.0
 
 [node name="CollisionShape2D" parent="control/attack_range" index="0"]
 shape = SubResource( 13 )
@@ -191,9 +184,6 @@ script = ExtResource( 5 )
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 shape = SubResource( 15 )
-[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
-[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
 
 [editable path="control/attack_range"]
 

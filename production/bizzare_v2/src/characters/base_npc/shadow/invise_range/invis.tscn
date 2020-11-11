@@ -1,6 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://src/characters/base_npc/melee/shadow/invise_range/invis.gd" type="Script" id=1]
+[ext_resource path="res://src/characters/base_npc/shadow/invise_range/invis.gd" type="Script" id=1]
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 73.2462
