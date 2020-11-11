@@ -1,0 +1,184 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://src/characters/base_npc/harpy_boss/apprentices/apprentice.gd" type="Script" id=1]
+[ext_resource path="res://src/characters/base_npc/harpy_boss/apprentices/control.gd" type="Script" id=2]
+[ext_resource path="res://src/characters/base_npc/range/base_npc_range.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/textures/harpy_boss/apprentice/sheet.png" type="Texture" id=4]
+[ext_resource path="res://src/characters/base_npc/harpy_boss/apprentices/stats.gd" type="Script" id=5]
+[ext_resource path="res://src/characters/base_npc/harpy_boss/apprentices/apprentice_ray_hitscan.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "process"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("pivot/sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 2, 1 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "idle_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "idle_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "idle_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "idle_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "idle_right_up"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "idle_left_up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=10]
+blend_point_0/node = SubResource( 2 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 3 )
+blend_point_1/pos = Vector2( -0.6, 0.7 )
+blend_point_2/node = SubResource( 4 )
+blend_point_2/pos = Vector2( 0, 1.1 )
+blend_point_3/node = SubResource( 5 )
+blend_point_3/pos = Vector2( 0.6, 0.7 )
+blend_point_4/node = SubResource( 6 )
+blend_point_4/pos = Vector2( 1, 0 )
+blend_point_5/node = SubResource( 7 )
+blend_point_5/pos = Vector2( 0.6, -0.7 )
+blend_point_6/node = SubResource( 8 )
+blend_point_6/pos = Vector2( 0, -1.1 )
+blend_point_7/node = SubResource( 9 )
+blend_point_7/pos = Vector2( -0.6, -0.7 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "run_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "run_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "run_down"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "run_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "run_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "run_right_up"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "run_up"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "run_left_up"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=19]
+blend_point_0/node = SubResource( 11 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 12 )
+blend_point_1/pos = Vector2( -0.6, 0.7 )
+blend_point_2/node = SubResource( 13 )
+blend_point_2/pos = Vector2( 0, 1.1 )
+blend_point_3/node = SubResource( 14 )
+blend_point_3/pos = Vector2( 0.6, 0.7 )
+blend_point_4/node = SubResource( 15 )
+blend_point_4/pos = Vector2( 1, 0 )
+blend_point_5/node = SubResource( 16 )
+blend_point_5/pos = Vector2( 0.6, -0.7 )
+blend_point_6/node = SubResource( 17 )
+blend_point_6/pos = Vector2( 0, -1.1 )
+blend_point_7/node = SubResource( 18 )
+blend_point_7/pos = Vector2( -0.6, -0.7 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachine" id=22]
+states/orc_melee_idles/node = SubResource( 10 )
+states/orc_melee_idles/position = Vector2( 490, 194 )
+states/orc_melee_run/node = SubResource( 19 )
+states/orc_melee_run/position = Vector2( 719, 194 )
+transitions = [ "orc_melee_idles", "orc_melee_run", SubResource( 20 ), "orc_melee_run", "orc_melee_idles", SubResource( 21 ) ]
+start_node = "orc_melee_idles"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=23]
+
+[sub_resource type="CircleShape2D" id=24]
+radius = 20.7635
+
+[node name="apprentice" instance=ExtResource( 3 )]
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="0"]
+playback_process_mode = 0
+playback_speed = 0.5
+anims/process = SubResource( 1 )
+
+[node name="AnimationTree" parent="." index="2"]
+tree_root = SubResource( 22 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 23 )
+parameters/orc_melee_idles/blend_position = Vector2( 0, 0 )
+parameters/orc_melee_run/blend_position = Vector2( 0, 0 )
+
+[node name="sprite" parent="pivot" index="0"]
+texture = ExtResource( 4 )
+hframes = 4
+
+[node name="hands" parent="pivot" index="1"]
+visible = false
+
+[node name="shadow" parent="pivot" index="2"]
+visible = false
+
+[node name="collision_box" parent="." index="5"]
+position = Vector2( 0.25, 13.75 )
+rotation = 1.5708
+
+[node name="attack" parent="." index="6" instance=ExtResource( 6 )]
+
+[node name="control" parent="." index="7"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+shape = SubResource( 24 )
+
+[node name="stats" parent="." index="10"]
+script = ExtResource( 5 )
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
+
+[editable path="control/attack_range"]
+
+[editable path="control/player_detection_zone"]
+
+[editable path="control/wander_controller"]
