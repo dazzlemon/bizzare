@@ -3,7 +3,7 @@ extends Panel
 class PlayableChar:
 	var scene
 	var stats_script
-	var scene_script
+	var scene_script 
 
 	func _init(scene, stats_script, scene_script):
 		self.scene = scene

@@ -7,6 +7,7 @@ onready var particles = get_node("Particles2D")
 onready var player = get_node("../")
 onready var attack = get_node("../attack")
 onready var attack_player
+onready var sound = get_node("sound")
 
 func try_use() -> void:
 	if can_be_used == true:
@@ -16,6 +17,8 @@ func try_use() -> void:
 		get_node("cd").start()
 		particles.emitting = true
 		get_node("../AttackPlayer").playback_speed = 2
+		sound.playing = false
+		sound.playing = true
 
 
 func _on_duration_timeout() -> void:
