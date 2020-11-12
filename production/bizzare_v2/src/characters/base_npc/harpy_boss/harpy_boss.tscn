@@ -314,7 +314,6 @@ radius = 159.482
 radius = 16.6692
 
 [node name="harpy_boss" type="KinematicBody2D"]
-z_index = 1
 collision_layer = 2147483656
 collision_mask = 2147483658
 script = ExtResource( 2 )
@@ -340,19 +339,18 @@ parameters/idle/blend_position = Vector2( 0, 0 )
 
 [node name="pivot" type="Position2D" parent="."]
 
-[node name="sprite" type="Sprite" parent="pivot"]
-position = Vector2( 0, -1.43116 )
-z_index = 2
-texture = ExtResource( 4 )
-hframes = 28
-frame = 10
-
-[node name="hands" type="Sprite" parent="pivot"]
-script = ExtResource( 17 )
-
 [node name="shadow" type="Sprite" parent="pivot"]
 position = Vector2( 0, 24 )
 texture = ExtResource( 18 )
+
+[node name="sprite" type="Sprite" parent="pivot"]
+position = Vector2( 0, -0.275433 )
+texture = ExtResource( 4 )
+hframes = 28
+frame = 12
+
+[node name="hands" type="Sprite" parent="pivot"]
+script = ExtResource( 17 )
 
 [node name="attack" parent="." instance=ExtResource( 5 )]
 
