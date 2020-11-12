@@ -1,18 +1,29 @@
 [gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://assets/textures/tilemap/Trees_tile.png" type="Texture" id=1]
-[ext_resource path="res://src/characters/base_npc/range/harpy/harpy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/characters/base_npc/harpy/harpy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/characters/base_npc/orc_melee/orc_melee.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/levels/world_test_level.gd" type="Script" id=4]
 [ext_resource path="res://assets/textures/tilemap/fall_tree.png" type="Texture" id=5]
-[ext_resource path="res://src/characters/base_npc/range/harpy_boss/harpy_boss.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/characters/base_npc/harpy_boss/harpy_boss.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/characters/base_npc/shadow/shadow.tscn" type="PackedScene" id=7]
+<<<<<<< HEAD
 [ext_resource path="res://assets/textures/tilemap/clouds_sheet.png" type="Texture" id=8]
 [ext_resource path="res://src/characters/base_npc/range/range_goblin/range_goblin.tscn" type="PackedScene" id=10]
+||||||| b9bf617
+[ext_resource path="res://src/characters/base_npc/range/range_goblin/range_goblin.tscn" type="PackedScene" id=10]
+=======
+[ext_resource path="res://src/characters/base_npc/orc_range/orc_range.tscn" type="PackedScene" id=10]
+>>>>>>> e6fdebe642cc14e8133d7e8145ec79a4702bb6d3
 [ext_resource path="res://assets/textures/tilemap/grass_24_tile + shadow.png" type="Texture" id=11]
 [ext_resource path="res://assets/textures/tilemap/path_24.png" type="Texture" id=12]
 [ext_resource path="res://assets/textures/tilemap/flowers+grass.png" type="Texture" id=13]
 [ext_resource path="res://assets/textures/tilemap/leaf_wall.png" type="Texture" id=14]
+
+
+
+
+
 
 [sub_resource type="TileSet" id=1]
 0/name = "fall_tree.png 0"

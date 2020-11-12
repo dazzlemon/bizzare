@@ -32,6 +32,7 @@ func state_set(state_):
 	if state != States.ATTACK:
 		animation_player.stop()
 
+
 func _ready() -> void:
 	randomize()
 	Utility.pick_random([States.IDLE, States.WANDER])
@@ -90,6 +91,7 @@ func attack() -> Vector2:
 
 func _can_attack() -> bool:
 	return attack_range.player != null
+
 
 func stop() -> Vector2:
 	return Vector2.ZERO

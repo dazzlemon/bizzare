@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/textures/temporary/laser3.png" type="Texture" id=1]
+[ext_resource path="res://src/attack/ray_hitscan/ray_hitscan.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/characters/base_npc/harpy_boss/phase_attacks/phase_3_attack_2/phase_3_attack_2_hitscan.gd" type="Script" id=3]
+[ext_resource path="res://src/characters/base_npc/harpy_boss/phase_attacks/phase_3_attack_2/phase_3_attack_2_rayhitscan_process.gd" type="Script" id=4]
+
+[node name="ray_hitscan" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+
+[node name="RayCast2D" parent="." index="2"]
+script = ExtResource( 4 )
+
+[node name="Sprite" parent="RayCast2D" index="0"]
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, -5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 10 )
