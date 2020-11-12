@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://assets/textures/tilemap/Trees_tile.png" type="Texture" id=1]
 [ext_resource path="res://src/characters/base_npc/harpy/harpy.tscn" type="PackedScene" id=2]
@@ -7,14 +7,7 @@
 [ext_resource path="res://assets/textures/tilemap/fall_tree.png" type="Texture" id=5]
 [ext_resource path="res://src/characters/base_npc/harpy_boss/harpy_boss.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/characters/base_npc/shadow/shadow.tscn" type="PackedScene" id=7]
-<<<<<<< HEAD
-[ext_resource path="res://assets/textures/tilemap/clouds_sheet.png" type="Texture" id=8]
-[ext_resource path="res://src/characters/base_npc/range/range_goblin/range_goblin.tscn" type="PackedScene" id=10]
-||||||| b9bf617
-[ext_resource path="res://src/characters/base_npc/range/range_goblin/range_goblin.tscn" type="PackedScene" id=10]
-=======
 [ext_resource path="res://src/characters/base_npc/orc_range/orc_range.tscn" type="PackedScene" id=10]
->>>>>>> e6fdebe642cc14e8133d7e8145ec79a4702bb6d3
 [ext_resource path="res://assets/textures/tilemap/grass_24_tile + shadow.png" type="Texture" id=11]
 [ext_resource path="res://assets/textures/tilemap/path_24.png" type="Texture" id=12]
 [ext_resource path="res://assets/textures/tilemap/flowers+grass.png" type="Texture" id=13]
@@ -592,13 +585,13 @@ points = PoolVector2Array( 38.706, 63.7018, 38.1677, 75.9492, 13.6727, 75.5455, 
 [sub_resource type="ConvexPolygonShape2D" id=57]
 points = PoolVector2Array( 38.3502, 64.1055, 38.4847, 75.5455, 15.4702, 76.2184, 15.201, 63.9709 )
 
-[sub_resource type="ConvexPolygonShape2D" id=58]
+[sub_resource type="ConvexPolygonShape2D" id=59]
 points = PoolVector2Array( 35.671, 64.8094, 36.8339, 73.9183, 15.9027, 70.8174, 13.9647, 62.8713 )
 
-[sub_resource type="ConvexPolygonShape2D" id=59]
+[sub_resource type="ConvexPolygonShape2D" id=60]
 points = PoolVector2Array( 38.8359, 66.3598, 38.6422, 70.8174, 30.8899, 73.7245, 14.9977, 70.4298, 12.8658, 65.197 )
 
-[sub_resource type="TileSet" id=60]
+[sub_resource type="TileSet" id=58]
 0/name = "Trees_tile.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -653,13 +646,13 @@ points = PoolVector2Array( 38.8359, 66.3598, 38.6422, 70.8174, 30.8899, 73.7245,
 "autotile_coord": Vector2( 5, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 58 ),
+"shape": SubResource( 59 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 6, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 59 ),
+"shape": SubResource( 60 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -684,29 +677,6 @@ points = PoolVector2Array( 38.8359, 66.3598, 38.6422, 70.8174, 30.8899, 73.7245,
 1/shape_one_way_margin = 0.0
 1/shapes = [  ]
 1/z_index = 0
-
-[sub_resource type="TileSet" id=61]
-0/name = "clouds_sheet.png 0"
-0/texture = ExtResource( 8 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 256, 45 )
-0/tile_mode = 2
-0/autotile/icon_coordinate = Vector2( 0, 0 )
-0/autotile/tile_size = Vector2( 64, 45 )
-0/autotile/spacing = 0
-0/autotile/occluder_map = [  ]
-0/autotile/navpoly_map = [  ]
-0/autotile/priority_map = [  ]
-0/autotile/z_index_map = [  ]
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
 
 [node name="level" type="Node2D"]
 script = ExtResource( 4 )
@@ -754,7 +724,7 @@ tile_data = PoolIntArray( -1441812, 0, 65536, -1441811, 0, 0, -1441810, 0, 5, -1
 [node name="Trees" type="TileMap" parent="."]
 show_behind_parent = true
 z_index = 6
-tile_set = SubResource( 60 )
+tile_set = SubResource( 58 )
 cell_size = Vector2( 24, 24 )
 cell_tile_origin = 2
 cell_y_sort = true
@@ -784,12 +754,3 @@ scale = Vector2( 0.909091, 0.909091 )
 [node name="orc_range" parent="Trees/YSort" instance=ExtResource( 10 )]
 position = Vector2( 251.029, -77.8547 )
 scale = Vector2( 0.909091, 0.909091 )
-
-[node name="TileMap" type="TileMap" parent="."]
-modulate = Color( 1, 1, 1, 0.25098 )
-scale = Vector2( 5, 5 )
-z_index = 999
-tile_set = SubResource( 61 )
-cell_size = Vector2( 24, 24 )
-format = 1
-tile_data = PoolIntArray( -65533, 0, 0, 65533, 0, 2, 196610, 0, 1, 327677, 0, 0 )
