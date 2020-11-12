@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shadow_sprite_sheet.png-cc7ae5b855cf5bf110bc734560a8960a.stex"
+path="res://.import/scythe.png-8819536014f98db83f997bb9b81c3977.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/shadow/shadow_sprite_sheet.png"
-dest_files=[ "res://.import/shadow_sprite_sheet.png-cc7ae5b855cf5bf110bc734560a8960a.stex" ]
+source_file="res://assets/textures/shadow/scythe.png"
+dest_files=[ "res://.import/scythe.png-8819536014f98db83f997bb9b81c3977.stex" ]
 
 [params]
 
