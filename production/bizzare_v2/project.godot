@@ -249,12 +249,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/loot/restore/full_restore/full_restore.gd"
 }, {
-"base": "BaseNPC",
+"base": "Reference",
 "class": "Goblin",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_melee/orc_melee.gd"
 }, {
-"base": "BaseNPCControl",
+"base": "Reference",
 "class": "GoblinControl",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_melee/orc_melee_control.gd"
@@ -499,7 +499,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_range/orc_range_control.gd"
 }, {
-"base": "BaseNPCStats",
+"base": "Reference",
 "class": "RangeOrcSprite",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_range/orc_range_stats.gd"
