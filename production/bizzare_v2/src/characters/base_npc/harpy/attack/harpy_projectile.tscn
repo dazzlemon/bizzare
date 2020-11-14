@@ -2,25 +2,20 @@
 
 [ext_resource path="res://src/attack/projectile/enemy/base_projectile_enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/harpy/attack/harpy_projectile.gd" type="Script" id=2]
-[ext_resource path="res://assets/textures/harpy/projectile/2(+8).png" type="Texture" id=3]
-[ext_resource path="res://assets/textures/harpy/projectile/3(+7).png" type="Texture" id=4]
-[ext_resource path="res://assets/textures/harpy/projectile/4(+6).png" type="Texture" id=5]
-[ext_resource path="res://assets/textures/harpy/projectile/5.png" type="Texture" id=6]
-[ext_resource path="res://assets/textures/harpy/projectile/1.png" type="Texture" id=7]
+[ext_resource path="res://assets/textures/harpy/projectile/projectile3.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/harpy/projectile/projectile5.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/harpy/projectile/projectile2.png" type="Texture" id=5]
+[ext_resource path="res://assets/textures/harpy/projectile/projectile1.png" type="Texture" id=6]
+[ext_resource path="res://assets/textures/harpy/projectile/projectile4.png" type="Texture" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "New Anim",
-"speed": 5.0
+"speed": 10.0
 } ]
 
 [node name="base_projectile" instance=ExtResource( 1 )]
@@ -35,5 +30,5 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="3"]
 frames = SubResource( 2 )
 animation = "New Anim"
-frame = 7
+frame = 1
 playing = true

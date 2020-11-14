@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/3(+7).png-1c9c23a6edef78944695ddafc81fc9e0.stex"
+path="res://.import/projectile3.png-7493ffce1f2f52d9cdf4a6d4dbd1411a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/harpy/projectile/3(+7).png"
-dest_files=[ "res://.import/3(+7).png-1c9c23a6edef78944695ddafc81fc9e0.stex" ]
+source_file="res://assets/textures/harpy/projectile/projectile3.png"
+dest_files=[ "res://.import/projectile3.png-7493ffce1f2f52d9cdf4a6d4dbd1411a.stex" ]
 
 [params]
 
