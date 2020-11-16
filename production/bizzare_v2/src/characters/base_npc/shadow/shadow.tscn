@@ -11,7 +11,7 @@
 [ext_resource path="res://src/attack/hitscan/enemy_hitscan/base_hitscan_enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/characters/base_npc/shadow/shadow.gd" type="Script" id=10]
 [ext_resource path="res://src/characters/base_npc/shadow/shadow_control.gd" type="Script" id=11]
-[ext_resource path="res://assets/textures/shadow/shadow_sprite_sheet.png" type="Texture" id=12]
+[ext_resource path="res://assets/textures/shadow/Shadow_sheet.png" type="Texture" id=12]
 [ext_resource path="res://src/characters/base_npc/shadow/attack/shadow_hitscan.gd" type="Script" id=13]
 [ext_resource path="res://assets/textures/shadow/shadow_hand.png" type="Texture" id=14]
 [ext_resource path="res://assets/textures/shadow/shadow_hand1.png" type="Texture" id=15]
@@ -20,8 +20,8 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
+length = 0.8
 loop = true
-step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -29,10 +29,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 0, 1 ]
+"values": [ 0, 1, 2, 3 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("pivot/sprite:position")
@@ -41,16 +41,16 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -1.5 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ) ]
 }
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle_left_down"
+length = 0.8
 loop = true
-step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -58,10 +58,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 4, 5, 4, 5 ]
+"values": [ 4, 5, 6, 7 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("pivot/sprite:flip_h")
@@ -73,7 +73,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("pivot/sprite:position")
@@ -82,15 +82,16 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -1.5 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ) ]
 }
 
 [sub_resource type="Animation" id=3]
+resource_name = "idle_left_up"
+length = 0.8
 loop = true
-step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -98,10 +99,51 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 6, 7, 6, 7 ]
+"values": [ 8, 9, 10, 11 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pivot/sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pivot/sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle_right_down "
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("pivot/sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("pivot/sprite:flip_h")
@@ -122,55 +164,16 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -1.5 ) ]
-}
-
-[sub_resource type="Animation" id=4]
-loop = true
-step = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath("pivot/sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 4, 5, 4, 5 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("pivot/sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -1.5 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("pivot/sprite:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ) ]
 }
 
 [sub_resource type="Animation" id=5]
+resource_name = "idle_right_up "
+length = 0.8
 loop = true
-step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -178,10 +181,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 6, 7, 6, 7 ]
+"values": [ 8, 9, 10, 11 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("pivot/sprite:flip_h")
@@ -193,7 +196,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("pivot/sprite:position")
@@ -202,15 +205,16 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -1.5 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ) ]
 }
 
 [sub_resource type="Animation" id=6]
+resource_name = "idle_up"
+length = 0.8
 loop = true
-step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -218,10 +222,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 2, 3, 2, 3 ]
+"values": [ 12, 13, 14, 15 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("pivot/sprite:position")
@@ -230,10 +234,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -1.5 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ) ]
 }
 
 [sub_resource type="AnimationNodeAnimation" id=7]
@@ -246,13 +250,13 @@ animation = "idle_left_down"
 animation = "idle_down"
 
 [sub_resource type="AnimationNodeAnimation" id=10]
-animation = "idle_right_down"
+animation = "idle_right_down "
 
 [sub_resource type="AnimationNodeAnimation" id=11]
-animation = "idle_right_down"
+animation = "idle_right_down "
 
 [sub_resource type="AnimationNodeAnimation" id=12]
-animation = "idle_right_up"
+animation = "idle_right_up "
 
 [sub_resource type="AnimationNodeAnimation" id=13]
 animation = "idle_up"
@@ -369,8 +373,8 @@ script = ExtResource( 10 )
 anims/idle_down = SubResource( 1 )
 anims/idle_left_down = SubResource( 2 )
 anims/idle_left_up = SubResource( 3 )
-anims/idle_right_down = SubResource( 4 )
-anims/idle_right_up = SubResource( 5 )
+"anims/idle_right_down " = SubResource( 4 )
+"anims/idle_right_up " = SubResource( 5 )
 anims/idle_up = SubResource( 6 )
 
 [node name="Tween" type="Tween" parent="."]
@@ -380,7 +384,7 @@ tree_root = SubResource( 16 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 17 )
-parameters/idle/blend_position = Vector2( 0, 0 )
+parameters/idle/blend_position = Vector2( -0.010557, 1.09553 )
 
 [node name="AttackPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
@@ -402,11 +406,10 @@ shape = SubResource( 20 )
 
 [node name="sprite" type="Sprite" parent="pivot"]
 visible = false
-position = Vector2( 0, -0.573284 )
+position = Vector2( 0, -0.530126 )
 texture = ExtResource( 12 )
-flip_h = true
-hframes = 8
-frame = 5
+hframes = 16
+frame = 1
 
 [node name="hands" type="Sprite" parent="pivot"]
 visible = false
