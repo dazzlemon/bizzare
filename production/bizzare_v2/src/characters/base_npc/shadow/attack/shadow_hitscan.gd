@@ -12,7 +12,7 @@ onready var hands = pivot.get_node("hands")
 onready var tween = get_node("../Tween")
 
 func _ready():
-	_INTERVAL = 0.6
+	_INTERVAL = 0.5
 
 
 func _process(delta):
@@ -29,7 +29,8 @@ func _start() -> void:
 func _on_Tween_tween_completed(object, key):
 	if is_attacked:
 		is_attacked = not is_attacked
-		tween.interpolate_property(hands, "rotation_degrees", hands.rotation_degrees , hands.rotation_degrees - 120 , 0.4 , Tween.TRANS_SINE, Tween.EASE_IN , 0) #0.39 cause 0.4 sometimes triggers twice
+		tween.interpolate_property(hands, "rotation_degrees", hands.rotation_degrees , hands.rotation_degrees - 120 , 0.3 , Tween.TRANS_SINE, Tween.EASE_IN , 0) #0.39 cause 0.4 sometimes triggers twice
+
 
 func crit_test():
 	if critical:

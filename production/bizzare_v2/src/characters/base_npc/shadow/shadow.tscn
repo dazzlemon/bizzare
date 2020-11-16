@@ -347,10 +347,10 @@ shape = SubResource( 18 )
 visible = false
 
 [node name="sprite" type="Sprite" parent="pivot"]
-position = Vector2( 0, -0.266621 )
+position = Vector2( 0, -0.744437 )
 texture = ExtResource( 12 )
 hframes = 16
-frame = 3
+frame = 2
 
 [node name="hands" type="Sprite" parent="pivot"]
 position = Vector2( 0, 2 )
