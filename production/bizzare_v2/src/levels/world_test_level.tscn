@@ -13,11 +13,6 @@
 [ext_resource path="res://assets/textures/tilemap/flowers+grass.png" type="Texture" id=13]
 [ext_resource path="res://assets/textures/tilemap/leaf_wall.png" type="Texture" id=14]
 
-
-
-
-
-
 [sub_resource type="TileSet" id=1]
 0/name = "fall_tree.png 0"
 0/texture = ExtResource( 5 )
@@ -585,13 +580,13 @@ points = PoolVector2Array( 38.706, 63.7018, 38.1677, 75.9492, 13.6727, 75.5455, 
 [sub_resource type="ConvexPolygonShape2D" id=57]
 points = PoolVector2Array( 38.3502, 64.1055, 38.4847, 75.5455, 15.4702, 76.2184, 15.201, 63.9709 )
 
-[sub_resource type="ConvexPolygonShape2D" id=59]
+[sub_resource type="ConvexPolygonShape2D" id=58]
 points = PoolVector2Array( 35.671, 64.8094, 36.8339, 73.9183, 15.9027, 70.8174, 13.9647, 62.8713 )
 
-[sub_resource type="ConvexPolygonShape2D" id=60]
+[sub_resource type="ConvexPolygonShape2D" id=59]
 points = PoolVector2Array( 38.8359, 66.3598, 38.6422, 70.8174, 30.8899, 73.7245, 14.9977, 70.4298, 12.8658, 65.197 )
 
-[sub_resource type="TileSet" id=58]
+[sub_resource type="TileSet" id=60]
 0/name = "Trees_tile.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -646,13 +641,13 @@ points = PoolVector2Array( 38.8359, 66.3598, 38.6422, 70.8174, 30.8899, 73.7245,
 "autotile_coord": Vector2( 5, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 59 ),
+"shape": SubResource( 58 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 6, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 60 ),
+"shape": SubResource( 59 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -724,7 +719,7 @@ tile_data = PoolIntArray( -1441812, 0, 65536, -1441811, 0, 0, -1441810, 0, 5, -1
 [node name="Trees" type="TileMap" parent="."]
 show_behind_parent = true
 z_index = 6
-tile_set = SubResource( 58 )
+tile_set = SubResource( 60 )
 cell_size = Vector2( 24, 24 )
 cell_tile_origin = 2
 cell_y_sort = true
