@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://src/AI/attack_range.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/AI/player_detection_zone.tscn" type="PackedScene" id=2]
@@ -13,8 +13,7 @@
 [ext_resource path="res://src/characters/base_npc/shadow/shadow_control.gd" type="Script" id=11]
 [ext_resource path="res://assets/textures/shadow/Shadow_sheet.png" type="Texture" id=12]
 [ext_resource path="res://src/characters/base_npc/shadow/attack/shadow_hitscan.gd" type="Script" id=13]
-[ext_resource path="res://assets/textures/shadow/shadow_hand.png" type="Texture" id=14]
-[ext_resource path="res://assets/textures/shadow/shadow_hand1.png" type="Texture" id=15]
+[ext_resource path="res://assets/textures/shadow/scythe.png" type="Texture" id=14]
 [ext_resource path="res://src/characters/base_npc/shadow/stats.gd" type="Script" id=16]
 [ext_resource path="res://src/characters/base_npc/shadow/invise_range/invis.tscn" type="PackedScene" id=17]
 
@@ -292,76 +291,20 @@ start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
-[sub_resource type="Animation" id=18]
-length = 0.45
-step = 0.09
-tracks/0/type = "value"
-tracks/0/path = NodePath("pivot/left_hand:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.09, 0.18, 0.27, 0.36 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("pivot/left_hand:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=19]
-length = 0.45
-step = 0.09
-tracks/0/type = "value"
-tracks/0/path = NodePath("pivot/hands:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.09, 0.18, 0.27, 0.36 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("pivot/hands:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="CircleShape2D" id=20]
+[sub_resource type="CircleShape2D" id=18]
 radius = 8.79366
 
-[sub_resource type="CapsuleShape2D" id=21]
+[sub_resource type="CapsuleShape2D" id=19]
 radius = 3.42415
 height = 8.67005
 
-[sub_resource type="CircleShape2D" id=22]
+[sub_resource type="CircleShape2D" id=20]
 radius = 25.0
 
-[sub_resource type="CircleShape2D" id=23]
+[sub_resource type="CircleShape2D" id=21]
 radius = 300.0
 
-[sub_resource type="CircleShape2D" id=24]
+[sub_resource type="CircleShape2D" id=22]
 radius = 12.7785
 
 [node name="base_npc" type="KinematicBody2D"]
@@ -388,8 +331,6 @@ parameters/idle/blend_position = Vector2( -0.010557, 1.09553 )
 
 [node name="AttackPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
-anims/left_hand = SubResource( 18 )
-anims/right_hand = SubResource( 19 )
 
 [node name="attack" parent="." instance=ExtResource( 9 )]
 script = ExtResource( 13 )
@@ -400,46 +341,34 @@ collision_mask = 4
 
 [node name="CollisionShape2D" parent="attack/Position2D/hitbox" index="0"]
 position = Vector2( 20, 0 )
-shape = SubResource( 20 )
+shape = SubResource( 18 )
 
 [node name="pivot" type="Position2D" parent="."]
+visible = false
 
 [node name="sprite" type="Sprite" parent="pivot"]
-visible = false
-position = Vector2( 0, -0.530126 )
+position = Vector2( 0, -0.266621 )
 texture = ExtResource( 12 )
 hframes = 16
-frame = 1
+frame = 3
 
 [node name="hands" type="Sprite" parent="pivot"]
-visible = false
-position = Vector2( 3, 1 )
+position = Vector2( 0, 2 )
 texture = ExtResource( 14 )
-offset = Vector2( 3, -1 )
+offset = Vector2( -1, -4 )
 flip_h = true
-hframes = 4
 script = ExtResource( 4 )
 
 [node name="shadow" type="Sprite" parent="pivot"]
-visible = false
 position = Vector2( 0, -7.02332 )
 z_index = -1
 texture = ExtResource( 6 )
 offset = Vector2( 0, 20 )
 
-[node name="left_hand" type="Sprite" parent="pivot"]
-visible = false
-position = Vector2( -4, 1 )
-texture = ExtResource( 15 )
-offset = Vector2( 3, -1 )
-flip_h = true
-hframes = 4
-script = ExtResource( 4 )
-
 [node name="collision_box" type="CollisionShape2D" parent="."]
 position = Vector2( 0.420456, 13.4543 )
 rotation = 1.5708
-shape = SubResource( 21 )
+shape = SubResource( 19 )
 
 [node name="control" type="Control" parent="."]
 visible = false
@@ -459,13 +388,13 @@ collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionShape2D" parent="control/attack_range" index="0"]
-shape = SubResource( 22 )
+shape = SubResource( 20 )
 
 [node name="player_detection_zone" parent="control" instance=ExtResource( 2 )]
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
 z_as_relative = false
-shape = SubResource( 23 )
+shape = SubResource( 21 )
 
 [node name="LookAt" parent="control/player_detection_zone" index="1"]
 cast_to = Vector2( 0, -50 )
@@ -492,7 +421,7 @@ collision_mask = 0
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-shape = SubResource( 24 )
+shape = SubResource( 22 )
 
 [node name="crosshair" type="Position2D" parent="."]
 z_index = 999
@@ -500,6 +429,7 @@ z_as_relative = false
 script = ExtResource( 5 )
 
 [node name="sprite" type="Sprite" parent="crosshair"]
+[connection signal="tween_completed" from="Tween" to="attack" method="_on_Tween_tween_completed"]
 [connection signal="damage_from_behind" from="stats" to="control/player_detection_zone" method="_on_stats_damage_from_behind"]
 [connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
