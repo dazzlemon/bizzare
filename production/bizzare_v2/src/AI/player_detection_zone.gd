@@ -21,13 +21,13 @@ func _on_area_exited(_area: Area2D) -> void:
 
 
 func can_see_player() -> bool:
-	if has_player_inside_fov():
+	var ret = has_player_inside_fov()
+	if ret:
 		look_at.cast_to = player.global_position - look_at.global_position
-		if look_at.is_colliding():
-			return look_at.get_collider() is BaseNPC#to see trough NPC's
-		else:
-			return true
-	return false
+		ret = not look_at.is_colliding()
+		if not ret:
+			ret = look_at.get_collider() is BaseNPC#to see trough NPC's
+	return ret
 
 
 func has_player_inside_fov() -> bool:#player is inside this enemy instance fov
@@ -41,7 +41,7 @@ func has_actual_player_inside_fov() -> bool:
 func _on_stats_damage_from_behind() -> void:
 	if player != null:#look at player
 		look_at.cast_to = player.global_position - look_at.global_position
-		if attack_range != null and attack_range.player != null:###for range
+		if attack_range.player != null:
 			parent.state = parent.States.ATTACK
 		else:
 			parent.state = parent.States.CHASE

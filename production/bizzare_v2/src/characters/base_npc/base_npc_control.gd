@@ -24,10 +24,11 @@ enum States {
 
 func state_set(state_):
 	if state != States.DASH:
-		if (state_ == States.ATTACK or state_ == States.CHASE) and player_detection_zone.can_see_player():
-			if state_ == States.CHASE and attack_range != null and attack_range.player != null:
+		if player_detection_zone.can_see_player():
+			if state_ == States.CHASE and attack_range.player != null:
 				return
-			player_detection_zone.look_at.cast_to = player_detection_zone.player.global_position - owner.global_position
+			#if state_ == States.ATTACK:
+			#	player_detection_zone.look_at.cast_to = player_detection_zone.player.global_position - owner.global_position
 		state = state_
 	if state != States.ATTACK:
 		animation_player.stop()
