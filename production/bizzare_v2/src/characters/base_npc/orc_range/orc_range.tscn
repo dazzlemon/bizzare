@@ -501,7 +501,6 @@ rotation = 1.5708
 shape = SubResource( 36 )
 
 [node name="control" type="Control" parent="."]
-visible = false
 margin_top = 0.111362
 margin_right = 40.0
 margin_bottom = 40.1114

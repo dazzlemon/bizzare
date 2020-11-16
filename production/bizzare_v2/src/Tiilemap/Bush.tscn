@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/textures/tilemap/bush.png" type="Texture" id=1]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 5.13173, 17.1419, 14.7772, 15.1231, 35.7505, 15.3474, 44.723, 17.1419, 44.723, 24.8807, 42.0313, 31.9466, 38.1058, 35.872, 32.1615, 40.134, 29.1332, 41.1434, 21.1701, 41.1434, 14.8894, 39.0124, 10.9639, 35.872, 6.92624, 31.1615, 6.14114, 26.2266 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "bush.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( -1, 0, 51, 47 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[node name="bush" type="TileMap"]
+tile_set = SubResource( 2 )
+cell_size = Vector2( 24, 24 )
+cell_tile_origin = 1
+cell_y_sort = true
+centered_textures = true
+collision_mask = 11
+format = 1
