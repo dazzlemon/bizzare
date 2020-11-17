@@ -492,7 +492,7 @@ parameters/run/blend_position = Vector2( 0.000683069, 0.974409 )
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 16
-frame = 10
+frame = 8
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 0, 6 )
@@ -526,6 +526,7 @@ texture_progress = ExtResource( 10 )
 texture_progress = ExtResource( 11 )
 
 [node name="HUD" parent="Camera2D" index="1"]
+visible = false
 margin_left = -240.0
 margin_top = 0.0
 margin_right = -3.0
