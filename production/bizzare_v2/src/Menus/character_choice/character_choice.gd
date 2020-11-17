@@ -5,12 +5,14 @@ class PlayableChar:
 	var stats_script
 	var scene_script 
 	var texture
+	var flip_h
 
-	func _init(scene, stats_script, scene_script, texture):
+	func _init(scene, stats_script, scene_script, texture, flip_h = false):
 		self.scene = scene
 		self.stats_script = stats_script
 		self.scene_script = scene_script
 		self.texture = texture
+		self.flip_h = flip_h
 
 var knight = PlayableChar.new(
 	preload("res://src/characters/base_player/knight/knight.tscn"),
@@ -22,7 +24,7 @@ var archer = PlayableChar.new(
 	preload("res://src/characters/base_player/archer/archer.tscn"),
 	preload("res://src/characters/base_player/archer/archer_stats.gd"),
 	preload("res://src/characters/base_player/archer/archer.gd"),
-	load("res://assets/textures/archer/archer24.png")
+	load("res://assets/textures/archer/archer24.png"), true
 )
 
 var mage = PlayableChar.new(
@@ -43,7 +45,6 @@ func _on_start_button_pressed():
 
 func _change_class(class_str):
 	var _class = .get(class_str)
-	if _class != player_class and (_class == archer or player_class == archer):
-		icon.flip_h = not icon.flip_h
 	player_class = _class
 	icon.texture = _class.texture
+	icon.flip_h = _class.flip_h
