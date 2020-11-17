@@ -82,6 +82,6 @@ margin_right = 91.0
 margin_bottom = 80.0
 texture_normal = ExtResource( 2 )
 [connection signal="pressed" from="start_button" to="CharacterChoise" method="_on_start_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/CenterContainer/KnightButton" to="CharacterChoise" method="_on_KnightButton_pressed"]
-[connection signal="pressed" from="HBoxContainer/CenterContainer3/MageButton" to="CharacterChoise" method="_on_MageButton_pressed"]
-[connection signal="pressed" from="HBoxContainer/CenterContainer2/ArcherButton" to="CharacterChoise" method="_on_ArcherButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/CenterContainer/KnightButton" to="CharacterChoise" method="_change_class" binds= [ "knight" ]]
+[connection signal="pressed" from="HBoxContainer/CenterContainer3/MageButton" to="CharacterChoise" method="_change_class" binds= [ "mage" ]]
+[connection signal="pressed" from="HBoxContainer/CenterContainer2/ArcherButton" to="CharacterChoise" method="_change_class" binds= [ "archer" ]]
