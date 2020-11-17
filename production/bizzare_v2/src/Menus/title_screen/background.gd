@@ -34,5 +34,5 @@ func tilemap_cell_to_pix_trans(tilemap):
 
 func instance():
 	var instance = scene.instance()
-	instance.global_position.x = get_viewport_rect().size.x + 24# + 12#+12 razrab nasral?
+	instance.global_position.x = viewport_width - 24#-24, so last column overlaps first
 	get_node("../").call_deferred("add_child", instance)
