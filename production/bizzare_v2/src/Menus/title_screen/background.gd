@@ -28,10 +28,10 @@ func calculate_width(tilemap):
 
 
 func tilemap_cell_to_pix_trans(tilemap):
-	var origin = Vector2(tilemap.cell_size.x * tilemap.scale.x, 0)
-	var x = Vector2(0, tilemap.cell_size.y * tilemap.scale.y)
-	var y = Vector2.ZERO
-	return Transform2D(origin, x, y)
+	var x = Vector2(tilemap.cell_size.x * tilemap.scale.x, 0)
+	var y = Vector2(0, tilemap.cell_size.y * tilemap.scale.y)
+	var origin = Vector2.ZERO
+	return Transform2D(x, y, origin)
 
 
 func instance():
