@@ -15,7 +15,7 @@ func _process(delta):
 	if -global_position.x >= width - viewport_width:
 		emit_signal("instance_next")
 	global_position += speed * delta * direction
-	if -global_position.x >= width + 100:
+	if -global_position.x >= width:
 		queue_free()
 
 
