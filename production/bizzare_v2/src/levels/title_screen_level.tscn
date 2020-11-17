@@ -216,5 +216,6 @@ tile_data = PoolIntArray( 64, 0, 0, 65563, 0, 0, 262195, 0, 0, 327700, 0, 0, 524
 [node name="bush" parent="Trees/YSort" instance=ExtResource( 1 )]
 tile_set = SubResource( 12 )
 tile_data = PoolIntArray( 131130, 0, 0, 131142, 0, 0, 196615, 0, 0, 196634, 0, 0, 262186, 0, 0, 262223, 0, 0, 458818, 0, 0, 589839, 0, 0, 589862, 0, 0, 589885, 0, 0 )
+[connection signal="instance_next" from="." to="." method="instance" flags=6]
 
 [editable path="Grass_24_shadow"]

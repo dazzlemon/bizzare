@@ -15,3 +15,4 @@ func play():
 
 func quit():
 	get_tree().quit()
+
