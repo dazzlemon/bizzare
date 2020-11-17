@@ -3,18 +3,16 @@ extends Node2D
 
 signal instance_next
 
-var speed = 3000
+var speed = 300
 var direction = Vector2.LEFT
 var scene = load("res://src/levels/title_screen_level.tscn")
-var width
 
 onready var tilemap = get_node("Grass_24_shadow")
-
-func _ready():
-	width = calculate_width(tilemap)
+onready var width = calculate_width(tilemap)
+onready var viewport_width = get_viewport_rect().size.x + 60
 
 func _process(delta):
-	if -global_position.x >= width - 540:
+	if -global_position.x >= width - viewport_width:
 		emit_signal("instance_next")
 	global_position += speed * delta * direction
 	if -global_position.x >= width + 100:
@@ -36,5 +34,5 @@ func tilemap_cell_to_pix_trans(tilemap):
 
 func instance():
 	var instance = scene.instance()
-	instance.global_position = Vector2(516,0) ######IDK WHY 516 , Seems like razrab nasral NEED TO BE 504
+	instance.global_position.x = get_viewport_rect().size.x + 24# + 12#+12 razrab nasral?
 	get_node("../").call_deferred("add_child", instance)
