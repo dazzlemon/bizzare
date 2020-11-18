@@ -24,16 +24,9 @@ enum States {
 
 func state_set(state_):
 	if state != States.DASH:
-		if player_detection_zone.can_see_player() and state_ == States.CHASE and attack_range.player != null:
-			return
 		state = state_
 	if state != States.ATTACK:
 		animation_player.stop()
-
-
-func _ready() -> void:
-	randomize()
-	Utility.pick_random([States.IDLE, States.WANDER])
 
 
 func get_input_vector() -> Vector2:
@@ -65,25 +58,23 @@ func chase() -> Vector2:
 	var direction := Vector2.ZERO
 	if not player_detection_zone.can_see_player():
 		state = Utility.pick_random([States.IDLE, States.WANDER])
+	elif _can_attack():
+		state = States.ATTACK
 	else:
-		if _can_attack():
-			state = States.ATTACK
-		else:
-			var player_pos = player_detection_zone.player.global_position
-			var owner_pos = owner.global_position
-			direction = owner_pos.direction_to(player_pos)
+		var player_pos = player_detection_zone.player.global_position
+		var owner_pos = owner.global_position
+		direction = owner_pos.direction_to(player_pos)
 	return direction
 
 
 func attack() -> Vector2:
 	if not player_detection_zone.can_see_player():
-		state = Utility.pick_random([States.IDLE, States.WANDER])
+		state_set(Utility.pick_random([States.IDLE, States.WANDER]))#roflofix?
+	elif not _can_attack():
+		state_set(States.CHASE)#roflofix?
 	else:
-		if not _can_attack():
-			state = States.CHASE
-		else:
-			get_node("../crosshair").global_position = player_detection_zone.player.global_position
-			get_node("../attack").try_use()
+		get_node("../crosshair").global_position = player_detection_zone.player.global_position
+		get_node("../attack").try_use()
 	return Vector2.ZERO
 
 
