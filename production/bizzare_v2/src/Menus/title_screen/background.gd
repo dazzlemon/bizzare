@@ -3,7 +3,7 @@ extends Node2D
 
 signal instance_next
 
-var speed = 300
+var speed = 30
 var direction = Vector2.LEFT
 var scene = load("res://src/levels/title_screen_level.tscn")
 
