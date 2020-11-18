@@ -513,7 +513,6 @@ shape = SubResource( 36 )
 [node name="attack" parent="." index="8" instance=ExtResource( 2 )]
 
 [node name="HUD" parent="Camera2D" index="1"]
-visible = false
 margin_left = -239.0
 margin_top = 0.0
 margin_right = -2.0

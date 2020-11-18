@@ -492,7 +492,7 @@ parameters/run/blend_position = Vector2( 0.000683069, 0.974409 )
 texture = ExtResource( 4 )
 flip_h = true
 hframes = 16
-frame = 10
+frame = 8
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 0, 6 )
@@ -501,7 +501,6 @@ texture = ExtResource( 9 )
 offset = Vector2( 7, 0.5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="pivot/hands" index="0"]
-visible = false
 position = Vector2( 23, -3 )
 rotation = 1.5708
 scale = Vector2( 1, 0.8 )
@@ -526,7 +525,6 @@ texture_progress = ExtResource( 10 )
 texture_progress = ExtResource( 11 )
 
 [node name="HUD" parent="Camera2D" index="1"]
-visible = false
 margin_left = -240.0
 margin_top = 0.0
 margin_right = -3.0

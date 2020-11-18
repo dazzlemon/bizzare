@@ -15,9 +15,6 @@
 [ext_resource path="res://src/etc/huds/spell_cd_hud.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/characters/base_player/shift_dodge.tscn" type="PackedScene" id=14]
 
-
-
-
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
 [node name="base_player" instance=ExtResource( 1 )]
@@ -88,11 +85,11 @@ margin_bottom = -74.0
 [node name="Inventory" type="Node" parent="." index="9"]
 script = ExtResource( 5 )
 
-[node name="hurtbox" parent="." index="10"]
+[node name="stats" parent="." index="10"]
+script = ExtResource( 2 )
+
+[node name="hurtbox" parent="." index="11"]
 collision_layer = 4
 collision_mask = 72
-
-[node name="stats" parent="." index="11"]
-script = ExtResource( 2 )
 
 [editable path="Camera2D/currency_hud"]

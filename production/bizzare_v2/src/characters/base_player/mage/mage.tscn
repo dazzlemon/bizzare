@@ -473,9 +473,6 @@ position = Vector2( 0.420456, 12.2981 )
 rotation = 1.5708
 shape = SubResource( 35 )
 
-[node name="HUD" parent="Camera2D" index="1"]
-visible = false
-
 [node name="stats" parent="." index="11"]
 script = ExtResource( 2 )
 

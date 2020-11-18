@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://src/characters/base_npc/harpy_boss/apprentices/apprentice.gd" type="Script" id=1]
 [ext_resource path="res://src/characters/base_npc/harpy_boss/apprentices/control.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://assets/textures/harpy/shadow.png" type="Texture" id=11]
 [ext_resource path="res://src/characters/hands.gd" type="Script" id=12]
 [ext_resource path="res://src/characters/crosshair.gd" type="Script" id=13]
+[ext_resource path="res://src/characters/anim_tree.gd" type="Script" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "process"
@@ -157,6 +158,7 @@ active = true
 parameters/playback = SubResource( 23 )
 parameters/idle/blend_position = Vector2( 0, 0 )
 parameters/run/blend_position = Vector2( 0, 0 )
+script = ExtResource( 14 )
 
 [node name="AttackPlayer" type="AnimationPlayer" parent="."]
 

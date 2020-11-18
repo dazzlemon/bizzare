@@ -30,7 +30,6 @@ func _physics_process(delta):
 
 
 func drop_loot() -> void:
-	randomize()
 	_try_coins()
 	_try_drop()
 
@@ -45,20 +44,17 @@ func _try_drop():
 			spawn_instance(drop)
 			break
 
+
 func _try_coins():
 	var coins_random = randi() % 5 + 1
 	print(coins_random)##################DEBUG
 	if coins_random == 1:
-		pass
-	elif coins_random == 2:
+		return
+	if coins_random != 4:
 		spawn_instance(currency_coins_scene)
-	elif coins_random == 3:
-		spawn_instance(currency_coins_scene)
-		spawn_instance(currency_coins_scene)
-	elif coins_random == 4:
+	if coins_random >= 4:
 		spawn_instance(currency_bag_scene)
-	elif coins_random == 5: 
-		spawn_instance(currency_bag_scene)
+	if coins_random == 3:
 		spawn_instance(currency_coins_scene)
 
 
