@@ -49,7 +49,7 @@ func wander() -> Vector2:
 	var direction = owner.global_position.direction_to(wander_controller.position_target)
 	raycast.cast_to = direction * 20
 	if owner.global_position.distance_to(wander_controller.position_target) <= wander_target_range:
-		state = Utility.pick_random([States.IDLE, States.WANDER])
+		_reset()
 		wander_controller.start_wander_timer(rand_range(1, 3))
 	return direction
 
@@ -57,7 +57,7 @@ func wander() -> Vector2:
 func chase() -> Vector2:
 	var direction := Vector2.ZERO
 	if not player_detection_zone.can_see_player():
-		state = Utility.pick_random([States.IDLE, States.WANDER])
+		_reset()
 	elif _can_attack():
 		state = States.ATTACK
 	else:
@@ -69,7 +69,7 @@ func chase() -> Vector2:
 
 func attack() -> Vector2:
 	if not player_detection_zone.can_see_player():
-		state_set(Utility.pick_random([States.IDLE, States.WANDER]))#roflofix?
+		_reset()
 	elif not _can_attack():
 		state_set(States.CHASE)#roflofix?
 	else:
@@ -90,7 +90,11 @@ func dash() -> Vector2:
 	return Vector2.ZERO
 
 
+func _reset():
+	state_set(Utility.pick_random([States.IDLE, States.WANDER]))#roflofix?
+
+
 func wander_controller() -> void:
 	if wander_controller.get_time_left() == 0:
-		state = Utility.pick_random([States.IDLE, States.WANDER])
+		_reset()
 		wander_controller.start_wander_timer(rand_range(1, 1.5))
