@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://src/characters/base_player/base_player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_player/knight/knight.gd" type="Script" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://assets/textures/etc/melee_attack/Melee_attack3.png" type="Texture" id=16]
 [ext_resource path="res://assets/textures/etc/melee_attack/Melee_attack2.png" type="Texture" id=17]
 [ext_resource path="res://assets/textures/etc/melee_attack/Melee_attack4.png" type="Texture" id=18]
+[ext_resource path="res://src/characters/base_player/knight/anim_tree.gd" type="Script" id=19]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
@@ -487,6 +488,7 @@ tree_root = SubResource( 33 )
 parameters/playback = SubResource( 34 )
 parameters/idle/blend_position = Vector2( -0.00819671, 0.559483 )
 parameters/run/blend_position = Vector2( 0.000683069, 0.974409 )
+script = ExtResource( 19 )
 
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 4 )

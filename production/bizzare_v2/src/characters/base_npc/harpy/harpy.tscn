@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://src/AI/attack_range.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/etc/status_bars/npc_health/npc_health_bar.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://src/characters/base_npc/harpy/harpy_stats.gd" type="Script" id=11]
 [ext_resource path="res://src/characters/base_npc/harpy/harpy.gd" type="Script" id=12]
 [ext_resource path="res://assets/textures/harpy/harpy_sheet.png" type="Texture" id=13]
+[ext_resource path="res://src/characters/base_npc/harpy/anim_tree.gd" type="Script" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
@@ -122,7 +123,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -2 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "idle_right_down"
 loop = true
 tracks/0/type = "value"
@@ -162,8 +163,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -2 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "idle_right_up "
+[sub_resource type="Animation" id=5]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
@@ -230,69 +230,69 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -2 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "idle_left_down"
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "idle_left_down"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "idle_down"
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "idle_right_down"
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "idle_right_down"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=12]
 animation = "idle_right_up "
 
-[sub_resource type="AnimationNodeAnimation" id=20]
+[sub_resource type="AnimationNodeAnimation" id=13]
 animation = "idle_up"
 
-[sub_resource type="AnimationNodeAnimation" id=21]
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "idle_left_up"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=7]
-blend_point_0/node = SubResource( 14 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=15]
+blend_point_0/node = SubResource( 7 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 15 )
+blend_point_1/node = SubResource( 8 )
 blend_point_1/pos = Vector2( -0.6, 0.7 )
-blend_point_2/node = SubResource( 16 )
+blend_point_2/node = SubResource( 9 )
 blend_point_2/pos = Vector2( 0, 1.1 )
-blend_point_3/node = SubResource( 17 )
+blend_point_3/node = SubResource( 10 )
 blend_point_3/pos = Vector2( 0.6, 0.7 )
-blend_point_4/node = SubResource( 18 )
+blend_point_4/node = SubResource( 11 )
 blend_point_4/pos = Vector2( 1, 0 )
-blend_point_5/node = SubResource( 19 )
+blend_point_5/node = SubResource( 12 )
 blend_point_5/pos = Vector2( 0.6, -0.7 )
-blend_point_6/node = SubResource( 20 )
+blend_point_6/node = SubResource( 13 )
 blend_point_6/pos = Vector2( 0, -1.1 )
-blend_point_7/node = SubResource( 21 )
+blend_point_7/node = SubResource( 14 )
 blend_point_7/pos = Vector2( -0.6, -0.7 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachine" id=8]
-states/idle/node = SubResource( 7 )
+[sub_resource type="AnimationNodeStateMachine" id=16]
+states/idle/node = SubResource( 15 )
 states/idle/position = Vector2( 537, 99 )
 start_node = "idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
-[sub_resource type="CapsuleShape2D" id=10]
+[sub_resource type="CapsuleShape2D" id=18]
 radius = 5.49299
 height = 18.0273
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=19]
 radius = 78.622
 
-[sub_resource type="CircleShape2D" id=12]
+[sub_resource type="CircleShape2D" id=20]
 radius = 156.149
 
-[sub_resource type="CircleShape2D" id=13]
+[sub_resource type="CircleShape2D" id=21]
 radius = 17.9834
 
 [node name="base_npc" type="KinematicBody2D"]
@@ -304,28 +304,29 @@ script = ExtResource( 12 )
 anims/idle_down = SubResource( 1 )
 anims/idle_left_down = SubResource( 2 )
 anims/idle_left_up = SubResource( 3 )
-anims/idle_right_down = SubResource( 5 )
-"anims/idle_right_up " = SubResource( 4 )
+anims/idle_right_down = SubResource( 4 )
+"anims/idle_right_up " = SubResource( 5 )
 anims/idle_up = SubResource( 6 )
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 8 )
+tree_root = SubResource( 16 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 9 )
+parameters/playback = SubResource( 17 )
 parameters/idle/blend_position = Vector2( -0.00109208, -0.00188684 )
+script = ExtResource( 14 )
 
 [node name="AttackPlayer" type="AnimationPlayer" parent="."]
 
 [node name="pivot" type="Position2D" parent="."]
 
 [node name="sprite" type="Sprite" parent="pivot"]
-position = Vector2( 0, -0.288512 )
+position = Vector2( 0, -0.343838 )
 texture = ExtResource( 13 )
 hframes = 24
-frame = 13
+frame = 12
 
 [node name="hands" type="Sprite" parent="pivot"]
 script = ExtResource( 5 )
@@ -339,7 +340,7 @@ texture = ExtResource( 9 )
 [node name="collision_box" type="CollisionShape2D" parent="."]
 position = Vector2( -0.280617, 13.7502 )
 rotation = 1.5708
-shape = SubResource( 10 )
+shape = SubResource( 18 )
 
 [node name="control" type="Control" parent="."]
 margin_right = 40.0
@@ -354,13 +355,13 @@ collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionShape2D" parent="control/attack_range" index="0"]
-shape = SubResource( 11 )
+shape = SubResource( 19 )
 
 [node name="player_detection_zone" parent="control" instance=ExtResource( 8 )]
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
 position = Vector2( -1.66855, 0.667419 )
-shape = SubResource( 12 )
+shape = SubResource( 20 )
 
 [node name="wander_controller" parent="control" instance=ExtResource( 3 )]
 
@@ -383,7 +384,7 @@ collision_mask = 0
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-shape = SubResource( 13 )
+shape = SubResource( 21 )
 
 [node name="crosshair" type="Position2D" parent="."]
 z_index = 999

@@ -7,15 +7,6 @@ export var ACCEL: float = 2000
 export var DECEL: float = 2000
 export var MAX_SPEED: float = 300# all of these have to be const, but changeable for inherited classes
 
-class Animations:
-	var idle: bool
-	var run: bool
-	func _init(idle, run):
-		self.idle = idle
-		self.run = run
-
-
-var unit_type = Animations.new(true, false)
 var velocity := Vector2.ZERO
 var state = States.FRICTION
 
@@ -44,18 +35,9 @@ func decelerate(delta: float, speed: Vector2) -> Vector2:
 
 func _physics_process(delta: float) -> void:
 	var input_vector = control.get_input_vector()
-	var animation = "run" if input_vector != Vector2.ZERO else "idle"
-	var blend_pos = (crosshair.global_position - global_position).normalized()
-	_blend_travel(animation, blend_pos)
+	animation_tree._animation_process(input_vector)
 	call((var2str(States.keys()[state]).to_lower().replace("\"", "")), delta, input_vector)
 
-
-func _blend_travel(animation: String, blend_pos):
-	if not unit_type.get(animation):
-		animation = "idle"
-	var p = "parameters/"
-	animation_tree[p + animation + "/blend_position"] = blend_pos
-	animation_tree.get(p + "playback").travel(animation)
 
 
 func knocked_back(delta, input_vector):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://src/AI/player_detection_zone.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/harpy_boss/harpy_boss.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://src/characters/hands.gd" type="Script" id=17]
 [ext_resource path="res://assets/textures/harpy/shadow.png" type="Texture" id=18]
 [ext_resource path="res://src/characters/crosshair.gd" type="Script" id=19]
+[ext_resource path="res://src/characters/base_npc/harpy_boss/anim_tree.gd" type="Script" id=20]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_back"
@@ -334,6 +335,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 17 )
 parameters/idle/blend_position = Vector2( 0, 0 )
+script = ExtResource( 20 )
 
 [node name="AttackPlayer" type="AnimationPlayer" parent="."]
 
@@ -344,10 +346,10 @@ position = Vector2( 0, 24 )
 texture = ExtResource( 18 )
 
 [node name="sprite" type="Sprite" parent="pivot"]
-position = Vector2( 0, -2.28016 )
+position = Vector2( 0, -1.33699 )
 texture = ExtResource( 4 )
 hframes = 28
-frame = 8
+frame = 10
 
 [node name="hands" type="Sprite" parent="pivot"]
 script = ExtResource( 17 )

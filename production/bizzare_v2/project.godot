@@ -189,6 +189,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/boss_stats.gd"
 }, {
+"base": "AnimationTree",
+"class": "CharacterAnimationTree",
+"language": "GDScript",
+"path": "res://src/characters/anim_tree.gd"
+}, {
 "base": "Consumable",
 "class": "Collectable",
 "language": "GDScript",
@@ -249,7 +254,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/loot/restore/full_restore/full_restore.gd"
 }, {
-"base": "Reference",
+"base": "BaseNPC",
 "class": "Goblin",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_melee/orc_melee.gd"
@@ -636,6 +641,7 @@ _global_script_class_icons={
 "BigArmorRestore": "",
 "BigHPRestore": "",
 "BossStats": "",
+"CharacterAnimationTree": "",
 "Collectable": "",
 "Consumable": "",
 "Crosshair": "",
