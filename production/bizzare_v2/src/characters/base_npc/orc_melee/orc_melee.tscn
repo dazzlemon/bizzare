@@ -15,7 +15,8 @@
 [ext_resource path="res://assets/textures/orc_melee/hands_melee.png" type="Texture" id=13]
 [ext_resource path="res://src/characters/base_npc/orc_melee/attack/orc_melee_hitscan.gd" type="Script" id=14]
 [ext_resource path="res://src/characters/base_npc/orc_melee/orc_melee_crosshair.gd" type="Script" id=15]
-[ext_resource path="res://src/characters/base_npc/orc_melee/anim_tree.gd" type="Script" id=16]
+[ext_resource path="res://src/characters/anim_tree.gd" type="Script" id=16]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"

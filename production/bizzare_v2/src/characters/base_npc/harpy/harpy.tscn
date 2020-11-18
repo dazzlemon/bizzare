@@ -13,7 +13,8 @@
 [ext_resource path="res://src/characters/base_npc/harpy/harpy_stats.gd" type="Script" id=11]
 [ext_resource path="res://src/characters/base_npc/harpy/harpy.gd" type="Script" id=12]
 [ext_resource path="res://assets/textures/harpy/harpy_sheet.png" type="Texture" id=13]
-[ext_resource path="res://src/characters/base_npc/harpy/anim_tree.gd" type="Script" id=14]
+[ext_resource path="res://src/characters/anim_tree.gd" type="Script" id=14]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"

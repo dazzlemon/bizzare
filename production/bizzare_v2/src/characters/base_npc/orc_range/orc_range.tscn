@@ -16,7 +16,7 @@
 [ext_resource path="res://src/characters/base_npc/orc_melee/orc_melee_crosshair.gd" type="Script" id=14]
 [ext_resource path="res://src/characters/base_npc/orc_range/orc_range.gd" type="Script" id=15]
 [ext_resource path="res://src/characters/base_npc/orc_range/attack/orc_range_projectile_attack.tscn" type="PackedScene" id=16]
-[ext_resource path="res://src/characters/base_npc/orc_range/anim_tree.gd" type="Script" id=17]
+[ext_resource path="res://src/characters/anim_tree.gd" type="Script" id=17]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
