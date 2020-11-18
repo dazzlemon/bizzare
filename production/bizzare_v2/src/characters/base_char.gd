@@ -39,7 +39,6 @@ func _physics_process(delta: float) -> void:
 	call((var2str(States.keys()[state]).to_lower().replace("\"", "")), delta, input_vector)
 
 
-
 func knocked_back(delta, input_vector):
 	velocity = move_and_slide(decelerate(delta, velocity))
 	if velocity == Vector2.ZERO:

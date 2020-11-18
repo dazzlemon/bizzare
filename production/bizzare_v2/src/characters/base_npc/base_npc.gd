@@ -14,6 +14,18 @@ var small_armor_restore = preload("res://src/loot/restore/small_armor_restore/sm
 var big_armor_restore = preload("res://src/loot/restore/big_armor_restore/big_armor_restore.tscn")
 var full_restore = preload("res://src/loot/restore/full_restore/full_restore.tscn")
 
+var drop_rates = {
+	"health_orb_scene" : 10,
+	"damage_orb_scene" : 10,
+	"armor_orb_scene" : 10,
+	"money_orb_scene" : 10,
+	"small_hp_restore" : 10,
+	"big_hp_restore" : 10,
+	"small_armor_restore" : 10,
+	"full_restore" : 10,
+	"big_armor_restore" : 10,
+}
+
 
 func _ready() -> void:
 	ACCEL = 300
@@ -29,10 +41,23 @@ func _physics_process(delta):
 
 func drop_loot() -> void:
 	randomize()
+	_try_coins()
+	_try_drop()
+
+
+func _try_drop():
 	var random = randi() % 100 + 1
+	print(random)########################DEBUG
+	var chance = 0
+	for drop in drop_rates:
+		chance += drop_rates[drop]
+		if random <= chance:
+			spawn_instance(get(drop))
+			break
+
+func _try_coins():
 	var coins_random = randi() % 5 + 1
-	print(random)
-	print(coins_random)
+	print(coins_random)##################DEBUG
 	if coins_random == 1:
 		pass
 	elif coins_random == 2:
@@ -45,26 +70,6 @@ func drop_loot() -> void:
 	elif coins_random == 5: 
 		spawn_instance(currency_bag_scene)
 		spawn_instance(currency_coins_scene)
-	if random >= 1 and random <= 10: 
-		spawn_instance(health_orb_scene)
-	elif random >= 11 and random <= 20:
-		spawn_instance(damage_orb_scene)
-	elif random >= 21 and random <= 30:
-		spawn_instance(armor_orb_scene)
-	elif random >= 31 and random <= 40:
-		spawn_instance(money_orb_scene)
-	elif random >= 41  and random <= 50:
-		spawn_instance(small_hp_restore)
-	elif random >= 51 and random <= 60:
-		spawn_instance(big_hp_restore)
-	elif random >= 61 and random <= 70:
-		spawn_instance(small_armor_restore)
-	elif random >= 71 and random <= 80:
-		spawn_instance(full_restore)
-	elif random >= 81 and random <= 90:
-		spawn_instance(big_armor_restore)
-	else:
-		pass
 
 
 func spawn_instance(url) -> void:
