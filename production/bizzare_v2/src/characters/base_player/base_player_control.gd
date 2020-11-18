@@ -4,12 +4,12 @@ extends BaseControl
 
 onready var spell_1 = get_node("../spell_1")
 onready var spell_2 = get_node("../spell_2")
-onready var actions = {
-	"spell_1" : spell_1,
-	"spell_2" : spell_2,
-	"attack" : attack,
-	"shift_dodge" : shift_dodge,
-}
+onready var actions = [
+	"spell_1",
+	"spell_2",
+	"attack",
+	"shift_dodge",
+]
 
 func _process(delta: float):
 	input_loop()
@@ -19,8 +19,8 @@ func _process(delta: float):
 
 func input_loop():
 	for action in actions:
-		if Input.is_action_pressed(action) and actions[action] != null:
-				actions[action].try_use()
+		if Input.is_action_pressed(action) and get(action) != null:
+				get(action).try_use()
 
 
 func get_input_vector() -> Vector2:
