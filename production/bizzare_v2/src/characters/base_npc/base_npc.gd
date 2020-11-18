@@ -2,8 +2,10 @@
 class_name BaseNPC
 extends BaseChar
 
-var currency_coins_scene = preload("res://src/loot/currency/currency_coins.tscn")
-var currency_bag_scene = preload("res://src/loot/currency/currency_bag.tscn")
+var coins = [
+	preload("res://src/loot/currency/currency_coins.tscn"), 
+	preload("res://src/loot/currency/currency_bag.tscn"),
+]
 
 var drop_rates = {
 	preload("res://src/loot/health_orb/health_orb.tscn") : 10,
@@ -15,6 +17,7 @@ var drop_rates = {
 	preload("res://src/loot/restore/small_armor_restore/small_armor_restore.tscn") : 10,
 	preload("res://src/loot/restore/big_armor_restore/big_armor_restore.tscn") : 10,
 	preload("res://src/loot/restore/full_restore/full_restore.tscn") : 10,
+	null : 10,
 }
 
 func _ready() -> void:
@@ -35,12 +38,16 @@ func drop_loot() -> void:
 
 
 func _try_drop():
-	var random = randi() % 100 + 1
+	var chance_sum = 0
+	for drop in drop_rates:
+		chance_sum += drop_rates[drop]
+	
+	var random = randi() % chance_sum + 1
 	print(random)########################DEBUG
 	var chance = 0
 	for drop in drop_rates:
 		chance += drop_rates[drop]
-		if random <= chance:
+		if random <= chance and drop != null:
 			spawn_instance(drop)
 			break
 
@@ -49,9 +56,9 @@ func _try_coins():
 	var coins_random = randi() % 5 + 1
 	print(coins_random)##################DEBUG
 	if coins_random != 1:
-		spawn_instance(currency_coins_scene if coins_random < 4 else currency_bag_scene)
-		if coins_random % 2 != 0:#3, 5
-			spawn_instance(currency_coins_scene)
+		spawn_instance(coins[int(coins_random >= 4)])
+		if bool(coins_random % 2):#3, 5
+			spawn_instance(coins[0])
 
 
 func spawn_instance(url) -> void:

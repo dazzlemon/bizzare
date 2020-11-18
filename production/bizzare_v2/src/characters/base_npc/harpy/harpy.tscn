@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://src/AI/attack_range.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/etc/status_bars/npc_health/npc_health_bar.tscn" type="PackedScene" id=2]
@@ -14,7 +14,6 @@
 [ext_resource path="res://src/characters/base_npc/harpy/harpy.gd" type="Script" id=12]
 [ext_resource path="res://assets/textures/harpy/harpy_sheet.png" type="Texture" id=13]
 [ext_resource path="res://src/characters/anim_tree.gd" type="Script" id=14]
-[ext_resource path="res://assets/textures/etc/crosshair.png" type="Texture" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
@@ -324,10 +323,10 @@ script = ExtResource( 14 )
 [node name="pivot" type="Position2D" parent="."]
 
 [node name="sprite" type="Sprite" parent="pivot"]
-position = Vector2( 0, -1.14964 )
+position = Vector2( 0, -0.38015 )
 texture = ExtResource( 13 )
 hframes = 24
-frame = 14
+frame = 13
 
 [node name="hands" type="Sprite" parent="pivot"]
 script = ExtResource( 5 )
@@ -393,7 +392,6 @@ z_as_relative = false
 script = ExtResource( 6 )
 
 [node name="sprite" type="Sprite" parent="crosshair"]
-texture = ExtResource( 15 )
 [connection signal="damage_from_behind" from="stats" to="control/player_detection_zone" method="_on_stats_damage_from_behind"]
 [connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
