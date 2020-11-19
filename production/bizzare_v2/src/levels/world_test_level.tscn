@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Tiilemap/Trees.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/harpy/harpy.tscn" type="PackedScene" id=2]
@@ -10,9 +10,15 @@
 [ext_resource path="res://src/Tiilemap/fallen_tree.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Tiilemap/Grass_24_shadow.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/characters/base_npc/orc_range/orc_range.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/levels/sky/sky.tscn" type="PackedScene" id=11]
 
 [node name="level" type="Node2D"]
 script = ExtResource( 4 )
+
+[node name="Node2D" parent="." instance=ExtResource( 11 )]
+position = Vector2( 202.302, 232.549 )
+scale = Vector2( 7, 7 )
+z_index = 11
 
 [node name="Grass_24_shadow" parent="." instance=ExtResource( 9 )]
 
@@ -40,6 +46,8 @@ position = Vector2( 606.349, 440.152 )
 
 [node name="harpy" parent="Trees/YSort" instance=ExtResource( 2 )]
 position = Vector2( -113.943, 93.2149 )
+
+[editable path="Node2D"]
 
 [editable path="Grass_24_shadow"]
 
