@@ -1,21 +1,28 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/attack/hitscan/enemy_hitscan/base_hitscan_enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/harpy_boss/phase_attacks/phase_2_attack_1/phase_2_attack_1_hitscan.gd" type="Script" id=2]
-[ext_resource path="res://assets/textures/temporary/Exp_temporary3.png" type="Texture" id=3]
-[ext_resource path="res://assets/textures/temporary/Exp_temporary2.png" type="Texture" id=4]
-[ext_resource path="res://assets/textures/temporary/Exp_temporary1.png" type="Texture" id=5]
+[ext_resource path="res://assets/textures/harpy_boss/Sheet.png" type="Texture" id=3]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "default",
-"speed": 2.0
-} ]
-
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 radius = 19.4136
+
+[sub_resource type="Animation" id=2]
+resource_name = "charging"
+length = 1.25
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.7, 0.8, 0.9, 1, 1.125 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 1, 0, 1, 0, 2, 3 ]
+}
 
 [node name="enemy_hitscan" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -26,15 +33,19 @@ one_shot = true
 [node name="duration" parent="." index="2"]
 wait_time = 0.25
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Position2D" index="0"]
-frames = SubResource( 1 )
-frame = 2
-playing = true
-
-[node name="hitbox" parent="Position2D" index="1"]
+[node name="hitbox" parent="Position2D" index="0"]
 collision_layer = 64
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="Position2D/hitbox" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Position2D" index="1"]
+position = Vector2( 0, -25 )
+texture = ExtResource( 3 )
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Position2D" index="2"]
+root_node = NodePath("../Sprite")
+anims/charging = SubResource( 2 )
 [connection signal="timeout" from="charging" to="." method="_on_charging_timeout"]
