@@ -20,11 +20,6 @@ var drop_rates = {
 	null : 10,
 }
 
-func _ready() -> void:
-	ACCEL = 300
-	MAX_SPEED = 100
-	DECEL = 200
-
 
 func _physics_process(delta):
 	._physics_process(delta)
