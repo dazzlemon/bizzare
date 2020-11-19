@@ -10,6 +10,7 @@ func _ready():
 	_DURATION = 12
 	_WAVE_INTERVAL = 3
 
+
 func _start():
 	hitscan_lightning(24)
 
@@ -17,14 +18,14 @@ func _start():
 func hitscan_lightning(amount):
 	for i in range(0, amount, 1):
 		spawn_lightning(360 / amount * i)
-#
-#
+
+
 func spawn_lightning(angle):
 	var lightning_instance = lightning.instance()
 	get_root.owner.call_deferred("add_child", lightning_instance)
-	lightning_instance.global_position = get_node("../../").global_position
-	#lightning_instance.rotation += angle
-	#global_position += Vector2(rand_range(-150, 150), rand_range(-150, 150)) # Na pamyat
+	lightning_instance.global_position = get_node("../../").global_position 
+	lightning_instance.global_position += (Vector2(rand_range(-150, 150), rand_range(-150, 150))).rotated(angle)
+
 
 func _stop():
 	get_parent.phase_attack_ended()

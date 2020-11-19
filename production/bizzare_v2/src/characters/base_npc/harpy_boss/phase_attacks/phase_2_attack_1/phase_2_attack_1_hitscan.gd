@@ -2,7 +2,6 @@ class_name Phase2Attack1Hitscan
 extends BaseHitscanEnemy
 
 func _ready():
-	
 	get_node("charging").start()
 	get_node("Position2D/AnimationPlayer").play("charging")
 
