@@ -5,15 +5,16 @@ var velocity
 var direction
 var max_range
 
+var scaling = [3, 6]
+var opacity = [0.15, 0.25]
+
 var offset = Vector2.ZERO
 
 func _ready():
-	velocity = rand_range(300, 600)#(3, 6)
-	
 	sprite.rotation_degrees = 360 / 4 * (randi() % 4)
-	sprite.scale *= rand_range(1, 2)
-	sprite.modulate.a = rand_range(0.28, 0.36)
 	sprite.frame = randi() % 4
+	sprite.scale *= rand_range(scaling[0], scaling[1])
+	sprite.modulate.a = rand_range(opacity[0], opacity[1])
 
 
 func _process(delta):
