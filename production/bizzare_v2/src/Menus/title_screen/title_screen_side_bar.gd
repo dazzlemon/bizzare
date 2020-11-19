@@ -6,7 +6,7 @@ func _ready():
 	buttons = [
 		Menu_Button.new("Play", "play"),
 		Menu_Button.new("Settings", "settings"),
-		Menu_Button.new("Test" , "test"),
+		Menu_Button.new("Journal" , "journal"),
 		Menu_Button.new("Quit", "quit"),
 	]
 	._ready()
