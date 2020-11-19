@@ -5,7 +5,7 @@ extends KinematicBody2D
 export var DMG_BLOCK: float = 0
 export var ACCEL: float = 2000
 export var DECEL: float = 2000
-export var MAX_SPEED: float = 300# all of these have to be const, but changeable for inherited classes
+export var MAX_SPEED: float = 175# all of these have to be const, but changeable for inherited classes
 
 var velocity := Vector2.ZERO
 var state = States.FRICTION

@@ -467,6 +467,7 @@ height = 7.17251
 z_index = 0
 collision_mask = 10
 script = ExtResource( 4 )
+MAX_SPEED = 175.0
 
 [node name="AnimationPlayer" parent="." index="0"]
 anims/archer_idle_down = SubResource( 1 )

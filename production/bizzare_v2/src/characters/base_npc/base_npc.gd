@@ -20,9 +20,11 @@ var drop_rates = {
 	null : 10,
 }
 
+func _ready():
+	MAX_SPEED = 125
+
 
 func _physics_process(delta):
-	._physics_process(delta)
 	if velocity != Vector2.ZERO:
 		crosshair.global_position = global_position + velocity.normalized()
 
