@@ -21,10 +21,7 @@ func _ready():
 		new_button.text = button.menu_str
 		new_button.size_flags_horizontal = SIZE_FILL#fill
 		new_button.size_flags_vertical = SIZE_EXPAND_FILL#fill expand
-		new_button.set("custom_styles/normal", load("res://src/Menus/title_screen/normal_button.tres"))
-		new_button.set("custom_styles/hover", load("res://src/Menus/title_screen/normal_button.tres"))
-		new_button.set("custom_styles/pressed", load("res://src/Menus/title_screen/pressed_button.tres"))
-		new_button.set("custom_styles/focus",StyleBoxEmpty.new())
+
 		vbox.call_deferred("add_child", new_button)
 		new_button.connect("pressed", self, button.func_str)
 		button_ref.push_back(new_button)
