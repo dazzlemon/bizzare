@@ -2,7 +2,6 @@
 class_name BaseProjectileAttack
 extends SpellCd
 
-var damage
 var projectile = preload("res://src/attack/projectile/base_projectile.tscn")
 
 onready var level = get_node("../../")
@@ -17,4 +16,4 @@ func _start() -> void:
 	level.call_deferred("add_child", projectile_instance)
 	projectile_instance.global_position = parent.global_position
 	projectile_instance.direction = (parent.crosshair.global_position - global_position).normalized()
-	projectile_instance.damage = damage
+	projectile_instance.damage = stats.damage

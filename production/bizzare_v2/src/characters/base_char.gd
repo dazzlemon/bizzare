@@ -77,7 +77,7 @@ func _on_hurtbox_area_entered(area) -> void:#hitscan hitreg
 		state = States.KNOCKED_BACK
 		velocity = area.owner.knockback(self)
 	if area.owner is BaseHitscan:
-		take_damage(area.owner.damage)
+		take_damage(area.owner.get_damage())
 
 
 func _on_hurtbox_body_entered(body) -> void:#projectile hitreg

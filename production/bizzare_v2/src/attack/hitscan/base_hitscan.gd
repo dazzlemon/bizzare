@@ -3,12 +3,15 @@ class_name BaseHitscan
 extends SpellCdDuration
 
 onready var hitbox_collision = get_node("Position2D/hitbox/CollisionShape2D")#mb fix later
-
-var damage: float = 1
+onready var stats = get_node("../stats")
 
 func _ready() -> void:
 	_DURATION = 0.25
 	_INTERVAL = 0.15
+
+
+func get_damage():
+	return stats.damage
 
 
 func _start() -> void:

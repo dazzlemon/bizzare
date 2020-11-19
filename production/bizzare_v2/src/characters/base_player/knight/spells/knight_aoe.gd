@@ -7,7 +7,10 @@ var KNOCKBACK_MULTIPLIER := 225
 func _ready() -> void:
 	_DURATION = 0.15
 	_INTERVAL = 5
-	damage = get_node("../stats").damage * 2.5
+
+
+func get_damage():
+	return .get_damage() * 2.5
 
 
 func knockback(body) -> Vector2:# WIP

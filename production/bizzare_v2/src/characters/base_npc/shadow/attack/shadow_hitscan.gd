@@ -32,11 +32,14 @@ func _on_Tween_tween_completed(object, key):
 		tween.interpolate_property(hands, "rotation_degrees", hands.rotation_degrees , hands.rotation_degrees - 120 , 0.3 , Tween.TRANS_SINE, Tween.EASE_IN , 0) #0.39 cause 0.4 sometimes triggers twice
 
 
-func crit_test():
+func get_damage():
+	return .get_damage() * crit()
+
+func crit():
 	if critical:
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
-		damage = default_damage * rng.randi_range(10, 20)
+		return rng.randi_range(3, 5)
 		critical = false
 	else:
-		damage = default_damage 
+		return 1 
