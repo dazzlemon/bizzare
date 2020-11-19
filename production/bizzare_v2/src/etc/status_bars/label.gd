@@ -1,4 +1,4 @@
-extends RichTextLabel
+extends Label
 
 onready var stats = get_node("../../../stats")
 onready var parent = get_parent()

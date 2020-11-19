@@ -4,15 +4,17 @@
 [ext_resource path="res://src/etc/status_bars/armor/armor_bar.gd" type="Script" id=2]
 [ext_resource path="res://assets/textures/huds/armor_bar/shield.png" type="Texture" id=4]
 
-
 [node name="statusBar" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="RichTextLabel" parent="." index="0"]
-margin_left = 54.1839
-margin_top = 20.0602
-margin_right = 127.184
-margin_bottom = 37.0602
+margin_left = 55.0
+margin_top = 17.0
+margin_right = 135.0
+margin_bottom = 35.0
+size_flags_vertical = 3
+align = 1
+valign = 1
 
 [node name="status_bar" parent="." index="2"]
 tint_progress = Color( 0.713726, 0.34902, 0.0980392, 1 )

@@ -22,8 +22,9 @@ func hitscan_lightning(amount):
 func spawn_lightning(angle):
 	var lightning_instance = lightning.instance()
 	get_root.owner.call_deferred("add_child", lightning_instance)
-	lightning_instance.position = get_node("../../").global_position
-	lightning_instance.rotation += angle
+	lightning_instance.global_position = get_node("../../").global_position
+	#lightning_instance.rotation += angle
+	#global_position += Vector2(rand_range(-150, 150), rand_range(-150, 150)) # Na pamyat
 
 func _stop():
 	get_parent.phase_attack_ended()
