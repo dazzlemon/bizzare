@@ -24,7 +24,7 @@ func _on_Tween_tween_completed(object, key):
 
 func toggle():
 	melee_effect.frame = 0
-	melee_effect.visible = not melee_effect.visible
+	#melee_effect.visible = not melee_effect.visible
 	melee_effect.playing = not melee_effect.playing 
 	is_attacked = not is_attacked
 
