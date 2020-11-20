@@ -45,7 +45,7 @@ position = Vector2( -333.249, 507.748 )
 position = Vector2( 606.349, 440.152 )
 
 [node name="harpy" parent="Trees/YSort" instance=ExtResource( 2 )]
-position = Vector2( -113.943, 93.2149 )
+position = Vector2( -168.735, 87.4235 )
 
 [editable path="Node2D"]
 

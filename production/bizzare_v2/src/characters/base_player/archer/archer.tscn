@@ -467,7 +467,6 @@ height = 7.17251
 z_index = 0
 collision_mask = 10
 script = ExtResource( 4 )
-MAX_SPEED = 175.0
 
 [node name="AnimationPlayer" parent="." index="0"]
 anims/archer_idle_down = SubResource( 1 )
@@ -494,7 +493,7 @@ anims/attack = SubResource( 35 )
 texture = ExtResource( 9 )
 flip_h = true
 hframes = 16
-frame = 4
+frame = 5
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 0, 5 )
