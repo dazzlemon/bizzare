@@ -25,9 +25,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -34.5
-margin_top = -75.0
+margin_top = -38.5351
 margin_right = 34.5
-margin_bottom = -53.0
+margin_bottom = -16.5351
 custom_fonts/font = ExtResource( 3 )
 text = "Continue"
 flat = true
@@ -41,9 +41,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -27.7649
-margin_top = -0.994568
+margin_top = -13.2649
 margin_right = 27.2351
-margin_bottom = 21.0054
+margin_bottom = 8.73508
 custom_fonts/font = ExtResource( 3 )
 text = "Screen"
 flat = true
@@ -57,35 +57,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -19.0835
-margin_top = 24.6532
+margin_top = 12.3828
 margin_right = 15.9165
-margin_bottom = 46.6532
+margin_bottom = 34.3828
 custom_fonts/font = ExtResource( 3 )
 text = "Exit"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Save" type="Button" parent="."]
-margin_left = 217.19
-margin_top = 84.757
-margin_right = 258.19
-margin_bottom = 106.757
-custom_fonts/font = ExtResource( 3 )
-text = "Save"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Load" type="Button" parent="."]
-margin_left = 217.719
-margin_top = 109.919
-margin_right = 257.719
-margin_bottom = 131.919
-custom_fonts/font = ExtResource( 3 )
-text = "Load"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -93,5 +69,3 @@ __meta__ = {
 [connection signal="pressed" from="Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Screen" to="." method="_on_Screen_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
-[connection signal="pressed" from="Save" to="." method="_on_Save_pressed"]
-[connection signal="pressed" from="Load" to="." method="_on_Load_pressed"]
