@@ -11,3 +11,14 @@ func load_level(player):
 	player.z_as_relative = true
 	player.global_position = Vector2(-370, -450)
 	add_child(new_level)
+	
+	
+	for i in new_level.get_node("Trees/YSort").get_children():
+		print(i.name)
+	
+	new_level.get_node("Trees/YSort").remove_child($player)
+	var dict = SaveScript._player_to_dict(player)
+	SaveScript._dict_to_player(dict, new_level.get_node("Trees/YSort"))
+	
+	for i in new_level.get_node("Trees/YSort").get_children():
+		print(i.name)

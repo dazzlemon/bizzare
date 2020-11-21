@@ -48,7 +48,7 @@ func _mouse_mode_toggle():
 
 
 func _on_Save_pressed():
-	SaveScript.write_save_to_file()
+	pass#SaveScript.write_save_to_file("user://savegame.save")#tmp
 
 
 func _on_Load_pressed():

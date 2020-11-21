@@ -422,7 +422,7 @@ height = 8.11316
 radius = 8.30386
 height = 8.11316
 
-[node name="base_player" instance=ExtResource( 1 )]
+[node name="player" instance=ExtResource( 1 )]
 z_index = 0
 script = ExtResource( 4 )
 
@@ -450,7 +450,7 @@ parameters/playback = SubResource( 34 )
 texture = ExtResource( 3 )
 flip_h = true
 hframes = 16
-frame = 4
+frame = 6
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 6, 3 )

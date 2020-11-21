@@ -2,15 +2,19 @@ class_name Utility
 extends Node
 
 
+static func instance_of(name):#GOVNO KOSTIL
+	var str_ = "res://src/characters/base_player/" + name.to_lower() + "/" + name.to_lower() + ".tscn"
+	return load(str_).instance()
+
+
 static func get_typeof(object):
 	if object is Knight:
 		return "Knight"
-	elif object is Archer:
+	if object is Archer:
 		return "Archer"
-	elif object is Mage:
+	if object is Mage:
 		return "Mage"
-	else:
-		return "undefined"
+	return "undefined"
 
 
 static func pick_random(list: Array):
