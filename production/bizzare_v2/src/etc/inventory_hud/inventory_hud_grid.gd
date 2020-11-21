@@ -3,7 +3,7 @@ extends GridContainer
 var slot_scene = preload("res://src/etc/inventory_hud/slot.tscn")
 var max_slots = 20
 var slots := []
-onready var inventory = get_node("../../../../../Inventory").array#PYAT' RAZ KARL!!!!!!!
+onready var inventory = get_node("../../../../../Inventory")#PYAT' RAZ KARL!!!!!!!
 
 func _ready():
 	for i in range(max_slots):
@@ -21,8 +21,9 @@ func _process(delta):
 
 func _update_slots():
 	var i := 0
-	for item in inventory:
-		slots[i].contents = [item, inventory[item]]
+	#print(inventory)
+	for item in inventory.array:
+		slots[i].contents = [item, inventory.array[item]]
 		slots[i].empty = false
 		i += 1
 
