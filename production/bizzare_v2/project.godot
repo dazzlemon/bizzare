@@ -514,6 +514,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/attack/ray_hitscan/ray_process.gd"
 }, {
+"base": "Node",
+"class": "SaveScript",
+"language": "GDScript",
+"path": "res://src/etc/save.gd"
+}, {
 "base": "BaseNPC",
 "class": "Shadow",
 "language": "GDScript",
@@ -701,6 +706,7 @@ _global_script_class_icons={
 "RangeOrcSprite": "",
 "RayHitscan": "",
 "RayHitscanProcess": "",
+"SaveScript": "",
 "Shadow": "",
 "ShadowControl": "",
 "ShadowHitscan": "",
