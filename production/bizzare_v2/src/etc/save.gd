@@ -1,7 +1,6 @@
 class_name SaveScript
 extends Node
 
-
 static func _dict_to_player(dict, parent):
 	var player = Utility.instance_of(dict["class"])
 	parent.add_child(player)
@@ -9,6 +8,7 @@ static func _dict_to_player(dict, parent):
 	for s in dict["stats"]:
 		player.stats.set(s, dict["stats"][s])
 	player.get_node("Inventory").array = dict["inventory"]
+	print(player.get_node("Inventory").array)
 
 
 static func _file_to_dict(filename) -> Dictionary:

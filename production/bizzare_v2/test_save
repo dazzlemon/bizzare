@@ -1,1 +1,1 @@
-{"class":"Archer","inventory":[["health_orb",2,"[StreamTexture:2142]"]],"stats":{"armor":10,"damage":10,"health":2420,"max_armor":10,"max_health":2420},"x":144.411041,"y":87.353661}
+{"class":"Mage","inventory":{"money_orb":1},"stats":{"armor":0,"damage":10,"health":850,"max_armor":10,"max_health":1000},"x":-59.398857,"y":9.596346}

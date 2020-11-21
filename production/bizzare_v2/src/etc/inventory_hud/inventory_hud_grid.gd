@@ -20,15 +20,21 @@ func _process(delta):
 
 
 func _update_slots():
-	for i in range(inventory.size()):
-		slots[i].contents = inventory[i]
+	var i := 0
+	for item in inventory:
+		slots[i].contents = [item, inventory[item]]
 		slots[i].empty = false
-
+		i += 1
 
 func _draw_slots():
 	for slot in slots:
 		if not slot.empty:
-			slot.get_node("textrect").texture = slot.contents[2]#texture
+			slot.get_node("textrect").texture = _get_texture(slot.contents[0])
 			slot.get_node("label").text = str(slot.contents[1])#amount
 		else:
 			slot.empty = slot.empty#tmp, need to set counter to "", and empty structure
+
+
+func _get_texture(name):#ETO KOSTIL'!!!
+	return load("res://assets/textures/items/" + name + ".png")
+	

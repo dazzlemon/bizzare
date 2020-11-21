@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/money_amulet.png-7c27d86439c9b29e346993c995f867e6.stex"
+path="res://.import/money_orb.png-f630a740bd41ab0110212aea44e11ed4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/items/money_amulet.png"
-dest_files=[ "res://.import/money_amulet.png-7c27d86439c9b29e346993c995f867e6.stex" ]
+source_file="res://assets/textures/items/money_orb.png"
+dest_files=[ "res://.import/money_orb.png-f630a740bd41ab0110212aea44e11ed4.stex" ]
 
 [params]
 

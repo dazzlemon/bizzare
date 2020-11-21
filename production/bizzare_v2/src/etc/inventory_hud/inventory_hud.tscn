@@ -3,7 +3,6 @@
 [ext_resource path="res://src/etc/inventory_hud/inventory_hud_grid.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/huds/inventory/inv.png" type="Texture" id=2]
 
-
 [node name="inventory_hud" type="Control"]
 anchor_left = 0.5
 anchor_right = 0.5
