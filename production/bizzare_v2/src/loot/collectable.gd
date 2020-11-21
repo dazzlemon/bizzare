@@ -6,13 +6,13 @@ var count := 1
 
 func push_item(item, area) -> void:
 	var inventory = area.get_node("../Inventory").array
-	var found := false
+	var is_found := false
 	for i in range(inventory.size()):
 		if inventory[i][0] == item[0]:#0 = item_name#if item is already in inventory than stack it
 			inventory[i][1] += 1 #1 = count
-			found = true
+			is_found = true
 			break
-	if not found:
+	if not is_found:
 		inventory.push_front(item)##############GAVNO NADA REFACTOr
 
 

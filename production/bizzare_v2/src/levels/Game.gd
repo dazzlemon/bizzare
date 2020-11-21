@@ -12,9 +12,8 @@ func load_level(player):
 	player.global_position = Vector2(-370, -450)
 	add_child(new_level)
 	
-	
-	#new_level.get_node("Trees/YSort").remove_child(player)
-	SaveScript.write_save_to_file("test_save" , player)
-	#var dict # = SaveScript._player_to_dict(player)
-	SaveScript._dict_to_player(SaveScript._file_to_dict("test_save"), new_level.get_node("Trees/YSort"))
-	
+
+#	new_level.get_node("Trees/YSort").remove_child(player)
+#	SaveScript.write_save_to_file("test_save" , player)
+#	SaveScript._dict_to_player(SaveScript._file_to_dict("test_save"), new_level.get_node("Trees/YSort"))
+

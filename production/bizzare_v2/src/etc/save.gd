@@ -28,7 +28,7 @@ static func _player_to_dict(player) -> Dictionary:
 		"x" : player.position.x,
 		"y" : player.position.y,
 		"stats" : {
-			"health" : player.stats.health,
+			"health" : player.stats.health ,
 			"max_health" : player.stats.max_health,
 			"armor" : player.stats.armor,
 			"max_armor" : player.stats.max_armor,

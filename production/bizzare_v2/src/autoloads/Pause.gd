@@ -1,13 +1,14 @@
 extends CanvasLayer
 
 
+
 func _ready() -> void:
 	set_visible(false)
 
 
 func _input(event) -> void:
 	if event.is_action_pressed("ui_cancel") and current_scene() != "title_screen":
-		pause()
+		pause_toggle()
 
 
 func set_visible(is_visible) -> void:
@@ -24,14 +25,14 @@ func _on_Exit_pressed() -> void:
 
 
 func _on_Continue_pressed():
-	pause()
+	pause_toggle()
 
 
 func current_scene():
 	return get_tree().get_current_scene().get_name()
 
 
-func pause():
+func pause_toggle():
 	get_tree().paused = not get_tree().paused
 	set_visible(get_tree().paused)
 	if not get_tree().get_root().get_node("Game/level") is WorldTestLevel:
@@ -48,8 +49,11 @@ func _mouse_mode_toggle():
 
 
 func _on_Save_pressed():
-	pass#SaveScript.write_save_to_file("user://savegame.save")#tmp
+	SaveScript.write_save_to_file("test_save" , get_tree().get_root().get_node("Game/level/Trees/YSort/player"))
 
 
 func _on_Load_pressed():
-	pass # Replace with function body.
+	var parent = get_tree().get_root().get_node("Game/level/Trees/YSort")
+	parent.remove_child(parent.get_node("player"))
+	SaveScript._dict_to_player(SaveScript._file_to_dict("test_save"), parent)
+	pause_toggle()
