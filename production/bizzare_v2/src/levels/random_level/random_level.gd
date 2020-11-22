@@ -1,8 +1,11 @@
 extends Node2D
 
-onready var wall = $Grass_24_shadow/leaf_wall
-
 const WALL_SIZES = Vector2(20, 20)
+const _transform = Transform2D(
+	Vector2(WALL_SIZES.x, 0),
+	Vector2(0, WALL_SIZES.y),
+	Vector2.ZERO
+	)
 
 const dirs = {"N" : 1, "S" : 2, "E" : 4, "W" : 8}
 const DX = {"E" : 1, "W" : -1, "N" : 0, "S" : 0}
@@ -13,11 +16,7 @@ var width = 10
 var height = 10
 var _seed = 10
 
-const _transform = Transform2D(
-	Vector2(WALL_SIZES.x, 0),
-	Vector2(0, WALL_SIZES.y),
-	Vector2.ZERO
-	)
+onready var wall = $Grass_24_shadow/leaf_wall
 
 func _ready():
 	seed(_seed)
@@ -71,17 +70,20 @@ func _set_walls(grid):
 
 
 func _vertical_wall(start: Vector2):
-	start = _transform.xform(start)
-	
-	for i in range(WALL_SIZES.y + 1):
-		wall.set_cellv(start + Vector2(0, i), 0)
+	_wall(start, 1)
 
 
 func _horizontal_wall(start: Vector2):
+	_wall(start, 0)
+
+
+func _wall(start: Vector2, axis: int):
+	#axis 0 - x or 1 - y
 	start = _transform.xform(start)
-	
-	for i in range(WALL_SIZES.x + 1):
-		wall.set_cellv(start + Vector2(i, 0), 0)
+	var i = Vector2.ZERO
+	while i.length() <= WALL_SIZES[axis]:
+		wall.set_cellv(start + i, 0)
+		i[axis] += 1
 
 
 func _print(grid):
