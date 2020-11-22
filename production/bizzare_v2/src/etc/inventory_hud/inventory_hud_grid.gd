@@ -21,7 +21,6 @@ func _process(delta):
 
 func _update_slots():
 	var i := 0
-	#print(inventory)
 	for item in inventory.array:
 		slots[i].contents = [item, inventory.array[item]]
 		slots[i].empty = false

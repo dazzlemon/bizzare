@@ -49,11 +49,9 @@ func _mouse_mode_toggle():
 
 
 func _on_Save_pressed():
-	SaveScript.write_save_to_file("test_save" , get_tree().get_root().get_node("Game/level/Trees/YSort/player"))
+	SaveScript.write_save("test_save" , get_tree().get_root().get_node("Game/level/Trees/YSort/player"))
 
 
 func _on_Load_pressed():
-	var parent = get_tree().get_root().get_node("Game/level/Trees/YSort")
-	parent.remove_child(parent.get_node("player"))
-	SaveScript._dict_to_player(SaveScript._file_to_dict("test_save"), parent)
+	SaveScript.read_save("test_save", get_tree().get_root().get_node("Game/level/Trees/YSort"))
 	pause_toggle()
