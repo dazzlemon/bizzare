@@ -13,6 +13,12 @@ var width = 10
 var height = 10
 var _seed = 10
 
+const _transform = Transform2D(
+	Vector2(WALL_SIZES.x, 0),
+	Vector2(0, WALL_SIZES.y),
+	Vector2.ZERO
+	)
+
 func _ready():
 	seed(_seed)
 	_generate()
@@ -50,32 +56,31 @@ func carve_passages_from(cx, cy, grid):
 
 func _set_walls(grid):
 	for i in range(width):
-		_horizontal_wall(Vector2(i * WALL_SIZES.x, 0))
+		_horizontal_wall(Vector2(i, 0))
 	for y in range(0, height, 1):
-		_vertical_wall(Vector2(0, y * WALL_SIZES.y))
+		_vertical_wall(Vector2(0, y))
 		for x in range(0, width, 1):
-			if bool(grid[y][x] & dirs["S"]):
-				pass
-			else:
-				_horizontal_wall(Vector2(x * WALL_SIZES.x, (y + 1) * WALL_SIZES.y))
-			
+			if not bool(grid[y][x] & dirs["S"]):
+				_horizontal_wall(Vector2(x, y + 1))
 			if bool(grid[y][x] & dirs["E"]):
-				if bool((grid[y][x] | grid[y][x+1]) & dirs["S"]):
-					pass
-				else:
-					_horizontal_wall(Vector2((x + 1) * WALL_SIZES.x, (y + 1) * WALL_SIZES.y))
+				if not bool((grid[y][x] | grid[y][x+1]) & dirs["S"]):
+					_horizontal_wall(Vector2(x + 1, y + 1))
 			else:
-				_vertical_wall(Vector2((x + 1) * WALL_SIZES.x, y * WALL_SIZES.y))
+				_vertical_wall(Vector2(x + 1, y))
 	wall.update_bitmask_region(Vector2.ZERO, Vector2(WALL_SIZES.x * width, WALL_SIZES.y * height))
 
 
 func _vertical_wall(start: Vector2):
-	for i in range(WALL_SIZES.y):
+	start = _transform.xform(start)
+	
+	for i in range(WALL_SIZES.y + 1):
 		wall.set_cellv(start + Vector2(0, i), 0)
 
 
 func _horizontal_wall(start: Vector2):
-	for i in range(WALL_SIZES.x):
+	start = _transform.xform(start)
+	
+	for i in range(WALL_SIZES.x + 1):
 		wall.set_cellv(start + Vector2(i, 0), 0)
 
 
