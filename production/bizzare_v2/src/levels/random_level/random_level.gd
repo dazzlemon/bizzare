@@ -1,5 +1,9 @@
 extends Node2D
 
+onready var wall = $Grass_24_shadow/leaf_wall
+
+const WALL_SIZES = Vector2(20, 20)
+
 const dirs = {"N" : 1, "S" : 2, "E" : 4, "W" : 8}
 const DX = {"E" : 1, "W" : -1, "N" : 0, "S" : 0}
 const DY = {"E" : 0, "W" :  0, "N" : -1, "S" : 1}
@@ -18,6 +22,7 @@ func _generate():
 	var grid = _array2d(height, width)
 	carve_passages_from(0, 0, grid)
 	_print(grid)
+	_set_walls(grid)
 
 
 func _array2d(heigth, width):
@@ -43,6 +48,37 @@ func carve_passages_from(cx, cy, grid):
 			carve_passages_from(nx, ny, grid)
 
 
+func _set_walls(grid):
+	for i in range(width):
+		_horizontal_wall(Vector2(i * WALL_SIZES.x, 0))
+	for y in range(0, height, 1):
+		_vertical_wall(Vector2(0, y * WALL_SIZES.y))
+		for x in range(0, width, 1):
+			if bool(grid[y][x] & dirs["S"]):
+				pass
+			else:
+				_horizontal_wall(Vector2(x * WALL_SIZES.x, (y + 1) * WALL_SIZES.y))
+			
+			if bool(grid[y][x] & dirs["E"]):
+				if bool((grid[y][x] | grid[y][x+1]) & dirs["S"]):
+					pass
+				else:
+					_horizontal_wall(Vector2((x + 1) * WALL_SIZES.x, (y + 1) * WALL_SIZES.y))
+			else:
+				_vertical_wall(Vector2((x + 1) * WALL_SIZES.x, y * WALL_SIZES.y))
+	wall.update_bitmask_region(Vector2.ZERO, Vector2(WALL_SIZES.x * width, WALL_SIZES.y * height))
+
+
+func _vertical_wall(start: Vector2):
+	for i in range(WALL_SIZES.y):
+		wall.set_cellv(start + Vector2(0, i), 0)
+
+
+func _horizontal_wall(start: Vector2):
+	for i in range(WALL_SIZES.x):
+		wall.set_cellv(start + Vector2(i, 0), 0)
+
+
 func _print(grid):
 	var str_ = " "
 	for _i in range(width * 2 - 1):
@@ -51,9 +87,9 @@ func _print(grid):
 	for y in range(height):
 		str_ += "|"
 		for x in range(width):
-			str_ += " " if (grid[y][x] & dirs["S"] != 0) else "_"
-			if grid[y][x] & dirs["E"] != 0:
-				str_ += " " if ((grid[y][x] | grid[y][x+1]) & dirs["S"] != 0) else "_"
+			str_ += " " if bool(grid[y][x] & dirs["S"]) else "_"
+			if bool(grid[y][x] & dirs["E"]):
+				str_ += " " if bool((grid[y][x] | grid[y][x+1]) & dirs["S"]) else "_"
 			else:
 				str_ += "|"
 		str_ += "\n"
