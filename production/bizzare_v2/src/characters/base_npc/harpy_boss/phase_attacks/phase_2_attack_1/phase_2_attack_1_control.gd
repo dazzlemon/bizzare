@@ -25,7 +25,7 @@ func spawn_lightning(angle):
 	get_root.owner.call_deferred("add_child", lightning_instance)
 	lightning_instance.global_position = get_node("../../").global_position 
 	lightning_instance.global_position += (Vector2(rand_range(-150, 150), rand_range(-150, 150))).rotated(angle)
-
+	lightning_instance.get_damage()
 
 func _stop():
 	get_parent.phase_attack_ended()

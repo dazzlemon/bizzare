@@ -1,6 +1,6 @@
 class_name HarpyStomp
 extends ExplosiveHitscan
 
-#
-#func get_damage():
-#	return stats.damage
+
+func get_damage():
+	return stats.damage

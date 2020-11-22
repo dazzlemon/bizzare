@@ -25,7 +25,7 @@ func dash() -> Vector2:
 		var stomp_instance = stomp.instance()
 		get_node("../").call_deferred("add_child" , stomp_instance)
 		state = States.IDLE
-		stomp_instance.damage = get_node("../stats").damage  
+		stomp_instance.stats = get_node("../stats") 
 	return (dash_target - get_parent().global_position).normalized() * 4.5 # NEED PLAY TEST
 
 
