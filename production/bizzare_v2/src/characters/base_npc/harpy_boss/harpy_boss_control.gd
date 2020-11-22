@@ -25,6 +25,7 @@ func dash() -> Vector2:
 		var stomp_instance = stomp.instance()
 		get_node("../").call_deferred("add_child" , stomp_instance)
 		state = States.IDLE
+		stomp_instance.damage = get_node("../stats").damage  
 	return (dash_target - get_parent().global_position).normalized() * 4.5 # NEED PLAY TEST
 
 
@@ -38,8 +39,8 @@ func _on_phase_cd_timeout() -> void:
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
 		#roll = rng.randi_range(1, 2)
-		roll = 1################################### DEBUG
 		phase = 2################################## DEBUG
+		roll = 2################################### DEBUG
 		current_phase_attack = "phase_" + str(phase) + "_attack_" + str(roll)
 		print(current_phase_attack)
 		get_node(current_phase_attack).try_use()
