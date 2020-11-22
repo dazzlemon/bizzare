@@ -1,19 +1,13 @@
 extends Node2D
 
+const dirs = {"N" : 1, "S" : 2, "E" : 4, "W" : 8}
+const DX = {"E" : 1, "W" : -1, "N" : 0, "S" : 0}
+const DY = {"E" : 0, "W" :  0, "N" : -1, "S" : 1}
+const OPPOSITE = {"E" : "W", "W" : "E", "N" : "S", "S" : "N"}
+
 var width = 10
 var height = 10
 var _seed = 10
-
-const dirs = {
-	"N" : 1,
-	"S" : 2,
-	"E" : 4,
-	"W" : 8,
-}
-
-const DX = { "E" : 1, "W" : -1, "N" : 0, "S" : 0 }
-const DY = { "E" : 0, "W" :  0, "N" : -1, "S" : 1 }
-const OPPOSITE = { "E" : "W", "W" : "E", "N" : "S", "S" : "N" }
 
 func _ready():
 	seed(_seed)
