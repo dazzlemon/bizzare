@@ -346,7 +346,7 @@ position = Vector2( 0, 24 )
 texture = ExtResource( 18 )
 
 [node name="sprite" type="Sprite" parent="pivot"]
-position = Vector2( 0, -0.9329 )
+position = Vector2( 0, -0.917145 )
 texture = ExtResource( 4 )
 hframes = 28
 frame = 11
