@@ -62,19 +62,35 @@ func _set_walls(grid):
 
 func _set_room(x, y, grid):
 	var _position = Vector2(x, y)
+	_begin_walls(_position)
+	var cell = grid[y][x]
+	_down_wall(_position, cell)
+	_right_wall(_position, cell)
+
+
+func _down_wall(_position, cell):
+	if bool(cell & dirs["S"]):
+		_empty_wall()
+	else:
+		_horizontal_wall(_position + Vector2(0, 1))
+
+
+func _right_wall(_position, cell):
+	if bool(cell & dirs["E"]):
+		_empty_wall()
+	else:
+		_vertical_wall(_position + Vector2(1, 0))
+
+func _empty_wall():
+	pass
+
+
+func _begin_walls(_position):
 	if not bool(_position.y):
 		_horizontal_wall(_position)
 	if not bool(_position.x):
 		_vertical_wall(_position)
-	
-	var cell = grid[y][x]
-	if not bool(cell & dirs["S"]):
-		_horizontal_wall(_position + Vector2(0, 1))
-	if bool(cell & dirs["E"]):
-		if not bool((cell | grid[y][x + 1]) & dirs["S"]):
-			_horizontal_wall(_position + Vector2(1, 1))
-	else:
-		_vertical_wall(_position + Vector2(1, 0))
+
 
 func _vertical_wall(start: Vector2):
 	_wall(start, 1)
