@@ -8,26 +8,34 @@
 pause_mode = 2
 script = ExtResource( 1 )
 
-[node name="BackGround" type="TextureRect" parent="."]
-visible = false
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackGround" type="TextureRect" parent="Control"]
 modulate = Color( 1, 1, 1, 0.478431 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 443.0
+margin_bottom = 233.0
 texture = ExtResource( 2 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Continue" type="Button" parent="."]
+[node name="Continue" type="Button" parent="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -34.5
-margin_top = -72.247
-margin_right = 34.5
-margin_bottom = -50.247
+margin_left = 185.5
+margin_top = 42.753
+margin_right = 254.5
+margin_bottom = 64.753
 custom_fonts/font = ExtResource( 3 )
 text = "Continue"
 flat = true
@@ -35,15 +43,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Screen" type="Button" parent="."]
+[node name="Screen" type="Button" parent="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -27.7649
-margin_top = -48.4752
-margin_right = 27.2351
-margin_bottom = -26.4751
+margin_left = 192.235
+margin_top = 66.5248
+margin_right = 247.235
+margin_bottom = 88.5249
 custom_fonts/font = ExtResource( 3 )
 text = "Screen"
 flat = true
@@ -51,15 +59,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Exit" type="Button" parent="."]
+[node name="Exit" type="Button" parent="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -17.2106
-margin_top = 47.2184
-margin_right = 17.7894
-margin_bottom = 69.2184
+margin_left = 202.789
+margin_top = 162.218
+margin_right = 237.789
+margin_bottom = 184.218
 custom_fonts/font = ExtResource( 3 )
 text = "Exit"
 flat = true
@@ -67,7 +75,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Load" type="Button" parent="."]
+[node name="Load" type="Button" parent="Control"]
 margin_left = 219.877
 margin_top = 157.322
 margin_right = 261.877
@@ -79,7 +87,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Save" type="Button" parent="."]
+[node name="Save" type="Button" parent="Control"]
 margin_left = 219.877
 margin_top = 134.099
 margin_right = 260.877
@@ -91,7 +99,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Settings" type="Button" parent="."]
+[node name="Settings" type="Button" parent="Control"]
 margin_left = 209.763
 margin_top = 111.624
 margin_right = 272.763
@@ -102,9 +110,9 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Continue" to="." method="_on_Continue_pressed"]
-[connection signal="pressed" from="Screen" to="." method="_on_Screen_pressed"]
-[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
-[connection signal="pressed" from="Load" to="." method="_on_Load_pressed"]
-[connection signal="pressed" from="Save" to="." method="_on_Save_pressed"]
-[connection signal="pressed" from="Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Control/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="Control/Screen" to="." method="_on_Screen_pressed"]
+[connection signal="pressed" from="Control/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Control/Load" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="Control/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="Control/Settings" to="." method="_on_Settings_pressed"]

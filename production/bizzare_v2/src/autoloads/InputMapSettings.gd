@@ -7,9 +7,8 @@ var config
 var keybinds = {}
 
 func _show():
-	#if Input.is_key_pressed(KEY_TAB):
 	add_child(input_menu.instance())
-	get_tree().paused = true                #TODO
+	#get_tree().paused = true                #TODO
 
 
 func _ready():

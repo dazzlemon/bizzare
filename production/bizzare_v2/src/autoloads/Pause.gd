@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-
+onready var control = $Control
 
 func _ready() -> void:
 	set_visible(false)
@@ -59,3 +59,4 @@ func _on_Load_pressed():
 
 func _on_Settings_pressed():
 	InputMapSettings._show()
+	control.visible = false 

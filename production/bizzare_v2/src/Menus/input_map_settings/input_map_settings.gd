@@ -1,6 +1,7 @@
 extends CanvasLayer
 
-onready var buttoncontainer = $Panel/VBoxContainer
+onready var pause_menu = load("res://src/autoloads/Pause.tscn")
+onready var buttoncontainer = $VBoxContainer
 onready var button_script = load("res://src/Menus/input_map_settings/KeyButton.gd")
 
 var keybinds
@@ -45,8 +46,9 @@ func change_bind(key, value):
 
 
 func _on_Back_pressed():
-	queue_free() 
-	get_tree().paused = false # TODO
+	Pause.set_visible(true)
+	queue_free()
+	#get_tree().paused = false # TODO
 
 
 func _on_Save_pressed():
