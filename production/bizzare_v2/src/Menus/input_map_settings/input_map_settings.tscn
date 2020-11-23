@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/themes/buttons_theme.theme" type="Theme" id=1]
 [ext_resource path="res://src/Menus/input_map_settings/input_map_settings.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://assets/textures/etc/Black.png" type="Texture" id=4]
 
 [sub_resource type="Theme" id=1]
+default_font = ExtResource( 3 )
+
+[sub_resource type="Theme" id=2]
 default_font = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -31,6 +34,7 @@ margin_left = 170.0
 margin_top = 18.0
 margin_right = 333.0
 margin_bottom = 208.0
+theme = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
