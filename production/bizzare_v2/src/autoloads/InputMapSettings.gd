@@ -1,4 +1,3 @@
-
 extends Node
 
 onready var input_menu = load("res://src/Menus/input_map_settings/input_map_settings.tscn")
@@ -7,10 +6,10 @@ var config
 
 var keybinds = {}
 
-func _input(event):
-	if Input.is_key_pressed(KEY_TAB):
-		add_child(input_menu.instance())
-		get_tree().paused = true                #TODO
+func _show():
+	#if Input.is_key_pressed(KEY_TAB):
+	add_child(input_menu.instance())
+	get_tree().paused = true                #TODO
 
 
 func _ready():

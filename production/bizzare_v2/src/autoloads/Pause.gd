@@ -55,3 +55,7 @@ func _on_Save_pressed():
 func _on_Load_pressed():
 	SaveScript.read_save("test_save", get_tree().get_root().get_node("Game/level/Trees/YSort"))
 	pause_toggle()
+
+
+func _on_Settings_pressed():
+	InputMapSettings._show()
