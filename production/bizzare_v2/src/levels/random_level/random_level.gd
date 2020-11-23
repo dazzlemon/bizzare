@@ -78,19 +78,16 @@ func _right_wall(_position, cell):
 
 func _next_wall(_position, cell, axis):
 	#axis 0 - x or 1 - y
-	var direction
-	var dir_vec
+	var raxis = int(not bool(axis))
+	var direction = dirs.keys()[1 + raxis]
+	var dir_vec = Vector2.RIGHT
 	if bool(axis):
-		direction = "S"
-		dir_vec = Vector2.DOWN
-	else:
-		direction = "E"
-		dir_vec = Vector2.RIGHT
+		dir_vec = dir_vec.rotated(PI / 2)
 	
 	if bool(cell & dirs[direction]):
 		_empty_wall()
 	else:
-		_wall(_position + dir_vec, int(not bool(axis)))
+		_wall(_position + dir_vec, raxis)
 
 
 func _empty_wall():
