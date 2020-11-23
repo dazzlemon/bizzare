@@ -56,21 +56,22 @@ func carve_passages_from(cx, cy, grid):
 func _set_walls(grid):
 	for y in range(height):
 		for x in range(width):
-			_set_room(Vector2(x, y), grid)
+			_set_room(x, y, grid)
 	wall.update_bitmask_region(Vector2.ZERO, Vector2(WALL_SIZES.x * width, WALL_SIZES.y * height))
 
 
-func _set_room(_position, grid):
+func _set_room(x, y, grid):
+	var _position = Vector2(x, y)
 	if not bool(_position.y):
 		_horizontal_wall(_position)
 	if not bool(_position.x):
 		_vertical_wall(_position)
 	
-	
-	if not bool(grid[_position.y][_position.x] & dirs["S"]):
+	var cell = grid[y][x]
+	if not bool(cell & dirs["S"]):
 		_horizontal_wall(_position + Vector2(0, 1))
-	if bool(grid[_position.y][_position.x] & dirs["E"]):
-		if not bool((grid[_position.y][_position.x] | grid[_position.y][_position.x+1]) & dirs["S"]):
+	if bool(cell & dirs["E"]):
+		if not bool((cell | grid[y][x + 1]) & dirs["S"]):
 			_horizontal_wall(_position + Vector2(1, 1))
 	else:
 		_vertical_wall(_position + Vector2(1, 0))
