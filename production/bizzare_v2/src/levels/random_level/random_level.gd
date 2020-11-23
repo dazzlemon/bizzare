@@ -62,18 +62,9 @@ func _set_walls(grid):
 
 func _set_room(x, y, grid):
 	var _position = Vector2(x, y)
-	_begin_walls(_position)
-	var cell = grid[y][x]
-	_down_wall(_position, cell)
-	_right_wall(_position, cell)
-
-
-func _down_wall(_position, cell):
-	_next_wall(_position, cell, 1)
-
-
-func _right_wall(_position, cell):
-	_next_wall(_position, cell, 0)
+	for i in range(2):
+		_begin_wall(_position, i)
+		_next_wall(_position, grid[y][x], i)
 
 
 func _next_wall(_position, cell, axis):
@@ -94,10 +85,9 @@ func _empty_wall():
 	pass
 
 
-func _begin_walls(_position):
-	for i in range(0, 2):
-		if not bool(_position[i]):
-			_wall(_position, int(not bool(i)))
+func _begin_wall(_position, axis):
+	if not bool(_position[axis]):
+		_wall(_position, int(not bool(axis)))
 
 
 func _wall(start: Vector2, axis: int):
