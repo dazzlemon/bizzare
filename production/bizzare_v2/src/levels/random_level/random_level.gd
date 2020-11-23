@@ -69,35 +69,38 @@ func _set_room(x, y, grid):
 
 
 func _down_wall(_position, cell):
-	if bool(cell & dirs["S"]):
-		_empty_wall()
-	else:
-		_horizontal_wall(_position + Vector2(0, 1))
+	_next_wall(_position, cell, 1)
 
 
 func _right_wall(_position, cell):
-	if bool(cell & dirs["E"]):
+	_next_wall(_position, cell, 0)
+
+
+func _next_wall(_position, cell, axis):
+	#axis 0 - x or 1 - y
+	var direction
+	var dir_vec
+	if bool(axis):
+		direction = "S"
+		dir_vec = Vector2.DOWN
+	else:
+		direction = "E"
+		dir_vec = Vector2.RIGHT
+	
+	if bool(cell & dirs[direction]):
 		_empty_wall()
 	else:
-		_vertical_wall(_position + Vector2(1, 0))
+		_wall(_position + dir_vec, int(not bool(axis)))
+
 
 func _empty_wall():
 	pass
 
 
 func _begin_walls(_position):
-	if not bool(_position.y):
-		_horizontal_wall(_position)
-	if not bool(_position.x):
-		_vertical_wall(_position)
-
-
-func _vertical_wall(start: Vector2):
-	_wall(start, 1)
-
-
-func _horizontal_wall(start: Vector2):
-	_wall(start, 0)
+	for i in range(0, 2):
+		if not bool(_position[i]):
+			_wall(_position, int(not bool(i)))
 
 
 func _wall(start: Vector2, axis: int):
