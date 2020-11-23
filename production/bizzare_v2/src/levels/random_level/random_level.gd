@@ -68,13 +68,9 @@ func _set_room(x, y, grid):
 
 
 func _next_wall(_position, cell, axis):
-	#axis 0 - x or 1 - y
 	var raxis = int(not bool(axis))
 	var direction = dirs.keys()[1 + raxis]
-	var dir_vec = Vector2.RIGHT
-	if bool(axis):
-		dir_vec = dir_vec.rotated(PI / 2)
-	
+	var dir_vec = Vector2.RIGHT.rotated(axis * - 3 * PI / 2)#not (PI / 2), because else it returns Vector2(-0, 2) and causes certain cell to not spawn(voprosi k godotu)
 	if bool(cell & dirs[direction]):
 		_empty_wall()
 	else:
@@ -82,7 +78,7 @@ func _next_wall(_position, cell, axis):
 
 
 func _empty_wall():
-	pass
+	pass#dobavit steni s prohodom
 
 
 func _begin_wall(_position, axis):
