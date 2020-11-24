@@ -25,7 +25,7 @@ func __init():
 
 
 func _on_timeout():
-	timer.start(rand_range(spacing[1] / speed[0], spacing[0] / speed[1]) / 60)
+	timer.start(rand_range(spacing[0] / speed[1], spacing[1] / speed[0]))
 	spawn_clouds(-size / 2)
 
 
