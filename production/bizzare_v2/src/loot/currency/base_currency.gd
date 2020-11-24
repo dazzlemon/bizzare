@@ -12,3 +12,4 @@ func die(area):
 
 func push_currency(value, area):
 	area.get_node("../Inventory").currency_amount += value
+

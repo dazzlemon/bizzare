@@ -11,7 +11,7 @@ var drop_rates = {
 	preload("res://src/loot/health_orb/health_orb.tscn") : 10,
 	preload("res://src/loot/damage_orb/damage_orb.tscn") : 10,
 	preload("res://src/loot/armor_orb/armor_orb.tscn") : 10,
-	preload("res://src/loot/money_orb/money_orb.tscn") : 10,
+	preload("res://src/loot/money_orb/money_orb.tscn") : 100,
 	preload("res://src/loot/restore/small_health_restore/small_health_restore.tscn") : 10,
 	preload("res://src/loot/restore/big_health_restore/big_health_restore.tscn") : 10,
 	preload("res://src/loot/restore/small_armor_restore/small_armor_restore.tscn") : 10,

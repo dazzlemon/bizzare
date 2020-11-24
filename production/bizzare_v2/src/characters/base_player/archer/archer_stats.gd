@@ -6,4 +6,6 @@ func _ready() -> void:
 	max_armor = 10
 	self.damage = 10
 	._ready()
-	
+
+
+

@@ -44,4 +44,4 @@ func _get_speed():
 
 
 func _str(_name, val):
-	return ("%-10s" % ("\t" + _name) + "%6s" % val + "\n").c_unescape()
+	return ("%-10s" % (_name) + "%6s" % val + "\n").c_unescape()

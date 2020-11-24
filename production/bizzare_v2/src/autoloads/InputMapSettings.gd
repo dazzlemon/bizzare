@@ -1,14 +1,15 @@
 extends Node
 
 onready var input_menu = load("res://src/Menus/input_map_settings/input_map_settings.tscn")
+#onready var pause_menu = get_tree().get_root().get_node("/root/Pause")
 var filepath = "res://key_config.ini"
 var config
 
 var keybinds = {}
 
+
 func _show():
 	add_child(input_menu.instance())
-	#get_tree().paused = true                #TODO
 
 
 func _ready():
@@ -47,3 +48,4 @@ func write_config():
 		else:
 			config.set_value("keybinds", key, "")  ###GODOT deletes the whole line in config if value = null , so value = ""
 	config.save(filepath)
+

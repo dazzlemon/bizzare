@@ -46,12 +46,14 @@ func change_bind(key, value):
 
 
 func _on_Back_pressed():
+	Pause.is_settings_shown = false
 	Pause.set_visible(true)
 	queue_free()
 	#get_tree().paused = false # TODO
 
 
 func _on_Save_pressed():
+	Pause.is_settings_shown = false
 	InputMapSettings.keybinds = keybinds.duplicate()
 	InputMapSettings.set_config()
 	InputMapSettings.write_config()

@@ -1,13 +1,14 @@
 extends CanvasLayer
 
 onready var control = $Control
+var is_settings_shown = false
 
 func _ready() -> void:
 	set_visible(false)
 
 
 func _input(event) -> void:
-	if event.is_action_pressed("ui_cancel") and current_scene() != "title_screen":
+	if event.is_action_pressed("ui_cancel") and current_scene() != "title_screen" and not is_settings_shown: #and  not has_node("input_menu") :
 		pause_toggle()
 
 
@@ -58,5 +59,9 @@ func _on_Load_pressed():
 
 
 func _on_Settings_pressed():
+	is_settings_shown = true
 	InputMapSettings._show()
 	control.visible = false 
+
+
+
