@@ -10,8 +10,10 @@ static func _dict_to_player(dict, parent):
 	for s in dict["stats"]:
 		player.stats.set(s, dict["stats"][s])
 	player.get_node("Inventory").array = dict["inventory"]
+	player.get_node("Inventory").currency_amount = dict["currency"]
+	player.get_node("Inventory").currency_multiplier = dict["currency_multiplier"]
 	#print(player.get_node("Inventory").array)
-	#print(player.get_node("Inventory").currency_multiplier)
+	print(player.get_node("Inventory").currency_multiplier)
 
 
 static func _file_to_dict(filename) -> Dictionary:
