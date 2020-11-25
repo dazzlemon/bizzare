@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_Controls_pressed():
-	visible = false
+	queue_free()
 	InputMapSettings._show()
 
 
@@ -14,3 +14,4 @@ func _on_cancel_pressed():
 	Pause.is_settings_shown = false
 	Pause.set_visible(true)
 	queue_free()
+

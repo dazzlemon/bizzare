@@ -77,7 +77,6 @@ tracks/0/keys = {
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 8
-frame = 4
 
 [node name="fire" type="Particles2D" parent="Sprite"]
 material = SubResource( 1 )

@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 onready var pause_menu = load("res://src/autoloads/Pause.tscn")
+onready var settings_menu = load("res://src/Menus/settings/Settings.tscn")
 onready var buttoncontainer = $VBoxContainer
 onready var button_script = load("res://src/Menus/input_map_settings/KeyButton.gd")
 
@@ -46,8 +47,8 @@ func change_bind(key, value):
 
 
 func _on_Back_pressed():
-	#Settings.visible = true
-	Pause.set_visible(true)
+	Pause.add_child(settings_menu.instance())
+	#Pause.set_visible(true)
 	queue_free()
 
 
