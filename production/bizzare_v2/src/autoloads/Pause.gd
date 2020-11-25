@@ -1,24 +1,26 @@
 extends CanvasLayer
 
 onready var control = $Control
+onready var settings_menu = load("res://src/Menus/settings/Settings.tscn")
 var is_settings_shown = false
+#var is_settings_element_shown = false
+
 
 func _ready() -> void:
 	set_visible(false)
 
 
 func _input(event) -> void:
-	if event.is_action_pressed("ui_cancel") and current_scene() != "title_screen" and not is_settings_shown: #and  not has_node("input_menu") :
+	if event.is_action_pressed("ui_cancel") and current_scene() != "title_screen" and not is_settings_shown: #and not is_settings_element_shown: #and  not has_node("input_menu") :
 		pause_toggle()
 
 
 func set_visible(is_visible) -> void:
-	for node in get_children():
-		node.visible = is_visible
+	control.visible = is_visible
 
 
-func _on_Screen_pressed() -> void:
-	OS.window_fullscreen = not OS.window_fullscreen
+#func _on_Screen_pressed() -> void:
+#	OS.window_fullscreen = not OS.window_fullscreen
 
 
 func _on_Exit_pressed() -> void:
@@ -59,8 +61,8 @@ func _on_Load_pressed():
 
 
 func _on_Settings_pressed():
+	add_child(settings_menu.instance())
 	is_settings_shown = true
-	InputMapSettings._show()
 	control.visible = false 
 
 

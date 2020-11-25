@@ -734,8 +734,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-InputMapSettings="*res://src/autoloads/InputMapSettings.gd"
 Pause="*res://src/autoloads/Pause.tscn"
+Settings="*res://src/Menus/settings/Settings.gd"
+InputMapSettings="*res://src/autoloads/InputMapSettings.gd"
 
 [display]
 

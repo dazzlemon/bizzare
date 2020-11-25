@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/autoloads/Pause.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/etc/Black.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/new_dynamicfont.tres" type="DynamicFont" id=3]
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer"]
 pause_mode = 2
@@ -27,15 +30,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Continue" type="Button" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 185.5
-margin_top = 42.753
-margin_right = 254.5
-margin_bottom = 64.753
+margin_left = 185.657
+margin_top = 55.4895
+margin_right = 248.657
+margin_bottom = 181.49
+theme = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="Control/VBoxContainer"]
+margin_right = 63.0
+margin_bottom = 22.0
 custom_fonts/font = ExtResource( 3 )
 text = "Continue"
 flat = true
@@ -43,55 +54,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Screen" type="Button" parent="Control"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 192.235
-margin_top = 66.5248
-margin_right = 247.235
-margin_bottom = 88.5249
+[node name="Restart" type="Button" parent="Control/VBoxContainer"]
+margin_top = 26.0
+margin_right = 63.0
+margin_bottom = 48.0
+text = "Restart"
+flat = true
+
+[node name="Settings" type="Button" parent="Control/VBoxContainer"]
+margin_top = 52.0
+margin_right = 63.0
+margin_bottom = 74.0
 custom_fonts/font = ExtResource( 3 )
-text = "Screen"
+text = "Settings"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Exit" type="Button" parent="Control"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 202.789
-margin_top = 162.218
-margin_right = 237.789
-margin_bottom = 184.218
-custom_fonts/font = ExtResource( 3 )
-text = "Exit"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Load" type="Button" parent="Control"]
-margin_left = 219.877
-margin_top = 157.322
-margin_right = 261.877
-margin_bottom = 179.322
-custom_fonts/font = ExtResource( 3 )
-text = "Load"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Save" type="Button" parent="Control"]
-margin_left = 219.877
-margin_top = 134.099
-margin_right = 260.877
-margin_bottom = 156.099
+[node name="Save" type="Button" parent="Control/VBoxContainer"]
+margin_top = 78.0
+margin_right = 63.0
+margin_bottom = 100.0
 custom_fonts/font = ExtResource( 3 )
 text = "Save"
 flat = true
@@ -99,20 +83,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Settings" type="Button" parent="Control"]
-margin_left = 209.763
-margin_top = 111.624
-margin_right = 272.763
-margin_bottom = 133.624
+[node name="Load" type="Button" parent="Control/VBoxContainer"]
+margin_top = 104.0
+margin_right = 63.0
+margin_bottom = 126.0
 custom_fonts/font = ExtResource( 3 )
-text = "Settings"
+text = "Load"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Control/Continue" to="." method="_on_Continue_pressed"]
-[connection signal="pressed" from="Control/Screen" to="." method="_on_Screen_pressed"]
-[connection signal="pressed" from="Control/Exit" to="." method="_on_Exit_pressed"]
-[connection signal="pressed" from="Control/Load" to="." method="_on_Load_pressed"]
-[connection signal="pressed" from="Control/Save" to="." method="_on_Save_pressed"]
-[connection signal="pressed" from="Control/Settings" to="." method="_on_Settings_pressed"]
+
+[node name="Exit" type="Button" parent="Control/VBoxContainer"]
+margin_top = 130.0
+margin_right = 63.0
+margin_bottom = 152.0
+custom_fonts/font = ExtResource( 3 )
+text = "Exit"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Control/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Load" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
