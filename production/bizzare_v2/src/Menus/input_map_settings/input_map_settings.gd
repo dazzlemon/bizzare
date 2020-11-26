@@ -47,7 +47,7 @@ func change_bind(key, value):
 
 
 func _on_Back_pressed():
-	Pause.add_child(settings_menu.instance())
+	Pause.call_deferred("add_child", settings_menu.instance())
 	#Pause.set_visible(true)
 	queue_free()
 

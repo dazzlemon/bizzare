@@ -736,7 +736,8 @@ config/icon="res://icon.png"
 
 Pause="*res://src/autoloads/Pause.tscn"
 InputMapSettings="*res://src/autoloads/InputMapSettings.gd"
-SettingsMenu="*res://src/autoloads/Settings.gd"
+command_history="*res://src/autoloads/console/command_history.gd"
+Console="*res://src/autoloads/console/console.tscn"
 
 [display]
 
@@ -774,6 +775,11 @@ texture={
 
 [input]
 
+ui_accept={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"unicode":0,"echo":false,"script":null)
+ ]
+}
 ui_left={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
@@ -812,6 +818,11 @@ spell_2={
 shift_dodge={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"unicode":0,"echo":false,"script":null)
+ ]
+}
+console={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":96,"unicode":0,"echo":false,"script":null)
  ]
 }
 

@@ -9,6 +9,7 @@ onready var actions = [
 	"spell_2",
 	"attack",
 	"shift_dodge",
+	#"ui_accept",
 ]
 
 func _process(delta: float):
@@ -19,6 +20,8 @@ func _process(delta: float):
 
 func input_loop():
 	for action in actions:
+		#if Input.is_action_pressed("ui_accept"):
+			#	get_tree().get_root().get_node("Game").add_child(load("res://src/Menus/Debug_console/console.tscn").instance())
 		if Input.is_action_pressed(action) and get(action) != null:
 				get(action).try_use()
 

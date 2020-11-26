@@ -1,11 +1,24 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/autoloads/Pause.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/etc/Black.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/new_dynamicfont.tres" type="DynamicFont" id=3]
 
-[sub_resource type="Theme" id=1]
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="Theme" id=2]
 default_font = ExtResource( 3 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = SubResource( 1 )
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
 
 [node name="CanvasLayer" type="CanvasLayer"]
 pause_mode = 2
@@ -39,7 +52,7 @@ margin_left = 185.657
 margin_top = 55.4895
 margin_right = 248.657
 margin_bottom = 181.49
-theme = SubResource( 1 )
+theme = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

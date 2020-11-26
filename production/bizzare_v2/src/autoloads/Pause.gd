@@ -3,7 +3,6 @@ extends CanvasLayer
 onready var control = $Control
 onready var settings_menu = load("res://src/Menus/settings/Settings.tscn")
 var is_settings_shown = false
-#var is_settings_element_shown = false
 
 
 func _ready() -> void:
@@ -17,10 +16,6 @@ func _input(event) -> void:
 
 func set_visible(is_visible) -> void:
 	control.visible = is_visible
-
-
-#func _on_Screen_pressed() -> void:
-#	OS.window_fullscreen = not OS.window_fullscreen
 
 
 func _on_Exit_pressed() -> void:
@@ -61,7 +56,7 @@ func _on_Load_pressed():
 
 
 func _on_Settings_pressed():
-	add_child(settings_menu.instance())
+	call_deferred("add_child", settings_menu.instance())
 	is_settings_shown = true
 	control.visible = false 
 
