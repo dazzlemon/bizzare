@@ -6,6 +6,7 @@ onready var command_handler = $command_handler
 
 var command_history_line = command_history.history.size()
 
+
 func _ready() -> void:
 	set_visible(false)
 
@@ -16,7 +17,6 @@ func output_text(text):
 
 
 func _input(event) -> void:
-	input.clear()
 	if event.is_action_pressed("console"):
 		get_tree().paused = not get_tree().paused
 		set_visible(get_tree().paused)
@@ -79,3 +79,4 @@ func _on_input_text_entered(new_text):
 	proccess_comand(new_text)
 	input.clear()
 	command_history_line = command_history.history.size()
+
