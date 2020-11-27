@@ -18,6 +18,7 @@ func output_text(text):
 
 func _input(event) -> void:
 	if event.is_action_pressed("console"):
+		Pause.is_settings_shown = not Pause.is_settings_shown
 		get_tree().paused = not get_tree().paused
 		set_visible(get_tree().paused)
 	if event is InputEventKey and event.is_pressed():
@@ -44,6 +45,8 @@ func proccess_comand(text):
 	var command_word = words.pop_front()
 	for c in command_handler.commands:
 		if c[0] == command_word:
+			#print(str("c0:" + c[0]))
+			#print(str("cw:" + command_word))
 			if words.size() != c[1].size():
 				output_text(str('Failed to use command "', command_word, '", expected ', c[1].size() , ' parameters'))
 				return
@@ -51,7 +54,10 @@ func proccess_comand(text):
 				if not check_type(words[i], c[1][i]):
 					output_text(str('Failed to use command "', command_word, '", parameter ', (i+1), '("', words[i], '") is of the wrong type'))
 					return
-			output_text(command_handler.call("set_value", command_word, words)) #output_text(command_handler.callv(command_word, words))
+			if "health" in command_word or "armor" in command_word or "damage" in command_word:
+				output_text(command_handler.call("set_value", command_word, words)) 
+			else:
+				output_text(command_handler.callv(command_word, words))
 			return
 	output_text(str('Command "', command_word, '" does not exist.'))
 

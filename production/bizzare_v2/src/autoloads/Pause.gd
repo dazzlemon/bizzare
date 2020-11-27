@@ -61,4 +61,6 @@ func _on_Settings_pressed():
 	control.visible = false 
 
 
-
+func _on_Restart_pressed():
+	pass
+	#get_tree().get_root().get_node("Game").load_level(get_tree().get_root().get_node("Game/level/Trees/YSort/player"))
