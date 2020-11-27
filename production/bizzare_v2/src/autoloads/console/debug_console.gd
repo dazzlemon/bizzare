@@ -51,7 +51,7 @@ func proccess_comand(text):
 				if not check_type(words[i], c[1][i]):
 					output_text(str('Failed to use command "', command_word, '", parameter ', (i+1), '("', words[i], '") is of the wrong type'))
 					return
-			output_text(command_handler.callv(command_word, words))
+			output_text(command_handler.call("set_value", command_word, words)) #output_text(command_handler.callv(command_word, words))
 			return
 	output_text(str('Command "', command_word, '" does not exist.'))
 
