@@ -11,7 +11,7 @@ script = ExtResource( 1 )
 scale = Vector2( 0.829803, 0.868775 )
 tile_data = PoolIntArray(  )
 
-[node name="Path 24" parent="Grass_24_shadow" index="0"]
+[node name="path" parent="Grass_24_shadow" index="0"]
 tile_data = PoolIntArray(  )
 
 [node name="leaf_wall" parent="Grass_24_shadow" index="1"]

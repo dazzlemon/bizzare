@@ -1,6 +1,6 @@
 extends Node2D
 
-const WALL_SIZES = Vector2(20, 20)
+const WALL_SIZES = Vector2(19, 20)
 const _transform = Transform2D(
 	Vector2(WALL_SIZES.x, 0),
 	Vector2(0, WALL_SIZES.y),
@@ -17,6 +17,8 @@ var height = 10
 var _seed = 10
 
 onready var wall = $Grass_24_shadow/leaf_wall
+onready var path = $Grass_24_shadow/path
+onready var grass = $Grass_24_shadow
 
 func _ready():
 	seed(_seed)
@@ -65,6 +67,33 @@ func _set_room(x, y, grid):
 	for i in range(2):
 		_begin_wall(_position, i)
 		_next_wall(_position, grid[y][x], i)
+	for i in range(WALL_SIZES.x + 1):
+		for j in range(WALL_SIZES.y + 1):
+			path.set_cellv(Vector2(x * WALL_SIZES.x + i, y * WALL_SIZES.y + j), 1)
+			grass.set_cellv(Vector2(x * WALL_SIZES.x + i, y * WALL_SIZES.y + j), 0)
+	
+	_paths(x, y, grid)
+	
+	grass.update_bitmask_region(Vector2(x * WALL_SIZES.x, y * WALL_SIZES.y), Vector2((x + 1) * WALL_SIZES.x, (y + 1) * WALL_SIZES.y))
+
+
+func _paths(x, y, grid):
+	#set middle path
+	var d = [int(not bool(int(WALL_SIZES.x) % 2)),
+			int(not bool(int(WALL_SIZES.y) % 2))]
+	var size = [2 + d[0], 2 + d[1]]
+	var axis = [x, y]                                                                                               
+	
+	for z in range(4):
+		var c = int(z > 1)
+		var nc = int(not bool(c))
+		if grid[y][x] & dirs.values()[z]:
+			for i in range(size[c]):
+				for j in range(0.5 * WALL_SIZES[nc] + size[nc] - d[nc]):
+					var vec = Vector2(
+						(axis[c] + 0.5) * WALL_SIZES[c] + i - d[c],
+						(axis[nc] + 0.5 * int(z if nc else not bool(z - 2))) * WALL_SIZES[nc] + j)
+					grass.set_cellv(Vector2(vec[c], vec[nc]), -1)
 
 
 func _next_wall(_position, cell, axis):
@@ -72,13 +101,23 @@ func _next_wall(_position, cell, axis):
 	var direction = dirs.keys()[1 + raxis]
 	var dir_vec = Vector2.RIGHT.rotated(axis * - 3 * PI / 2)#not (PI / 2), because else it returns Vector2(-0, 2) and causes certain cell to not spawn(voprosi k godotu)
 	if bool(cell & dirs[direction]):
-		_empty_wall()
+		_empty_wall(_position + dir_vec, raxis)
 	else:
 		_wall(_position + dir_vec, raxis)
 
 
-func _empty_wall():
-	pass#dobavit steni s prohodom
+func _empty_wall(start, axis):
+	start = _transform.xform(start)
+	var i = Vector2.ZERO
+	while i.length() < WALL_SIZES[axis] / 2 - 1:
+		wall.set_cellv(start + i, 0)
+		i[axis] += 1
+	
+	i[axis] += 2 + int(not bool(int(WALL_SIZES[axis]) % 2))
+	
+	while i.length() <= WALL_SIZES[axis]:
+		wall.set_cellv(start + i, 0)
+		i[axis] += 1
 
 
 func _begin_wall(_position, axis):
