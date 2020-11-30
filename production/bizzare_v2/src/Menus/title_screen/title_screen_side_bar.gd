@@ -1,5 +1,6 @@
 extends Menu
 
+
 func _ready():
 	OS.window_fullscreen = true
 	separation = 10
@@ -14,6 +15,8 @@ func _ready():
 func play():
 	get_tree().change_scene("res://src/levels/Game.tscn")
 
+
 func quit():
 	get_tree().quit()
+
 
