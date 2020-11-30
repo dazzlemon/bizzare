@@ -71,14 +71,11 @@ func _set_room(x, y, grid):
 		for j in range(WALL_SIZES.y + 1):
 			path.set_cellv(Vector2(x * WALL_SIZES.x + i, y * WALL_SIZES.y + j), 1)
 			grass.set_cellv(Vector2(x * WALL_SIZES.x + i, y * WALL_SIZES.y + j), 0)
-	
 	_paths(x, y, grid)
-	
 	grass.update_bitmask_region(Vector2(x * WALL_SIZES.x, y * WALL_SIZES.y), Vector2((x + 1) * WALL_SIZES.x, (y + 1) * WALL_SIZES.y))
 
 
 func _paths(x, y, grid):
-	#set middle path
 	var d = [int(not bool(int(WALL_SIZES.x) % 2)),
 			int(not bool(int(WALL_SIZES.y) % 2))]
 	var size = [2 + d[0], 2 + d[1]]
