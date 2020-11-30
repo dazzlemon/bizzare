@@ -45,8 +45,6 @@ func proccess_comand(text):
 	var command_word = words.pop_front()
 	for c in command_handler.commands:
 		if c[0] == command_word:
-			#print(str("c0:" + c[0]))
-			#print(str("cw:" + command_word))
 			if words.size() != c[1].size():
 				output_text(str('Failed to use command "', command_word, '", expected ', c[1].size() , ' parameters'))
 				return
