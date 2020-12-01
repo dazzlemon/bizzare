@@ -1,5 +1,6 @@
 extends Menu
 
+onready var settings_menu = load("res://src/Menus/settings/Settings.tscn")
 
 func _ready():
 	OS.window_fullscreen = true
@@ -12,8 +13,13 @@ func _ready():
 	]
 	._ready()
 
+
 func play():
 	get_tree().change_scene("res://src/levels/Game.tscn")
+
+
+func settings():
+	call_deferred("add_child", settings_menu.instance())
 
 
 func quit():

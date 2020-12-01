@@ -3,7 +3,7 @@ extends CanvasLayer
 onready var control = $Control
 onready var settings_menu = load("res://src/Menus/settings/Settings.tscn")
 var is_settings_shown = false
-
+#var music_level :float = 1
 
 func _ready() -> void:
 	set_visible(false)

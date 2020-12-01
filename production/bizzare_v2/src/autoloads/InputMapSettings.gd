@@ -6,6 +6,7 @@ var filepath = "res://key_config.ini"
 var config
 
 var keybinds = {}
+var sfx = {}
 
 
 func _show():
@@ -17,14 +18,21 @@ func _ready():
 	if config.load(filepath) == OK:
 		for key in config.get_section_keys("keybinds"):
 			var key_value = config.get_value("keybinds", key)
-			#print(key, " : ", OS.get_scancode_string(key_value)) #####################DEBUG
 			if str(key_value) != "":
 				keybinds[key] = key_value
 			else:
 				keybinds[key] = null
+		for element in config.get_section_keys("SFX"):
+			var sfx_value = config.get_value("SFX", element)
+			if str(sfx_value) != "":
+				sfx[element] = sfx_value
+			else:
+				sfx[element] = null
 	else:
 		print("Config file not found")
 		get_tree().quit()
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), sfx["music"])
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sound"), sfx["sound"])
 	set_config()
 
 
@@ -47,5 +55,7 @@ func write_config():
 			config.set_value("keybinds" , key, key_value)
 		else:
 			config.set_value("keybinds", key, "")  ###GODOT deletes the whole line in config if value = null , so value = ""
+	config.set_value("SFX", "music" , AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
+	config.set_value("SFX", "sound" , AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound")))
 	config.save(filepath)
 

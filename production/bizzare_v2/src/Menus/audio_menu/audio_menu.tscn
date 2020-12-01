@@ -38,13 +38,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HSlider" type="HSlider" parent="."]
+[node name="MusicSlider" type="HSlider" parent="."]
 margin_left = 185.0
 margin_top = 45.73
 margin_right = 301.0
 margin_bottom = 61.73
-min_value = -80.0
-max_value = 0.0
+max_value = 1.0
+step = 0.001
+value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -60,13 +61,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HSlider2" type="HSlider" parent="."]
+[node name="SoundSlider" type="HSlider" parent="."]
 margin_left = 185.0
 margin_top = 98.0551
 margin_right = 301.0
 margin_bottom = 114.055
-min_value = -80.0
-max_value = 0.0
+max_value = 1.0
+step = 0.001
+value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -81,6 +83,6 @@ text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="value_changed" from="HSlider" to="." method="_on_Music_value_changed"]
-[connection signal="value_changed" from="HSlider2" to="." method="_on_Sound_value_changed"]
+[connection signal="value_changed" from="MusicSlider" to="." method="_on_Music_value_changed"]
+[connection signal="value_changed" from="SoundSlider" to="." method="_on_Sound_value_changed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
