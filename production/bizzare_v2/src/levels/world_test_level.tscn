@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/Tiilemap/Trees.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/harpy/harpy.tscn" type="PackedScene" id=2]
@@ -11,7 +11,8 @@
 [ext_resource path="res://src/Tiilemap/Grass_24_shadow.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/characters/base_npc/orc_range/orc_range.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/levels/sky/sky.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/sound/Inviroment.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/sound/SOUNDTRACK.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/sound/Environment.wav" type="AudioStream" id=13]
 
 [node name="level" type="Node2D"]
 script = ExtResource( 4 )
@@ -49,9 +50,18 @@ position = Vector2( 606.349, 440.152 )
 position = Vector2( -168.735, 87.4235 )
 
 [node name="EnviromentSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 13 )
+volume_db = -6.058
+autoplay = true
+bus = "Sound"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 12 )
 volume_db = -6.058
 autoplay = true
+bus = "Music"
 
 [editable path="Node2D"]
 
