@@ -10,17 +10,17 @@ func _ready():
 
 
 func _on_Back_pressed():
-	InputMapSettings.write_config()
 	get_node("../")._visible()
 	queue_free()
 
 
 func _on_Music_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear2db(value))
+	InputMapSettings.write_sfx_to_config()
 
 
 
 func _on_Sound_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sound"), linear2db(value))
-
+	InputMapSettings.write_sfx_to_config()
 

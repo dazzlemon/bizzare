@@ -55,7 +55,10 @@ func write_config():
 			config.set_value("keybinds" , key, key_value)
 		else:
 			config.set_value("keybinds", key, "")  ###GODOT deletes the whole line in config if value = null , so value = ""
+	config.save(filepath)
+
+
+func write_sfx_to_config():
 	config.set_value("SFX", "music" , AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
 	config.set_value("SFX", "sound" , AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound")))
 	config.save(filepath)
-
