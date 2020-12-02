@@ -45,10 +45,13 @@ func change_bind(key, value):
 			buttons[k].text = "-"
 
 
+func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		_on_Back_pressed()
+
 
 func _on_Back_pressed():
 	Pause.call_deferred("add_child", settings_menu.instance())
-	#Pause.set_visible(true)
 	queue_free()
 
 

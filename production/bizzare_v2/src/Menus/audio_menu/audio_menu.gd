@@ -10,6 +10,7 @@ func _ready():
 
 
 func _on_Back_pressed():
+	get_node("../").is_element_shown = false
 	get_node("../")._visible()
 	queue_free()
 
@@ -24,3 +25,8 @@ func _on_Sound_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sound"), linear2db(value))
 	InputMapSettings.write_sfx_to_config()
 
+
+
+func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		_on_Back_pressed()
