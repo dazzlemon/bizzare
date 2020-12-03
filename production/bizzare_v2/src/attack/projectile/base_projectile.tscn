@@ -3,7 +3,7 @@
 [ext_resource path="res://src/attack/projectile/base_projectile.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 11.2119
+radius = 25.3301
 
 [node name="base_projectile" type="RigidBody2D"]
 collision_layer = 32

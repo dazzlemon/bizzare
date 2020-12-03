@@ -13,7 +13,6 @@ func _ready():
 	global_position += direction #* 6 #* 24
 
 
-
 func _process(delta) -> void:
 	global_position += direction * speed * delta
 
