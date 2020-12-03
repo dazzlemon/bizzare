@@ -4,10 +4,7 @@ onready var animation_player = $AnimationPlayer
 var target 
 
 func _ready():
-	#LIFETIME = 0.5 ##DEBUG
 	animation_player.play("process")
-	damage = 0 
-	#._ready()
 
 
 func _on_body_entered(_body) -> void:

@@ -4,9 +4,6 @@ extends BaseProjectileAlly
 var explosion_damage 
 onready var explosion_scene = preload("res://src/characters/base_player/archer/spells/explosion/explosion_hitscan.tscn")
 
-func _ready() -> void:
-	damage = 0
-
 
 func die() -> void:
 	var explosion = explosion_scene.instance()
