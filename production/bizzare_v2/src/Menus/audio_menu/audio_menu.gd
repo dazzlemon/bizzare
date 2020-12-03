@@ -10,7 +10,6 @@ func _ready():
 
 
 func _on_Back_pressed():
-	get_node("../").is_element_shown = false
 	get_node("../")._visible()
 	queue_free()
 

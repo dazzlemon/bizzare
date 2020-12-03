@@ -2,7 +2,6 @@ extends Control
 
 onready var audio = load("res://src/Menus/audio_menu/audio_menu.tscn")
 onready var Vbox = $VBoxContainer
-var is_element_shown = false
 
 func _on_Controls_pressed():
 	queue_free()
@@ -16,7 +15,6 @@ func _on_Graphics_pressed():
 func _on_Audio_pressed():
 	_visible()
 	var audio_instance = audio.instance()
-	is_element_shown = true
 	call_deferred("add_child", audio_instance)
 
 
@@ -33,5 +31,5 @@ func _on_back_pressed():
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel") and not is_element_shown:
+	if Input.is_action_just_pressed("ui_cancel") and not get_node("audio_instance"):
 		_on_back_pressed()

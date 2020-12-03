@@ -740,10 +740,10 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Pause="*res://src/autoloads/Pause.tscn"
-InputMapSettings="*res://src/autoloads/InputMapSettings.gd"
-command_history="*res://src/autoloads/console/command_history.gd"
-Console="*res://src/autoloads/console/console.tscn"
+Pause="*res://src/Menus/Pause/Pause.tscn"
+InputMapSettings="*res://src/Menus/input_map_settings/InputMapSettings.gd"
+command_history="*res://src/Menus/console/command_history.gd"
+Console="*res://src/Menus/console/console.tscn"
 
 [display]
 
