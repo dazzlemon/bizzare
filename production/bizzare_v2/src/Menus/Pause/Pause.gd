@@ -3,6 +3,7 @@ extends CanvasLayer
 onready var control = $Control
 onready var settings_menu = load("res://src/Menus/settings/Settings.tscn")
 var is_settings_shown = false
+var is_console_shown = false
 #var music_level :float = 1
 
 func _ready() -> void:
@@ -10,7 +11,7 @@ func _ready() -> void:
 
 
 func _input(event) -> void:
-	if event.is_action_pressed("ui_cancel") and current_scene() != "title_screen" and not is_settings_shown: #and not is_settings_element_shown: #and  not has_node("input_menu") :
+	if event.is_action_pressed("ui_cancel") and current_scene() != "title_screen" and not is_settings_shown and not is_console_shown : #and not is_settings_element_shown: #and  not has_node("input_menu") :
 		pause_toggle()
 
 
