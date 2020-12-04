@@ -80,14 +80,11 @@ func _set_room(x, y, grid):
 	_paths(x, y, grid)
 	grass.update_bitmask_region(start, end)
 	
-	
-	if not (x == 0 and y == 0):
-		return
 	for i in range(start.x, end.x, 1):
 		for j in range(start.y, end.y, 1):
 			_foliage(Vector2(i, j))
-	for f in foliage:
-		f.update_bitmask_region(start, end)
+#	for f in foliage:
+#		f.update_bitmask_region(start, end)
 		
 
 
@@ -113,14 +110,16 @@ func _paths(x, y, grid):
 			_tile_rect(path, s, e, 1)
 
 
-func _foliage(position):
-	if grass.get_cellv(position) != TileMap.INVALID_CELL:
+func _foliage(_position):
+	if grass.get_cellv(_position) != TileMap.INVALID_CELL and wall.get_cellv(_position) == TileMap.INVALID_CELL:
 		var roll = randf()
 		var counter = 0
 		for f in foliage:
 			counter += foliage[f]
 			if roll <= counter:
-				f.set_cellv(position, 1)
+				f.set_cellv(_position, 1)
+				f.update_bitmask_area(_position)
+				#set collisions
 				break
 
 
