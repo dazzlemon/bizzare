@@ -22,6 +22,9 @@ onready var grass = $Grass_24_shadow
 
 onready var foliage = {
 	$Grass_24_shadow/flowers_grass : 0.05,
+	$Trees/YSort/bush : 0.05,
+	$Trees : 0.05,
+	$Trees/YSort/fallen_tree : 0.05,
 }
 
 func _ready():
@@ -71,11 +74,21 @@ func _set_room(x, y, grid):
 	for i in range(2):
 		_begin_wall(_position, i)
 		_next_wall(_position, grid[y][x], i)
-	var start = Vector2(x * WALL_SIZES.x + 1, y * WALL_SIZES.y)
-	var end = Vector2((x + 1) * WALL_SIZES.x + 1, (y + 1) * WALL_SIZES.y)
+	var start = Vector2(x * WALL_SIZES.x, y * WALL_SIZES.y)
+	var end = Vector2((x + 1) * WALL_SIZES.x + 1, (y + 1) * WALL_SIZES.y + 1)
 	_tile_rect(grass, start, end, 0)
 	_paths(x, y, grid)
 	grass.update_bitmask_region(start, end)
+	
+	
+	if not (x == 0 and y == 0):
+		return
+	for i in range(start.x, end.x, 1):
+		for j in range(start.y, end.y, 1):
+			_foliage(Vector2(i, j))
+	for f in foliage:
+		f.update_bitmask_region(start, end)
+		
 
 
 func _paths(x, y, grid):
@@ -103,8 +116,12 @@ func _paths(x, y, grid):
 func _foliage(position):
 	if grass.get_cellv(position) != TileMap.INVALID_CELL:
 		var roll = randf()
-		
-	
+		var counter = 0
+		for f in foliage:
+			counter += foliage[f]
+			if roll <= counter:
+				f.set_cellv(position, 1)
+				break
 
 
 func _tile_rect(tilemap, start: Vector2, end: Vector2, val):
