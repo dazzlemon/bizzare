@@ -17,16 +17,17 @@ func output_text(text):
 
 
 func _input(event) -> void:
-	if event.is_action_pressed("console"):
-		Pause.is_settings_shown = not Pause.is_settings_shown
-		get_tree().paused = not get_tree().paused
-		set_visible(get_tree().paused)
+	if event.is_action_pressed("console") and not Pause.control.visible and not Pause.is_settings_shown:
+		_toggle()
 	if event is InputEventKey and event.is_pressed():
 		if event.scancode == KEY_UP:
 			scroll_command_history(-1)
 		if event.scancode == KEY_DOWN:
 			scroll_command_history(1)
-
+	if event.is_action_pressed("ui_cancel") and not Pause.control.visible and not Pause.is_settings_shown and input.visible:
+		_toggle()
+		Pause.pause_toggle() ##SEEMS 04ko
+  
 
 func scroll_command_history(amount):
 	command_history_line += amount
@@ -84,3 +85,7 @@ func _on_input_text_entered(new_text):
 	input.clear()
 	command_history_line = command_history.history.size()
 
+func _toggle():
+	get_tree().paused = not get_tree().paused
+	set_visible(get_tree().paused)
+	Pause.is_console_shown = not Pause.is_console_shown
