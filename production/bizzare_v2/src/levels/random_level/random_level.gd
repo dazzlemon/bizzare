@@ -67,14 +67,11 @@ func _set_room(x, y, grid):
 	for i in range(2):
 		_begin_wall(_position, i)
 		_next_wall(_position, grid[y][x], i)
-	_tile_rect(
-		grass,
-		Vector2(x * WALL_SIZES.x + 1, y * WALL_SIZES.y),
-		Vector2((x + 1) * WALL_SIZES.x, (y + 1) * WALL_SIZES.y),
-		0
-		)
+	var start = Vector2(x * WALL_SIZES.x + 1, y * WALL_SIZES.y)
+	var end = Vector2((x + 1) * WALL_SIZES.x + 1, (y + 1) * WALL_SIZES.y)
+	_tile_rect(grass, start, end, 0)
 	_paths(x, y, grid)
-	grass.update_bitmask_region(Vector2(x * WALL_SIZES.x, y * WALL_SIZES.y), Vector2((x + 1) * WALL_SIZES.x, (y + 1) * WALL_SIZES.y))
+	grass.update_bitmask_region(start, end)
 
 
 func _paths(x, y, grid):
@@ -87,28 +84,34 @@ func _paths(x, y, grid):
 		var c = int(z > 1)
 		var nc = int(not bool(c))
 		if grid[y][x] & dirs.values()[z]:
-			for i in range(size[c]):
-				for j in range(0.5 * WALL_SIZES[nc] + size[nc] - d[nc]):
-					var vec = Vector2(
-						(axis[c] + 0.5) * WALL_SIZES[c] + i - d[c],
-						(axis[nc] + 0.5 * int(z if nc else not bool(z - 2))) * WALL_SIZES[nc] + j)
-					grass.set_cellv(Vector2(vec[c], vec[nc]), -1)
-					path.set_cellv(Vector2(vec[c], vec[nc]), 1)
-					
-#			var start = Vector2(
-#				(axis[c] + 0.5) * WALL_SIZES[c] - d[c],
-#				(axis[nc] + 0.5 * int(z if nc else not bool(z - 2))) * WALL_SIZES[nc])
-#
-#			var end = Vector2(
-#				(axis[c] + 0.5) * WALL_SIZES[c] - d[c] + size[c],
-#				(axis[nc] + 0.5 * int(z if nc else not bool(z - 2))) * WALL_SIZES[nc] + 0.5 * WALL_SIZES[nc] + size[nc] - d[nc])
-#			_tile_rect(grass, start, end, -1)
-#			_tile_rect(path, start, end, 1)
+			var start = Vector2(
+				(axis[c] + 0.5) * WALL_SIZES[c] - d[c],
+				(axis[nc] + 0.5 * int(z if nc else not bool(z - 2))) * WALL_SIZES[nc])
+			var end = Vector2(
+				start.x + size[c],
+				start.y + 0.5 * WALL_SIZES[nc] + size[nc] - d[nc])
+			var s = Vector2(start[c], start[nc])
+			var e = Vector2(end[c], end[nc])
+			_tile_rect(grass, s, e, -1)
+			_tile_rect(path, s, e, 1)
+
+func _foliage(position):
+	if grass.get_cellv(position) != TileMap.INVALID_CELL:
+		var roll = randf()
+		if roll < 0.05:
+			pass#bush
+		elif roll < 0.1:
+			pass#tree
+		elif roll < 0.15:
+			pass#fallen tree
+		elif roll < 0.2:
+			pass#high grass
+	
 
 
 func _tile_rect(tilemap, start: Vector2, end: Vector2, val):
-	for i in range(start.x, end.x + 1, 1):
-		for j in range(start.y, end.y + 1, 1):
+	for i in range(start.x, end.x, 1):
+		for j in range(start.y, end.y, 1):
 			tilemap.set_cellv(Vector2(i, j), val)
 
 func _next_wall(_position, cell, axis):
