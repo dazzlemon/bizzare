@@ -20,6 +20,10 @@ onready var wall = $Grass_24_shadow/leaf_wall
 onready var path = $Grass_24_shadow/path
 onready var grass = $Grass_24_shadow
 
+onready var foliage = {
+	$Grass_24_shadow/flowers_grass : 0.05,
+}
+
 func _ready():
 	seed(_seed)
 	_generate()
@@ -95,17 +99,11 @@ func _paths(x, y, grid):
 			_tile_rect(grass, s, e, -1)
 			_tile_rect(path, s, e, 1)
 
+
 func _foliage(position):
 	if grass.get_cellv(position) != TileMap.INVALID_CELL:
 		var roll = randf()
-		if roll < 0.05:
-			pass#bush
-		elif roll < 0.1:
-			pass#tree
-		elif roll < 0.15:
-			pass#fallen tree
-		elif roll < 0.2:
-			pass#high grass
+		
 	
 
 
