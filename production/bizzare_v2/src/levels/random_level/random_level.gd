@@ -67,10 +67,12 @@ func _set_room(x, y, grid):
 	for i in range(2):
 		_begin_wall(_position, i)
 		_next_wall(_position, grid[y][x], i)
-	for i in range(WALL_SIZES.x + 1):
-		for j in range(WALL_SIZES.y + 1):
-			path.set_cellv(Vector2(x * WALL_SIZES.x + i, y * WALL_SIZES.y + j), 1)
-			grass.set_cellv(Vector2(x * WALL_SIZES.x + i, y * WALL_SIZES.y + j), 0)
+	_tile_rect(
+		grass,
+		Vector2(x * WALL_SIZES.x + 1, y * WALL_SIZES.y),
+		Vector2((x + 1) * WALL_SIZES.x, (y + 1) * WALL_SIZES.y),
+		0
+		)
 	_paths(x, y, grid)
 	grass.update_bitmask_region(Vector2(x * WALL_SIZES.x, y * WALL_SIZES.y), Vector2((x + 1) * WALL_SIZES.x, (y + 1) * WALL_SIZES.y))
 
@@ -91,7 +93,23 @@ func _paths(x, y, grid):
 						(axis[c] + 0.5) * WALL_SIZES[c] + i - d[c],
 						(axis[nc] + 0.5 * int(z if nc else not bool(z - 2))) * WALL_SIZES[nc] + j)
 					grass.set_cellv(Vector2(vec[c], vec[nc]), -1)
+					path.set_cellv(Vector2(vec[c], vec[nc]), 1)
+					
+#			var start = Vector2(
+#				(axis[c] + 0.5) * WALL_SIZES[c] - d[c],
+#				(axis[nc] + 0.5 * int(z if nc else not bool(z - 2))) * WALL_SIZES[nc])
+#
+#			var end = Vector2(
+#				(axis[c] + 0.5) * WALL_SIZES[c] - d[c] + size[c],
+#				(axis[nc] + 0.5 * int(z if nc else not bool(z - 2))) * WALL_SIZES[nc] + 0.5 * WALL_SIZES[nc] + size[nc] - d[nc])
+#			_tile_rect(grass, start, end, -1)
+#			_tile_rect(path, start, end, 1)
 
+
+func _tile_rect(tilemap, start: Vector2, end: Vector2, val):
+	for i in range(start.x, end.x + 1, 1):
+		for j in range(start.y, end.y + 1, 1):
+			tilemap.set_cellv(Vector2(i, j), val)
 
 func _next_wall(_position, cell, axis):
 	var raxis = int(not bool(axis))
