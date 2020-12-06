@@ -8,7 +8,6 @@
 [ext_resource path="res://src/characters/base_player/knight/knight.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
-scale = Vector2( 0.05, 0.05 )
 script = ExtResource( 1 )
 
 [node name="Grass_24_shadow" parent="." instance=ExtResource( 2 )]
@@ -37,7 +36,6 @@ cell_quadrant_size = 24
 
 [node name="player" parent="Trees/YSort" instance=ExtResource( 6 )]
 position = Vector2( 93.6916, 98.111 )
-scale = Vector2( 1, 1 )
 collision_mask = 2147483659
 
 [editable path="Grass_24_shadow"]

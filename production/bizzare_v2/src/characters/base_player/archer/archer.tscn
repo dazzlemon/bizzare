@@ -493,7 +493,7 @@ anims/attack = SubResource( 35 )
 texture = ExtResource( 9 )
 flip_h = true
 hframes = 16
-frame = 4
+frame = 5
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 0, 5 )
@@ -512,7 +512,13 @@ shape = SubResource( 36 )
 
 [node name="attack" parent="." index="8" instance=ExtResource( 2 )]
 
-[node name="HUD" parent="Camera2D" index="1"]
+[node name="minimap" parent="Camera2D" index="0"]
+cell_colors = {
+0: Color( 0.113725, 0.388235, 0.0156863, 1 ),
+1: Color( 0.827451, 0.611765, 0.337255, 1 )
+}
+
+[node name="HUD" parent="Camera2D" index="2"]
 margin_left = -239.0
 margin_top = 0.0
 margin_right = -2.0

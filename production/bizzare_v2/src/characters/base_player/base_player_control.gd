@@ -4,11 +4,13 @@ extends BaseControl
 
 onready var spell_1 = get_node("../spell_1")
 onready var spell_2 = get_node("../spell_2")
+#onready var minimap = get_node("../Camera2D/minimap")
 onready var actions = [
 	"spell_1",
 	"spell_2",
 	"attack",
 	"shift_dodge",
+	#"minimap",
 	#"ui_accept",
 ]
 
