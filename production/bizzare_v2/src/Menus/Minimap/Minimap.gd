@@ -6,8 +6,13 @@ export var zoom = 4
 
 
 onready var camera  = get_node(camera_node)
-var tilemap_nodes : Array = [ "../../../../../Grass_24_shadow/leaf_wall" , "../../../../../Grass_24_shadow/path"] #, "../../../../../Grass_24_shadow"  ]
+var tilemap_nodes : Array = [ "../../../../../Grass_24_shadow/leaf_wall" ] 
 var tilemaps = []
+
+
+var fixed_toggle_point = Vector2(0,0)
+var currently_moving_map = false
+
 
 func _ready():
 	for node in tilemap_nodes:
@@ -27,7 +32,6 @@ func _draw():
 		var camera_position = camera.position#camera.get_camera_screen_center()
 		var camera_cell = tilemap.world_to_map(camera_position)
 		var tilemap_offset = camera_cell + (camera_position - tilemap.map_to_world(camera_cell)) / tilemap.cell_size
-
 		for id in cell_colors.keys():
 			var color = cell_colors[id]
 			var cells = get_cells(tilemap, id)
@@ -39,4 +43,28 @@ func _process(delta):
 	if Input.is_action_just_pressed("minimap"):
 		visible = not visible
 	update()
+	if Input.is_mouse_button_pressed(BUTTON_LEFT):
+		if(!currently_moving_map):
+			var ref = get_viewport().get_mouse_position()
+			fixed_toggle_point = ref
+			currently_moving_map = true
+		move_map_around()
+	else:
+		currently_moving_map = false
+
+
+func _input(event):
+	if visible:
+		if event is InputEventMouseButton and event.is_pressed():
+			if event.button_index == BUTTON_WHEEL_UP and zoom <= 8:
+				zoom += 1
+			if event.button_index == BUTTON_WHEEL_DOWN and zoom > 1:
+				zoom -= 1 
+
+
+func move_map_around():
+	var ref = get_viewport().get_mouse_position()
+	self.rect_position.x -= (ref.x - fixed_toggle_point.x)
+	self.rect_position.y -= (ref.y - fixed_toggle_point.y)
+	fixed_toggle_point = ref
 

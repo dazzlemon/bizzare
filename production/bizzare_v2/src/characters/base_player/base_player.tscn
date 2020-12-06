@@ -36,21 +36,13 @@ script = ExtResource( 4 )
 z_index = 999
 current = true
 
-[node name="minimap" parent="Camera2D" index="0" instance=ExtResource( 15 )]
-visible = false
-camera_node = NodePath("..")
-cell_colors = {
-0: Color( 0.113725, 0.388235, 0.0156863, 1 ),
-1: Color( 0.827451, 0.611765, 0.337255, 1 )
-}
-
-[node name="Control" parent="Camera2D" index="1" instance=ExtResource( 13 )]
+[node name="Control" parent="Camera2D" index="0" instance=ExtResource( 13 )]
 margin_left = 136.042
 margin_top = 99.1106
 margin_right = 136.042
 margin_bottom = 99.1106
 
-[node name="HUD" type="RichTextLabel" parent="Camera2D" index="2"]
+[node name="HUD" type="RichTextLabel" parent="Camera2D" index="1"]
 margin_left = -238.0
 margin_top = 2.0
 margin_right = -1.0
@@ -65,31 +57,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="currency_hud" parent="Camera2D" index="3" instance=ExtResource( 11 )]
+[node name="currency_hud" parent="Camera2D" index="2" instance=ExtResource( 11 )]
 margin_left = -229.363
 margin_top = -202.493
 margin_right = -160.363
 margin_bottom = -162.493
 
-[node name="statusBar" parent="Camera2D" index="4" instance=ExtResource( 10 )]
+[node name="statusBar" parent="Camera2D" index="3" instance=ExtResource( 10 )]
 margin_left = -250.628
 margin_top = -114.031
 margin_right = -250.628
 margin_bottom = -114.031
 
-[node name="HealthBar" parent="Camera2D" index="5" instance=ExtResource( 9 )]
+[node name="HealthBar" parent="Camera2D" index="4" instance=ExtResource( 9 )]
 margin_left = -250.01
 margin_top = -139.337
 margin_right = -250.01
 margin_bottom = -139.337
 
-[node name="inventory_hud" parent="Camera2D" index="6" instance=ExtResource( 8 )]
+[node name="inventory_hud" parent="Camera2D" index="5" instance=ExtResource( 8 )]
 margin_left = -74.0
 margin_top = -129.0
 margin_right = 171.0
 margin_bottom = -74.0
 
-[node name="damage_hud" parent="Camera2D" index="7" instance=ExtResource( 7 )]
+[node name="damage_hud" parent="Camera2D" index="6" instance=ExtResource( 7 )]
+
+[node name="minimap" parent="Camera2D" index="7" instance=ExtResource( 15 )]
+visible = false
+camera_node = NodePath("..")
+cell_colors = {
+0: Color( 0.113725, 0.388235, 0.0156863, 1 )
+}
 
 [node name="Inventory" type="Node" parent="." index="9"]
 script = ExtResource( 5 )
