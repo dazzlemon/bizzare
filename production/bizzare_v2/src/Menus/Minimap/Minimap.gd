@@ -8,7 +8,7 @@ export var zoom = 4
 onready var camera  = get_node(camera_node)
 var tilemap_nodes : Array = [ "../../../../../Grass_24_shadow/leaf_wall" ] 
 var tilemaps = []
-
+var temp = Vector2(0,0)
 
 var fixed_toggle_point = Vector2(0,0)
 var currently_moving_map = false
@@ -17,6 +17,8 @@ var currently_moving_map = false
 func _ready():
 	for node in tilemap_nodes:
 		tilemaps.append(get_node(node))
+	temp = rect_position
+
 
 func try_use():
 	visible = not visible
@@ -36,12 +38,13 @@ func _draw():
 			var color = cell_colors[id]
 			var cells = get_cells(tilemap, id)
 			for cell in cells:
-				draw_rect(Rect2((cell - tilemap_offset) * zoom, Vector2.ONE * zoom), color)
+				draw_rect(Rect2((cell - tilemap_offset) * zoom , Vector2.ONE * zoom), color)
 
 
 func _process(delta):
 	if Input.is_action_just_pressed("minimap"):
 		visible = not visible
+		
 	update()
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		if(!currently_moving_map):
@@ -51,6 +54,7 @@ func _process(delta):
 		move_map_around()
 	else:
 		currently_moving_map = false
+	#print(rect_position)
 
 
 func _input(event):
@@ -62,9 +66,11 @@ func _input(event):
 				zoom -= 1 
 
 
-func move_map_around():
+func move_map_around(): 
 	var ref = get_viewport().get_mouse_position()
-	self.rect_position.x -= (ref.x - fixed_toggle_point.x)
-	self.rect_position.y -= (ref.y - fixed_toggle_point.y)
+	rect_position.x -= (ref.x - fixed_toggle_point.x)
+	rect_position.x = clamp(rect_position.x, temp.x - 200, temp.x + 200)
+	rect_position.y -= (ref.y - fixed_toggle_point.y)
+	rect_position.y = clamp(rect_position.y, temp.y - 200, temp.y + 200)
 	fixed_toggle_point = ref
 
