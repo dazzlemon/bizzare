@@ -531,6 +531,11 @@ margin_left = -240.0
 margin_top = 0.0
 margin_right = -3.0
 
+[node name="minimap" parent="Camera2D" index="7"]
+cell_colors = {
+0: Color( 0.113725, 0.388235, 0.0156863, 1 )
+}
+
 [node name="spell_2" parent="." index="10" instance=ExtResource( 8 )]
 
 [node name="cd" parent="spell_2" index="0"]

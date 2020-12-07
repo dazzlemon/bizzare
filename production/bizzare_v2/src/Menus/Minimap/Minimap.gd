@@ -44,6 +44,8 @@ func _draw():
 func _process(delta):
 	if Input.is_action_just_pressed("minimap"):
 		visible = not visible
+	if get_tree().paused:
+		visible = false
 		
 	update()
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):

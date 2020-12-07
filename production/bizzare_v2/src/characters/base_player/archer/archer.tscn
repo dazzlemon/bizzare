@@ -512,16 +512,16 @@ shape = SubResource( 36 )
 
 [node name="attack" parent="." index="8" instance=ExtResource( 2 )]
 
-[node name="minimap" parent="Camera2D" index="0"]
+[node name="HUD" parent="Camera2D" index="1"]
+margin_left = -239.0
+margin_top = 0.0
+margin_right = -2.0
+
+[node name="minimap" parent="Camera2D" index="7"]
 cell_colors = {
 0: Color( 0.113725, 0.388235, 0.0156863, 1 ),
 1: Color( 0.827451, 0.611765, 0.337255, 1 )
 }
-
-[node name="HUD" parent="Camera2D" index="2"]
-margin_left = -239.0
-margin_top = 0.0
-margin_right = -2.0
 
 [node name="spell_1" parent="." index="10" instance=ExtResource( 6 )]
 
@@ -551,7 +551,6 @@ script = ExtResource( 7 )
 shape = SubResource( 41 )
 
 [node name="crosshair" parent="." index="15"]
-z_index = 0
 z_as_relative = true
 [connection signal="animation_finished" from="AttackPlayer" to="." method="_on_AttackPlayer_animation_finished"]
 
