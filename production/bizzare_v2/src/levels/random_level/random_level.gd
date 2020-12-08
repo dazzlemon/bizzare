@@ -32,7 +32,7 @@ var mobs = {
 	preload("res://src/characters/base_npc/orc_melee/orc_melee.tscn") : 0.01,
 	preload("res://src/characters/base_npc/orc_range/orc_range.tscn") : 0.01,
 	preload("res://src/characters/base_npc/shadow/shadow.tscn") : 0.01,
-#	preload("res://src/characters/base_npc/harpy_boss/harpy_boss.tscn") : 1,	
+	preload("res://src/characters/base_npc/harpy_boss/harpy_boss.tscn") : 1,	
 }
 
 func _ready():
@@ -94,16 +94,17 @@ func _set_room(x, y, grid):
 	
 	var mob_points = float(x * y) / float((width - 1) * (height - 1))
 	while mob_points > 0:
-		var roll = randf() * mob_points
+		var roll = rand_range(0, mob_points)
 		mob_points -= roll
+		print(mob_points)
 		var counter = 0
 		for m in mobs:
 			counter += mobs[m]
 			if roll <= counter:
-				var m_ins = m.instance()
-				m_ins.global_position = Vector2(x * WALL_SIZES.x + rand_range(0, WALL_SIZES.x / 2), y * WALL_SIZES.y + rand_range(0, WALL_SIZES.y / 2))
-				add_child(m_ins)
-	
+				pass#var m_ins = m.instance()
+				#m_ins.global_position = Vector2(x * WALL_SIZES.x + rand_range(0, WALL_SIZES.x / 2), y * WALL_SIZES.y + rand_range(0, WALL_SIZES.y / 2))
+				#call_deferred("add_child", m_ins)
+
 
 func _paths(x, y, grid):
 	var d = [int(not bool(int(WALL_SIZES.x) % 2)),
@@ -143,6 +144,7 @@ func _tile_rect(tilemap, start: Vector2, end: Vector2, val):
 		for j in range(start.y, end.y, 1):
 			tilemap.set_cellv(Vector2(i, j), val)
 
+
 func _next_wall(_position, cell, axis):
 	var raxis = int(not bool(axis))
 	var direction = dirs.keys()[1 + raxis]
@@ -154,6 +156,8 @@ func _next_wall(_position, cell, axis):
 
 
 func _empty_wall(start, axis):
+	if randf() <= 0.25:
+		return
 	start = _transform.xform(start)
 	var i = Vector2.ZERO
 	while i.length() < WALL_SIZES[axis] / 2 - 1:

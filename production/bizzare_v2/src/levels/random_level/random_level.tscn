@@ -44,6 +44,9 @@ collision_mask = 2147483659
 [node name="AnimationTree" parent="Trees/YSort/player" index="2"]
 parameters/playback = SubResource( 1 )
 
+[node name="sprite" parent="Trees/YSort/player/pivot" index="0"]
+frame = 10
+
 [node name="Camera2D" parent="Trees/YSort/player" index="8"]
 visible = false
 
