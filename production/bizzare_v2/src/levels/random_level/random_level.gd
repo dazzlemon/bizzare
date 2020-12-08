@@ -12,8 +12,8 @@ const DX = {"E" : 1, "W" : -1, "N" : 0, "S" : 0}
 const DY = {"E" : 0, "W" :  0, "N" : -1, "S" : 1}
 const OPPOSITE = {"E" : "W", "W" : "E", "N" : "S", "S" : "N"}
 
-var width = 10
-var height = 10
+var width = 3
+var height = 3
 var _seed = 10
 
 onready var wall = $Grass_24_shadow/leaf_wall
@@ -21,10 +21,18 @@ onready var path = $Grass_24_shadow/path
 onready var grass = $Grass_24_shadow
 
 onready var foliage = {
-	$Grass_24_shadow/flowers_grass : [0.5, [0]],
-	$Trees/YSort/bush : [0.01, [0]],
-	$Trees : [0.01, [0]],
-	$Trees/YSort/fallen_tree : [0.01, [0]],
+	$Grass_24_shadow/flowers_grass : 0.5,
+	$Trees/YSort/bush : 0.01,
+	$Trees : 0.01,
+	$Trees/YSort/fallen_tree : 0.01,
+}
+
+var mobs = {
+	preload("res://src/characters/base_npc/harpy/harpy.tscn") : 0.01,
+	preload("res://src/characters/base_npc/orc_melee/orc_melee.tscn") : 0.01,
+	preload("res://src/characters/base_npc/orc_range/orc_range.tscn") : 0.01,
+	preload("res://src/characters/base_npc/shadow/shadow.tscn") : 0.01,
+#	preload("res://src/characters/base_npc/harpy_boss/harpy_boss.tscn") : 1,	
 }
 
 func _ready():
@@ -39,7 +47,7 @@ func _generate():
 	_set_walls(grid)
 
 
-func _array2d(heigth, width):
+func _array2d(height, width):
 	var array2d := []
 	for i in range(height):
 		array2d.append([])
@@ -83,8 +91,19 @@ func _set_room(x, y, grid):
 	for i in range(start.x, end.x, 1):
 		for j in range(start.y, end.y, 1):
 			_foliage(Vector2(i, j))
-	for f in foliage:
-		f.update_bitmask_region()
+	
+	var mob_points = float(x * y) / float((width - 1) * (height - 1))
+	while mob_points > 0:
+		var roll = randf() * mob_points
+		mob_points -= roll
+		var counter = 0
+		for m in mobs:
+			counter += mobs[m]
+			if roll <= counter:
+				var m_ins = m.instance()
+				m_ins.global_position = Vector2(x * WALL_SIZES.x + rand_range(0, WALL_SIZES.x / 2), y * WALL_SIZES.y + rand_range(0, WALL_SIZES.y / 2))
+				add_child(m_ins)
+	
 
 func _paths(x, y, grid):
 	var d = [int(not bool(int(WALL_SIZES.x) % 2)),
@@ -111,12 +130,11 @@ func _paths(x, y, grid):
 func _foliage(_position):
 	if grass.get_cellv(_position) != TileMap.INVALID_CELL:
 		var roll = randf()
-		print(roll)
 		var counter = 0
 		for f in foliage:
-			counter += foliage[f][0]
+			counter += foliage[f]
 			if roll <= counter:
-				f.set_cellv(_position, foliage[f][1][randi() % foliage[f][1].size()])
+				f.set_cellv(_position, foliage[f])
 				break
 
 
