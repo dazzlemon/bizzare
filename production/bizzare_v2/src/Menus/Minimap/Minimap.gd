@@ -45,7 +45,7 @@ func _draw():
 	var Rect = Rect2(Vector2(new_x * level.WALL_SIZES.x, new_y * level.WALL_SIZES.y) * zoom , (level.WALL_SIZES + Vector2.ONE) * zoom)
 	#draw_set_transform(rect_size / 2, 30, Vector2.ONE)
 	draw_rect(Rect, Color(Color.indianred))
-	print (level.WALL_SIZES + Vector2.ONE)
+	#print (level.WALL_SIZES + Vector2.ONE)
 
 func _process(delta):
 	if Input.is_action_just_pressed("minimap"):
