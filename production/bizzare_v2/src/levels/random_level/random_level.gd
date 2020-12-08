@@ -28,10 +28,10 @@ onready var foliage = {
 }
 
 var mobs = {
-	preload("res://src/characters/base_npc/harpy/harpy.tscn") : 0.01,
-	preload("res://src/characters/base_npc/orc_melee/orc_melee.tscn") : 0.01,
-	preload("res://src/characters/base_npc/orc_range/orc_range.tscn") : 0.01,
-	preload("res://src/characters/base_npc/shadow/shadow.tscn") : 0.01,
+	preload("res://src/characters/base_npc/harpy/harpy.tscn") : 0.24,
+	preload("res://src/characters/base_npc/orc_melee/orc_melee.tscn") : 0.24,
+	preload("res://src/characters/base_npc/orc_range/orc_range.tscn") : 0.24,
+	preload("res://src/characters/base_npc/shadow/shadow.tscn") : 0.24,
 	preload("res://src/characters/base_npc/harpy_boss/harpy_boss.tscn") : 1,	
 }
 
@@ -92,18 +92,21 @@ func _set_room(x, y, grid):
 		for j in range(start.y, end.y, 1):
 			_foliage(Vector2(i, j))
 	
+	var m_ins = mobs.keys()[0].instance()
+	m_ins.global_position = Vector2(x * WALL_SIZES.x + rand_range(0, WALL_SIZES.x / 2), y * WALL_SIZES.y + rand_range(0, WALL_SIZES.y / 2)) * 24
+	get_node("Trees/YSort").call_deferred("add_child", m_ins)
 	var mob_points = float(x * y) / float((width - 1) * (height - 1))
-	while mob_points > 0:
-		var roll = rand_range(0, mob_points)
-		mob_points -= roll
-		print(mob_points)
-		var counter = 0
-		for m in mobs:
-			counter += mobs[m]
-			if roll <= counter:
-				pass#var m_ins = m.instance()
-				#m_ins.global_position = Vector2(x * WALL_SIZES.x + rand_range(0, WALL_SIZES.x / 2), y * WALL_SIZES.y + rand_range(0, WALL_SIZES.y / 2))
-				#call_deferred("add_child", m_ins)
+#	while mob_points > 0:
+#		var roll = rand_range(0, mob_points)
+#		mob_points -= roll
+#		print(mob_points)
+#		var counter = 0
+#		for m in mobs:
+#			counter += mobs[m]
+#			if roll <= counter:
+#				var m_ins = m.instance()
+#				m_ins.global_position = Vector2(x * WALL_SIZES.x + rand_range(0, WALL_SIZES.x / 2), y * WALL_SIZES.y + rand_range(0, WALL_SIZES.y / 2))
+#				get_node("Trees/YSort").call_deferred("add_child", m_ins)
 
 
 func _paths(x, y, grid):
