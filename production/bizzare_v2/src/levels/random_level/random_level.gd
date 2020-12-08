@@ -97,13 +97,13 @@ func _set_room(x, y, grid):
 	get_node("Trees/YSort").call_deferred("add_child", m_ins)
 	var mob_points = float(x * y) / float((width - 1) * (height - 1))
 	while mob_points > 0:
-		#var roll = rand_range(0, mob_points)
-		mob_points -= 0.5
+		var roll = 0.5
+		mob_points -= roll
 		var counter = 0
 		for m in mobs:
 			counter += mobs[m]
-			if 0.5 <= counter:
-				var new_m_ins = mobs.keys()[1].instance()
+			if roll <= counter:
+				var new_m_ins = m.instance()
 				new_m_ins.global_position = Vector2(x * WALL_SIZES.x + rand_range(0, WALL_SIZES.x / 2), y * WALL_SIZES.y + rand_range(0, WALL_SIZES.y / 2)) * 24
 				get_node("Trees/YSort").call_deferred("add_child", new_m_ins)
 			
