@@ -4,7 +4,7 @@ export(NodePath) var camera_node
 export(Dictionary) var cell_colors
 export var zoom = 4
 
-
+onready var level = owner.get_parent().owner
 onready var camera  = get_node(camera_node)
 var tilemap_nodes : Array = [ "../../../../../Grass_24_shadow/leaf_wall" ] 
 var tilemaps = []
@@ -39,7 +39,13 @@ func _draw():
 			var cells = get_cells(tilemap, id)
 			for cell in cells:
 				draw_rect(Rect2((cell - tilemap_offset) * zoom , Vector2.ONE * zoom), color)
-
+	var new_x = int(Utility.map(owner.global_position.x, 0, level.WALL_SIZES.x * level.width * 24 , 0, level.width))
+	var new_y = int(Utility.map(owner.global_position.y, 0, level.WALL_SIZES.y * level.height * 24, 0, level.height))
+	#print("x:" + str(new_x), " y:" + str(new_y))
+	var Rect = Rect2(Vector2(new_x * level.WALL_SIZES.x, new_y * level.WALL_SIZES.y) * zoom , (level.WALL_SIZES + Vector2.ONE) * zoom)
+	#draw_set_transform(rect_size / 2, 30, Vector2.ONE)
+	draw_rect(Rect, Color(Color.indianred))
+	print (level.WALL_SIZES + Vector2.ONE)
 
 func _process(delta):
 	if Input.is_action_just_pressed("minimap"):

@@ -10,7 +10,6 @@
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
 [node name="Node2D" type="Node2D"]
-scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
 
 [node name="Grass_24_shadow" parent="." instance=ExtResource( 2 )]
@@ -43,12 +42,6 @@ collision_mask = 2147483659
 
 [node name="AnimationTree" parent="Trees/YSort/player" index="2"]
 parameters/playback = SubResource( 1 )
-
-[node name="sprite" parent="Trees/YSort/player/pivot" index="0"]
-frame = 10
-
-[node name="Camera2D" parent="Trees/YSort/player" index="8"]
-visible = false
 
 [node name="minimap" parent="Trees/YSort/player/Camera2D" index="7"]
 visible = true
