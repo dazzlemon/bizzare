@@ -2,11 +2,12 @@ extends Control
 
 export(NodePath) var camera_node
 export(Dictionary) var cell_colors
-export var zoom = 4
+export var zoom = 3
 
-onready var level = owner.get_parent().owner
+onready var level = owner.owner.get_parent().owner
+onready var player = owner.owner
 onready var camera  = get_node(camera_node)
-var tilemap_nodes : Array = [ "../../../../../Grass_24_shadow/leaf_wall" ] 
+var tilemap_nodes : Array = [ "../../../../../../../Grass_24_shadow/leaf_wall" ] 
 var tilemaps = []
 var temp = Vector2(0,0)
 
@@ -18,6 +19,7 @@ func _ready():
 	for node in tilemap_nodes:
 		tilemaps.append(get_node(node))
 	temp = rect_position
+	#print(owner.owner.get_parent().owner.name)
 
 
 func try_use():
@@ -30,8 +32,8 @@ func get_cells(tilemap : TileMap, id):
 
 func _draw():
 	draw_set_transform(rect_size / 2, 0, Vector2.ONE)
-	var new_x = int(Utility.map(owner.global_position.x, 0, level.WALL_SIZES.x * level.width * 24 , 0, level.width))
-	var new_y = int(Utility.map(owner.global_position.y, 0, level.WALL_SIZES.y * level.height * 24, 0, level.height))
+	var new_x = int(Utility.map(player.global_position.x, 0, level.WALL_SIZES.x * level.width * 24 , 0, level.width))
+	var new_y = int(Utility.map(player.global_position.y, 0, level.WALL_SIZES.y * level.height * 24, 0, level.height))
 	var Rect = Rect2(Vector2(new_x * level.WALL_SIZES.x, new_y * level.WALL_SIZES.y) * zoom , (level.WALL_SIZES + Vector2.ONE) * zoom)
 	draw_rect(Rect, Color("#8045a523"))
 	for tilemap in tilemaps:
@@ -48,9 +50,10 @@ func _draw():
 
 func _process(delta):
 	if Input.is_action_just_pressed("minimap"):
-		for node in owner.get_node("Camera2D").get_children():
-			if not node.name == "inventory_hud":
-				node.visible = not node.visible
+#		for node in owner.get_node("Camera2D").get_children():
+#			if not node.name == "inventory_hud":
+#				node.visible = not node.visible
+		owner.visible = not owner.visible
 			#print(node.name)
 		#owner.get_node("Camera2D/inventory_hud").visible = true
 	if get_tree().paused:
@@ -80,8 +83,8 @@ func _input(event):
 func move_map_around(): 
 	var ref = get_viewport().get_mouse_position()
 	rect_position.x += (ref.x - fixed_toggle_point.x)
-	rect_position.x = clamp(rect_position.x, temp.x - 200, temp.x + 200)
+	rect_position.x = clamp(rect_position.x, temp.x - 150, temp.x + 150)
 	rect_position.y += (ref.y - fixed_toggle_point.y)
-	rect_position.y = clamp(rect_position.y, temp.y - 200, temp.y + 200)
+	rect_position.y = clamp(rect_position.y, temp.y - 150, temp.y + 150)
 	fixed_toggle_point = ref
 

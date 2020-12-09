@@ -14,7 +14,7 @@
 [ext_resource path="res://assets/fonts/new_dynamicfont.tres" type="DynamicFont" id=12]
 [ext_resource path="res://src/etc/huds/spell_cd_hud.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/characters/base_player/shift_dodge.tscn" type="PackedScene" id=14]
-[ext_resource path="res://src/Menus/Minimap/Minimap.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/Menus/Minimap/minimap.tscn" type="PackedScene" id=15]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -86,11 +86,6 @@ margin_bottom = -74.0
 
 [node name="minimap" parent="Camera2D" index="7" instance=ExtResource( 15 )]
 visible = false
-show_behind_parent = true
-camera_node = NodePath("..")
-cell_colors = {
-0: Color( 0.113725, 0.388235, 0.0156863, 1 )
-}
 
 [node name="Inventory" type="Node" parent="." index="9"]
 script = ExtResource( 5 )

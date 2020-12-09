@@ -49,6 +49,9 @@ active = true
 parameters/playback = SubResource( 1 )
 script = ExtResource( 9 )
 
+[node name="sprite" parent="Trees/YSort/player/pivot" index="0"]
+frame = 10
+
 [node name="shadow" parent="Trees/YSort/player/pivot" index="2"]
 texture = ExtResource( 7 )
 
@@ -57,11 +60,17 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="minimap" parent="Trees/YSort/player/Camera2D" index="7"]
+modulate = Color( 1, 1, 1, 1 )
+self_modulate = Color( 0, 0, 0, 0.439216 )
+
+[node name="minimap" parent="Trees/YSort/player/Camera2D/minimap/MarginContainer" index="0"]
+camera_node = NodePath("../../..")
 cell_colors = {
-0: Color( 0.113725, 0.388235, 0.0156863, 1 )
+0: Color( 0.113725, 0.431373, 0.0705882, 1 )
 }
 
 [node name="hurtbox" parent="Trees/YSort/player" index="14"]
+collision_mask = 72
 script = ExtResource( 8 )
 
 [editable path="Grass_24_shadow"]
@@ -69,3 +78,5 @@ script = ExtResource( 8 )
 [editable path="Trees/YSort/player"]
 
 [editable path="Trees/YSort/player/Camera2D/inventory_hud"]
+
+[editable path="Trees/YSort/player/Camera2D/minimap"]

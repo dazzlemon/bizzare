@@ -1,28 +1,40 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://src/Menus/Minimap/Minimap.gd" type="Script" id=1]
+[ext_resource path="res://src/Menus/Minimap/Minimap.gd" type="Script" id=2]
 
-[node name="minimap" type="Control"]
-pause_mode = 2
+[node name="Control2" type="Panel"]
+modulate = Color( 0, 0, 0, 0.501961 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -702.5
-margin_top = -412.0
-margin_right = 702.5
-margin_bottom = 412.0
+margin_left = -246.0
+margin_top = -140.0
+margin_right = 247.0
+margin_bottom = 143.0
 rect_clip_content = true
-script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="."]
-modulate = Color( 0, 0, 0, 0.501961 )
-show_behind_parent = true
-margin_right = 1405.0
-margin_bottom = 824.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.5
+margin_top = -102.0
+margin_right = 160.5
+margin_bottom = 102.0
+rect_clip_content = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="minimap" type="Control" parent="MarginContainer"]
+margin_right = 321.0
+margin_bottom = 204.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
