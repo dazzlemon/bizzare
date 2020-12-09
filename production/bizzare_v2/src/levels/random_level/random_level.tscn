@@ -62,6 +62,7 @@ margin_bottom = 40.0
 [node name="minimap" parent="Trees/YSort/player/Camera2D" index="7"]
 modulate = Color( 1, 1, 1, 1 )
 self_modulate = Color( 0, 0, 0, 0.439216 )
+show_behind_parent = true
 
 [node name="minimap" parent="Trees/YSort/player/Camera2D/minimap/MarginContainer" index="0"]
 camera_node = NodePath("../../..")

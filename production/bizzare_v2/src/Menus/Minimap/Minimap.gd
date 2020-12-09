@@ -19,7 +19,7 @@ func _ready():
 	for node in tilemap_nodes:
 		tilemaps.append(get_node(node))
 	temp = rect_position
-	#print(owner.owner.get_parent().owner.name)
+	print(owner.name)
 
 
 func try_use():
@@ -50,10 +50,10 @@ func _draw():
 
 func _process(delta):
 	if Input.is_action_just_pressed("minimap"):
-#		for node in owner.get_node("Camera2D").get_children():
-#			if not node.name == "inventory_hud":
-#				node.visible = not node.visible
-		owner.visible = not owner.visible
+		for node in owner.get_parent().get_children():
+			if not node.name == "inventory_hud":
+				node.visible = not node.visible
+		#owner.visible = not owner.visible
 			#print(node.name)
 		#owner.get_node("Camera2D/inventory_hud").visible = true
 	if get_tree().paused:
