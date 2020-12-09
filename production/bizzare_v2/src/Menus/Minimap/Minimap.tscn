@@ -23,3 +23,6 @@ modulate = Color( 0, 0, 0, 0.501961 )
 show_behind_parent = true
 margin_right = 1405.0
 margin_bottom = 824.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

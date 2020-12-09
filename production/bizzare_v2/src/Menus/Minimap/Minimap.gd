@@ -30,6 +30,10 @@ func get_cells(tilemap : TileMap, id):
 
 func _draw():
 	draw_set_transform(rect_size / 2, 0, Vector2.ONE)
+	var new_x = int(Utility.map(owner.global_position.x, 0, level.WALL_SIZES.x * level.width * 24 , 0, level.width))
+	var new_y = int(Utility.map(owner.global_position.y, 0, level.WALL_SIZES.y * level.height * 24, 0, level.height))
+	var Rect = Rect2(Vector2(new_x * level.WALL_SIZES.x, new_y * level.WALL_SIZES.y) * zoom , (level.WALL_SIZES + Vector2.ONE) * zoom)
+	draw_rect(Rect, Color("#8045a523"))
 	for tilemap in tilemaps:
 		var camera_position = camera.position#camera.get_camera_screen_center()
 		var camera_cell = tilemap.world_to_map(camera_position)
@@ -39,17 +43,16 @@ func _draw():
 			var cells = get_cells(tilemap, id)
 			for cell in cells:
 				draw_rect(Rect2((cell - tilemap_offset) * zoom , Vector2.ONE * zoom), color)
-	var new_x = int(Utility.map(owner.global_position.x, 0, level.WALL_SIZES.x * level.width * 24 , 0, level.width))
-	var new_y = int(Utility.map(owner.global_position.y, 0, level.WALL_SIZES.y * level.height * 24, 0, level.height))
-	#print("x:" + str(new_x), " y:" + str(new_y))
-	var Rect = Rect2(Vector2(new_x * level.WALL_SIZES.x, new_y * level.WALL_SIZES.y) * zoom , (level.WALL_SIZES + Vector2.ONE) * zoom)
-	#draw_set_transform(rect_size / 2, 30, Vector2.ONE)
-	draw_rect(Rect, Color(Color.indianred))
-	#print (level.WALL_SIZES + Vector2.ONE)
+
+
 
 func _process(delta):
 	if Input.is_action_just_pressed("minimap"):
-		visible = not visible
+		for node in owner.get_node("Camera2D").get_children():
+			if not node.name == "inventory_hud":
+				node.visible = not node.visible
+			#print(node.name)
+		#owner.get_node("Camera2D/inventory_hud").visible = true
 	if get_tree().paused:
 		visible = false
 		
@@ -76,9 +79,9 @@ func _input(event):
 
 func move_map_around(): 
 	var ref = get_viewport().get_mouse_position()
-	rect_position.x -= (ref.x - fixed_toggle_point.x)
+	rect_position.x += (ref.x - fixed_toggle_point.x)
 	rect_position.x = clamp(rect_position.x, temp.x - 200, temp.x + 200)
-	rect_position.y -= (ref.y - fixed_toggle_point.y)
+	rect_position.y += (ref.y - fixed_toggle_point.y)
 	rect_position.y = clamp(rect_position.y, temp.y - 200, temp.y + 200)
 	fixed_toggle_point = ref
 

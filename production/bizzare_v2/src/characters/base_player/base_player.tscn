@@ -86,6 +86,7 @@ margin_bottom = -74.0
 
 [node name="minimap" parent="Camera2D" index="7" instance=ExtResource( 15 )]
 visible = false
+show_behind_parent = true
 camera_node = NodePath("..")
 cell_colors = {
 0: Color( 0.113725, 0.388235, 0.0156863, 1 )

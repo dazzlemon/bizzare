@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/levels/random_level/random_level.gd" type="Script" id=1]
 [ext_resource path="res://src/Tiilemap/Grass_24_shadow.tscn" type="PackedScene" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://src/Tiilemap/Bush.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Tiilemap/fallen_tree.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/characters/base_player/knight/knight.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/textures/harpy/shadow.png" type="Texture" id=7]
+[ext_resource path="res://src/characters/base_hurtbox.gd" type="Script" id=8]
+[ext_resource path="res://src/characters/anim_tree.gd" type="Script" id=9]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -41,14 +44,28 @@ position = Vector2( 93.6916, 98.111 )
 collision_mask = 2147483659
 
 [node name="AnimationTree" parent="Trees/YSort/player" index="2"]
+anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 1 )
+script = ExtResource( 9 )
+
+[node name="shadow" parent="Trees/YSort/player/pivot" index="2"]
+texture = ExtResource( 7 )
+
+[node name="control" parent="Trees/YSort/player" index="7"]
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="minimap" parent="Trees/YSort/player/Camera2D" index="7"]
-visible = true
 cell_colors = {
 0: Color( 0.113725, 0.388235, 0.0156863, 1 )
 }
 
+[node name="hurtbox" parent="Trees/YSort/player" index="14"]
+script = ExtResource( 8 )
+
 [editable path="Grass_24_shadow"]
 
 [editable path="Trees/YSort/player"]
+
+[editable path="Trees/YSort/player/Camera2D/inventory_hud"]
