@@ -2,7 +2,7 @@ extends Control
 
 export(NodePath) var camera_node
 export(Dictionary) var cell_colors
-export var zoom = 3
+export var zoom = 2
 
 onready var level = owner.owner.get_parent().owner
 onready var player = owner.owner
@@ -53,9 +53,13 @@ func _process(delta):
 		for node in owner.get_parent().get_children():
 			if not node.name == "inventory_hud":
 				node.visible = not node.visible
-		#owner.visible = not owner.visible
-			#print(node.name)
-		#owner.get_node("Camera2D/inventory_hud").visible = true
+			else:
+				if owner.visible:
+					node.rect_position += Vector2(48.5,0)
+					print("-")
+				else:
+					node.rect_position -= Vector2(48.5,0)
+					print("+")
 	if get_tree().paused:
 		visible = false
 		

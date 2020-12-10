@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://assets/textures/etc/Sprite-0002.png" type="Texture" id=1]
 [ext_resource path="res://src/Menus/Minimap/Minimap.gd" type="Script" id=2]
 
 [node name="Control2" type="Panel"]
 modulate = Color( 0, 0, 0, 0.501961 )
+self_modulate = Color( 1, 1, 1, 0.439216 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -22,19 +24,25 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -160.5
-margin_top = -102.0
-margin_right = 160.5
-margin_bottom = 102.0
+margin_left = -189.5
+margin_top = -74.9283
+margin_right = 189.5
+margin_bottom = 122.072
 rect_clip_content = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="minimap" type="Control" parent="MarginContainer"]
-margin_right = 321.0
-margin_bottom = 204.0
+margin_right = 379.0
+margin_bottom = 197.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+margin_right = 379.0
+margin_bottom = 197.0
+texture = ExtResource( 1 )
+expand = true
