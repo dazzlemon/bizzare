@@ -37,14 +37,14 @@ func _draw():
 	var Rect = Rect2(Vector2(new_x * level.WALL_SIZES.x, new_y * level.WALL_SIZES.y) * zoom , (level.WALL_SIZES + Vector2.ONE) * zoom)
 	draw_rect(Rect, Color("#8045a523"))
 	for tilemap in tilemaps:
-		var camera_position = camera.position#camera.get_camera_screen_center()
+		var camera_position = camera.position #+ Vector2(500, 500)# Vector just to center map not by its up_left corner 
 		var camera_cell = tilemap.world_to_map(camera_position)
-		var tilemap_offset = camera_cell + (camera_position - tilemap.map_to_world(camera_cell)) / tilemap.cell_size
+		#var tilemap_offset = camera_cell + (camera_position - tilemap.map_to_world(camera_cell)) / tilemap.cell_size
 		for id in cell_colors.keys():
 			var color = cell_colors[id]
 			var cells = get_cells(tilemap, id)
 			for cell in cells:
-				draw_rect(Rect2((cell - tilemap_offset) * zoom , Vector2.ONE * zoom), color)
+				draw_rect(Rect2((cell) * zoom , Vector2.ONE * zoom), color)
 
 
 
