@@ -549,6 +549,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_player/shift_dodge.gd"
 }, {
+"base": "BaseNPC",
+"class": "Slime",
+"language": "GDScript",
+"path": "res://src/characters/base_npc/Slime/slime.gd"
+}, {
 "base": "BaseRestore",
 "class": "SmallArmorRestore",
 "language": "GDScript",
@@ -718,6 +723,7 @@ _global_script_class_icons={
 "ShadowHitscan": "",
 "ShadowStats": "",
 "ShiftDodge": "",
+"Slime": "",
 "SmallArmorRestore": "",
 "SmallHPRestore": "",
 "Speel1CDHUD": "",
