@@ -1,4 +1,4 @@
-class_name MeleeOrcSprite
+class_name MeleeOrcStats
 extends BaseNPCStats
 
 func _ready():

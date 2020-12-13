@@ -478,7 +478,7 @@ position = Vector2( 0, 0.984312 )
 texture = ExtResource( 11 )
 flip_h = true
 hframes = 16
-frame = 8
+frame = 10
 
 [node name="hands" type="Sprite" parent="pivot"]
 position = Vector2( 0, 5.263 )
