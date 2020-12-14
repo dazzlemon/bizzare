@@ -123,7 +123,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -2 ) ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=4]
 resource_name = "idle_right_down"
 loop = true
 tracks/0/type = "value"
@@ -304,7 +304,7 @@ script = ExtResource( 12 )
 anims/idle_down = SubResource( 1 )
 anims/idle_left_down = SubResource( 2 )
 anims/idle_left_up = SubResource( 3 )
-anims/idle_right_down = SubResource( 22 )
+anims/idle_right_down = SubResource( 4 )
 "anims/idle_right_up " = SubResource( 5 )
 anims/idle_up = SubResource( 6 )
 
@@ -323,10 +323,10 @@ script = ExtResource( 14 )
 [node name="pivot" type="Position2D" parent="."]
 
 [node name="sprite" type="Sprite" parent="pivot"]
-position = Vector2( 0, -0.38015 )
+position = Vector2( 0, -1.09654 )
 texture = ExtResource( 13 )
 hframes = 24
-frame = 13
+frame = 14
 
 [node name="hands" type="Sprite" parent="pivot"]
 script = ExtResource( 5 )

@@ -1,34 +1,193 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/characters/base_npc/base_npc.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/textures/Slime/idle_right_down1.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/Slime/sheet.png" type="Texture" id=2]
 [ext_resource path="res://src/AI/attack_range.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/attack/hitscan/enemy_hitscan/base_hitscan_enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/characters/base_npc/Slime/slime.gd" type="Script" id=5]
 [ext_resource path="res://src/characters/base_npc/Slime/stats.gd" type="Script" id=6]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+[sub_resource type="Animation" id=1]
+resource_name = "idle_down"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("pivot/sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8, 7 ]
+}
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="Animation" id=2]
+resource_name = "idle_left_down "
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("pivot/sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pivot/sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle_left_up "
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("pivot/sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pivot/sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle_right_down"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("pivot/sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pivot/sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "idle_right_up"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("pivot/sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pivot/sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle_up"
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("pivot/sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11, 10 ]
+}
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
+
+[sub_resource type="CircleShape2D" id=8]
 radius = 4.07448
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 7.86875, 2.12506 )
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=10]
 radius = 16.5745
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=11]
 radius = 40.073
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=12]
 radius = 8.36366
 
 [node name="base_npc" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
 
+[node name="AnimationPlayer" parent="." index="0"]
+anims/idle_down = SubResource( 1 )
+"anims/idle_left_down " = SubResource( 2 )
+"anims/idle_left_up " = SubResource( 3 )
+anims/idle_right_down = SubResource( 4 )
+anims/idle_right_up = SubResource( 5 )
+anims/idle_up = SubResource( 6 )
+
 [node name="AnimationTree" parent="." index="2"]
-parameters/playback = SubResource( 1 )
+parameters/playback = SubResource( 7 )
+parameters/idle/blend_position = Vector2( -0.0147013, 0.100846 )
 
 [node name="Timer" type="Timer" parent="." index="4"]
 
@@ -40,10 +199,13 @@ collision_mask = 4
 
 [node name="CollisionShape2D" parent="attack/Position2D/hitbox" index="0"]
 position = Vector2( 9.26866, 3.94692 )
-shape = SubResource( 2 )
+shape = SubResource( 8 )
 
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 2 )
+flip_h = true
+hframes = 12
+frame = 2
 
 [node name="shadow" parent="pivot" index="2"]
 position = Vector2( 0, 9.04985 )
@@ -51,7 +213,7 @@ z_index = -1
 
 [node name="collision_box" parent="." index="7"]
 position = Vector2( 0, 7.99753 )
-shape = SubResource( 3 )
+shape = SubResource( 9 )
 
 [node name="attack_range" parent="control" index="0" instance=ExtResource( 3 )]
 collision_layer = 0
@@ -59,11 +221,11 @@ collision_mask = 6
 
 [node name="CollisionShape2D" parent="control/attack_range" index="0"]
 position = Vector2( 0.280609, 2.94646 )
-shape = SubResource( 4 )
+shape = SubResource( 10 )
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
 position = Vector2( -7.62939e-06, 3.15692 )
-shape = SubResource( 5 )
+shape = SubResource( 11 )
 
 [node name="stats" parent="." index="9"]
 script = ExtResource( 6 )
@@ -71,7 +233,7 @@ script = ExtResource( 6 )
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 position = Vector2( 0.350761, 4.38526 )
 rotation = 1.5708
-shape = SubResource( 6 )
+shape = SubResource( 12 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="attack"]
