@@ -187,7 +187,7 @@ anims/idle_up = SubResource( 6 )
 
 [node name="AnimationTree" parent="." index="2"]
 parameters/playback = SubResource( 7 )
-parameters/idle/blend_position = Vector2( -0.0147013, 0.100846 )
+parameters/idle/blend_position = Vector2( 0.257429, 0.284037 )
 
 [node name="Timer" type="Timer" parent="." index="4"]
 
@@ -203,9 +203,8 @@ shape = SubResource( 8 )
 
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 2 )
-flip_h = true
 hframes = 12
-frame = 2
+frame = 1
 
 [node name="shadow" parent="pivot" index="2"]
 position = Vector2( 0, 9.04985 )
