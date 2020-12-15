@@ -15,14 +15,13 @@ var jump_height = -7
 func _ready():
 	MAX_SPEED = 75
 	timer.start(jump_interval)
-	stats.health /= count
-	stats.max_health /= count
+	#stats.health /= count
+	#stats.max_health /= count
 	#scale = scale - Vector2(0.25,0.25)
 
 
 func _on_Timer_timeout():
-	pass
-	if control.state != control.States.ATTACK:
+	if control.state == control.States.IDLE:
 		tween.interpolate_property(sprite, "position:y", 0, jump_height, jump_time , Tween.TRANS_SINE, Tween.EASE_IN , 0)
 		tween.interpolate_property(sprite, "position:y", jump_height, 0, jump_time , Tween.TRANS_SINE, Tween.EASE_IN , jump_delay)
 		tween.start()
@@ -35,5 +34,8 @@ func die():
 			get_node("../").call_deferred("add_child", instance)
 			instance.count = count * 2
 			instance.global_position = global_position + Vector2(rand_range(0,20), rand_range(0,20))
-			instance.scale = scale - Vector2(0.25,0.25)
-	.die()
+			instance.scale = scale - Vector2(0.15,0.15)
+			#instance.get_node("stats").heatlh = 1
+	if count == 1:
+		drop_loot()
+	queue_free()

@@ -166,7 +166,7 @@ radius = 4.07448
 extents = Vector2( 7.86875, 2.12506 )
 
 [sub_resource type="CircleShape2D" id=10]
-radius = 16.5745
+radius = 11.831
 
 [sub_resource type="CircleShape2D" id=11]
 radius = 40.073
@@ -187,7 +187,7 @@ anims/idle_up = SubResource( 6 )
 
 [node name="AnimationTree" parent="." index="2"]
 parameters/playback = SubResource( 7 )
-parameters/idle/blend_position = Vector2( 0.257429, 0.284037 )
+parameters/idle/blend_position = Vector2( -0.0597435, -0.167647 )
 
 [node name="Timer" type="Timer" parent="." index="4"]
 
@@ -203,8 +203,9 @@ shape = SubResource( 8 )
 
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 2 )
+flip_h = true
 hframes = 12
-frame = 1
+frame = 5
 
 [node name="shadow" parent="pivot" index="2"]
 position = Vector2( 0, 9.04985 )
@@ -219,7 +220,7 @@ collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionShape2D" parent="control/attack_range" index="0"]
-position = Vector2( 0.280609, 2.94646 )
+position = Vector2( 0.280609, 4.67885 )
 shape = SubResource( 10 )
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
