@@ -4,11 +4,9 @@
 [ext_resource path="res://assets/textures/items/health_orb.png" type="Texture" id=2]
 [ext_resource path="res://src/loot/health_orb/health_orb.gd" type="Script" id=3]
 
-
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="collectable" instance=ExtResource( 1 )]
-collision_layer = 8
 script = ExtResource( 3 )
 item_name = "health_orb"
 

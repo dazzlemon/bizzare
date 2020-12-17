@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="collectable" instance=ExtResource( 1 )]
-collision_layer = 8
+collision_layer = 0
 script = ExtResource( 2 )
 
 [node name="shadow" parent="area" index="1"]
@@ -18,3 +18,5 @@ texture = ExtResource( 3 )
 
 [node name="collision_shape" parent="." index="2"]
 shape = SubResource( 1 )
+[connection signal="area_entered" from="area" to="." method="_on_area_entered"]
+[connection signal="body_entered" from="area" to="." method="_on_body_entered"]

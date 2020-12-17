@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/Tiilemap/Trees.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_npc/harpy/harpy.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://src/levels/sky/sky.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/characters/base_npc/Slime/slime.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/sound/Environment.wav" type="AudioStream" id=13]
+[ext_resource path="res://src/characters/base_player/mage/spells/phoenix/phoenix.tscn" type="PackedScene" id=14]
 
 [node name="level" type="Node2D"]
 script = ExtResource( 4 )
@@ -42,10 +43,10 @@ tile_data = PoolIntArray( -327669, 0, 0, -196611, 0, 0, -262126, 0, 0, -131084, 
 tile_data = PoolIntArray( 131066, 0, 0, 131085, 0, 0, 786439, 0, 0, 983065, 0, 0, 1507319, 0, 0 )
 
 [node name="shadow" parent="Trees/YSort" instance=ExtResource( 7 )]
-position = Vector2( 200.012, 232.951 )
+position = Vector2( 215.726, 326.396 )
 
 [node name="orc_range" parent="Trees/YSort" instance=ExtResource( 10 )]
-position = Vector2( 297.555, -56.8964 )
+position = Vector2( -408.974, -478.546 )
 
 [node name="orc_melee" parent="Trees/YSort" instance=ExtResource( 3 )]
 position = Vector2( -333.249, 507.748 )
@@ -54,10 +55,13 @@ position = Vector2( -333.249, 507.748 )
 position = Vector2( 606.349, 440.152 )
 
 [node name="harpy" parent="Trees/YSort" instance=ExtResource( 2 )]
-position = Vector2( -56.9494, 145.1 )
+position = Vector2( -409.766, -407.391 )
 
 [node name="base_npc" parent="Trees/YSort" instance=ExtResource( 12 )]
-position = Vector2( -369.249, -48.7576 )
+position = Vector2( -353.638, 121.814 )
+
+[node name="base_npc2" parent="Trees/YSort" instance=ExtResource( 14 )]
+position = Vector2( -315.757, -435.652 )
 
 [node name="EnvironmentSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2

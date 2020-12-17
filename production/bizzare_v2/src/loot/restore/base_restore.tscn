@@ -5,3 +5,6 @@
 
 [node name="consumable" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[node name="area" parent="." index="0"]
+collision_layer = 8

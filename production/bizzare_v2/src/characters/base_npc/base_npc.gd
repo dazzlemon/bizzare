@@ -67,3 +67,11 @@ func spawn_instance(url) -> void:
 func die() -> void:
 	.die()
 	drop_loot()
+
+
+func _on_Area2D_body_entered(body):
+	print(body)
+
+
+func _on_Area2D_area_entered(area):
+	print("area")
