@@ -15,6 +15,8 @@ func get_damage():
 
 
 func _start() -> void:
+	if get_node("../Sound/attack"):
+		get_node("../Sound/attack").playing = true
 	hitbox_collision.disabled = false
 
 

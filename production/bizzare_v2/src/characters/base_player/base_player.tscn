@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/characters/base_char.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_player/base_player_stats.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://src/etc/huds/spell_cd_hud.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/characters/base_player/shift_dodge.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/Menus/Minimap/minimap.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/sound/walk.wav" type="AudioStream" id=16]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -96,5 +97,16 @@ script = ExtResource( 2 )
 [node name="hurtbox" parent="." index="11"]
 collision_layer = 4
 collision_mask = 72
+
+[node name="Sound" type="Node" parent="." index="13"]
+
+[node name="walk" type="AudioStreamPlayer" parent="Sound" index="0"]
+stream = ExtResource( 16 )
+volume_db = -20.058
+autoplay = true
+stream_paused = true
+
+[node name="attack" type="AudioStreamPlayer" parent="Sound" index="1"]
+bus = "Sound"
 
 [editable path="Camera2D/currency_hud"]

@@ -17,3 +17,5 @@ func _start() -> void:
 	projectile_instance.global_position = parent.global_position
 	projectile_instance.direction = (parent.crosshair.global_position - global_position).normalized()
 	projectile_instance.damage = stats.damage
+	if get_node("../Sound/attack"):
+		get_node("../Sound/attack").playing = true

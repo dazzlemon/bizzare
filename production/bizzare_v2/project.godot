@@ -754,6 +754,7 @@ _global_script_class_icons={
 
 config/name="bizzare_v2"
 run/main_scene="res://src/Menus/title_screen/title_screen_side_bar.tscn"
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -864,7 +865,3 @@ minimap={
 2d_physics/layer_5="enemy_hurtbox"
 2d_physics/layer_6="ally_attack"
 2d_physics/layer_7="enemy_attack"
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"

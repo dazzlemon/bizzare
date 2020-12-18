@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://src/characters/base_player/base_player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_player/knight/knight.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://assets/textures/etc/melee_attack/Melee_attack2.png" type="Texture" id=17]
 [ext_resource path="res://assets/textures/etc/melee_attack/Melee_attack4.png" type="Texture" id=18]
 [ext_resource path="res://src/characters/base_player/knight/hands.gd" type="Script" id=19]
+[ext_resource path="res://assets/sound/puch.wav" type="AudioStream" id=20]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
@@ -491,7 +492,6 @@ parameters/run/blend_position = Vector2( 0.000683069, 0.974409 )
 
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 4 )
-flip_h = true
 hframes = 16
 frame = 8
 
@@ -530,11 +530,6 @@ texture_progress = ExtResource( 11 )
 margin_left = -240.0
 margin_top = 0.0
 margin_right = -3.0
-
-[node name="minimap" parent="Camera2D" index="7"]
-cell_colors = {
-0: Color( 0.113725, 0.388235, 0.0156863, 1 )
-}
 
 [node name="spell_2" parent="." index="10" instance=ExtResource( 8 )]
 
@@ -575,6 +570,9 @@ wait_time = 5.0
 [node name="duration" parent="spell_1" index="1"]
 wait_time = 0.15
 
+[node name="CollisionShape2D" parent="spell_1/Position2D/hitbox" index="0"]
+disabled = true
+
 [node name="attack" parent="." index="12" instance=ExtResource( 6 )]
 
 [node name="stats" parent="." index="13"]
@@ -586,6 +584,14 @@ collision_layer = 2147483652
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 position = Vector2( -0.222733, 0 )
 shape = SubResource( 41 )
+
+[node name="walk" parent="Sound" index="0"]
+bus = "Sound"
+
+[node name="attack" parent="Sound" index="1"]
+stream = ExtResource( 20 )
+volume_db = -12.0
+pitch_scale = 0.54
 [connection signal="tween_completed" from="Tween" to="attack" method="_on_Tween_tween_completed"]
 
 [editable path="Camera2D/Control"]

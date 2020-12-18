@@ -5,11 +5,13 @@ var is_attacked = true
 onready var tween = get_node("../Tween")
 onready var hands = get_node("../pivot/hands")
 onready var melee_effect = hands.get_node("AnimatedSprite")
+onready var attack_sound = get_node("../Sound/attack")
 
 func _ready():
 	_INTERVAL = 0.5
 
 func _start() -> void:
+	#attack_sound.playing = true
 	tween.interpolate_property(hands, "rotation_degrees", hands.rotation_degrees , hands.rotation_degrees + 90 , 0.15 , Tween.TRANS_SINE, Tween.EASE_IN , 0)
 	tween.start()
 	toggle()
@@ -28,3 +30,5 @@ func toggle():
 	melee_effect.playing = not melee_effect.playing 
 	is_attacked = not is_attacked
 
+#func _stop():
+#	attack_sound.playing = false

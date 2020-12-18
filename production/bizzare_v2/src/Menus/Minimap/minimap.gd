@@ -7,9 +7,15 @@ export var zoom = 2
 onready var level = owner.owner.get_parent().owner
 onready var player = owner.owner
 onready var camera  = get_node(camera_node)
+onready var tween = $Tween
 var tilemap_nodes : Array = [ "../../../../../../../Grass_24_shadow/leaf_wall" ] 
 var tilemaps = []
 var temp = Vector2(0,0)
+var scale_of_player_point = 2
+
+
+var count = 0
+
 
 var fixed_toggle_point = Vector2(0,0)
 var currently_moving_map = false
@@ -28,14 +34,17 @@ func try_use():
 
 func get_cells(tilemap : TileMap, id):
 	return tilemap.get_used_cells_by_id(id)
-
+	
 
 func _draw():
 	draw_set_transform(rect_size / 2, 0, Vector2.ONE)
 	var new_x = int(Utility.map(player.global_position.x, 0, level.WALL_SIZES.x * level.width * 24 , 0, level.width))
 	var new_y = int(Utility.map(player.global_position.y, 0, level.WALL_SIZES.y * level.height * 24, 0, level.height))
-	var Rect = Rect2(Vector2(new_x * level.WALL_SIZES.x, new_y * level.WALL_SIZES.y) * zoom , (level.WALL_SIZES + Vector2.ONE) * zoom)
+	var Rect = Rect2(Vector2(new_x * level.WALL_SIZES.x + level.WALL_SIZES.x / 4, new_y * level.WALL_SIZES.y +level.WALL_SIZES.y / 4) * zoom , ((level.WALL_SIZES + Vector2.ONE) * zoom ) /  scale_of_player_point)
 	draw_rect(Rect, Color("#8045a523"))
+	#tween.interpolate_property(self,"scale_of_player_point", 2 , 1, 0.3 , Tween.TRANS_SINE, Tween.EASE_IN , 0.3)
+	#tween.interpolate_property(self,"scale_of_player_point", 1 , 2, 0.3 , Tween.TRANS_SINE, Tween.EASE_IN , 0.3)
+	#tween.start()
 	for tilemap in tilemaps:
 		var camera_position = camera.position #+ Vector2(500, 500)# Vector just to center map not by its up_left corner 
 		var camera_cell = tilemap.world_to_map(camera_position)
@@ -61,8 +70,7 @@ func _process(delta):
 					node.rect_position -= Vector2(48.5,0)
 					print("+")
 	if get_tree().paused:
-		visible = false
-		
+		visible = false	
 	update()
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		if(!currently_moving_map):
@@ -92,3 +100,13 @@ func move_map_around():
 	rect_position.y = clamp(rect_position.y, temp.y - 150, temp.y + 150)
 	fixed_toggle_point = ref
 
+
+
+#func _on_Tween_tween_completed(object, key):
+##	#update()
+#	count+=1
+#	if count%2 ==0:
+#		tween.interpolate_property(self,"scale_of_player_point", 2 , 1, 0.3 , Tween.TRANS_SINE, Tween.EASE_IN , 0.3)
+#	else:
+#		tween.interpolate_property(self,"scale_of_player_point", 1 , 2, 0.3 , Tween.TRANS_SINE, Tween.EASE_IN , 0.3)
+#	tween.start()

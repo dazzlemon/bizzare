@@ -1,6 +1,6 @@
 extends Node2D
 
-const WALL_SIZES = Vector2(19, 20)
+const WALL_SIZES = Vector2(20, 20)
 const _transform = Transform2D(
 	Vector2(WALL_SIZES.x, 0),
 	Vector2(0, WALL_SIZES.y),

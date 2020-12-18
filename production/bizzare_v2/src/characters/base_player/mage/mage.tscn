@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://src/characters/base_player/base_player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_player/mage/mage_stats.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://src/attack/projectile/ally/base_projectile_attack_ally.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/characters/base_player/mage/spells/meteor/spell_1.gd" type="Script" id=11]
 [ext_resource path="res://assets/textures/mage/mage_meteor.png" type="Texture" id=12]
+[ext_resource path="res://assets/sound/Fireball.wav" type="AudioStream" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
@@ -495,6 +496,10 @@ shape = SubResource( 36 )
 
 [node name="crosshair" parent="." index="14"]
 position = Vector2( 0, 0.105112 )
+
+[node name="attack" parent="Sound" index="1"]
+stream = ExtResource( 13 )
+volume_db = -20.0
 
 [editable path="Camera2D/Control"]
 
