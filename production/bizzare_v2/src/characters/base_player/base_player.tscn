@@ -88,6 +88,9 @@ margin_bottom = -74.0
 [node name="minimap" parent="Camera2D" index="7" instance=ExtResource( 15 )]
 visible = false
 
+[node name="minimap" parent="Camera2D/minimap/MarginContainer" index="0"]
+camera_node = NodePath("../../..")
+
 [node name="Inventory" type="Node" parent="." index="9"]
 script = ExtResource( 5 )
 
@@ -110,3 +113,5 @@ stream_paused = true
 bus = "Sound"
 
 [editable path="Camera2D/currency_hud"]
+
+[editable path="Camera2D/minimap"]
