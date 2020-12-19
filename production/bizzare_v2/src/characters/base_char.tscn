@@ -11,25 +11,18 @@
 [ext_resource path="res://src/characters/anim_tree.gd" type="Script" id=9]
 
 [sub_resource type="AnimationNodeAnimation" id=1]
-animation = "idle_left_down "
 
 [sub_resource type="AnimationNodeAnimation" id=2]
-animation = "idle_left_down "
 
 [sub_resource type="AnimationNodeAnimation" id=3]
-animation = "idle_down"
 
 [sub_resource type="AnimationNodeAnimation" id=4]
-animation = "idle_right_down"
 
 [sub_resource type="AnimationNodeAnimation" id=5]
-animation = "idle_right_down"
 
 [sub_resource type="AnimationNodeAnimation" id=6]
-animation = "idle_right_up"
 
 [sub_resource type="AnimationNodeAnimation" id=7]
-animation = "idle_up"
 
 [sub_resource type="AnimationNodeAnimation" id=8]
 animation = "idle_left_up "
@@ -76,7 +69,7 @@ tree_root = SubResource( 10 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 11 )
-parameters/idle/blend_position = Vector2( -0.027213, 0.390423 )
+parameters/idle/blend_position = Vector2( -0.732347, -0.0354838 )
 script = ExtResource( 9 )
 
 [node name="AttackPlayer" type="AnimationPlayer" parent="."]
