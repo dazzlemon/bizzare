@@ -92,15 +92,12 @@ func _set_room(x, y, grid):
 		for j in range(start.y + 2, end.y - 2, 1):
 			_foliage(Vector2(i, j))
 	
-	var m_ins = mobs.keys()[0].instance()
-	m_ins.global_position = Vector2(x * WALL_SIZES.x + rand_range(0, WALL_SIZES.x / 2), y * WALL_SIZES.y + rand_range(0, WALL_SIZES.y / 2)) * 24
-	get_node("Trees/YSort").call_deferred("add_child", m_ins)
-	var mob_points = float(x * y) / float((width - 1) * (height - 1))
+	var mob_points = float(pow(x, 2) + pow(y, 2)) / float(pow(width - 1, 2) + pow(height - 1, 2))
 	if mob_points == 1:
 		var new_m_ins = mobs.keys().back().instance()
-		new_m_ins.global_position = Vector2(x * WALL_SIZES.x + rand_range(0, WALL_SIZES.x / 2), y * WALL_SIZES.y + rand_range(0, WALL_SIZES.y / 2)) * 24
+		new_m_ins.global_position = Vector2((x + 0.5) * WALL_SIZES.x + rand_range(-WALL_SIZES.x / 2 + 1, WALL_SIZES.x / 2 - 1), (y + 0.5) * WALL_SIZES.y + rand_range(-WALL_SIZES.y / 2 + 1, WALL_SIZES.y / 2 - 1)) * 24
 		get_node("Trees/YSort").call_deferred("add_child", new_m_ins)
-	elif not mob_points == 0:
+	elif mob_points != 0:
 		while mob_points > 0:
 			var roll = rand_range(0, mob_points)
 			mob_points -= roll
@@ -111,7 +108,7 @@ func _set_room(x, y, grid):
 				counter += mobs[m]
 				if roll <= counter:
 					var new_m_ins = m.instance()
-					new_m_ins.global_position = Vector2(x * WALL_SIZES.x + rand_range(0, WALL_SIZES.x / 2), y * WALL_SIZES.y + rand_range(0, WALL_SIZES.y / 2)) * 24
+					new_m_ins.global_position = Vector2((x + 0.5) * WALL_SIZES.x + rand_range(-WALL_SIZES.x / 2 + 1, WALL_SIZES.x / 2 - 1), (y + 0.5) * WALL_SIZES.y + rand_range(-WALL_SIZES.y / 2 + 1, WALL_SIZES.y / 2 - 1)) * 24
 					get_node("Trees/YSort").call_deferred("add_child", new_m_ins)
 					break
 
@@ -143,7 +140,7 @@ func _foliage(_position):
 	var chck = true#skip dorojek
 	for i in range(-1, 2, 1):
 		for j in range(-1, 2, 1):
-			chck = chck and grass.get_cellv(_position + Vector2(i, j)) != TileMap.INVALID_CELL
+			chck = chck and grass.get_cellv(_position + Vector2(i, j)) != TileMap.INVALID_CELL and wall.get_cellv(_position + Vector2(i, j)) == TileMap.INVALID_CELL
 	if chck:
 		var roll = randf()
 		var counter = 0
