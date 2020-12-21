@@ -12,8 +12,8 @@ const DX = {"E" : 1, "W" : -1, "N" : 0, "S" : 0}
 const DY = {"E" : 0, "W" :  0, "N" : -1, "S" : 1}
 const OPPOSITE = {"E" : "W", "W" : "E", "N" : "S", "S" : "N"}
 
-var width = 3
-var height = 3
+var width = 10
+var height = 10
 var _seed = 10
 
 onready var wall = $Grass_24_shadow/leaf_wall
@@ -88,8 +88,8 @@ func _set_room(x, y, grid):
 	_paths(x, y, grid)
 	grass.update_bitmask_region()
 	
-	for i in range(start.x, end.x, 1):
-		for j in range(start.y, end.y, 1):
+	for i in range(start.x + 2, end.x - 2, 1):
+		for j in range(start.y + 2, end.y - 2, 1):
 			_foliage(Vector2(i, j))
 	
 	var m_ins = mobs.keys()[0].instance()
@@ -117,16 +117,17 @@ func _paths(x, y, grid):
 	var size = [2 + d[0], 2 + d[1]]
 	var axis = [x, y]                                                                                               
 	
+	
 	for z in range(4):
 		var c = int(z > 1)
 		var nc = int(not bool(c))
 		if grid[y][x] & dirs.values()[z]:
 			var start = Vector2(
 				(axis[c] + 0.5) * WALL_SIZES[c] - d[c],
-				(axis[nc] + 0.5 * int(z if nc else not bool(z - 2))) * WALL_SIZES[nc])
+				(axis[nc] + 0.5 * int(z if nc else not bool(z - 2))) * WALL_SIZES[nc] - d[nc])
 			var end = Vector2(
 				start.x + size[c],
-				start.y + 0.5 * WALL_SIZES[nc] + size[nc] - d[nc])
+				start.y + 0.5 * WALL_SIZES[nc] + size[nc])
 			var s = Vector2(start[c], start[nc])
 			var e = Vector2(end[c], end[nc])
 			_tile_rect(grass, s, e, -1)
@@ -134,7 +135,11 @@ func _paths(x, y, grid):
 
 
 func _foliage(_position):
-	if grass.get_cellv(_position) != TileMap.INVALID_CELL:
+	var chck = true#skip dorojek
+	for i in range(-1, 2, 1):
+		for j in range(-1, 2, 1):
+			chck = chck and grass.get_cellv(_position + Vector2(i, j)) != TileMap.INVALID_CELL
+	if chck:
 		var roll = randf()
 		var counter = 0
 		for f in foliage:
