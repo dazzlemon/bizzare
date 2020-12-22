@@ -15,7 +15,8 @@ func _ready():
 
 
 func play():
-	get_tree().change_scene("res://src/levels/Game.tscn")
+	LoadingScreen.load_scene("res://src/levels/random_level/random_level.tscn")
+	LoadingScreen.visible = true
 
 
 func settings():
@@ -26,3 +27,5 @@ func quit():
 	get_tree().quit()
 
 
+func journal():
+	pass
