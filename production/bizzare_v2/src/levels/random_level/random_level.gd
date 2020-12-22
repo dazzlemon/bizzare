@@ -12,13 +12,14 @@ const DX = {"E" : 1, "W" : -1, "N" : 0, "S" : 0}
 const DY = {"E" : 0, "W" :  0, "N" : -1, "S" : 1}
 const OPPOSITE = {"E" : "W", "W" : "E", "N" : "S", "S" : "N"}
 
-var width = 10
-var height = 10
+var width = 1
+var height = 2
 var _seed = 10
 
 onready var wall = $Grass_24_shadow/leaf_wall
 onready var path = $Grass_24_shadow/path
 onready var grass = $Grass_24_shadow
+onready var trees = $Trees
 
 onready var foliage = {
 	$Grass_24_shadow/flowers_grass : 0.5,
@@ -45,6 +46,24 @@ func _generate():
 	carve_passages_from(0, 0, grid)
 	_print(grid)
 	_set_walls(grid)
+	#outside trees
+	var padding = Vector2(10, 5)
+	var size = WALL_SIZES
+	size.x *= width
+	size.y *= height
+	#	top
+	_tile_rect(trees, -padding, Vector2(size.x + padding.x, -1), 0)
+	_tile_rect(grass, -padding, Vector2(size.x + padding.x, 0), 0)
+	#	down
+	_tile_rect(trees, Vector2(-padding.x, size.y + 1), Vector2(size.x + padding.x, size.y + padding.y), 0)
+	_tile_rect(grass, Vector2(-padding.x, size.y), Vector2(size.x + padding.x, size.y + padding.y), 0)
+	#	left
+	_tile_rect(trees, Vector2(-padding.x, -1), Vector2(0, size.y + 1), 0)
+	_tile_rect(grass, Vector2(-padding.x, -1), Vector2(0, size.y + 1), 0)
+	#	right
+	_tile_rect(trees, Vector2(size.x + 1, -1), Vector2(size.x + padding.x, size.y + 1), 0)
+	_tile_rect(grass, Vector2(size.x, -1), Vector2(size.x + padding.x, size.y + 1), 0)
+	grass.update_bitmask_region()
 
 
 func _array2d(height, width):
@@ -97,6 +116,7 @@ func _set_room(x, y, grid):
 		var new_m_ins = mobs.keys().back().instance()
 		new_m_ins.global_position = Vector2((x + 0.5) * WALL_SIZES.x + rand_range(-WALL_SIZES.x / 2 + 1, WALL_SIZES.x / 2 - 1), (y + 0.5) * WALL_SIZES.y + rand_range(-WALL_SIZES.y / 2 + 1, WALL_SIZES.y / 2 - 1)) * 24
 		get_node("Trees/YSort").call_deferred("add_child", new_m_ins)
+		return#else it still spawnst normal mobs?????????
 	elif mob_points != 0:
 		while mob_points > 0:
 			var roll = rand_range(0, mob_points)
@@ -147,7 +167,7 @@ func _foliage(_position):
 		for f in foliage:
 			counter += foliage[f]
 			if roll <= counter:
-				f.set_cellv(_position, foliage[f])
+				f.set_cellv(_position, 0)
 				break
 
 
