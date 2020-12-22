@@ -7,23 +7,22 @@ var thread = null
 onready var progress = $TextureRect/Progress
 
 func _thread_load(path):
-	var ril = ResourceLoader.load_interactive(path)
-	assert(ril)
-	var total = ril.get_stage_count()
+	var rli = ResourceLoader.load_interactive(path)
+	assert(rli)
+	var total = rli.get_stage_count()
 	progress.call_deferred("set_max", total)
 	var res = null
 
-
-	while true:
-		progress.call_deferred("set_value", ril.get_stage())
+	var err = OK
+	while err == OK:
+		progress.call_deferred("set_value", rli.get_stage())
 		OS.delay_msec(int(SIMULATED_DELAY_SEC * 1000.0))
-		var err = ril.poll()
+		err = rli.poll()
+	if err != OK:
 		if err == ERR_FILE_EOF:
-			res = ril.get_resource()
-			break
-		elif err != OK:
+			res = rli.get_resource()
+		else:
 			print("There was an error loading")
-			break
 	call_deferred("_thread_done", res)
 
 
@@ -44,4 +43,3 @@ func load_scene(path):
 	thread.start( self, "_thread_load", path)
 	raise() 
 	progress.visible = true
-	
