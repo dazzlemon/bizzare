@@ -24,7 +24,7 @@ onready var trees = $Trees
 onready var foliage = {
 	$Grass_24_shadow/flowers_grass : 0.5,
 	$Trees/YSort/bush : 0.01,
-	$Trees : 0.01,
+	trees : 0.01,
 	$Trees/YSort/fallen_tree : 0.01,
 }
 
@@ -52,18 +52,33 @@ func _generate():
 	size.x *= width
 	size.y *= height
 	#	top
-	_tile_rect(trees, -padding, Vector2(size.x + padding.x, -1), 0)
+	_tile_rect_rand(trees, -padding, Vector2(size.x + padding.x, -1), 0)
 	_tile_rect(grass, -padding, Vector2(size.x + padding.x, 0), 0)
 	#	down
-	_tile_rect(trees, Vector2(-padding.x, size.y + 1), Vector2(size.x + padding.x, size.y + padding.y), 0)
+	_tile_rect_rand(trees, Vector2(-padding.x, size.y + 1), Vector2(size.x + padding.x, size.y + padding.y), 0)
 	_tile_rect(grass, Vector2(-padding.x, size.y), Vector2(size.x + padding.x, size.y + padding.y), 0)
 	#	left
-	_tile_rect(trees, Vector2(-padding.x, -1), Vector2(0, size.y + 1), 0)
+	_tile_rect_rand(trees, Vector2(-padding.x, -1), Vector2(0, size.y + 1), 0)
 	_tile_rect(grass, Vector2(-padding.x, -1), Vector2(0, size.y + 1), 0)
 	#	right
-	_tile_rect(trees, Vector2(size.x + 1, -1), Vector2(size.x + padding.x, size.y + 1), 0)
+	_tile_rect_rand(trees, Vector2(size.x + 1, -1), Vector2(size.x + padding.x, size.y + 1), 0)
 	_tile_rect(grass, Vector2(size.x, -1), Vector2(size.x + padding.x, size.y + 1), 0)
 	grass.update_bitmask_region()
+
+
+func _tile_rect_rand(tilemap, start: Vector2, end: Vector2, val):#trees only atm#a potom voobshe vse nahuy budet peredelano tak 4to pohuy absolutely
+	for i in range(start.x, end.x, 1):
+		for j in range(start.y, end.y, 1):
+			tilemap.set_cell(i, j, val, false, false, false, rand_autotile_tree(tilemap))
+
+
+func rand_autotile_tree(tilemap):
+	var tiles = tilemap.tile_set
+	var rect = tiles.tile_get_region(0)
+	return Vector2(
+		randi() % int(rect.size.x / tiles.autotile_get_size(0).x),
+		randi() % int(rect.size.y / tiles.autotile_get_size(0).y)
+	)
 
 
 func _array2d(height, width):
@@ -167,7 +182,11 @@ func _foliage(_position):
 		for f in foliage:
 			counter += foliage[f]
 			if roll <= counter:
-				f.set_cellv(_position, 0)
+				if f == trees or f == $Grass_24_shadow/flowers_grass:
+					f.set_cell(_position.x, _position.y, 0, false, false, false, rand_autotile_tree(f))
+					f.set_cell(_position.x, _position.y, 0, false, false, false, rand_autotile_tree(f))
+				else:
+					f.set_cellv(_position, 0)
 				break
 
 

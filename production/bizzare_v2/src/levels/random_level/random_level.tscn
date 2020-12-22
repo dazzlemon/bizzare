@@ -27,7 +27,7 @@ tile_data = PoolIntArray( 196625, 0, 0, 262153, 0, 0, 262164, 0, 0, 393221, 0, 0
 
 [node name="Trees" parent="." instance=ExtResource( 3 )]
 cell_quadrant_size = 24
-tile_data = PoolIntArray(  )
+tile_data = PoolIntArray( -1048565, 0, 720892 )
 
 [node name="YSort" type="YSort" parent="Trees"]
 
@@ -43,9 +43,6 @@ collision_mask = 2147483659
 
 [node name="AnimationTree" parent="Trees/YSort/player" index="2"]
 parameters/playback = SubResource( 1 )
-
-[node name="sprite" parent="Trees/YSort/player/pivot" index="0"]
-frame = 10
 
 [node name="minimap" parent="Trees/YSort/player/Camera2D" index="7"]
 modulate = Color( 1, 1, 1, 1 )
