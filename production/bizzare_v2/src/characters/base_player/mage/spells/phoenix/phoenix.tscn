@@ -6,7 +6,7 @@
 [ext_resource path="res://src/AI/attack_range.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/characters/base_player/mage/spells/phoenix/stats.gd" type="Script" id=5]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=1]
 resource_name = "idle_down"
 length = 0.6
 loop = true
@@ -35,7 +35,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -2 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "idle_left_down "
 length = 0.6
 loop = true
@@ -76,7 +76,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=3]
 resource_name = "idle_left_up   "
 length = 0.6
 loop = true
@@ -117,7 +117,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=4]
 resource_name = "idle_right_down"
 length = 0.6
 loop = true
@@ -158,7 +158,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=5]
 resource_name = "idle_right_up  "
 length = 0.6
 loop = true
@@ -199,7 +199,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=6]
 resource_name = "idle_up"
 length = 0.6
 loop = true
@@ -228,41 +228,41 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -2 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "idle_left_down "
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "idle_left_down "
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "idle_down"
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "idle_right_down"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "idle_right_down"
 
 [sub_resource type="AnimationNodeAnimation" id=12]
-animation = "idle_right_up"
+animation = "idle_right_up  "
 
 [sub_resource type="AnimationNodeAnimation" id=13]
 animation = "idle_up"
 
 [sub_resource type="AnimationNodeAnimation" id=14]
-animation = "idle_left_up "
+animation = "idle_left_up   "
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=20]
+[sub_resource type="AnimationNodeBlendSpace2D" id=15]
 resource_local_to_scene = true
-blend_point_0/node = SubResource( 15 )
+blend_point_0/node = SubResource( 7 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 16 )
+blend_point_1/node = SubResource( 8 )
 blend_point_1/pos = Vector2( -0.6, 0.7 )
-blend_point_2/node = SubResource( 17 )
+blend_point_2/node = SubResource( 9 )
 blend_point_2/pos = Vector2( 0, 1.1 )
-blend_point_3/node = SubResource( 18 )
+blend_point_3/node = SubResource( 10 )
 blend_point_3/pos = Vector2( 0.6, 0.7 )
-blend_point_4/node = SubResource( 19 )
+blend_point_4/node = SubResource( 11 )
 blend_point_4/pos = Vector2( 1, 0 )
 blend_point_5/node = SubResource( 12 )
 blend_point_5/pos = Vector2( 0.6, -0.7 )
@@ -274,48 +274,48 @@ min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachine" id=21]
+[sub_resource type="AnimationNodeStateMachine" id=16]
 resource_local_to_scene = true
-states/idle/node = SubResource( 20 )
+states/idle/node = SubResource( 15 )
 states/idle/position = Vector2( 757, 134 )
 start_node = "idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=18]
 radius = 17.413
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=19]
 radius = 87.3105
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=20]
 radius = 164.576
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=21]
 
 [node name="base_npc" instance=ExtResource( 1 )]
 collision_layer = 2147483776
 collision_mask = 2147483656
 
 [node name="AnimationPlayer" parent="." index="0"]
-anims/idle_down = SubResource( 6 )
-"anims/idle_left_down " = SubResource( 7 )
-"anims/idle_left_up   " = SubResource( 8 )
-anims/idle_right_down = SubResource( 9 )
-"anims/idle_right_up  " = SubResource( 10 )
-anims/idle_up = SubResource( 11 )
+anims/idle_down = SubResource( 1 )
+"anims/idle_left_down " = SubResource( 2 )
+"anims/idle_left_up   " = SubResource( 3 )
+anims/idle_right_down = SubResource( 4 )
+"anims/idle_right_up  " = SubResource( 5 )
+anims/idle_up = SubResource( 6 )
 
 [node name="AnimationTree" parent="." index="2"]
-tree_root = SubResource( 21 )
-parameters/playback = SubResource( 1 )
-parameters/idle/blend_position = Vector2( -0.00628465, -0.00305557 )
+tree_root = SubResource( 16 )
+parameters/playback = SubResource( 17 )
+parameters/idle/blend_position = Vector2( -0.997043, -0.0222396 )
 
 [node name="sprite" parent="pivot" index="0"]
-position = Vector2( 0, -0.899867 )
+position = Vector2( 0, -0.859742 )
 texture = ExtResource( 2 )
 flip_h = true
 hframes = 16
-frame = 9
+frame = 5
 
 [node name="shadow" parent="pivot" index="2"]
 position = Vector2( 0, 24.386 )
@@ -323,20 +323,20 @@ position = Vector2( 0, 24.386 )
 [node name="attack" parent="." index="5" instance=ExtResource( 3 )]
 
 [node name="collision_box" parent="." index="6"]
-shape = SubResource( 2 )
+shape = SubResource( 18 )
 
 [node name="attack_range" parent="control" index="0" instance=ExtResource( 4 )]
 collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="control/attack_range" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 19 )
 
 [node name="player_detection_zone" parent="control" index="1"]
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="control/player_detection_zone" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 20 )
 
 [node name="stats" parent="." index="8"]
 script = ExtResource( 5 )
@@ -345,7 +345,7 @@ script = ExtResource( 5 )
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
-shape = SubResource( 5 )
+shape = SubResource( 21 )
 disabled = true
 
 [editable path="control/attack_range"]
