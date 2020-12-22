@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Menus/loading/loading_screen.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/etc/loading.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/new_dynamicfont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/textures/etc/Black.png" type="Texture" id=4]
+
+[node name="Control" type="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_top = -0.178345
+margin_right = 480.0
+margin_bottom = 270.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -29.5
+margin_top = -8.0
+margin_right = 29.5
+margin_bottom = 8.0
+custom_fonts/font = ExtResource( 3 )
+text = "Loading..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Progress" type="TextureProgress" parent="TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -136.0
+margin_top = -30.9391
+margin_right = 136.0
+margin_bottom = -22.9391
+max_value = 1.0
+step = 0.001
+texture_progress = ExtResource( 2 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
