@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 onready var label = $Label
-var _text 
+var _text = "" 
 
 func _ready():
 	label.text = _text
