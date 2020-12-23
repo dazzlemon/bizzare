@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/characters/base_player/base_player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_player/archer/attack/archer_projectile_attack.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/sound/soundesign (online-audio-converter.com).wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sound/old/soundesign (online-audio-converter.com).wav" type="AudioStream" id=3]
 [ext_resource path="res://src/characters/base_player/archer/archer.gd" type="Script" id=4]
 [ext_resource path="res://src/characters/base_player/archer/spells/as_increase/as_increase.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/characters/base_player/archer/spells/explosion/explosive_arrow.tscn" type="PackedScene" id=6]
@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/textures/archer/attack_animation_sheet.png" type="Texture" id=8]
 [ext_resource path="res://assets/textures/archer/sheet.png" type="Texture" id=9]
 [ext_resource path="res://assets/textures/archer/leaf particles.png" type="Texture" id=10]
-[ext_resource path="res://assets/sound/arrow.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/sound/new/archer.wav" type="AudioStream" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "archer_idle_down"
@@ -495,7 +495,7 @@ anims/attack = SubResource( 35 )
 texture = ExtResource( 9 )
 flip_h = true
 hframes = 16
-frame = 5
+frame = 4
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 0, 5 )
@@ -555,6 +555,8 @@ volume_db = -20.0
 [connection signal="animation_finished" from="AttackPlayer" to="." method="_on_AttackPlayer_animation_finished"]
 
 [editable path="Camera2D/currency_hud"]
+
+[editable path="Camera2D/minimap"]
 
 [editable path="spell_1"]
 

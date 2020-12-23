@@ -20,6 +20,7 @@ onready var wall = $Grass_24_shadow/leaf_wall
 onready var path = $Grass_24_shadow/path
 onready var grass = $Grass_24_shadow
 onready var trees = $Trees
+onready var audio_stream = $AudioStreamPlayer
 
 onready var foliage = {
 	$Grass_24_shadow/flowers_grass : 0.5,
@@ -39,6 +40,7 @@ var mobs = {
 func _ready():
 	seed(_seed)
 	_generate()
+	audio_stream.playing = true
 
 
 func _generate():

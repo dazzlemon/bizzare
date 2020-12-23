@@ -12,7 +12,7 @@
 [ext_resource path="res://src/attack/projectile/ally/base_projectile_attack_ally.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/characters/base_player/mage/spells/meteor/spell_1.gd" type="Script" id=11]
 [ext_resource path="res://assets/textures/mage/mage_meteor.png" type="Texture" id=12]
-[ext_resource path="res://assets/sound/Fireball.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/sound/new/mage.wav" type="AudioStream" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
@@ -455,7 +455,7 @@ parameters/run/blend_position = Vector2( 0, 0 )
 texture = ExtResource( 3 )
 flip_h = true
 hframes = 16
-frame = 4
+frame = 6
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 6, 3 )
@@ -504,5 +504,7 @@ volume_db = -20.0
 [editable path="Camera2D/Control"]
 
 [editable path="Camera2D/currency_hud"]
+
+[editable path="Camera2D/minimap"]
 
 [editable path="spell_1"]

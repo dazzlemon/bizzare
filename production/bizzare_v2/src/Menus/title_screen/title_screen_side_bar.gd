@@ -15,7 +15,8 @@ func _ready():
 
 
 func play():
-	LoadingScreen.load_scene("res://src/levels/random_level/random_level.tscn")
+	#LoadingScreen.load_scene("res://src/levels/random_level/random_level.tscn")
+	LoadingScreen.load_scene("res://src/levels/Game.tscn")
 	LoadingScreen.visible = true
 
 

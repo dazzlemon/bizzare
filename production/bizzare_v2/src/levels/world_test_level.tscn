@@ -12,8 +12,9 @@
 [ext_resource path="res://src/characters/base_npc/orc_range/orc_range.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/levels/sky/sky.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/characters/base_npc/Slime/slime.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/sound/Environment.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/sound/old/Environment.wav" type="AudioStream" id=13]
 [ext_resource path="res://src/characters/base_player/mage/spells/phoenix/phoenix.tscn" type="PackedScene" id=14]
+
 
 [node name="level" type="Node2D"]
 script = ExtResource( 4 )

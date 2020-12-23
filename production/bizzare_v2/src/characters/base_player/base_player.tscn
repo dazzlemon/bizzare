@@ -15,7 +15,7 @@
 [ext_resource path="res://src/etc/huds/spell_cd_hud.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/characters/base_player/shift_dodge.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/Menus/Minimap/minimap.tscn" type="PackedScene" id=15]
-[ext_resource path="res://assets/sound/walk.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/sound/new/walk.wav" type="AudioStream" id=16]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
@@ -105,7 +105,7 @@ collision_mask = 72
 
 [node name="walk" type="AudioStreamPlayer" parent="Sound" index="0"]
 stream = ExtResource( 16 )
-volume_db = -20.058
+volume_db = -25.0
 autoplay = true
 stream_paused = true
 
