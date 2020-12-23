@@ -1,26 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Menus/title_screen/menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Menus/title_screen/title_screen_side_bar.gd" type="Script" id=2]
 [ext_resource path="res://assets/textures/Logo2.png" type="Texture" id=3]
 [ext_resource path="res://assets/themes/buttons_theme.theme" type="Theme" id=4]
 [ext_resource path="res://assets/sound/old/SOUNDTRACK.wav" type="AudioStream" id=5]
-[ext_resource path="res://assets/textures/etc/Black.png" type="Texture" id=6]
+[ext_resource path="res://src/etc/Blur.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/levels/title_screen_level.tscn" type="PackedScene" id=10]
-
-[sub_resource type="Shader" id=1]
-code = "shader_type canvas_item;
-
-uniform float blur : hint_range(0,3) = 2; //Kekw C++  // smth like export var
-
-void fragment(){
-	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV, blur);
-	COLOR = color;
-}"
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
-shader_param/blur = 2.0
 
 [node name="title_screen" instance=ExtResource( 1 )]
 theme = null
@@ -38,18 +24,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect2" type="TextureRect" parent="." index="1"]
-show_behind_parent = true
-material = SubResource( 2 )
-margin_left = -7.0
-margin_top = -2.0
-margin_right = 488.0
-margin_bottom = 274.0
-texture = ExtResource( 6 )
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="TextureRect2" parent="." index="1" instance=ExtResource( 6 )]
 
 [node name="VBoxContainer" parent="." index="2"]
 margin_left = 15.5892
