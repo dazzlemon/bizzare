@@ -38,7 +38,8 @@ var mobs = {
 }
 
 func _ready():
-	seed(_seed)
+	#seed(_seed)
+	randomize()
 	_generate()
 	audio_stream.playing = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

@@ -491,6 +491,9 @@ parameters/run/blend_position = Vector2( 0, 0 )
 [node name="AttackPlayer" parent="." index="3"]
 anims/attack = SubResource( 35 )
 
+[node name="pivot" parent="." index="5"]
+position = Vector2( 0, -3 )
+
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 9 )
 flip_h = true
@@ -508,7 +511,7 @@ position = Vector2( 0, 11 )
 z_index = -1
 
 [node name="collision_box" parent="." index="6"]
-position = Vector2( 0, 10 )
+position = Vector2( 0, 9 )
 rotation = 1.5708
 shape = SubResource( 36 )
 
@@ -518,6 +521,11 @@ shape = SubResource( 36 )
 margin_left = -239.0
 margin_top = 0.0
 margin_right = -2.0
+
+[node name="minimap" parent="Camera2D/minimap/MarginContainer" index="0"]
+cell_colors = {
+0: Color( 0.0784314, 0.431373, 0.0196078, 1 )
+}
 
 [node name="spell_1" parent="." index="10" instance=ExtResource( 6 )]
 
@@ -544,6 +552,7 @@ volume_db = -6.058
 script = ExtResource( 7 )
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
+position = Vector2( 0, -1.91883 )
 shape = SubResource( 41 )
 
 [node name="crosshair" parent="." index="15"]
@@ -553,6 +562,8 @@ z_as_relative = true
 stream = ExtResource( 11 )
 volume_db = -20.0
 [connection signal="animation_finished" from="AttackPlayer" to="." method="_on_AttackPlayer_animation_finished"]
+
+[editable path="Camera2D/Control"]
 
 [editable path="Camera2D/currency_hud"]
 
