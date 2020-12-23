@@ -35,7 +35,7 @@ func decelerate(delta: float, speed: Vector2) -> Vector2:
 
 func _physics_process(delta: float) -> void:
 	var input_vector = control.get_input_vector()
-	animation_tree._animation_process(input_vector)
+	animation_tree._animation_process()
 	call((var2str(States.keys()[state]).to_lower().replace("\"", "")), delta, input_vector)
 
 

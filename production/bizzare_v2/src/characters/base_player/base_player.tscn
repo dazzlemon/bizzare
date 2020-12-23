@@ -118,6 +118,8 @@ stream_paused = true
 [node name="attack" type="AudioStreamPlayer" parent="Sound" index="1"]
 bus = "Sound"
 
+[editable path="Camera2D/Control"]
+
 [editable path="Camera2D/currency_hud"]
 
 [editable path="Camera2D/minimap"]

@@ -4,8 +4,8 @@ extends AnimationTree
 onready var crosshair = get_node("../crosshair")
 onready var parent = get_parent()
 
-func _animation_process(input_vector):
-	var animation = "run" if input_vector != Vector2.ZERO else "idle"
+func _animation_process():
+	var animation = "run" if parent.velocity != Vector2.ZERO else "idle"
 	var blend_pos = (crosshair.global_position - parent.global_position).normalized()
 	_blend_travel(animation, blend_pos)
 

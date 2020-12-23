@@ -9,7 +9,8 @@ func _ready() -> void:
 
 func _start() -> void:
 	var projectile_instance = projectile.instance()
-	owner.get_parent().add_child(projectile_instance)
+	#print()
+	owner.get_parent().owner.add_child(projectile_instance)
 	projectile_instance.global_position = get_node("../crosshair").global_position + Vector2(0,-200)
 	projectile_instance.direction = Vector2.DOWN
 	projectile_instance.target = get_node("../crosshair").global_position

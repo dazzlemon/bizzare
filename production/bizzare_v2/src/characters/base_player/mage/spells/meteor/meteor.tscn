@@ -24,6 +24,7 @@ tracks/0/keys = {
 }
 
 [node name="base_projectile" instance=ExtResource( 4 )]
+z_index = 999
 script = ExtResource( 5 )
 
 [node name="sprite" parent="." index="0"]

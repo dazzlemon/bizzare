@@ -455,7 +455,7 @@ parameters/run/blend_position = Vector2( 0, 0 )
 texture = ExtResource( 3 )
 flip_h = true
 hframes = 16
-frame = 6
+frame = 4
 
 [node name="hands" parent="pivot" index="1"]
 position = Vector2( 6, 3 )
@@ -480,6 +480,14 @@ shape = SubResource( 35 )
 
 [node name="spell_1" parent="Camera2D/Control" index="0"]
 texture_progress = ExtResource( 12 )
+
+[node name="spell_2" parent="Camera2D/Control" index="1"]
+visible = false
+
+[node name="minimap" parent="Camera2D/minimap/MarginContainer" index="0"]
+cell_colors = {
+0: Color( 0.0784314, 0.431373, 0.0196078, 1 )
+}
 
 [node name="spell_1" parent="." index="10" instance=ExtResource( 10 )]
 script = ExtResource( 11 )
