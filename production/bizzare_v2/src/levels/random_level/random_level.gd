@@ -12,8 +12,8 @@ const DX = {"E" : 1, "W" : -1, "N" : 0, "S" : 0}
 const DY = {"E" : 0, "W" :  0, "N" : -1, "S" : 1}
 const OPPOSITE = {"E" : "W", "W" : "E", "N" : "S", "S" : "N"}
 
-var width = 1
-var height = 2
+var width = 5
+var height = 5
 var _seed = 10
 
 onready var wall = $Grass_24_shadow/leaf_wall
@@ -30,10 +30,10 @@ onready var foliage = {
 }
 
 var mobs = {
-	preload("res://src/characters/base_npc/harpy/harpy.tscn") : 0.24,
-	preload("res://src/characters/base_npc/orc_melee/orc_melee.tscn") : 0.24,
-	preload("res://src/characters/base_npc/orc_range/orc_range.tscn") : 0.24,
-	preload("res://src/characters/base_npc/shadow/shadow.tscn") : 0.24,
+	preload("res://src/characters/base_npc/harpy/harpy.tscn") : 0.25,
+	preload("res://src/characters/base_npc/orc_melee/orc_melee.tscn") : 0.25,
+	preload("res://src/characters/base_npc/orc_range/orc_range.tscn") : 0.25,
+	preload("res://src/characters/base_npc/shadow/shadow.tscn") : 0.25,
 	preload("res://src/characters/base_npc/harpy_boss/harpy_boss.tscn") : 1,	
 }
 
@@ -128,7 +128,18 @@ func _set_room(x, y, grid):
 		for j in range(start.y + 2, end.y - 2, 1):
 			_foliage(Vector2(i, j))
 	
-	var mob_points = float(pow(x, 2) + pow(y, 2)) / float(pow(width - 1, 2) + pow(height - 1, 2))
+	var mob_points = 0
+	#if x == width - 1 and y == height - 1:
+	#	mob_points = 1
+	#elif x != 0 or y != 0:
+	var a = float(x + y)
+	var b = float(width + height - 2)
+	mob_points = a / b
+	print(
+		str(a) + " " +
+		str(b) + " " + 
+		str(a / b)
+	)
 	if mob_points == 1:
 		var new_m_ins = mobs.keys().back().instance()
 		new_m_ins.global_position = Vector2((x + 0.5) * WALL_SIZES.x + rand_range(-WALL_SIZES.x / 2 + 1, WALL_SIZES.x / 2 - 1), (y + 0.5) * WALL_SIZES.y + rand_range(-WALL_SIZES.y / 2 + 1, WALL_SIZES.y / 2 - 1)) * 24
@@ -155,8 +166,6 @@ func _paths(x, y, grid):
 			int(not bool(int(WALL_SIZES.y) % 2))]
 	var size = [2 + d[0], 2 + d[1]]
 	var axis = [x, y]                                                                                               
-	
-	
 	for z in range(4):
 		var c = int(z > 1)
 		var nc = int(not bool(c))
