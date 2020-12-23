@@ -22,7 +22,7 @@ func hitscan_lightning(amount):
 
 func spawn_lightning(angle):
 	var lightning_instance = lightning.instance()
-	get_root.owner.call("add_child", lightning_instance)
+	get_root.get_node("../").call("add_child", lightning_instance)
 	lightning_instance.global_position = get_node("../../").global_position 
 	lightning_instance.global_position += (Vector2(rand_range(-150, 150), rand_range(-150, 150))).rotated(angle)
 	lightning_instance.stats = get_node("../../stats")

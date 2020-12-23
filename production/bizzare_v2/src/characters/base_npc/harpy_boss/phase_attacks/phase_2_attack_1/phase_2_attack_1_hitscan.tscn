@@ -25,6 +25,7 @@ tracks/0/keys = {
 }
 
 [node name="enemy_hitscan" instance=ExtResource( 1 )]
+visible = false
 script = ExtResource( 2 )
 
 [node name="charging" type="Timer" parent="." index="1"]
