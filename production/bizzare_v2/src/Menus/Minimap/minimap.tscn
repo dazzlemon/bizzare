@@ -31,9 +31,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -189.5
-margin_top = -74.5
-margin_right = 190.5
+margin_left = -188.5
+margin_top = -73.5
+margin_right = 189.5
 margin_bottom = 103.5
 rect_clip_content = true
 __meta__ = {
@@ -41,8 +41,8 @@ __meta__ = {
 }
 
 [node name="minimap" type="Control" parent="MarginContainer"]
-margin_right = 380.0
-margin_bottom = 178.0
+margin_right = 378.0
+margin_bottom = 177.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false

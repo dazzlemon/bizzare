@@ -87,9 +87,15 @@ margin_bottom = -74.0
 
 [node name="minimap" parent="Camera2D" index="7" instance=ExtResource( 15 )]
 visible = false
+modulate = Color( 1, 1, 1, 1 )
+self_modulate = Color( 0, 0, 0, 0.439216 )
+show_behind_parent = true
 
 [node name="minimap" parent="Camera2D/minimap/MarginContainer" index="0"]
 camera_node = NodePath("../../..")
+cell_colors = {
+0: Color( 0.0784314, 0.431373, 0.0196078, 1 )
+}
 
 [node name="Inventory" type="Node" parent="." index="9"]
 script = ExtResource( 5 )
