@@ -63,8 +63,9 @@ func _on_Settings_pressed():
 
 
 func _on_Restart_pressed():
+	pause_toggle()
+	get_tree().get_root().get_node("Game/level").queue_free()
 	LoadingScreen.load_scene("res://src/levels/Game.tscn")
 	LoadingScreen.visible = true
-	get_tree().get_root().get_node("Game/level").queue_free()
 	set_visible(false)
 	
