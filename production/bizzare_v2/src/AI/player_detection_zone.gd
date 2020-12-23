@@ -5,7 +5,7 @@ class_name PlayerDetectionZone
 extends Area2D
 
 var player = null#mb add static typing? + possibly need a rework to avoid using null reference
-var fov_deg = 270
+var fov_deg = 300
 
 onready var look_at = $LookAt
 onready var attack_range = get_node("../attack_range")
