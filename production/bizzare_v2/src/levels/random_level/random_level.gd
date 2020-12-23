@@ -30,11 +30,11 @@ onready var foliage = {
 }
 
 var mobs = {
-	preload("res://src/characters/base_npc/harpy/harpy.tscn") : 0.25,
-	preload("res://src/characters/base_npc/orc_melee/orc_melee.tscn") : 0.25,
-	preload("res://src/characters/base_npc/orc_range/orc_range.tscn") : 0.25,
-	preload("res://src/characters/base_npc/shadow/shadow.tscn") : 0.25,
-	preload("res://src/characters/base_npc/harpy_boss/harpy_boss.tscn") : 1,	
+	preload("res://src/characters/base_npc/harpy/harpy.tscn") : 0.12,
+	preload("res://src/characters/base_npc/orc_melee/orc_melee.tscn") : 0.12,
+	preload("res://src/characters/base_npc/orc_range/orc_range.tscn") : 0.12,
+	preload("res://src/characters/base_npc/shadow/shadow.tscn") : 0.12,
+	preload("res://src/characters/base_npc/Slime/slime.tscn") : 0.12,
 }
 
 func _ready():
@@ -128,22 +128,19 @@ func _set_room(x, y, grid):
 	for i in range(start.x + 2, end.x - 2, 1):
 		for j in range(start.y + 2, end.y - 2, 1):
 			_foliage(Vector2(i, j))
-	
-	var mob_points = 0
-	#if x == width - 1 and y == height - 1:
-	#	mob_points = 1
-	#elif x != 0 or y != 0:
+
 	var a = float(x + y)
 	var b = float(width + height - 2)
-	mob_points = a / b
-	if mob_points > 0 and mob_points < 0.25:
-		mob_points += 0.25
-	elif mob_points > 0 and mob_points < 0.5:
-		mob_points += 0.25
-	elif mob_points > 0 and mob_points < 0.75:
-		mob_points += 0.25
+	var mob_points = a / b
+	print(mob_points)
+	if mob_points > 0 and mob_points < 0.2:
+		mob_points += 0.2
+	elif mob_points > 0 and mob_points < 0.4:
+		mob_points += 0.2
+	elif mob_points > 0 and mob_points < 0.6:
+		mob_points += 0.2
 	if mob_points == 1:
-		var new_m_ins = mobs.keys().back().instance()
+		var new_m_ins = preload("res://src/characters/base_npc/harpy_boss/harpy_boss.tscn").instance()
 		new_m_ins.global_position = Vector2((x + 0.5) * WALL_SIZES.x + rand_range(-WALL_SIZES.x / 2 + 1, WALL_SIZES.x / 2 - 1), (y + 0.5) * WALL_SIZES.y + rand_range(-WALL_SIZES.y / 2 + 1, WALL_SIZES.y / 2 - 1)) * 24
 		get_node("Trees/YSort").call_deferred("add_child", new_m_ins)
 		return#else it still spawnst normal mobs?????????
@@ -154,7 +151,9 @@ func _set_room(x, y, grid):
 			if roll <= 0.1:
 				break
 			var counter = 0
-			for m in mobs:
+			var ms = mobs.keys()
+			ms.shuffle()
+			for m in ms:
 				counter += mobs[m]
 				if roll <= counter:
 					var new_m_ins = m.instance()
