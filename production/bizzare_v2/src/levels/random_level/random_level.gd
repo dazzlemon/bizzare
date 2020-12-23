@@ -41,6 +41,7 @@ func _ready():
 	seed(_seed)
 	_generate()
 	audio_stream.playing = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 func _generate():
@@ -135,11 +136,12 @@ func _set_room(x, y, grid):
 	var a = float(x + y)
 	var b = float(width + height - 2)
 	mob_points = a / b
-	print(
-		str(a) + " " +
-		str(b) + " " + 
-		str(a / b)
-	)
+	if mob_points > 0 and mob_points < 0.25:
+		mob_points += 0.25
+	elif mob_points > 0 and mob_points < 0.5:
+		mob_points += 0.25
+	elif mob_points > 0 and mob_points < 0.75:
+		mob_points += 0.25
 	if mob_points == 1:
 		var new_m_ins = mobs.keys().back().instance()
 		new_m_ins.global_position = Vector2((x + 0.5) * WALL_SIZES.x + rand_range(-WALL_SIZES.x / 2 + 1, WALL_SIZES.x / 2 - 1), (y + 0.5) * WALL_SIZES.y + rand_range(-WALL_SIZES.y / 2 + 1, WALL_SIZES.y / 2 - 1)) * 24
