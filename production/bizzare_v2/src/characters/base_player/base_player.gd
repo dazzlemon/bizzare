@@ -10,6 +10,6 @@ func _process(delta):
 
 func die():
 	var GO_instance = game_over.instance()
-	GO_instance._text = "GAME\nOVER" 
+	GO_instance.get_node("Game_over").visible = true
 	get_tree().get_root().get_node("Game").add_child(GO_instance)
 	.die()

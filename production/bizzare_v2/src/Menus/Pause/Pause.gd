@@ -63,5 +63,8 @@ func _on_Settings_pressed():
 
 
 func _on_Restart_pressed():
-	pass
-	#get_tree().get_root().get_node("Game").load_level(get_tree().get_root().get_node("Game/level/Trees/YSort/player"))
+	LoadingScreen.load_scene("res://src/levels/Game.tscn")
+	LoadingScreen.visible = true
+	get_tree().get_root().get_node("Game/level").queue_free()
+	set_visible(false)
+	
