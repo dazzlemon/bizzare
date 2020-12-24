@@ -10,4 +10,12 @@ func _ready() -> void:
 
 func _start():
 	animation_player.play("attack")
-	._start()
+	#kostil'
+	var projectile_instance = projectile.instance()
+	level.call_deferred("add_child", projectile_instance)
+	projectile_instance.global_position = parent.global_position
+	projectile_instance.direction = (parent.crosshair.global_position - global_position).normalized()
+	projectile_instance.damage = stats.damage
+	if get_node("../Sound/attack"):
+		get_node("../Sound/attack").playing = true
+	projectile_instance.rotation = get_angle_to(get_node("../crosshair").global_position)

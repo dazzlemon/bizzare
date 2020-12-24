@@ -14,6 +14,7 @@ var jump_height = -7
 
 func _ready():
 	MAX_SPEED = 75
+	DECEL = 50
 	timer.start(jump_interval)
 	#stats.health /= count
 	#stats.max_health /= count
@@ -33,7 +34,8 @@ func die():
 			var instance = slime.instance()
 			get_node("../").call_deferred("add_child", instance)
 			instance.count = count * 2
-			instance.global_position = global_position + Vector2(rand_range(0,20), rand_range(0,20))
+			instance.velocity = Vector2(rand_range(-20, 20), rand_range(-20, 20))
+			instance.global_position = global_position + Vector2(rand_range(-2, 2), rand_range(-2, 2))
 			instance.scale = scale - Vector2(0.15,0.15)
 			#instance.get_node("stats").heatlh = 1
 	if count == 1:
