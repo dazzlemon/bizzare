@@ -157,19 +157,19 @@ tracks/0/keys = {
 "values": [ 9, 10, 11, 10 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "idle_left_down "
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "idle_left_down "
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "idle_down"
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "idle_right_down"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "idle_right_down"
 
 [sub_resource type="AnimationNodeAnimation" id=12]
@@ -181,17 +181,17 @@ animation = "idle_up"
 [sub_resource type="AnimationNodeAnimation" id=14]
 animation = "idle_left_up "
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=23]
+[sub_resource type="AnimationNodeBlendSpace2D" id=15]
 resource_local_to_scene = true
-blend_point_0/node = SubResource( 15 )
+blend_point_0/node = SubResource( 7 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 16 )
+blend_point_1/node = SubResource( 8 )
 blend_point_1/pos = Vector2( -0.6, 0.7 )
-blend_point_2/node = SubResource( 17 )
+blend_point_2/node = SubResource( 9 )
 blend_point_2/pos = Vector2( 0, 1.1 )
-blend_point_3/node = SubResource( 18 )
+blend_point_3/node = SubResource( 10 )
 blend_point_3/pos = Vector2( 0.6, 0.7 )
-blend_point_4/node = SubResource( 19 )
+blend_point_4/node = SubResource( 11 )
 blend_point_4/pos = Vector2( 1, 0 )
 blend_point_5/node = SubResource( 12 )
 blend_point_5/pos = Vector2( 0.6, -0.7 )
@@ -203,25 +203,25 @@ min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachine" id=24]
+[sub_resource type="AnimationNodeStateMachine" id=16]
 resource_local_to_scene = true
-states/idle/node = SubResource( 23 )
+states/idle/node = SubResource( 15 )
 states/idle/position = Vector2( 757, 134 )
 start_node = "idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=25]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
-[sub_resource type="CircleShape2D" id=26]
+[sub_resource type="CircleShape2D" id=18]
 radius = 4.07448
 
-[sub_resource type="RectangleShape2D" id=27]
+[sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 7.86875, 2.12506 )
 
 [sub_resource type="CircleShape2D" id=20]
 radius = 11.831
 
 [sub_resource type="CircleShape2D" id=21]
-radius = 40.073
+radius = 232.612
 
 [sub_resource type="CircleShape2D" id=22]
 radius = 8.36366
@@ -238,8 +238,8 @@ anims/idle_right_up = SubResource( 5 )
 anims/idle_up = SubResource( 6 )
 
 [node name="AnimationTree" parent="." index="2"]
-tree_root = SubResource( 24 )
-parameters/playback = SubResource( 25 )
+tree_root = SubResource( 16 )
+parameters/playback = SubResource( 17 )
 parameters/idle/blend_position = Vector2( 0.0890943, 0.0122223 )
 
 [node name="Timer" type="Timer" parent="." index="4"]
@@ -252,7 +252,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" parent="attack/Position2D/hitbox" index="0"]
 position = Vector2( 9.26866, 3.94692 )
-shape = SubResource( 26 )
+shape = SubResource( 18 )
 
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 2 )
@@ -265,7 +265,7 @@ z_index = -1
 
 [node name="collision_box" parent="." index="7"]
 position = Vector2( 0, 7.99753 )
-shape = SubResource( 27 )
+shape = SubResource( 19 )
 
 [node name="attack_range" parent="control" index="0" instance=ExtResource( 3 )]
 collision_layer = 0

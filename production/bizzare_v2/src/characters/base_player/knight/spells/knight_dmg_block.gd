@@ -10,7 +10,7 @@ onready var particles2 = get_node("ash")
 
 func _ready() -> void:
 	_DURATION = 5
-	_INTERVAL = 10
+	_INTERVAL = 5
 
 
 func _start() -> void:

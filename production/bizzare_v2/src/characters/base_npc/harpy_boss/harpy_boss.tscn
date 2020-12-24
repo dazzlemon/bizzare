@@ -306,10 +306,10 @@ radius = 4.07981
 height = 17.0234
 
 [sub_resource type="CircleShape2D" id=19]
-radius = 100.537
+radius = 140.361
 
 [sub_resource type="CircleShape2D" id=20]
-radius = 159.482
+radius = 206.277
 
 [sub_resource type="CircleShape2D" id=21]
 radius = 16.6692
@@ -346,10 +346,10 @@ position = Vector2( 0, 24 )
 texture = ExtResource( 18 )
 
 [node name="sprite" type="Sprite" parent="pivot"]
-position = Vector2( 0, -0.999451 )
+position = Vector2( 0, -2.45999 )
 texture = ExtResource( 4 )
 hframes = 28
-frame = 12
+frame = 9
 
 [node name="hands" type="Sprite" parent="pivot"]
 script = ExtResource( 17 )

@@ -421,7 +421,7 @@ height = 4.71614
 radius = 25.0
 
 [sub_resource type="CircleShape2D" id=38]
-radius = 114.7
+radius = 197.337
 
 [sub_resource type="CircleShape2D" id=39]
 radius = 13.3371

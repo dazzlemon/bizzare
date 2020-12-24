@@ -23,7 +23,7 @@ func _start():
 
 func spawn_projectile(angle):
 	var projectile_instance = projectile.instance()
-	get_root.owner.call_deferred("add_child", projectile_instance)
+	get_root.get_node("../").call_deferred("add_child", projectile_instance)
 	projectile_instance.transform = get_root.global_transform
 	projectile_instance.direction = (Vector2(sin(angle), cos(angle)))
 	projectile_instance.damage = stats.damage
