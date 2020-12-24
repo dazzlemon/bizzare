@@ -1,14 +1,18 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/levels/random_level/random_level.gd" type="Script" id=1]
 [ext_resource path="res://src/Tiilemap/Grass_24_shadow.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Tiilemap/Trees.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Tiilemap/Bush.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Tiilemap/fallen_tree.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/levels/sky/sky.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/sound/old/Environment.wav" type="AudioStream" id=7]
 
 [node name="level" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="Node2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2.66968, 85.4297 )
 
 [node name="Grass_24_shadow" parent="." instance=ExtResource( 2 )]
 tile_data = PoolIntArray(  )
@@ -37,5 +41,7 @@ cell_quadrant_size = 24
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 bus = "Sound"
+
+[editable path="Node2D"]
 
 [editable path="Grass_24_shadow"]

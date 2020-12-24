@@ -95,9 +95,9 @@ func _input(event):
 func move_map_around(): 
 	var ref = get_viewport().get_mouse_position()
 	rect_position.x += (ref.x - fixed_toggle_point.x)
-	rect_position.x = clamp(rect_position.x, temp.x - 150, temp.x + 150)
+	rect_position.x = clamp(rect_position.x, temp.x - 200, temp.x + 150)
 	rect_position.y += (ref.y - fixed_toggle_point.y)
-	rect_position.y = clamp(rect_position.y, temp.y - 150, temp.y + 150)
+	rect_position.y = clamp(rect_position.y, temp.y - 150, temp.y + 75)
 	fixed_toggle_point = ref
 
 

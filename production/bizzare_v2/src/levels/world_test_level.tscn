@@ -15,7 +15,6 @@
 [ext_resource path="res://assets/sound/old/Environment.wav" type="AudioStream" id=13]
 [ext_resource path="res://src/characters/base_player/mage/spells/phoenix/phoenix.tscn" type="PackedScene" id=14]
 
-
 [node name="level" type="Node2D"]
 script = ExtResource( 4 )
 

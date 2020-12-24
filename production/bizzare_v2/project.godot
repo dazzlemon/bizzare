@@ -755,7 +755,7 @@ _global_script_class_icons={
 config/name="bizzare_v2"
 run/main_scene="res://src/Menus/title_screen/title_screen_side_bar.tscn"
 boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
-config/icon="res://icon.png"
+config/icon="res://assets/icon.png"
 
 [autoload]
 
