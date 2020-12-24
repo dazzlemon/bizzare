@@ -4,11 +4,11 @@ var status := false
 onready var delay = get_node("delay")
 
 func _on_area_entered(_area) -> void:
-	delay.start(0.75)
+	delay.start(0.5)
 	status = true
 
 func _on_area_exited(_area) -> void:
-	delay.start(0.75)
+	delay.start(0.5)
 	status = false
 
 
