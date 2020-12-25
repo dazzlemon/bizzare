@@ -221,7 +221,7 @@ extents = Vector2( 7.86875, 2.12506 )
 radius = 11.831
 
 [sub_resource type="CircleShape2D" id=21]
-radius = 266.077
+radius = 243.091
 
 [sub_resource type="CircleShape2D" id=22]
 radius = 8.36366
@@ -257,7 +257,7 @@ shape = SubResource( 18 )
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 2 )
 hframes = 12
-frame = 1
+frame = 2
 
 [node name="shadow" parent="pivot" index="2"]
 position = Vector2( 0, 9.04985 )

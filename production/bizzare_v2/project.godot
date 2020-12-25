@@ -254,7 +254,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_melee/orc_melee.gd"
 }, {
-"base": "Reference",
+"base": "BaseNPCControl",
 "class": "GoblinControl",
 "language": "GDScript",
 "path": "res://src/characters/base_npc/orc_melee/orc_melee_control.gd"
@@ -499,6 +499,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/AI/player_detection_zone.gd"
 }, {
+"base": "Node2D",
+"class": "RandomLevel",
+"language": "GDScript",
+"path": "res://src/levels/random_level/random_level.gd"
+}, {
 "base": "BaseNPC",
 "class": "RangeGoblin",
 "language": "GDScript",
@@ -723,6 +728,7 @@ _global_script_class_icons={
 "PhaseAttacks": "",
 "PhoenixStats": "",
 "PlayerDetectionZone": "",
+"RandomLevel": "",
 "RangeGoblin": "",
 "RangeGoblinControl": "",
 "RangeOrcSprite": "",
@@ -757,6 +763,7 @@ run/main_scene="res://src/Menus/title_screen/title_screen_side_bar.tscn"
 boot_splash/image="res://assets/bootsplash.png"
 boot_splash/fullsize=false
 config/icon="res://assets/icon.png"
+config/windows_native_icon="res://assets/icon2.ico"
 
 [autoload]
 

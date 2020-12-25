@@ -11,3 +11,7 @@ func _on_Button_pressed():
 	get_node("../level").queue_free()
 	queue_free()
 
+
+
+func _on_Button2_pressed():
+	queue_free()

@@ -1,3 +1,4 @@
+class_name RandomLevel
 extends Node2D
 
 const WALL_SIZES = Vector2(20, 20)
@@ -12,8 +13,8 @@ const DX = {"E" : 1, "W" : -1, "N" : 0, "S" : 0}
 const DY = {"E" : 0, "W" :  0, "N" : -1, "S" : 1}
 const OPPOSITE = {"E" : "W", "W" : "E", "N" : "S", "S" : "N"}
 
-var width = 5
-var height = 5
+var width = 1
+var height = 2
 var _seed = 10
 
 onready var wall = $Grass_24_shadow/leaf_wall

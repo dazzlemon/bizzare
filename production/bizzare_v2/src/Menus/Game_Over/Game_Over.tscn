@@ -48,6 +48,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Button2" type="Button" parent="boss_defeated"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -39.5
+margin_top = 87.1325
+margin_right = 39.5
+margin_bottom = 107.132
+theme = ExtResource( 2 )
+text = "Hide"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CPUParticles2D" type="CPUParticles2D" parent="boss_defeated"]
 material = SubResource( 1 )
 position = Vector2( 108.54, 56.4088 )
@@ -86,3 +101,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="boss_defeated/Button2" to="." method="_on_Button2_pressed"]

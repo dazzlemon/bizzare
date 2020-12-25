@@ -34,7 +34,7 @@ func current_scene():
 func pause_toggle():
 	get_tree().paused = not get_tree().paused
 	set_visible(get_tree().paused)
-	if not get_tree().get_root().get_node("Game/level") is WorldTestLevel:
+	if not get_tree().get_root().get_node("Game/level") is RandomLevel:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
 		_mouse_mode_toggle()
