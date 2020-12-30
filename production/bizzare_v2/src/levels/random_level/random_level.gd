@@ -13,8 +13,8 @@ const DX = {"E" : 1, "W" : -1, "N" : 0, "S" : 0}
 const DY = {"E" : 0, "W" :  0, "N" : -1, "S" : 1}
 const OPPOSITE = {"E" : "W", "W" : "E", "N" : "S", "S" : "N"}
 
-var width = 1
-var height = 2
+var width = 2
+var height = 1
 var _seed = 10
 
 onready var wall = $Grass_24_shadow/leaf_wall
@@ -22,6 +22,8 @@ onready var path = $Grass_24_shadow/path
 onready var grass = $Grass_24_shadow
 onready var trees = $Trees
 onready var audio_stream = $AudioStreamPlayer
+
+
 
 onready var foliage = {
 	$Grass_24_shadow/flowers_grass : 0.5,
@@ -31,11 +33,11 @@ onready var foliage = {
 }
 
 var mobs = {
-	preload("res://src/characters/base_npc/harpy/harpy.tscn") : 0.12,
-	preload("res://src/characters/base_npc/orc_melee/orc_melee.tscn") : 0.12,
-	preload("res://src/characters/base_npc/orc_range/orc_range.tscn") : 0.12,
-	preload("res://src/characters/base_npc/shadow/shadow.tscn") : 0.12,
-	preload("res://src/characters/base_npc/Slime/slime.tscn") : 0.12,
+	load("res://src/characters/base_npc/harpy/harpy.tscn") : 0.12,
+	load("res://src/characters/base_npc/orc_melee/orc_melee.tscn") : 0.12,
+	load("res://src/characters/base_npc/orc_range/orc_range.tscn") : 0.12,
+	load("res://src/characters/base_npc/shadow/shadow.tscn") : 0.12,
+	load("res://src/characters/base_npc/Slime/slime.tscn") : 0.12,
 }
 
 func _ready():
@@ -112,6 +114,7 @@ func carve_passages_from(cx, cy, grid):
 func _set_walls(grid):
 	for y in range(height):
 		for x in range(width):
+			#pass
 			_set_room(x, y, grid)
 	wall.update_bitmask_region()
 
@@ -134,7 +137,7 @@ func _set_room(x, y, grid):
 	var a = float(x + y)
 	var b = float(width + height - 2)
 	var mob_points = a / b
-	print(mob_points)
+	#print(mob_points)
 	if mob_points > 0 and mob_points < 0.2:
 		mob_points += 0.2
 	elif mob_points > 0 and mob_points < 0.4:
@@ -148,8 +151,10 @@ func _set_room(x, y, grid):
 		return#else it still spawnst normal mobs?????????
 	elif mob_points != 0:
 		while mob_points > 0:
+			print("LOOP")
 			var roll = rand_range(0, mob_points)
 			mob_points -= roll
+			print(mob_points)
 			if roll <= 0.1:
 				break
 			var counter = 0

@@ -15,28 +15,35 @@ script = ExtResource( 1 )
 position = Vector2( 2.66968, 85.4297 )
 
 [node name="Grass_24_shadow" parent="." instance=ExtResource( 2 )]
+collision_mask = 0
 tile_data = PoolIntArray(  )
 
 [node name="path" parent="Grass_24_shadow" index="0"]
+collision_mask = 0
 tile_data = PoolIntArray(  )
 
 [node name="leaf_wall" parent="Grass_24_shadow" index="1"]
+collision_mask = 10
 tile_data = PoolIntArray(  )
 
 [node name="flowers_grass" parent="Grass_24_shadow" index="2"]
+collision_mask = 0
 tile_data = PoolIntArray( 196625, 0, 0, 262153, 0, 0, 262164, 0, 0, 393221, 0, 0, 458753, 0, 0, 524292, 0, 131077, 589840, 0, 0, 655365, 0, 0, 786431, 0, 0, 851972, 0, 0, 983045, 0, 0, 1048601, 0, 0, 1245179, 0, 0, 1376248, 0, 0, 1441772, 0, 0, 1441784, 0, 0, 1638384, 0, 0, 1769468, 0, 0 )
 
 [node name="Trees" parent="." instance=ExtResource( 3 )]
 cell_quadrant_size = 24
+collision_mask = 2147483658
 tile_data = PoolIntArray( -1048565, 0, 720892 )
 
 [node name="YSort" type="YSort" parent="Trees"]
 
 [node name="fallen_tree" parent="Trees/YSort" instance=ExtResource( 5 )]
 cell_quadrant_size = 24
+collision_mask = 2147483648
 
 [node name="bush" parent="Trees/YSort" instance=ExtResource( 4 )]
 cell_quadrant_size = 24
+collision_mask = 10
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )

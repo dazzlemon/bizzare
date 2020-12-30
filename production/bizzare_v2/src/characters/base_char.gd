@@ -16,7 +16,9 @@ onready var spell_1 = $spell_1
 onready var spell_2 = $spell_2
 onready var crosshair = $crosshair
 onready var animation_tree = $AnimationTree
+onready var attack_player = $AttackPlayer
 onready var tween = $Tween
+onready var pivot = $pivot
 
 
 enum States {
@@ -66,6 +68,7 @@ func take_damage(damage: float) -> void:
 		stats.armor -= 0.7 * damage * (1 - DMG_BLOCK)#prolly need to make 0.7 as a variable
 	else:
 		stats.health -= damage * (1 - DMG_BLOCK)
+	#pivot.set("shader_param/flash_modifier", 0.9) 
 
 
 func die() -> void:

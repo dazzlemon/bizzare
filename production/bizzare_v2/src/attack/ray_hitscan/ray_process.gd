@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 
 func _update_texture():
 	sprite.rotation = cast_to.angle()
-	if is_colliding():
+	if is_colliding() and get_collider() != null:
 		sprite.region_rect.end.x = (get_collider().global_position - global_position).length()
 	else:
 		sprite.region_rect.end.x = length_def
