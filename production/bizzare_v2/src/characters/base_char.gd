@@ -19,7 +19,7 @@ onready var animation_tree = $AnimationTree
 onready var attack_player = $AttackPlayer
 onready var tween = $Tween
 onready var pivot = $pivot
-
+onready var damage_sound  = get_node("DamageSound/damage")
 
 enum States {
 	KNOCKED_BACK,
@@ -68,6 +68,8 @@ func take_damage(damage: float) -> void:
 		stats.armor -= 0.7 * damage * (1 - DMG_BLOCK)#prolly need to make 0.7 as a variable
 	else:
 		stats.health -= damage * (1 - DMG_BLOCK)
+	if damage_sound != null:
+		damage_sound.playing = true
 	#pivot.set("shader_param/flash_modifier", 0.9) 
 
 

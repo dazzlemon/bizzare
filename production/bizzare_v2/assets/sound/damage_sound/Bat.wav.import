@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bat.wav-3e468b4d14bca5f74686287f6ee8172b.sample"
+
+[deps]
+
+source_file="res://assets/sound/damage_sound/Bat.wav"
+dest_files=[ "res://.import/Bat.wav-3e468b4d14bca5f74686287f6ee8172b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -109,6 +109,11 @@ script = ExtResource( 4 )
 
 [node name="sprite" type="Sprite" parent="crosshair"]
 texture = ExtResource( 5 )
+
+[node name="DamageSound" type="Node" parent="."]
+
+[node name="damage" type="AudioStreamPlayer" parent="DamageSound"]
+bus = "Sound"
 [connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

@@ -481,7 +481,7 @@ texture = ExtResource( 6 )
 texture = ExtResource( 7 )
 flip_h = true
 hframes = 16
-frame = 6
+frame = 4
 
 [node name="left_hand" type="Sprite" parent="pivot"]
 position = Vector2( 6, 5 )

@@ -1,14 +1,14 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://src/characters/base_player/base_player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/characters/base_player/knight/knight.gd" type="Script" id=2]
 [ext_resource path="res://src/characters/base_player/knight/knight_stats.gd" type="Script" id=3]
-[ext_resource path="res://assets/textures/knight/sheet.png" type="Texture" id=4]
+[ext_resource path="res://assets/new/knightAxe.png" type="Texture" id=4]
 [ext_resource path="res://src/characters/base_player/knight/knight_control.gd" type="Script" id=5]
 [ext_resource path="res://src/characters/base_player/knight/attack/knight_hitscan.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/characters/base_player/knight/spells/knight_aoe.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/characters/base_player/knight/spells/knight_dmg_block.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/textures/knight/axe.png" type="Texture" id=9]
+[ext_resource path="res://assets/new/knightRun&IdleScuffedOrder.png" type="Texture" id=9]
 [ext_resource path="res://assets/textures/knight/knight_knockback(main).png" type="Texture" id=10]
 [ext_resource path="res://assets/textures/knight/knight_damage_block.png" type="Texture" id=11]
 [ext_resource path="res://assets/textures/knight/FIRE.png" type="Texture" id=12]
@@ -20,11 +20,12 @@
 [ext_resource path="res://assets/textures/etc/melee_attack/Melee_attack4.png" type="Texture" id=18]
 [ext_resource path="res://src/characters/base_player/knight/hands.gd" type="Script" id=19]
 [ext_resource path="res://assets/sound/new/knight.wav" type="AudioStream" id=20]
+[ext_resource path="res://assets/sound/damage_sound/Knight.wav" type="AudioStream" id=21]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
-length = 0.8
 loop = true
+step = 0.25
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -32,15 +33,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 8, 10, 10, 8 ]
 }
 
 [sub_resource type="Animation" id=2]
-length = 0.8
 loop = true
+step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -48,7 +49,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 2, 2, 0 ]
@@ -68,8 +69,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "idle_left_up "
-length = 0.8
 loop = true
+step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -77,7 +78,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 12, 14, 14, 12 ]
@@ -96,8 +97,8 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-length = 0.8
 loop = true
+step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -105,7 +106,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 2, 2, 0 ]
@@ -125,8 +126,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "idle_right_up"
-length = 0.8
 loop = true
+step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -134,7 +135,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 12, 14, 14, 12 ]
@@ -154,8 +155,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "idle_up"
-length = 0.8
 loop = true
+step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -163,7 +164,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 4, 6, 6, 4 ]
@@ -171,8 +172,9 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "run_down"
-length = 0.4
+length = 0.5
 loop = true
+step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -180,7 +182,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"times": PoolRealArray( 0, 0.125, 0.25, 0.375 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 8, 9, 10, 11 ]
@@ -188,8 +190,9 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=8]
 resource_name = "run_left_down "
-length = 0.4
+length = 0.5
 loop = true
+step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -197,7 +200,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"times": PoolRealArray( 0, 0.125, 0.25, 0.375 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 1, 2, 3, 0 ]
@@ -217,8 +220,9 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=9]
 resource_name = "run_right_down"
-length = 0.4
+length = 0.5
 loop = true
+step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -226,7 +230,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"times": PoolRealArray( 0, 0.125, 0.25, 0.375 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 1, 2, 3, 0 ]
@@ -246,8 +250,9 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=10]
 resource_name = "run_up"
-length = 0.4
+length = 0.5
 loop = true
+step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -255,7 +260,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"times": PoolRealArray( 0, 0.125, 0.25, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 5, 6, 7, 4 ]
@@ -263,8 +268,9 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=11]
 resource_name = "run_up_left "
-length = 0.4
+length = 0.5
 loop = true
+step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -272,7 +278,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"times": PoolRealArray( 0, 0.125, 0.25, 0.375 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 13, 14, 15, 12 ]
@@ -292,8 +298,9 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=12]
 resource_name = "run_up_right"
-length = 0.4
+length = 0.5
 loop = true
+step = 0.125
 tracks/0/type = "value"
 tracks/0/path = NodePath("pivot/sprite:frame")
 tracks/0/interp = 1
@@ -423,7 +430,7 @@ start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=34]
 
-[sub_resource type="Animation" id=42]
+[sub_resource type="Animation" id=35]
 resource_name = "damage"
 length = 0.175
 step = 0.005
@@ -452,7 +459,7 @@ tracks/1/keys = {
 "values": [ 1.0, 1.0, 0.0 ]
 }
 
-[sub_resource type="Shader" id=45]
+[sub_resource type="Shader" id=36]
 code = "shader_type canvas_item;
 
 uniform vec4 flash_color : hint_color = vec4(1.0);
@@ -465,12 +472,12 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id=46]
-shader = SubResource( 45 )
+[sub_resource type="ShaderMaterial" id=37]
+shader = SubResource( 36 )
 shader_param/flash_color = Color( 1, 1, 1, 1 )
 shader_param/flash_modifier = 0.0
 
-[sub_resource type="Shader" id=47]
+[sub_resource type="Shader" id=38]
 code = "shader_type canvas_item;
 
 uniform vec4 flash_color : hint_color = vec4(1.0);
@@ -483,12 +490,12 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id=48]
-shader = SubResource( 47 )
+[sub_resource type="ShaderMaterial" id=39]
+shader = SubResource( 38 )
 shader_param/flash_color = Color( 1, 1, 1, 1 )
 shader_param/flash_modifier = 0.0
 
-[sub_resource type="SpriteFrames" id=35]
+[sub_resource type="SpriteFrames" id=40]
 animations = [ {
 "frames": [ null, ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 14 ), null ],
 "loop": false,
@@ -496,23 +503,23 @@ animations = [ {
 "speed": 40.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=36]
+[sub_resource type="CapsuleShape2D" id=41]
 radius = 4.49611
 height = 12.2982
 
-[sub_resource type="CanvasItemMaterial" id=37]
+[sub_resource type="CanvasItemMaterial" id=42]
 particles_animation = true
 particles_anim_h_frames = 3
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="Curve" id=38]
+[sub_resource type="Curve" id=43]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.987952, 0.445455 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=39]
-curve = SubResource( 38 )
+[sub_resource type="CurveTexture" id=44]
+curve = SubResource( 43 )
 
-[sub_resource type="ParticlesMaterial" id=40]
+[sub_resource type="ParticlesMaterial" id=45]
 lifetime_randomness = 0.12
 emission_shape = 2
 emission_box_extents = Vector3( 10, 1, 1 )
@@ -524,11 +531,11 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.8
 scale_random = 1.0
-scale_curve = SubResource( 39 )
+scale_curve = SubResource( 44 )
 anim_speed = 2.0
 anim_speed_random = 0.08
 
-[sub_resource type="CircleShape2D" id=41]
+[sub_resource type="CircleShape2D" id=46]
 radius = 16.441
 
 [node name="player" instance=ExtResource( 1 )]
@@ -556,39 +563,43 @@ parameters/idle/blend_position = Vector2( -0.00819671, 0.559483 )
 parameters/run/blend_position = Vector2( 0.000683069, 0.974409 )
 
 [node name="AttackPlayer" parent="." index="3"]
-anims/damage = SubResource( 42 )
+anims/damage = SubResource( 35 )
 
 [node name="sprite" parent="pivot" index="0"]
-material = SubResource( 46 )
-texture = ExtResource( 4 )
-hframes = 16
-frame = 8
+material = SubResource( 37 )
+texture = ExtResource( 9 )
+vframes = 4
+hframes = 4
+frame = 10
 
 [node name="hands" parent="pivot" index="1"]
-material = SubResource( 48 )
-position = Vector2( 0, 6 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 9 )
-offset = Vector2( 7, 0.5 )
+material = SubResource( 39 )
+position = Vector2( 0.17165, 5.28391 )
+texture = ExtResource( 4 )
+offset = Vector2( 13.8284, 0.716095 )
 script = ExtResource( 19 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="pivot/hands" index="0"]
 position = Vector2( 23, -5 )
 rotation = 1.5708
 scale = Vector2( 1, 0.8 )
-frames = SubResource( 35 )
+frames = SubResource( 40 )
 
 [node name="shadow" parent="pivot" index="2"]
 position = Vector2( 0, 10 )
 z_index = -1
 
 [node name="collision_box" parent="." index="6"]
+visible = false
 position = Vector2( -0.44545, 14.0317 )
 rotation = 1.5708
-shape = SubResource( 36 )
+shape = SubResource( 41 )
 
 [node name="control" parent="." index="7"]
 script = ExtResource( 5 )
+
+[node name="Camera2D" parent="." index="8"]
+visible = false
 
 [node name="spell_1" parent="Camera2D/Control" index="0"]
 texture_progress = ExtResource( 10 )
@@ -615,7 +626,7 @@ wait_time = 10.0
 wait_time = 5.0
 
 [node name="ash" type="Particles2D" parent="spell_2" index="2"]
-material = SubResource( 37 )
+material = SubResource( 42 )
 position = Vector2( 0, 5 )
 z_index = 2
 emitting = false
@@ -623,21 +634,22 @@ amount = 3
 lifetime = 1.5
 explosiveness = 0.23
 randomness = 0.23
-process_material = SubResource( 40 )
+process_material = SubResource( 45 )
 texture = ExtResource( 13 )
 
 [node name="fire_part" type="Particles2D" parent="spell_2" index="3"]
-material = SubResource( 37 )
+material = SubResource( 42 )
 position = Vector2( 0, 5 )
 z_index = 2
 emitting = false
 amount = 3
 explosiveness = 0.22
 randomness = 0.04
-process_material = SubResource( 40 )
+process_material = SubResource( 45 )
 texture = ExtResource( 12 )
 
 [node name="spell_1" parent="." index="11" instance=ExtResource( 7 )]
+visible = false
 
 [node name="cd" parent="spell_1" index="0"]
 wait_time = 5.0
@@ -645,17 +657,31 @@ wait_time = 5.0
 [node name="duration" parent="spell_1" index="1"]
 wait_time = 0.15
 
+[node name="Position2D" parent="spell_1" index="2"]
+visible = false
+
+[node name="hitbox" parent="spell_1/Position2D" index="0"]
+visible = false
+
+[node name="CollisionShape2D" parent="spell_1/Position2D/hitbox" index="0"]
+visible = false
+
 [node name="attack" parent="." index="12" instance=ExtResource( 6 )]
+visible = false
 
 [node name="stats" parent="." index="13"]
 script = ExtResource( 3 )
 
 [node name="hurtbox" parent="." index="14"]
+visible = false
 collision_layer = 2147483652
 
 [node name="CollisionShape2D" parent="hurtbox" index="0"]
 position = Vector2( -0.222733, 0 )
-shape = SubResource( 41 )
+shape = SubResource( 46 )
+
+[node name="crosshair" parent="." index="15"]
+visible = false
 
 [node name="walk" parent="Sound" index="0"]
 bus = "Sound"
@@ -664,6 +690,10 @@ bus = "Sound"
 stream = ExtResource( 20 )
 volume_db = -20.0
 pitch_scale = 0.54
+
+[node name="damage" parent="DamageSound" index="0"]
+stream = ExtResource( 21 )
+bus = "Master"
 [connection signal="tween_completed" from="Tween" to="attack" method="_on_Tween_tween_completed"]
 
 [editable path="Camera2D/Node"]

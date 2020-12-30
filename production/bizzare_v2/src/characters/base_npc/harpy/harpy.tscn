@@ -323,10 +323,10 @@ script = ExtResource( 14 )
 [node name="pivot" type="Position2D" parent="."]
 
 [node name="sprite" type="Sprite" parent="pivot"]
-position = Vector2( 0, -1.39318 )
+position = Vector2( 0, -1.79563 )
 texture = ExtResource( 13 )
 hframes = 24
-frame = 16
+frame = 17
 
 [node name="hands" type="Sprite" parent="pivot"]
 script = ExtResource( 5 )

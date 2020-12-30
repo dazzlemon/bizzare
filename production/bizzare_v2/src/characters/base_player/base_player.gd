@@ -16,5 +16,5 @@ func die():
 	.die()
 
 func take_damage(damage: float) -> void:
-	camera.get_node("Node").start(0.2,5, 0)
+	camera.get_node("Node").start(0.2,2.5, 0)
 	.take_damage(damage)

@@ -2,7 +2,7 @@ extends Control
 
 var amplitude = 0
 var priority = 0
-var frequency = 8
+var frequency = 32
 
 onready var camera = get_parent()
 
@@ -21,7 +21,7 @@ func start(duration = 0.2 , amplitude = 16, priority = 0):
 func _new_shake():
 	var rand = Vector2()
 	rand.x = rand_range(-amplitude,amplitude)
-	rand.x = rand_range(-amplitude,amplitude)
+	rand.y = rand_range(-amplitude,amplitude)
 	$Tween.interpolate_property(camera, "offset",camera.offset, rand, $Frequency.wait_time,Tween.TRANS_SINE,Tween.EASE_IN_OUT)
 	$Tween.start()
 	

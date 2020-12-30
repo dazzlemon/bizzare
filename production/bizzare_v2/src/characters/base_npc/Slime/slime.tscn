@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/characters/base_npc/base_npc.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/Slime/sheet.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/attack/hitscan/enemy_hitscan/base_hitscan_enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/characters/base_npc/Slime/slime.gd" type="Script" id=5]
 [ext_resource path="res://src/characters/base_npc/Slime/stats.gd" type="Script" id=6]
+[ext_resource path="res://assets/sound/damage_sound/Slime.wav" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
@@ -257,7 +258,7 @@ shape = SubResource( 18 )
 [node name="sprite" parent="pivot" index="0"]
 texture = ExtResource( 2 )
 hframes = 12
-frame = 2
+frame = 1
 
 [node name="shadow" parent="pivot" index="2"]
 position = Vector2( 0, 9.04985 )
@@ -286,6 +287,10 @@ script = ExtResource( 6 )
 position = Vector2( 0.350761, 4.38526 )
 rotation = 1.5708
 shape = SubResource( 22 )
+
+[node name="damage" parent="DamageSound" index="0"]
+stream = ExtResource( 7 )
+bus = "Master"
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="attack"]
