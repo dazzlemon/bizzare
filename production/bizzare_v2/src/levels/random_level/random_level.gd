@@ -13,8 +13,8 @@ const DX = {"E" : 1, "W" : -1, "N" : 0, "S" : 0}
 const DY = {"E" : 0, "W" :  0, "N" : -1, "S" : 1}
 const OPPOSITE = {"E" : "W", "W" : "E", "N" : "S", "S" : "N"}
 
-var width = 2
-var height = 1
+var width = 7
+var height = 7
 var _seed = 10
 
 onready var wall = $Grass_24_shadow/leaf_wall
@@ -100,12 +100,14 @@ func _array2d(height, width):
 
 
 func carve_passages_from(cx, cy, grid):
+	var counter = 25
 	var directions = dirs.keys()
 	directions.shuffle()
 	for d in directions:
 		var nx = cx + DX[d]
 		var ny = cy + DY[d]
-		if (ny >= 0 and ny <= grid.size()-1) and (nx >= 0 and nx <= grid[ny].size()-1) and grid[ny][nx] == 0:
+		if (ny >= 0 and ny <= grid.size()-1) and (nx >= 0 and nx <= grid[ny].size()-1) and grid[ny][nx] == 0 and counter > 0:
+			counter-=1
 			grid[cy][cx] |= dirs[d]
 			grid[ny][nx] |= dirs[OPPOSITE[d]]
 			carve_passages_from(nx, ny, grid)
@@ -129,44 +131,44 @@ func _set_room(x, y, grid):
 	_tile_rect(grass, start, end, 0)
 	_paths(x, y, grid)
 	grass.update_bitmask_region()
-	
+
 	for i in range(start.x + 2, end.x - 2, 1):
 		for j in range(start.y + 2, end.y - 2, 1):
 			_foliage(Vector2(i, j))
 
-	var a = float(x + y)
-	var b = float(width + height - 2)
-	var mob_points = a / b
-	#print(mob_points)
-	if mob_points > 0 and mob_points < 0.2:
-		mob_points += 0.2
-	elif mob_points > 0 and mob_points < 0.4:
-		mob_points += 0.2
-	elif mob_points > 0 and mob_points < 0.6:
-		mob_points += 0.2
-	if mob_points == 1:
-		var new_m_ins = preload("res://src/characters/base_npc/harpy_boss/harpy_boss.tscn").instance()
-		new_m_ins.global_position = Vector2((x + 0.5) * WALL_SIZES.x + rand_range(-WALL_SIZES.x / 2 + 1, WALL_SIZES.x / 2 - 1), (y + 0.5) * WALL_SIZES.y + rand_range(-WALL_SIZES.y / 2 + 1, WALL_SIZES.y / 2 - 1)) * 24
-		get_node("Trees/YSort").call_deferred("add_child", new_m_ins)
-		return#else it still spawnst normal mobs?????????
-	elif mob_points != 0:
-		while mob_points > 0:
-			print("LOOP")
-			var roll = rand_range(0, mob_points)
-			mob_points -= roll
-			print(mob_points)
-			if roll <= 0.1:
-				break
-			var counter = 0
-			var ms = mobs.keys()
-			ms.shuffle()
-			for m in ms:
-				counter += mobs[m]
-				if roll <= counter:
-					var new_m_ins = m.instance()
-					new_m_ins.global_position = Vector2((x + 0.5) * WALL_SIZES.x + rand_range(-WALL_SIZES.x / 2 + 1, WALL_SIZES.x / 2 - 1), (y + 0.5) * WALL_SIZES.y + rand_range(-WALL_SIZES.y / 2 + 1, WALL_SIZES.y / 2 - 1)) * 24
-					get_node("Trees/YSort").call_deferred("add_child", new_m_ins)
-					break
+#	var a = float(x + y)
+#	var b = float(width + height - 2)
+#	var mob_points = a / b
+#	#print(mob_points)
+#	if mob_points > 0 and mob_points < 0.2:
+#		mob_points += 0.2
+#	elif mob_points > 0 and mob_points < 0.4:
+#		mob_points += 0.2
+#	elif mob_points > 0 and mob_points < 0.6:
+#		mob_points += 0.2
+#	if mob_points == 1:
+#		var new_m_ins = preload("res://src/characters/base_npc/harpy_boss/harpy_boss.tscn").instance()
+#		new_m_ins.global_position = Vector2((x + 0.5) * WALL_SIZES.x + rand_range(-WALL_SIZES.x / 2 + 1, WALL_SIZES.x / 2 - 1), (y + 0.5) * WALL_SIZES.y + rand_range(-WALL_SIZES.y / 2 + 1, WALL_SIZES.y / 2 - 1)) * 24
+#		get_node("Trees/YSort").call_deferred("add_child", new_m_ins)
+#		return#else it still spawnst normal mobs?????????
+#	elif mob_points != 0:
+#		while mob_points > 0:
+#			print("LOOP")
+#			var roll = rand_range(0, mob_points)
+#			mob_points -= roll
+#			print(mob_points)
+#			if roll <= 0.1:
+#				break
+#			var counter = 0
+#			var ms = mobs.keys()
+#			ms.shuffle()
+#			for m in ms:
+#				counter += mobs[m]
+#				if roll <= counter:
+#					var new_m_ins = m.instance()
+#					new_m_ins.global_position = Vector2((x + 0.5) * WALL_SIZES.x + rand_range(-WALL_SIZES.x / 2 + 1, WALL_SIZES.x / 2 - 1), (y + 0.5) * WALL_SIZES.y + rand_range(-WALL_SIZES.y / 2 + 1, WALL_SIZES.y / 2 - 1)) * 24
+#					get_node("Trees/YSort").call_deferred("add_child", new_m_ins)
+#					break
 
 
 func _paths(x, y, grid):
