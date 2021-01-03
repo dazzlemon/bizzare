@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/base_char/base_char.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/base_char/base_player/base_player.gd" type="Script" id=2]
 [ext_resource path="res://src/base_char/base_player/base_player_control.gd" type="Script" id=3]
 [ext_resource path="res://src/hud/TextureProgress.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/base_char/base_player/Camera2D.gd" type="Script" id=5]
+[ext_resource path="res://assets/hud/icons/secondaryStatIconArcher.png" type="Texture" id=6]
 
 [sub_resource type="AnimationNodeStateMachine" id=1]
 resource_local_to_scene = true
@@ -19,10 +21,39 @@ parameters/playback = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="3"]
 current = true
-
-[node name="TextureProgress" parent="Camera2D" index="0" instance=ExtResource( 4 )]
+smoothing_speed = 1.0
+script = ExtResource( 5 )
 
 [node name="control" parent="." index="5"]
 script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
+
+[node name="Control" type="Control" parent="CanvasLayer" index="0"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="secondary_stat2" type="TextureRect" parent="CanvasLayer/Control" index="0"]
+margin_left = 7.0
+margin_top = 30.0
+margin_right = 27.0
+margin_bottom = 50.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hp_bar" parent="CanvasLayer/Control" index="1" instance=ExtResource( 4 )]
+margin_left = 29.0
+margin_top = 8.0
+margin_right = 133.0
+margin_bottom = 24.0
+
+[node name="secondary_stat" parent="CanvasLayer/Control" index="2" instance=ExtResource( 4 )]
+margin_left = 29.0
+margin_top = 31.0
+margin_right = 133.0
+margin_bottom = 47.0

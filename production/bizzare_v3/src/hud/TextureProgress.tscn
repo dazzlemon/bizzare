@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/hud/hpbarBacks.png" type="Texture" id=1]
-[ext_resource path="res://assets/hud/hpbarFill.png" type="Texture" id=2]
-[ext_resource path="res://assets/hud/hpbarBorder.png" type="Texture" id=3]
+[ext_resource path="res://assets/hud/bars/hpbarBacks.png" type="Texture" id=1]
+[ext_resource path="res://assets/hud/bars/hpbarFill.png" type="Texture" id=2]
+[ext_resource path="res://assets/hud/bars/hpbarBorder.png" type="Texture" id=3]
+
 
 [node name="TextureProgress" type="TextureProgress"]
 margin_left = -236.0

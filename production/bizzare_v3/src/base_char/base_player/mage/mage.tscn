@@ -1,7 +1,9 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=39 format=2]
 
-[ext_resource path="res://assets/players/mageRun&Idle.png" type="Texture" id=1]
+[ext_resource path="res://assets/players/mage/mageRun&Idle.png" type="Texture" id=1]
 [ext_resource path="res://src/base_char/base_player/base_player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/hud/bars/secondStatFillMage.png" type="Texture" id=3]
+[ext_resource path="res://assets/hud/icons/hpbarBacks.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
@@ -301,110 +303,110 @@ tracks/0/keys = {
 "values": [ 9, 10, 9, 11 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=13]
 animation = "idle_left_down "
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "run_left_down"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=15]
 animation = "idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "idle_right_down"
 
 [sub_resource type="AnimationNodeAnimation" id=17]
 animation = "idle_right_down"
 
 [sub_resource type="AnimationNodeAnimation" id=18]
-animation = "idle_right_down"
-
-[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "idle_right_up"
 
-[sub_resource type="AnimationNodeAnimation" id=20]
+[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "idle_up"
 
-[sub_resource type="AnimationNodeAnimation" id=21]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "idle_left_up "
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=22]
-blend_point_0/node = SubResource( 14 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=21]
+blend_point_0/node = SubResource( 13 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 15 )
+blend_point_1/node = SubResource( 14 )
 blend_point_1/pos = Vector2( -0.6, 0.7 )
-blend_point_2/node = SubResource( 16 )
+blend_point_2/node = SubResource( 15 )
 blend_point_2/pos = Vector2( 0, 1.1 )
-blend_point_3/node = SubResource( 17 )
+blend_point_3/node = SubResource( 16 )
 blend_point_3/pos = Vector2( 0.6, 0.7 )
-blend_point_4/node = SubResource( 18 )
+blend_point_4/node = SubResource( 17 )
 blend_point_4/pos = Vector2( 1, 0 )
-blend_point_5/node = SubResource( 19 )
+blend_point_5/node = SubResource( 18 )
 blend_point_5/pos = Vector2( 0.6, -0.7 )
-blend_point_6/node = SubResource( 20 )
+blend_point_6/node = SubResource( 19 )
 blend_point_6/pos = Vector2( 0, -1.1 )
-blend_point_7/node = SubResource( 21 )
+blend_point_7/node = SubResource( 20 )
 blend_point_7/pos = Vector2( -0.6, -0.7 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "run_left_down"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "run_left_down"
 
 [sub_resource type="AnimationNodeAnimation" id=24]
-animation = "run_left_down"
-
-[sub_resource type="AnimationNodeAnimation" id=25]
-animation = "run_left_down"
-
-[sub_resource type="AnimationNodeAnimation" id=26]
 animation = "run_down"
 
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "run_right_down"
+
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "run_right_down"
+
 [sub_resource type="AnimationNodeAnimation" id=27]
-animation = "run_right_down"
-
-[sub_resource type="AnimationNodeAnimation" id=28]
-animation = "run_right_down"
-
-[sub_resource type="AnimationNodeAnimation" id=29]
 animation = "run_right_up"
 
-[sub_resource type="AnimationNodeAnimation" id=30]
+[sub_resource type="AnimationNodeAnimation" id=28]
 animation = "run_up"
 
-[sub_resource type="AnimationNodeAnimation" id=31]
+[sub_resource type="AnimationNodeAnimation" id=29]
 animation = "run_left_up "
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=32]
-blend_point_0/node = SubResource( 24 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=30]
+blend_point_0/node = SubResource( 22 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 25 )
+blend_point_1/node = SubResource( 23 )
 blend_point_1/pos = Vector2( -0.6, 0.7 )
-blend_point_2/node = SubResource( 26 )
+blend_point_2/node = SubResource( 24 )
 blend_point_2/pos = Vector2( 0, 1.1 )
-blend_point_3/node = SubResource( 27 )
+blend_point_3/node = SubResource( 25 )
 blend_point_3/pos = Vector2( 0.6, 0.7 )
-blend_point_4/node = SubResource( 28 )
+blend_point_4/node = SubResource( 26 )
 blend_point_4/pos = Vector2( 1, 0 )
-blend_point_5/node = SubResource( 29 )
+blend_point_5/node = SubResource( 27 )
 blend_point_5/pos = Vector2( 0.6, -0.7 )
-blend_point_6/node = SubResource( 30 )
+blend_point_6/node = SubResource( 28 )
 blend_point_6/pos = Vector2( 0, -1.1 )
-blend_point_7/node = SubResource( 31 )
+blend_point_7/node = SubResource( 29 )
 blend_point_7/pos = Vector2( -0.6, -0.7 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
 
-[sub_resource type="AnimationNodeStateMachine" id=23]
+[sub_resource type="AnimationNodeStateMachine" id=33]
 resource_local_to_scene = true
-states/idle/node = SubResource( 22 )
+states/idle/node = SubResource( 21 )
 states/idle/position = Vector2( 207, 104 )
-states/run/node = SubResource( 32 )
+states/run/node = SubResource( 30 )
 states/run/position = Vector2( 475, 104 )
-transitions = [ "idle", "run", SubResource( 33 ), "run", "idle", SubResource( 34 ) ]
+transitions = [ "idle", "run", SubResource( 31 ), "run", "idle", SubResource( 32 ) ]
 start_node = "idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=34]
 
 [node name="character" instance=ExtResource( 2 )]
 
@@ -423,14 +425,21 @@ anims/run_right_up = SubResource( 11 )
 anims/run_up = SubResource( 12 )
 
 [node name="AnimationTree" parent="." index="1"]
-tree_root = SubResource( 23 )
+tree_root = SubResource( 33 )
 active = true
-parameters/playback = SubResource( 13 )
+parameters/playback = SubResource( 34 )
 parameters/idle/blend_position = Vector2( -0.997937, -0.00484574 )
 parameters/run/blend_position = Vector2( 0.000682592, -0.00458968 )
 
 [node name="Sprite" parent="pivot" index="0"]
 texture = ExtResource( 1 )
+flip_h = true
 vframes = 4
 hframes = 4
-frame = 15
+frame = 5
+
+[node name="secondary_stat2" parent="CanvasLayer/Control" index="0"]
+texture = ExtResource( 4 )
+
+[node name="secondary_stat" parent="CanvasLayer/Control" index="2"]
+texture_progress = ExtResource( 3 )

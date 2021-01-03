@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/secondStatFillMage.png-f3aa54448f4baf2448467029f857ac95.stex"
+path="res://.import/archerRun&Idle.png-98df980c7b255b4b06305bac46c31f4d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/players/secondStatFillMage.png"
-dest_files=[ "res://.import/secondStatFillMage.png-f3aa54448f4baf2448467029f857ac95.stex" ]
+source_file="res://assets/players/archer/archerRun&Idle.png"
+dest_files=[ "res://.import/archerRun&Idle.png-98df980c7b255b4b06305bac46c31f4d.stex" ]
 
 [params]
 

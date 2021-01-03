@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/secondStatFillKnight.png-dbfa6e0298925505353d0f6fd494f22d.stex"
+path="res://.import/secondStatFillMage.png-ab4cbabfd11a3c7f300764b57748cf26.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/players/secondStatFillKnight.png"
-dest_files=[ "res://.import/secondStatFillKnight.png-dbfa6e0298925505353d0f6fd494f22d.stex" ]
+source_file="res://assets/hud/bars/secondStatFillMage.png"
+dest_files=[ "res://.import/secondStatFillMage.png-ab4cbabfd11a3c7f300764b57748cf26.stex" ]
 
 [params]
 

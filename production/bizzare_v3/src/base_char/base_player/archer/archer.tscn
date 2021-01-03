@@ -1,8 +1,8 @@
 [gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://src/base_char/base_player/base_player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/players/archerRun&Idle.png" type="Texture" id=2]
-[ext_resource path="res://src/base_char/base_player/archer/evasion_hud.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/players/archer/archerRun&Idle.png" type="Texture" id=2]
+[ext_resource path="res://assets/hud/bars/SecondStatFillarcher.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
@@ -431,12 +431,11 @@ parameters/playback = SubResource( 34 )
 parameters/idle/blend_position = Vector2( 0.433447, -0.558415 )
 parameters/run/blend_position = Vector2( -0.0088737, -0.00764954 )
 
-[node name="TextureProgress2" parent="Camera2D" index="1" instance=ExtResource( 3 )]
-margin_top = -110.356
-margin_bottom = -94.3559
-
 [node name="Sprite" parent="pivot" index="0"]
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
-frame = 13
+frame = 12
+
+[node name="secondary_stat" parent="CanvasLayer/Control" index="2"]
+texture_progress = ExtResource( 3 )

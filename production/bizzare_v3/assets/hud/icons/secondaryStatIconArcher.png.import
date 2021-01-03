@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/archerRun&Idle.png-413b18a0b58ed8d78444bddcf26a57b7.stex"
+path="res://.import/secondaryStatIconArcher.png-e8bb855e1bd52e4911677fb8bd4d3762.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/players/archerRun&Idle.png"
-dest_files=[ "res://.import/archerRun&Idle.png-413b18a0b58ed8d78444bddcf26a57b7.stex" ]
+source_file="res://assets/hud/icons/secondaryStatIconArcher.png"
+dest_files=[ "res://.import/secondaryStatIconArcher.png-e8bb855e1bd52e4911677fb8bd4d3762.stex" ]
 
 [params]
 

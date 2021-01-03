@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mageRun&Idle.png-cca2c72dfcfd4e1964f1b4a4bd629df2.stex"
+path="res://.import/hpbarBacksHit.png-9869b6f55493f1f1447f3d86e846d350.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/players/mageRun&Idle.png"
-dest_files=[ "res://.import/mageRun&Idle.png-cca2c72dfcfd4e1964f1b4a4bd629df2.stex" ]
+source_file="res://assets/hud/bars/hpbarBacksHit.png"
+dest_files=[ "res://.import/hpbarBacksHit.png-9869b6f55493f1f1447f3d86e846d350.stex" ]
 
 [params]
 

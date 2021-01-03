@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/knightRun&Idle.png-64562fbbb15af00626fa8cdcdfc01614.stex"
+path="res://.import/hpbarFill.png-bb4ce20fe1bb0163c62dfcaf21a848fc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/players/knightRun&Idle.png"
-dest_files=[ "res://.import/knightRun&Idle.png-64562fbbb15af00626fa8cdcdfc01614.stex" ]
+source_file="res://assets/hud/bars/hpbarFill.png"
+dest_files=[ "res://.import/hpbarFill.png-bb4ce20fe1bb0163c62dfcaf21a848fc.stex" ]
 
 [params]
 

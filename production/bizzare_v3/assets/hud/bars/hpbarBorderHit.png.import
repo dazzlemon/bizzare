@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hpbarBorderHit.png-9ab808991aed60150bcf89f688a24989.stex"
+path="res://.import/hpbarBorderHit.png-8d53dac07ca020dd78e4eb9cc8227102.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hud/hpbarBorderHit.png"
-dest_files=[ "res://.import/hpbarBorderHit.png-9ab808991aed60150bcf89f688a24989.stex" ]
+source_file="res://assets/hud/bars/hpbarBorderHit.png"
+dest_files=[ "res://.import/hpbarBorderHit.png-8d53dac07ca020dd78e4eb9cc8227102.stex" ]
 
 [params]
 

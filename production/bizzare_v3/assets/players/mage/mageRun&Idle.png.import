@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/archerSecondStatFill.png-56bf4bf4f44af1b0a1fa6da8ff5a4089.stex"
+path="res://.import/mageRun&Idle.png-e8c69532f89ecd4ad70572b45e926f6e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/players/archerSecondStatFill.png"
-dest_files=[ "res://.import/archerSecondStatFill.png-56bf4bf4f44af1b0a1fa6da8ff5a4089.stex" ]
+source_file="res://assets/players/mage/mageRun&Idle.png"
+dest_files=[ "res://.import/mageRun&Idle.png-e8c69532f89ecd4ad70572b45e926f6e.stex" ]
 
 [params]
 
