@@ -24,3 +24,5 @@ current = true
 
 [node name="control" parent="." index="5"]
 script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]

@@ -11,7 +11,6 @@ class Room:
 	func _init(_bool_arr):
 		open_dirs = _bool_arr 
 
-#var closed_room = [false,false,false,false]
 
 var room_variants = [
 	[true,false,false,false], #1 enter
@@ -35,9 +34,6 @@ var room_variants = [
 ]
 
  #Vector2 : bool_arr[ , , , ]
-func rofl():
-	var spawned_rooms = {Vector2.ZERO : Room.new(room_variants[14])}
-	var new_room = Room.new(room_variants[1])
 
 	
 
@@ -48,15 +44,13 @@ func _ready():
 
 
 func generate(room_count):
-	var open_rooms = []
 	var spawned_rooms = {Vector2.ZERO : Room.new(room_variants[14])}
 	spawn_room(Vector2.ZERO * rooms_size * 24,spawned_rooms[Vector2.ZERO].open_dirs)
-	
+	var open_rooms = []
 	while room_count > 0:
-		open_rooms.clear()
+		
 		for room in spawned_rooms.values():
-			var is_room_open = true
-			if room.open_dirs[0] == true or room.open_dirs[1] == true or room.open_dirs[2] == true or room.open_dirs[3] == true:
+			if room.open_dirs[0] or room.open_dirs[1] or room.open_dirs[2] or room.open_dirs[3]:
 				open_rooms.append(room)
 		if open_rooms.size() == 0:
 			print("All rooms are closed" + str(room_count))
@@ -75,15 +69,32 @@ func generate(room_count):
 			valid_directions.append(Vector2.LEFT)
 		if rand_open_room.open_dirs[3]:
 			valid_directions.append(Vector2.RIGHT)
-		
 		valid_directions.shuffle()
+		
 		var added_room_position = rand_open_room_position + valid_directions[0] #position of added room
 
-		var has_room_nearby = [spawned_rooms.has(added_room_position + Vector2.UP), spawned_rooms.has(added_room_position + Vector2.DOWN) ,spawned_rooms.has(added_room_position + Vector2.LEFT), spawned_rooms.has(added_room_position + Vector2.RIGHT)]
-		var required_path = [has_room_nearby[0] and spawned_rooms[added_room_position + Vector2.UP].open_dirs[1], has_room_nearby[1] and spawned_rooms[added_room_position + Vector2.DOWN].open_dirs[0],has_room_nearby[2] and spawned_rooms[added_room_position + Vector2.LEFT].open_dirs[3],has_room_nearby[3] and spawned_rooms[added_room_position + Vector2.RIGHT].open_dirs[2] ]
-		var blocked_paths = [has_room_nearby[0] and spawned_rooms[added_room_position + Vector2.UP].open_dirs[1] == false, has_room_nearby[1] and spawned_rooms[added_room_position + Vector2.DOWN].open_dirs[0] == false, has_room_nearby[2] and spawned_rooms[added_room_position + Vector2.LEFT].open_dirs[3] == false, has_room_nearby[3] and spawned_rooms[added_room_position + Vector2.RIGHT].open_dirs[2] == false]
-
+		var has_room_nearby = [
+		spawned_rooms.has(added_room_position + Vector2.UP),
+		spawned_rooms.has(added_room_position + Vector2.DOWN),
+		spawned_rooms.has(added_room_position + Vector2.LEFT), 
+		spawned_rooms.has(added_room_position + Vector2.RIGHT)
+		]
 		
+		var required_path = [
+		has_room_nearby[0] and spawned_rooms[added_room_position + Vector2.UP].open_dirs[1],
+		has_room_nearby[1] and spawned_rooms[added_room_position + Vector2.DOWN].open_dirs[0],
+		has_room_nearby[2] and spawned_rooms[added_room_position + Vector2.LEFT].open_dirs[3], 
+		has_room_nearby[3] and spawned_rooms[added_room_position + Vector2.RIGHT].open_dirs[2] 
+		]
+		
+		var blocked_paths = [
+		has_room_nearby[0] and not spawned_rooms[added_room_position + Vector2.UP].open_dirs[1],
+		has_room_nearby[1] and not spawned_rooms[added_room_position + Vector2.DOWN].open_dirs[0] ,
+		has_room_nearby[2] and not spawned_rooms[added_room_position + Vector2.LEFT].open_dirs[3] , 
+		has_room_nearby[3] and not spawned_rooms[added_room_position + Vector2.RIGHT].open_dirs[2]
+		]
+
+
 		var valid_rooms_to_add = []
 		for room in room_variants:
 			var is_room_valid = true
@@ -98,10 +109,11 @@ func generate(room_count):
 		room_to_add._position = added_room_position #adding room
 		#Spawning + cutting room
 		spawn_room(added_room_position * rooms_size, room_to_add.open_dirs)
-		
+
 		if required_path[0]:
 			room_to_add.open_dirs[0] = false
 			spawned_rooms[added_room_position + Vector2.UP].open_dirs[1] = false
+			#print(spawned_rooms[added_room_position + Vector2.UP].open_dirs[1])
 		if required_path[1]:
 			room_to_add.open_dirs[1] = false
 			spawned_rooms[added_room_position + Vector2.DOWN].open_dirs[0] = false
@@ -112,8 +124,8 @@ func generate(room_count):
 			room_to_add.open_dirs[3] = false
 			spawned_rooms[added_room_position + Vector2.RIGHT].open_dirs[2] = false #Closing all opeenings
 		print(room_to_add.open_dirs)
-		
 		spawned_rooms[added_room_position] = room_to_add
+		open_rooms.clear()
 		room_count -= 1
 
 
@@ -125,10 +137,20 @@ func spawn_room(_position, cutout_directions):
 		room_instance.get_node("YSort/bush_wall").set_cell(2,0,-1)
 	if cutout_directions[1] == true:	
 		room_instance.get_node("YSort/bush_wall").set_cell(2,4,-1)
+		#room_instance.get_node("YSort/bush_wall").update_bitmask_region(Vector2(0,0) , Vector2(5,5))
 	if cutout_directions[2] == true:	
 		room_instance.get_node("YSort/bush_wall").set_cell(0,2,-1)
+		#room_instance.get_node("YSort/bush_wall").update_bitmask_region(Vector2(0,0) , Vector2(5,5))
 	if cutout_directions[3] == true:	
 		room_instance.get_node("YSort/bush_wall").set_cell(4,2,-1)
+		#room_instance.get_node("YSort/bush_wall").update_bitmask_region(Vector2(0,0) , Vector2(5,5))
 	room_instance.position = _position * 24
-	call_deferred("add_child",room_instance)
 	
+	call_deferred("add_child",room_instance)
+	#room_instance.get_node("YSort/bush_wall").update_bitmask_region(Vector2(0,0) , Vector2(5,5))
+	
+
+
+
+
+

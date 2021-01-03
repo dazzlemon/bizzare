@@ -431,7 +431,7 @@ parameters/playback = SubResource( 34 )
 parameters/idle/blend_position = Vector2( 0.433447, -0.558415 )
 parameters/run/blend_position = Vector2( -0.0088737, -0.00764954 )
 
-[node name="TextureProgress2" parent="Camera2D" index="0" instance=ExtResource( 3 )]
+[node name="TextureProgress2" parent="Camera2D" index="1" instance=ExtResource( 3 )]
 margin_top = -110.356
 margin_bottom = -94.3559
 
