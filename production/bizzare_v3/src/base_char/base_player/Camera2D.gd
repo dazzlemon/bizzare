@@ -13,8 +13,10 @@ func _process(delta):
 	var mouse_position = get_global_mouse_position()#
 	direction = (mouse_position - parent.global_position).normalized()
 	distance = global_position.distance_to(mouse_position) 
-	#print(direction)
-	#distance = clamp(distance, 0 , 150) 
-	print(distance)
-	global_position = parent.global_position + direction * distance * sensetivity
-	#print(direction * distance)
+
+	if distance > 18:
+		global_position = parent.global_position + direction * (distance-18) * sensetivity
+	else:
+		global_position = lerp(global_position, parent.global_position, 0.01)
+
+	#global_position = parent.global_position + direction * (distance) * sensetivity  ##"NO DEADZONE"

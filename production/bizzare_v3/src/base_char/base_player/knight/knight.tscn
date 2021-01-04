@@ -1,9 +1,11 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://assets/players/knight/knightRun&Idle.png" type="Texture" id=1]
 [ext_resource path="res://src/base_char/base_player/base_player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/hud/bars/secondStatFillKnight.png" type="Texture" id=3]
 [ext_resource path="res://assets/hud/icons/secondaryStatIconKnight.png" type="Texture" id=4]
+[ext_resource path="res://src/base_char/base_player/knight/hands.gd" type="Script" id=5]
+[ext_resource path="res://assets/players/knight/knightAxe.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
@@ -433,7 +435,7 @@ anims/run_up = SubResource( 12 )
 tree_root = SubResource( 33 )
 active = true
 parameters/playback = SubResource( 34 )
-parameters/idle/blend_position = Vector2( -0.654608, -0.502075 )
+parameters/idle/blend_position = Vector2( -0.00241399, 0.825 )
 parameters/run/blend_position = Vector2( 0.00103128, 0.0171206 )
 
 [node name="Sprite" parent="pivot" index="0"]
@@ -441,10 +443,15 @@ texture = ExtResource( 1 )
 flip_h = true
 vframes = 4
 hframes = 4
-frame = 13
 
-[node name="secondary_stat2" parent="CanvasLayer/Control" index="0"]
+[node name="hands" parent="pivot" index="1"]
+position = Vector2( -1, 5 )
+texture = ExtResource( 6 )
+offset = Vector2( 13, 1 )
+script = ExtResource( 5 )
+
+[node name="secondary_stat2" parent="CanvasLayer/Control" index="1"]
 texture = ExtResource( 4 )
 
-[node name="secondary_stat" parent="CanvasLayer/Control" index="2"]
+[node name="secondary_stat" parent="CanvasLayer/Control" index="3"]
 texture_progress = ExtResource( 3 )

@@ -1,9 +1,11 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://assets/players/mage/mageRun&Idle.png" type="Texture" id=1]
 [ext_resource path="res://src/base_char/base_player/base_player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/hud/bars/secondStatFillMage.png" type="Texture" id=3]
 [ext_resource path="res://assets/hud/icons/hpbarBacks.png" type="Texture" id=4]
+[ext_resource path="res://assets/players/mage/MageStaff.png" type="Texture" id=5]
+[ext_resource path="res://src/base_char/base_player/mage/hands.gd" type="Script" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_down"
@@ -428,18 +430,22 @@ anims/run_up = SubResource( 12 )
 tree_root = SubResource( 33 )
 active = true
 parameters/playback = SubResource( 34 )
-parameters/idle/blend_position = Vector2( -0.997937, -0.00484574 )
+parameters/idle/blend_position = Vector2( 0, 0.872414 )
 parameters/run/blend_position = Vector2( 0.000682592, -0.00458968 )
 
 [node name="Sprite" parent="pivot" index="0"]
 texture = ExtResource( 1 )
-flip_h = true
 vframes = 4
 hframes = 4
-frame = 5
+frame = 1
 
-[node name="secondary_stat2" parent="CanvasLayer/Control" index="0"]
+[node name="hands" parent="pivot" index="1"]
+position = Vector2( -6, -4 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="secondary_stat2" parent="CanvasLayer/Control" index="1"]
 texture = ExtResource( 4 )
 
-[node name="secondary_stat" parent="CanvasLayer/Control" index="2"]
+[node name="secondary_stat" parent="CanvasLayer/Control" index="3"]
 texture_progress = ExtResource( 3 )
