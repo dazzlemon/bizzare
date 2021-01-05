@@ -2,11 +2,11 @@
 
 [ext_resource path="res://assets/tilemap/grassVariants.png" type="Texture" id=1]
 [ext_resource path="res://assets/tilemap/bushWall.png" type="Texture" id=2]
-[ext_resource path="res://assets/tilemap/treesFields.png" type="Texture" id=3]
 [ext_resource path="res://assets/tilemap/horizontalLog.png" type="Texture" id=4]
 [ext_resource path="res://assets/tilemap/fieldRocks.png" type="Texture" id=5]
 [ext_resource path="res://assets/tilemap/verticalLog.png" type="Texture" id=6]
 [ext_resource path="res://assets/tilemap/grass&soil.png" type="Texture" id=7]
+[ext_resource path="res://src/levels/tilemap/Trees.tscn" type="PackedScene" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "grassVariants.png 0"
@@ -100,30 +100,9 @@
 0/shape_one_way = false
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
-0/z_index = 1
+0/z_index = 0
 
 [sub_resource type="TileSet" id=4]
-0/name = "treesFields.png 0"
-0/texture = ExtResource( 3 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 480, 240 )
-0/tile_mode = 2
-0/autotile/icon_coordinate = Vector2( 0, 0 )
-0/autotile/tile_size = Vector2( 120, 120 )
-0/autotile/spacing = 0
-0/autotile/occluder_map = [  ]
-0/autotile/navpoly_map = [  ]
-0/autotile/priority_map = [ Vector3( 0, 0, 3 ), Vector3( 0, 1, 2 ), Vector3( 1, 0, 3 ), Vector3( 1, 1, 2 ), Vector3( 2, 0, 3 ), Vector3( 2, 1, 2 ), Vector3( 3, 0, 3 ), Vector3( 5, 2, 2 ) ]
-0/autotile/z_index_map = [  ]
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 3
 1/name = "horizontalLog.png 1"
 1/texture = ExtResource( 4 )
 1/tex_offset = Vector2( 0, 0 )
@@ -151,7 +130,7 @@
 2/shape_one_way = false
 2/shape_one_way_margin = 0.0
 2/shapes = [  ]
-2/z_index = 1
+2/z_index = 0
 3/name = "fieldRocks.png 3"
 3/texture = ExtResource( 5 )
 3/tex_offset = Vector2( 0, 0 )
@@ -172,7 +151,7 @@
 3/shape_one_way = false
 3/shape_one_way_margin = 0.0
 3/shapes = [  ]
-3/z_index = 2
+3/z_index = 0
 
 [node name="world_grid" type="Node2D"]
 
@@ -191,13 +170,16 @@ cell_size = Vector2( 24, 24 )
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 2, 65536, 0, 65536, 65537, 0, 65537, 65538, 0, 65537, 65539, 0, 65537, 65540, 0, 65538, 131072, 0, 65536, 131073, 0, 65537, 131074, 0, 65537, 131075, 0, 65537, 131076, 0, 65538, 196608, 0, 65536, 196609, 0, 65537, 196610, 0, 65537, 196611, 0, 65537, 196612, 0, 65538, 262144, 0, 131072, 262145, 0, 131073, 262146, 0, 131073, 262147, 0, 131073, 262148, 0, 131074 )
 
-[node name="YSort" type="YSort" parent="."]
-z_index = 2
+[node name="Trees" parent="." instance=ExtResource( 8 )]
+z_index = 6
 z_as_relative = false
+cell_size = Vector2( 24, 24 )
+cell_tile_origin = 1
+cell_y_sort = true
+centered_textures = true
+tile_data = PoolIntArray( 196606, 0, 0 )
 
-[node name="bush_wall" type="TileMap" parent="YSort"]
-z_index = 2
-z_as_relative = false
+[node name="bush_wall" type="TileMap" parent="Trees"]
 tile_set = SubResource( 3 )
 cell_size = Vector2( 24, 24 )
 cell_tile_origin = 1
@@ -206,12 +188,15 @@ centered_textures = true
 format = 1
 tile_data = PoolIntArray( 0, 0, 4, 1, 0, 196609, 2, 0, 196609, 3, 0, 196609, 4, 0, 7, 65536, 0, 65539, 65540, 0, 65539, 131072, 0, 65539, 131076, 0, 65539, 196608, 0, 65539, 196612, 0, 65539, 262144, 0, 196612, 262145, 0, 196609, 262146, 0, 196609, 262147, 0, 196609, 262148, 0, 196615 )
 
-[node name="ground_objects" type="TileMap" parent="YSort"]
+[node name="YSort" type="YSort" parent="Trees"]
 z_index = 2
 z_as_relative = false
+
+[node name="ground_objects" type="TileMap" parent="Trees/YSort"]
 tile_set = SubResource( 4 )
 cell_size = Vector2( 24, 24 )
 cell_tile_origin = 1
 cell_y_sort = true
 centered_textures = true
 format = 1
+tile_data = PoolIntArray( 131075, 2, 0, 131077, 1, 0, 131078, 3, 2, 196609, 2, 0 )
