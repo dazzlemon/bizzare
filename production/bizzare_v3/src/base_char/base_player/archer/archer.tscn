@@ -409,6 +409,7 @@ start_node = "idle"
 [sub_resource type="AnimationNodeStateMachinePlayback" id=34]
 
 [node name="character" instance=ExtResource( 1 )]
+collision_layer = 1
 
 [node name="AnimationPlayer" parent="." index="0"]
 anims/idle_down = SubResource( 1 )
@@ -431,11 +432,14 @@ parameters/playback = SubResource( 34 )
 parameters/idle/blend_position = Vector2( 0.433447, -0.558415 )
 parameters/run/blend_position = Vector2( -0.0088737, -0.00764954 )
 
+[node name="CollisionShape2D" parent="." index="4"]
+position = Vector2( 0.5, 13 )
+
 [node name="Sprite" parent="pivot" index="0"]
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
 frame = 12
 
-[node name="secondary_stat" parent="CanvasLayer/Control" index="2"]
+[node name="secondary_stat" parent="CanvasLayer/Control" index="3"]
 texture_progress = ExtResource( 3 )

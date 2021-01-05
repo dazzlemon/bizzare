@@ -433,6 +433,9 @@ parameters/playback = SubResource( 34 )
 parameters/idle/blend_position = Vector2( 0, 0.872414 )
 parameters/run/blend_position = Vector2( 0.000682592, -0.00458968 )
 
+[node name="CollisionShape2D" parent="." index="4"]
+position = Vector2( 0.5, 9 )
+
 [node name="Sprite" parent="pivot" index="0"]
 texture = ExtResource( 1 )
 vframes = 4
