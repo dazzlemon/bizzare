@@ -3,9 +3,8 @@ using System;
 
 public class BaseControl : Node
 {
-   public Vector2 GetInputVector(){
-       return Vector2.Zero;
-   }
-        
-
+	public Vector2 GetInputVector()
+	{
+		return Vector2.Zero;
+	}
 }
