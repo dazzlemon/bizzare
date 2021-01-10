@@ -1,0 +1,8 @@
+D:\Game_proj\bizzare\production\BizzareTheGame\.mono\temp\bin\Debug\BizzareTheGame.dll
+D:\Game_proj\bizzare\production\BizzareTheGame\.mono\temp\bin\Debug\BizzareTheGame.pdb
+D:\Game_proj\bizzare\production\BizzareTheGame\.mono\temp\obj\Debug\BizzareTheGame.csprojAssemblyReference.cache
+D:\Game_proj\bizzare\production\BizzareTheGame\.mono\temp\obj\Debug\BizzareTheGame.AssemblyInfoInputs.cache
+D:\Game_proj\bizzare\production\BizzareTheGame\.mono\temp\obj\Debug\BizzareTheGame.AssemblyInfo.cs
+D:\Game_proj\bizzare\production\BizzareTheGame\.mono\temp\obj\Debug\BizzareTheGame.csproj.CoreCompileInputs.cache
+D:\Game_proj\bizzare\production\BizzareTheGame\.mono\temp\obj\Debug\BizzareTheGame.dll
+D:\Game_proj\bizzare\production\BizzareTheGame\.mono\temp\obj\Debug\BizzareTheGame.pdb

@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/BaseChar/BaseChar.cs" type="Script" id=1]
+[ext_resource path="res://src/BaseChar/BaseControl.cs" type="Script" id=2]
+[ext_resource path="res://assets/tilemap/location_1/verticalLog.png" type="Texture" id=3]
+
+[sub_resource type="AnimationNodeStateMachine" id=1]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 1 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 2 )
+
+[node name="AttackPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Position2D" type="Position2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Position2D"]
+texture = ExtResource( 3 )
+
+[node name="Hands" type="Sprite" parent="Position2D"]
+
+[node name="Shadow" type="Sprite" parent="Position2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Control" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="stats" type="Node" parent="."]
+
+[node name="hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+
+[node name="Crosshair" type="Position2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Crosshair"]
+
+[node name="SFX" type="Node" parent="."]
