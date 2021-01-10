@@ -25,7 +25,7 @@ current = true
 smoothing_speed = 1.0
 script = ExtResource( 5 )
 
-[node name="control" parent="." index="5"]
+[node name="control" parent="." index="6"]
 script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
@@ -69,3 +69,6 @@ margin_left = 29.0
 margin_top = 31.0
 margin_right = 133.0
 margin_bottom = 47.0
+
+[node name="crosshair" parent="." index="8"]
+position = Vector2( 0, 2.73919 )
