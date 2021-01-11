@@ -31,13 +31,9 @@ class Run : IState
 	public IState? Handle(IInputAction input)
 	{
 		if (input is ActionMove)
-		{
 			Parent.Velocity = (input as ActionMove).Where * Parent.MaxVelocity;
-		}
 		if (input is ActionSpell1)
-		{
 			GD.Print("Can't cast spell");
-		}
 		return null;
 	}
 	
@@ -46,9 +42,7 @@ class Run : IState
 		Parent.Velocity = Parent.Velocity.MoveToward(Vector2.Zero, Parent.Decel * delta);
 		Parent.MoveAndSlide(Parent.Velocity * delta); 
 		if (Parent.Velocity == Vector2.Zero)
-		{
 			Parent.State = new Idle(Parent);
-		}
 	}
 }
 
@@ -104,13 +98,9 @@ class Busy : IState
 	public IState? Handle(IInputAction input)
 	{
 		if (input is ActionMove)
-		{
 			GD.Print("Can't move");
-		}
 		if (input is ActionSpell1)
-		{
 			GD.Print("Can't cast spell");
-		}
 		return null;
 	}
 	
@@ -120,8 +110,6 @@ class Busy : IState
 	{
 		__PseudoTimer -= delta;
 		if (__PseudoTimer <= 0)
-		{
 			Parent.State = new Idle(Parent);
-		}
 	}
 }

@@ -5,6 +5,6 @@ public class Player : Char
 {	
 	public Player() : base()
 	{
-		__Controller = new PlayerController();
+		__Controller = new PlayerController(this);
 	}
 }
