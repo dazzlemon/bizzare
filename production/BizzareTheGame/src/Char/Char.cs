@@ -1,20 +1,13 @@
 using Godot;
 using System;
-using System.Collections;
 
 public class Char : KinematicBody2D
 {
-	public Vector2 Velocity = Vector2.Zero;
-	public float MaxVelocity = 1000;
-	public float Decel = 1000;
+	public Vector2 Velocity;
+	public float MaxVelocity;
+	public float Decel;
 	public IState State;//may be private in future
-	IController __Controller;
-	
-	public Char()
-	{
-		State = new Idle(this);
-		__Controller = new PlayerController();
-	}
+	protected IController __Controller;
 	
 	public override void _Process(float delta)
 	{
