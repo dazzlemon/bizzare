@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/BaseChar/BaseChar.cs" type="Script" id=1]
-[ext_resource path="res://src/BaseChar/BaseControl.cs" type="Script" id=2]
 [ext_resource path="res://assets/tilemap/location_1/verticalLog.png" type="Texture" id=3]
 
 [sub_resource type="AnimationNodeStateMachine" id=1]
@@ -34,7 +33,6 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="Control" type="Node" parent="."]
-script = ExtResource( 2 )
 
 [node name="stats" type="Node" parent="."]
 
