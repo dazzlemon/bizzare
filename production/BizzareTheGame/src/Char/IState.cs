@@ -32,7 +32,7 @@ class Run : IState
 	{
 		if (input is ActionMove)
 		{
-			Parent.Velocity = Vector2.Right * Parent.MaxVelocity;//input.Where * Parent.MaxVelocity;
+			Parent.Velocity = (input as ActionMove).Where * Parent.MaxVelocity;
 		}
 		if (input is ActionSpell1)
 		{
@@ -73,7 +73,7 @@ class Idle : IState
 	{
 		if (input is ActionMove)
 		{
-			Parent.Velocity = Vector2.Right * Parent.MaxVelocity;//input.Where * Parent.MaxVelocity;
+			Parent.Velocity = (input as ActionMove).Where * Parent.MaxVelocity;
 			return new Run(Parent);
 		}
 		if (input is ActionSpell1)
