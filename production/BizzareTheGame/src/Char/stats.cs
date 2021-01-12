@@ -4,9 +4,9 @@ using System;
 public class stats : Node
 {
     //Health
-    private float MaxHealth = 1f;
-    private float MaxSecondatyStat = 0f; //Armor as name for second stat 
-    private float health = 1f;
+    public float MaxHealth = 1f;
+    public float MaxSecondatyStat = 0f; //Armor as name for second stat 
+    public float health = 1f;
     public float Health
     {
         set
@@ -29,20 +29,20 @@ public class stats : Node
             return health;
         }
     }
-    private float SecondatyStat {set;get;}
-    private float HealthRestore = 0f;
-    private float SecondatyStatRestore = 0f;
+    public float SecondatyStat {set;get;}
+    public float HealthRestore = 0f;
+    public float SecondatyStatRestore = 0f;
 
     //Deffence
-    private float DamageBlock = 0f;
-    private float Evasion = 0f;
+    public float DamageBlock = 0f;
+    public float Evasion = 0f;
 
     //Attack
-    private float Damage = 1f;
-    private float CritChance = 0f;
-    private float CritMultiplier = 1.75f;
-    private float Lifesteal = 0f;
-    private float Accuracy = 0;
+    public float Damage = 1f;
+    public float CritChance = 0f;
+    public float CritMultiplier = 1.75f;
+    public float Lifesteal = 0f;
+    public float Accuracy = 0;
     
 
     [Signal]
