@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="BizzareTheGame"
 config/icon="res://icon.png"
 
+[autoload]
+
+Pause="*res://src/Menus/Pause.tscn"
+
 [display]
 
 window/size/width=480
