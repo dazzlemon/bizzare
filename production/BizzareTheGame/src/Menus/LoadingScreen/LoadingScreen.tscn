@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Menus/LoadingScreen/LoadingScreen.cs" type="Script" id=1]
+[ext_resource path="res://assets/loading.png" type="Texture" id=2]
+
+[node name="LoadingScreen" type="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_right = 486.0
+margin_bottom = 273.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.5
+margin_top = -7.0
+margin_right = 30.5
+margin_bottom = 7.0
+text = "Loading..."
+
+[node name="TextureProgress" type="TextureProgress" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -79.0
+margin_top = -18.9099
+margin_right = 79.0
+margin_bottom = -12.9099
+step = 0.01
+value = 100.0
+texture_progress = ExtResource( 2 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

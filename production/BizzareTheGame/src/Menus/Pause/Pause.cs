@@ -3,6 +3,8 @@ using System;
 
 public class Pause : CanvasLayer
 {
+    public LoadingScreen loadingScreen;
+    public PackedScene SettingsMenu = ResourceLoader.Load("res://src/Menus/Settings/SettingsMenu.tscn") as PackedScene;
     public Control control;
     public VBoxContainer Vbox ;
     public Button Continue;
@@ -15,7 +17,7 @@ public class Pause : CanvasLayer
     public override void _Ready()
     {
         control = (Control)GetNode("Control");
-        Vbox = (VBoxContainer)GetNode("Control/VBoxContainer");
+        Vbox = (VBoxContainer)control.GetNode("VBoxContainer");
         Continue = (Button)Vbox.GetNode("Continue");
         Continue.Connect("pressed", this, "OnContinuePressed");
         Restart = (Button)Vbox.GetNode("Restart");
@@ -27,6 +29,7 @@ public class Pause : CanvasLayer
 
         SetVisible(false);
 
+        loadingScreen = (LoadingScreen)GetNode("/root/LoadingScreen");
     }
 
     public void SetVisible(bool IsVisible)
@@ -36,14 +39,16 @@ public class Pause : CanvasLayer
 
     public override void _Input(InputEvent inputEvent)
     {
-        if(inputEvent.IsActionPressed("ui_cancel")) //&& CurrenScene() != "TitleScreen" && !IsSettingsShown && !IsConsoleShown{}
+        if(inputEvent.IsActionPressed("ui_cancel") && !IsSettingsShown) //&& CurrentScene() != "TestLevel")//  && !IsConsoleShown{}
         {
             PauseToggle();
         }
     }
- /* public string current scene():
-        return GetTree().GetCurrentScene().GetName();
-    */
+    public string CurrentScene(){
+        return GetTree().CurrentScene.Name;   
+    }
+        
+    
     public void PauseToggle()
     {
         GetTree().Paused = !GetTree().Paused;
@@ -71,13 +76,22 @@ public class Pause : CanvasLayer
     void OnRestartPressed()
     {
         PauseToggle();
+        GetTree().Root.GetNode("Game/TestLevel").QueueFree();
+        loadingScreen.LoadScene("res://src/Game.tscn");
+        //loadingScreen.LoadScene("res://src/TestLevel.tscn");
+        GD.Print(GetTree().Root.GetChildren());
+        
+        
+        loadingScreen.Visible = true;
         SetVisible(false);
 
     }
-     void OnSettingsPressed()
+    void OnSettingsPressed()
     {
+        Control newSettings = (Control)SettingsMenu.Instance();
+        AddChild(newSettings);
+        //CallDeferred("AddChild",newSettings);
         IsSettingsShown = true;
-        GD.Print("Settings");
         control.Visible = false;
     }
     void OnExitPressed()

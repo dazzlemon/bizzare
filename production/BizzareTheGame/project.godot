@@ -16,11 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="BizzareTheGame"
+run/main_scene="res://src/Game.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Pause="*res://src/Menus/Pause.tscn"
+Pause="*res://src/Menus/Pause/Pause.tscn"
+LoadingScreen="*res://src/Menus/LoadingScreen/LoadingScreen.tscn"
 
 [display]
 
