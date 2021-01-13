@@ -78,8 +78,7 @@ public class Pause : CanvasLayer
         PauseToggle();
         GetTree().Root.GetNode("Game/TestLevel").QueueFree();
         loadingScreen.LoadScene("res://src/Game.tscn");
-        //loadingScreen.LoadScene("res://src/TestLevel.tscn");
-        GD.Print(GetTree().Root.GetChildren());
+        //GD.Print(GetTree().Root.GetChildren());
         
         
         loadingScreen.Visible = true;

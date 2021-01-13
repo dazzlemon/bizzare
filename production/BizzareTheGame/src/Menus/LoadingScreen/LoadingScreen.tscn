@@ -41,7 +41,6 @@ margin_top = -18.9099
 margin_right = 79.0
 margin_bottom = -12.9099
 step = 0.01
-value = 100.0
 texture_progress = ExtResource( 2 )
 nine_patch_stretch = true
 __meta__ = {

@@ -13,17 +13,19 @@ public class LoadingScreen : Control
         progress = (TextureProgress)GetNode("Panel/TextureProgress");
     }
 
-    private void _ThreadLoad(string Path)
+    private void _ThreadLoad(NodePath Path)
     {
-        var rli = ResourceLoader.LoadInteractive(Path);
-        //Debug.Assert(rli);        
-        var total = rli.GetStageCount();
-        progress.CallDeferred("SetMax",total);
-        Resource res = null;
-        Error err = 0;
-        while (err == 0)
+        ResourceInteractiveLoader? rli = ResourceLoader.LoadInteractive(Path);
+        //Assert(rli);        
+        int total = rli.GetStageCount();
+        GD.Print(rli.GetStageCount());
+        //progress.CallDeferred("SetMax",total);
+        progress.MaxValue = total;
+        PackedScene res = null;
+        Error err = (Error)0;
+        while (err == (Error)0)
         {
-            progress.CallDeferred("SetValue", rli.GetStage());
+            progress.Value = rli.GetStage();
             OS.DelayMsec((SIMULATEDDELAYSEC * 100));
             err = rli.Poll();
         }
@@ -31,7 +33,9 @@ public class LoadingScreen : Control
         {
             if (err == (Error)18)
             {
-                res = rli.GetResource();
+                res = (PackedScene)rli.GetResource();
+                //GD.Print(rli.GetResource());
+               // GD.Print(res);
             }
             else
             {
@@ -43,10 +47,12 @@ public class LoadingScreen : Control
 
     private void _ThreadDone(PackedScene resource)
     {
+        GD.Print(resource);
         //Assert resource
         thread.WaitToFinish();
         progress.Hide();
-        Node NewScene = (Node)resource.Instance();
+        //GD.Print(resource.Instance());
+        Node NewScene = resource.Instance();
         GetTree().CurrentScene.Free();
         GetTree().CurrentScene = null;
         GetTree().Root.AddChild(NewScene);
@@ -54,7 +60,7 @@ public class LoadingScreen : Control
         Visible = false;
     }
 
-    public void LoadScene(string path)
+    public void LoadScene(NodePath path)
     {
         thread = new Thread();
         thread.Start(this, "_ThreadLoad" , path);
